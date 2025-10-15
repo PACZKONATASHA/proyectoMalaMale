@@ -1,0 +1,241 @@
+/* Botón flotante de WhatsApp */
+.whatsapp-flotante {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    animation: pulse 2s infinite;
+}
+
+.whatsapp-btn {
+    display: flex;
+    align-items: center;
+    background: #25D366;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    transition: all 0.3s ease;
+    font-weight: 600;
+    font-size: 1rem;
+    gap: 10px;
+    max-width: 60px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.whatsapp-btn:hover {
+    background: #1DA851;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+    max-width: 200px;
+    padding: 15px 25px;
+}
+
+.whatsapp-btn i {
+    font-size: 1.5rem;
+    min-width: 24px;
+}
+
+.whatsapp-texto {
+    font-size: 0.95rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.whatsapp-btn:hover .whatsapp-texto {
+    opacity: 1;
+}
+
+/* Botón flotante de modo nocturno */
+.modo-nocturno-flotante {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.modo-nocturno-btn {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
+    transition: all 0.3s ease;
+    font-weight: 600;
+    font-size: 1rem;
+    gap: 10px;
+    max-width: 60px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.modo-nocturno-btn:hover {
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 25px rgba(102, 126, 234, 0.6);
+    max-width: 180px;
+    padding: 15px 25px;
+}
+
+.modo-nocturno-btn i {
+    font-size: 1.5rem;
+    min-width: 24px;
+}
+
+.modo-texto {
+    font-size: 0.95rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modo-nocturno-btn:hover .modo-texto {
+    opacity: 1;
+}
+
+/* Animación de pulso */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Estilos para modo nocturno */
+.modo-nocturno {
+    background-color: #1a1a1a !important;
+    color: #e0e0e0 !important;
+    transition: all 0.3s ease;
+}
+
+.modo-nocturno header {
+    background: rgba(26, 26, 26, 0.95) !important;
+    backdrop-filter: blur(10px);
+}
+
+.modo-nocturno .nav-menu a {
+    color: #e0e0e0 !important;
+}
+
+.modo-nocturno .nav-menu a:hover {
+    color: #E8A5B3 !important;
+}
+
+.modo-nocturno .hero-carousel {
+    background: #2c2c2c !important;
+}
+
+.modo-nocturno .carousel-content h1,
+.modo-nocturno .carousel-content p {
+    color: #e0e0e0 !important;
+}
+
+.modo-nocturno .tratamientos-destacados {
+    background: #2c2c2c !important;
+}
+
+.modo-nocturno .tratamiento-card {
+    background: #3a3a3a !important;
+    color: #e0e0e0 !important;
+    border: 1px solid #4a4a4a;
+}
+
+.modo-nocturno .galeria {
+    background: #2c2c2c !important;
+}
+
+.modo-nocturno .galeria h2 {
+    color: #e0e0e0 !important;
+}
+
+.modo-nocturno .testimonios {
+    background: #3a3a3a !important;
+}
+
+.modo-nocturno .testimonio {
+    background: #4a4a4a !important;
+    color: #e0e0e0 !important;
+}
+
+.modo-nocturno .nuevo-comentario {
+    background: #3a3a3a !important;
+    border: 1px solid #4a4a4a;
+}
+
+.modo-nocturno .comentario-form input,
+.modo-nocturno .comentario-form textarea {
+    background: #2c2c2c !important;
+    color: #e0e0e0 !important;
+    border: 1px solid #4a4a4a !important;
+}
+
+.modo-nocturno .comentario-form input::placeholder,
+.modo-nocturno .comentario-form textarea::placeholder {
+    color: #999 !important;
+}
+
+.modo-nocturno .contacto {
+    background: #2c2c2c !important;
+}
+
+.modo-nocturno .contacto-card {
+    background: #3a3a3a !important;
+    color: #e0e0e0 !important;
+    border: 1px solid #4a4a4a;
+}
+
+.modo-nocturno footer {
+    background: #1a1a1a !important;
+}
+
+.modo-nocturno .footer-section h3 {
+    color: #e0e0e0 !important;
+}
+
+.modo-nocturno .footer-section p,
+.modo-nocturno .footer-section li a {
+    color: #b0b0b0 !important;
+}
+
+.modo-nocturno .footer-section li a:hover {
+    color: #E8A5B3 !important;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+    .whatsapp-flotante {
+        bottom: 15px;
+        right: 15px;
+    }
+    
+    .modo-nocturno-flotante {
+        bottom: 80px;
+        right: 15px;
+    }
+    
+    .whatsapp-btn,
+    .modo-nocturno-btn {
+        padding: 12px 15px;
+        font-size: 0.9rem;
+    }
+    
+    .whatsapp-btn:hover {
+        max-width: 180px;
+        padding: 12px 20px;
+    }
+    
+    .modo-nocturno-btn:hover {
+        max-width: 160px;
+        padding: 12px 20px;
+    }
+}

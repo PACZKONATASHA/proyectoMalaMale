@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos - MalaMale Peluquería Unisex</title>
+    <link rel="stylesheet" href="css/productos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <span class="logo-text-rosado">MalaMale</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="productos.html" class="active">Productos</a></li>
+                    <li><a href="servicios.html">Servicios</a></li>
+                    <li><a href="traramientos.html">Tratamientos</a></li>
+                    <li><a href="index.html#galeria">Galería</a></li>
+                    <li><a href="index.html#contacto">Contacto</a></li>
+                </ul>
+                
+                <!-- Icono del carrito -->
+                <div class="carrito-nav">
+                    <button id="toggleCarrito" class="carrito-btn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span id="carritoContador" class="carrito-contador">0</span>
+                    </button>
+                </div>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="productos-hero">
+        <div class="container">
+            <h1>Nuestros Productos</h1>
+            <p>Descubre nuestra selección de productos premium para el cuidado capilar</p>
+        </div>
+    </section>
+
+    <!-- Filtros -->
+    <section class="filtros">
+        <div class="container">
+            <div class="filtros-container">
+                <button class="filtro-btn active" data-categoria="todos">Todos</button>
+                <button class="filtro-btn" data-categoria="shampoo">Shampoos</button>
+                <button class="filtro-btn" data-categoria="acondicionador">Acondicionadores</button>
+                <button class="filtro-btn" data-categoria="tratamiento">Tratamientos</button>
+                <button class="filtro-btn" data-categoria="styling">Styling</button>
+                <button class="filtro-btn" data-categoria="coloracion">Coloración</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Productos Grid -->
+    <section class="productos-grid">
+        <div class="container">
+            <div class="grid">
+                <!-- Shampoos -->
+                <div class="producto-card" data-categoria="shampoo">
+                    <div class="producto-imagen">
+                        <div class="placeholder-producto">
+                            <i class="fas fa-bottle-water"></i>
+                        </div>
+                        <div class="producto-overlay">
+                            <button class="btn-ver-mas">Ver Detalles</button>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Shampoo Hidratante Premium</h3>
+                        <p class="marca">Marca Professional</p>
+                        <p class="descripcion">Fórmula nutritiva para cabello seco y dañado</p>
+                        <div class="precio" data-precio="25.99">$25.99</div>
+                        <button class="btn-agregar-carrito" 
+                                data-id="1"
+                                data-nombre="Shampoo Hidratante Premium"
+                                data-precio="25.99"
+                                data-imagen="shampoo-hidratante.jpg">
+                            <i class="fas fa-cart-plus"></i>
+                            Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+
+                <div class="producto-card" data-categoria="shampoo">
+                    <div class="producto-imagen">
+                        <div class="placeholder-producto">
+                            <i class="fas fa-bottle-water"></i>
+                        </div>
+                        <div class="producto-overlay">
+                            <button class="btn-ver-mas">Ver Detalles</button>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Shampoo Volumen</h3>
+                        <p class="marca">Marca Professional</p>
+                        <p class="descripcion">Aporta volumen y cuerpo al cabello fino</p>
+                        <div class="precio" data-precio="28.99">$28.99</div>
+                        <button class="btn-agregar-carrito" 
+                                data-id="2"
+                                data-nombre="Shampoo Volumen"
+                                data-precio="28.99"
+                                data-imagen="shampoo-volumen.jpg">
+                            <i class="fas fa-cart-plus"></i>
+                            Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Acondicionadores -->
+                <div class="producto-card" data-categoria="acondicionador">
+                    <div class="producto-imagen">
+                        <div class="placeholder-producto acondicionador">
+                            <i class="fas fa-pump-soap"></i>
+                        </div>
+                        <div class="producto-overlay">
+                            <button class="btn-ver-mas">Ver Detalles</button>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Acondicionador Reparador</h3>
+                        <p class="marca">Marca Professional</p>
+                        <p class="descripcion">Repara y fortalece el cabello dañado</p>
+                        <div class="precio" data-precio="22.99">$22.99</div>
+                        <button class="btn-agregar-carrito" 
+                                data-id="3"
+                                data-nombre="Acondicionador Reparador"
+                                data-precio="22.99"
+                                data-imagen="acondicionador-reparador.jpg">
+                            <i class="fas fa-cart-plus"></i>
+                            Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+
+                <div class="producto-card" data-categoria="acondicionador">
+                    <div class="producto-imagen">
+                        <div class="placeholder-producto acondicionador">
+                            <i class="fas fa-pump-soap"></i>
+                        </div>
+                        <div class="producto-overlay">
+                            <button class="btn-ver-mas">Ver Detalles</button>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Acondicionador Color Protect</h3>
+                        <p class="marca">Marca Professional</p>
+                        <p class="descripcion">Protege y mantiene el color vibrante</p>
+                        <div class="precio" data-precio="26.99">$26.99</div>
+                        <button class="btn-agregar-carrito" 
+                                data-id="4"
+                                data-nombre="Acondicionador Color Protect"
+                                data-precio="26.99"
+                                data-imagen="acondicionador-color.jpg">
+                            <i class="fas fa-cart-plus"></i>
+                            Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Tratamientos -->
+                <div class="producto-card" data-categoria="tratamiento">
+                    <div class="producto-imagen">
+                        <div class="placeholder-producto tratamiento">
+                            <i class="fas fa-spa"></i>
+                        </div>
+                        <div class="producto-overlay">
+                            <button class="btn-ver-mas">Ver Detalles</button>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Mascarilla Intensiva</h3>
+                        <p class="marca">Marca Professional</p>
+                        <p class="descripcion">Tratamiento intensivo de nutrición profunda</p>
+                        <div class="precio" data-precio="45.99">$45.99</div>
+                        <button class="btn-agregar-carrito" 
+                                data-id="5"
+                                data-nombre="Mascarilla Intensiva"
+                                data-precio="45.99"
+                                data-imagen="mascarilla-intensiva.jpg">
+                            <i class="fas fa-cart-plus"></i>
+                            Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+
+                <div class="producto-card" data-categoria="tratamiento">
+                    <div class="producto-imagen">
+                        <div class="placeholder-producto tratamiento">
+                            <i class="fas fa-droplet"></i>
+                        </div>
+                        <div class="producto-overlay">
+                            <button class="btn-ver-mas">Ver Detalles</button>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Sérum Capilar Reparador</h3>
+                        <p class="marca">Marca Professional</p>
+                        <p class="descripción">Sérum concentrado para puntas dañadas</p>
+                        <div class="precio" data-precio="35.99">$35.99</div>
+                        <button class="btn-agregar-carrito" 
+                                data-id="6"
+                                data-nombre="Sérum Capilar Reparador"
+                                data-precio="35.99"
+                                data-imagen="serum-reparador.jpg">
+                            <i class="fas fa-cart-plus"></i>
+                            Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Styling -->
+                <div class="producto-card" data-categoria="styling">
+                    <div class="producto-imagen">
+                        <div class="placeholder-producto styling">
+                            <i class="fas fa-spray-can"></i>
+                        </div>
+                        <div class="producto-overlay">
+                            <button class="btn-ver-mas">Ver Detalles</button>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Fijador Fuerte</h3>
+                        <p class="marca">Marca Professional</p>
+                        <p class="descripcion">Fijación duradera sin residuos</p>
+                        <div class="precio" data-precio="18.99">$18.99</div>
+                        <button class="btn-agregar-carrito" 
+                                data-id="7"
+                                data-nombre="Fijador Fuerte"
+                                data-precio="18.99"
+                                data-imagen="fijador-fuerte.jpg">
+                            <i class="fas fa-cart-plus"></i>
+                            Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+
+                <div class="producto-card" data-categoria="styling">
+                    <div class="producto-imagen">
+                        <div class="placeholder-producto styling">
+                            <i class="fas fa-hand-sparkles"></i>
+                        </div>
+                        <div class="producto-overlay">
+                            <button class="btn-ver-mas">Ver Detalles</button>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Gel Modelador</h3>
+                        <p class="marca">Marca Professional</p>
+                        <p class="descripcion">Define y moldea el cabello con brillo</p>
+                        <div class="precio" data-precio="16.99">$16.99</div>
+                        <button class="btn-agregar-carrito" 
+                                data-id="8"
+                                data-nombre="Gel Modelador"
+                                data-precio="16.99"
+                                data-imagen="gel-modelador.jpg">
+                            <i class="fas fa-cart-plus"></i>
+                            Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Coloración -->
+                <div class="producto-card" data-categoria="coloracion">
+                    <div class="producto-imagen">
+                        <div class="placeholder-producto coloracion">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <div class="producto-overlay">
+                            <button class="btn-ver-mas">Ver Detalles</button>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Tinte Profesional</h3>
+                        <p class="marca">Marca Professional</p>
+                        <p class="descripcion">Cobertura completa y color duradero</p>
+                        <div class="precio" data-precio="32.99">$32.99</div>
+                        <button class="btn-agregar-carrito" 
+                                data-id="9"
+                                data-nombre="Tinte Profesional"
+                                data-precio="32.99"
+                                data-imagen="tinte-profesional.jpg">
+                            <i class="fas fa-cart-plus"></i>
+                            Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+
+                <div class="producto-card" data-categoria="coloracion">
+                    <div class="producto-imagen">
+                        <div class="placeholder-producto coloracion">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <div class="producto-overlay">
+                            <button class="btn-ver-mas">Ver Detalles</button>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Decolorante Premium</h3>
+                        <p class="marca">Marca Professional</p>
+                        <p class="descripcion">Máxima aclaración con protección</p>
+                        <div class="precio" data-precio="29.99">$29.99</div>
+                        <button class="btn-agregar-carrito" 
+                                data-id="10"
+                                data-nombre="Decolorante Premium"
+                                data-precio="29.99"
+                                data-imagen="decolorante-premium.jpg">
+                            <i class="fas fa-cart-plus"></i>
+                            Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Widget del Carrito de Compras -->
+    <div id="carritoWidget" class="carrito-widget">
+        <div class="carrito-header">
+            <h3>
+                <i class="fas fa-shopping-cart"></i>
+                Mi Carrito
+            </h3>
+            <button id="cerrarCarrito" class="cerrar-carrito">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="carrito-contenido">
+            <div id="carritoItems" class="carrito-items">
+                <!-- Los productos se agregarán aquí dinámicamente -->
+                <div class="carrito-vacio">
+                    <i class="fas fa-shopping-cart"></i>
+                    <p>Tu carrito está vacío</p>
+                    <small>Agrega productos para comenzar</small>
+                </div>
+            </div>
+            
+            <div class="carrito-total">
+                <div class="total-line">
+                    <span>Subtotal:</span>
+                    <span id="carritoSubtotal">$0.00</span>
+                </div>
+                <div class="total-line envio">
+                    <span>Envío:</span>
+                    <span id="carritoEnvio">A calcular</span>
+                </div>
+                <div class="total-line total-final">
+                    <span>Total:</span>
+                    <span id="carritoTotal">$0.00</span>
+                </div>
+            </div>
+            
+            <div class="carrito-acciones">
+                <button id="vaciarCarrito" class="btn-vaciar">
+                    <i class="fas fa-trash"></i>
+                    Vaciar Carrito
+                </button>
+                <button id="finalizarCompra" class="btn-finalizar">
+                    <i class="fab fa-whatsapp"></i>
+                    Finalizar por WhatsApp
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overlay del carrito -->
+    <div id="carritoOverlay" class="carrito-overlay"></div>
+
+    <!-- CTA Section -->
+    <section class="cta-productos">
+        <div class="container">
+            <h2>¿Necesitas Asesoramiento?</h2>
+            <p>Nuestros expertos te ayudarán a elegir los productos perfectos para tu tipo de cabello</p>
+            <div class="cta-buttons">
+                <a href="index.html#contacto" class="btn-cta">Consultar con Experto</a>
+                <button onclick="probarWhatsApp()" class="btn-test-whatsapp">
+                    <i class="fab fa-whatsapp"></i>
+                    Probar WhatsApp
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <img src="img/logo.dorado.png" alt="MalaMale Logo">
+                        <span>MalaMale</span>
+                    </div>
+                    <p>Tu peluquería unisex de confianza. Estilo, calidad y excelencia en cada servicio.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="index.html#servicios">Servicios</a></li>
+                        <li><a href="index.html#galeria">Galería</a></li>
+                        <li><a href="index.html#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Síguenos</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 MalaMale Peluquería Unisex. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/productos.js"></script>
+    <script src="js/carrito-compras.js"></script>
+</body>
+</html>

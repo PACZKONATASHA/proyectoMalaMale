@@ -1,33 +1,705 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>MalaMale - Peluquería Unisex</title>
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/carousel.css">
+    <link rel="stylesheet" href="css/whatsapp-flotante.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <nav>
-        <div>  <img src="img/logo.jpeg" alt="logo"></div>
-        <div id="menu"> 
-            <li>productos</li>
-            <li> servicios</li>     
-            <li>contactos</li>
+    <!-- Header -->
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <span class="logo-text-rosado">MalaMale</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="servicios.html">Servicios</a></li>
+                    <li><a href="traramientos.html">Tratamientos</a></li>
+                    <li><a href="#galeria">Galería</a></li>
+                    <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Carrusel Principal -->
+    <section id="inicio" class="hero-carousel">
+        <div class="carousel-container">
+            <div class="carousel-slide active">
+                <img src="img/natasha.png" alt="Peinado Natasha - Estilo exclusivo">
+                <div class="carousel-content">
+                    <h1>Bienvenidos a MalaMale</h1>
+                    <p>Peluquería Unisex - Estilo y Elegancia para Todos</p>
+                    <div class="hero-buttons">
+                        <a href="traramientos.html" class="btn-primary">Nuestros Servicios</a>
+                        <a href="#contacto" class="btn-secondary">Reservar Cita</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="carousel-slide">
+                <img src="img/Captura de pantalla 2025-10-14 145204.png" alt="Interior de MalaMale Peluquería - Ambiente elegante">
+                <div class="carousel-content">
+                    <h1>Nuestro Espacio</h1>
+                    <p>Un ambiente moderno y acogedor diseñado para tu comodidad y relajación</p>
+                    <div class="hero-buttons">
+                        <a href="traramientos.html" class="btn-gold">Ver Servicios</a>
+                        <a href="#contacto" class="btn-secondary">Reservar Cita</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="carousel-slide">
+                <div class="promo-slide">
+                    <div class="promo-background">
+                        <i class="fas fa-gift"></i>
+                        <i class="fas fa-percent"></i>
+                        <i class="fas fa-sparkles"></i>
+                    </div>
+                </div>
+                <div class="carousel-content promo-content">
+                    <div class="promo-badge">¡OFERTA ESPECIAL!</div>
+                    <h1 class="promo-title">
+                        <span class="discount-number">10%</span>
+                        <span class="discount-text">de Descuento</span>
+                    </h1>
+                    <div class="promo-details">
+                        <div class="promo-item">
+                            <i class="fas fa-money-bill-wave"></i>
+                            <span>Pagando en Efectivo</span>
+                        </div>
+                        <div class="promo-item">
+                            <i class="fas fa-user-check"></i>
+                            <span>Asesoramiento Personalizado</span>
+                        </div>
+                    </div>
+                    <p class="promo-description">Válido en todos nuestros servicios • Atención profesional garantizada</p>
+                    <div class="hero-buttons">
+                        <a href="traramientos.html" class="btn-gold promo-btn">¡Reservar Ahora!</a>
+                        <a href="#contacto" class="btn-secondary">Más Información</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-slide video-slide">
+                <video muted loop>
+                    <source src="img/salon-video.mp4" type="video/mp4">
+                    <!-- Placeholder para video publicitario -->
+                </video>
+                <div class="placeholder-video">
+                    <i class="fas fa-play-circle"></i>
+                    <h2>Video Publicitario</h2>
+                    <p>Agrega aquí tu video promocional</p>
+                </div>
+                <div class="carousel-content">
+                    <h1>Experiencia MalaMale</h1>
+                    <p>Vive la experiencia completa en nuestra peluquería</p>
+                    <div class="hero-buttons">
+                        <a href="#contacto" class="btn-gold">Contactános</a>
+                    </div>
+                </div>
+            </div>
         </div>
-    </nav>
-        <div id="carrusel"></div>
-        <div id="descripcion-male"> 
-            <div><img src="" alt="imagen-male"></div>
-            <div><p>descipcion de male </p></div>
+        
+        <!-- Indicadores del carrusel -->
+        <div class="carousel-indicators">
+            <button class="indicator active" data-slide="0"></button>
+            <button class="indicator" data-slide="1"></button>
+            <button class="indicator" data-slide="2"></button>
+            <button class="indicator" data-slide="3"></button>
         </div>
-        <div class="comentarios"> <p>carrusel comentario</p></div>
-        <div class="mapa"> <p>carrusel mapa</p></div>
+        
+        <!-- Controles del carrusel -->
+        <button class="carousel-control prev" onclick="changeSlide(-1)">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="carousel-control next" onclick="changeSlide(1)">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+    </section>
+
+    <!-- Sobre Nosotros Section -->
+    <section id="sobre-nosotros" class="sobre-nosotros">
+        <div class="container">
+            <div class="sobre-content">
+                <div class="sobre-text">
+                    <h2>Sobre MalaMale</h2>
+                    <p>En MalaMale creemos que cada persona es única y merece un estilo que refleje su personalidad. Somos una peluquería unisex con más de 10 años de experiencia, especializada en crear looks modernos y sofisticados.</p>
+                    <p>Nuestro equipo de profesionales está constantemente actualizado con las últimas tendencias y técnicas del mundo de la peluquería, garantizando siempre resultados de la más alta calidad.</p>
+                    <div class="caracteristicas">
+                        <div class="caracteristica">
+                            <i class="fas fa-award"></i>
+                            <span>Más de 10 años de experiencia</span>
+                        </div>
+                        <div class="caracteristica">
+                            <i class="fas fa-users"></i>
+                            <span>Equipo de profesionales certificados</span>
+                        </div>
+                        <div class="caracteristica">
+                            <i class="fas fa-leaf"></i>
+                            <span>Productos ecológicos y de alta calidad</span>
+                        </div>
+                        <div class="caracteristica">
+                            <i class="fas fa-heart"></i>
+                            <span>Atención personalizada</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="sobre-image">
+                    <img src="img/foto male.jpg" alt="Sobre MalaMale - Estilo y Creatividad">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tratamientos Destacados Section -->
+    <section id="tratamientos" class="tratamientos-destacados">
+        <div class="container">
+            <h2>Tratamientos Destacados</h2>
+            <div class="tratamientos-grid">
+                <div class="tratamiento-card featured">
+                    <div class="premium-badge">Premium</div>
+                    <i class="fas fa-crown"></i>
+                    <h3>Tratamiento Natasha</h3>
+                    <p>Nuestro tratamiento exclusivo que combina hidratación profunda, reestructuración y brillo especial.</p>
+                    <div class="precio">$120</div>
+                    <a href="traramientos.html" class="btn-gold">Ver Detalles</a>
+                </div>
+                <div class="tratamiento-card">
+                    <i class="fas fa-spa"></i>
+                    <h3>Hidratación Profunda</h3>
+                    <p>Tratamiento intensivo para cabellos secos y dañados. Recupera la suavidad y el brillo natural.</p>
+                    <div class="precio">$80</div>
+                    <a href="traramientos.html" class="btn-sage">Reservar</a>
+                </div>
+                <div class="tratamiento-card">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Keratina Natural</h3>
+                    <p>Alisado y nutrición con keratina natural. Cabello sedoso y manejable por meses.</p>
+                    <div class="precio">$150</div>
+                    <a href="traramientos.html" class="btn-sage">Reservar</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galería Section -->
+    <section id="galeria" class="galeria">
+        <div class="container">
+            <h2>Galería de Trabajos</h2>
+            <div class="galeria-grid">
+                <div class="galeria-item featured video-item">
+                    <!-- Video placeholder hasta que agregues el archivo real -->
+                    <div class="video-placeholder" id="video-placeholder">
+                        <div class="video-demo">
+                            <i class="fas fa-video"></i>
+                            <h3>Video Peinado Natasha</h3>
+                            <p>Proceso paso a paso de nuestro estilo exclusivo</p>
+                            <div class="video-actions">
+                                <button class="btn-gold video-demo-btn">
+                                    <i class="fas fa-play"></i>
+                                    Ver Demo
+                                </button>
+                                <small>Agrega tu video como "video natasha.mp4" en img/</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Video real (oculto hasta que exista el archivo) -->
+                    <video muted loop playsinline preload="metadata" poster="img/natasha.png" id="natasha-video" style="display: none;">
+                        <source src="img/video-natasha.mp4" type="video/mp4">
+                        <source src="img/video-natasha copy.mp4" type="video/mp4">
+                        <source src="img/video natasha.mp4" type="video/mp4">
+                    </video>
+                    
+                    <div class="galeria-overlay">
+                        <h3>Video Peinado Natasha</h3>
+                        <p>Mira el proceso completo de creación</p>
+                        <div class="video-status">
+                            <i class="fas fa-video"></i>
+                            <span>Click para reproducir</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="galeria-item">
+                    <div class="placeholder-img">
+                        <i class="fas fa-camera"></i>
+                        <p>Corte Bob Moderno</p>
+                    </div>
+                </div>
+                <div class="galeria-item">
+                    <div class="placeholder-img">
+                        <i class="fas fa-camera"></i>
+                        <p>Coloración Balayage</p>
+                    </div>
+                </div>
+                <div class="galeria-item">
+                    <div class="placeholder-img">
+                        <i class="fas fa-camera"></i>
+                        <p>Corte Masculino</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonios -->
+    <section class="testimonios">
+        <div class="container">
+            <h2>Lo que dicen nuestros clientes</h2>
+            
+            <!-- Formulario para nuevos comentarios -->
+            <div class="nuevo-comentario">
+                <h3>¡Déjanos tu opinión!</h3>
+                <form id="comentarioForm" class="comentario-form">
+                    <div class="gift-card-preview">
+                        <div class="gift-card-design navidad">
+                            <div class="gift-card-header">
+                                <h3 class="logo-gift">MalaMale</h3>
+                                <i class="fas fa-snowflake"></i>
+                            </div>
+                            <div class="gift-card-content">
+                                <h4>🎄 Gift Card Navidad 🎄</h4>
+                                <p>Regala belleza esta Navidad</p>
+                                <div class="gift-amount">$__________</div>
+                                <p class="gift-message">Para: _________________</p>
+                                <p class="gift-message">De: _________________</p>
+                            </div>
+                            <div class="gift-card-footer">
+                                <p>Válido por 6 meses • MalaMale Peluquería</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn-descargar" onclick="descargarGiftCard('navidad')">
+                        <i class="fas fa-download"></i>
+                        Descargar Navidad
+                    </button>
+                </div>
+
+                <!-- Gift Card San Valentín -->
+                <div class="gift-card-item" data-gift-type="san-valentin">
+                    <div class="gift-card-preview">
+                        <div class="gift-card-design san-valentin">
+                            <div class="gift-card-header">
+                                <h3 class="logo-gift">MalaMale</h3>
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <div class="gift-card-content">
+                                <h4>💖 Gift Card San Valentín 💖</h4>
+                                <p>Regala amor y belleza</p>
+                                <div class="gift-amount">$__________</div>
+                                <p class="gift-message">Para: _________________</p>
+                                <p class="gift-message">De: _________________</p>
+                            </div>
+                            <div class="gift-card-footer">
+                                <p>Válido por 6 meses • MalaMale Peluquería</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn-descargar" onclick="descargarGiftCard('san-valentin')">
+                        <i class="fas fa-download"></i>
+                        Descargar San Valentín
+                    </button>
+                </div>
+
+                <!-- Gift Card Día de la Madre -->
+                <div class="gift-card-item" data-gift-type="dia-madre">
+                    <div class="gift-card-preview">
+                        <div class="gift-card-design dia-madre">
+                            <div class="gift-card-header">
+                                <h3 class="logo-gift">MalaMale</h3>
+                                <i class="fas fa-flower-tulip"></i>
+                            </div>
+                            <div class="gift-card-content">
+                                <h4>🌸 Gift Card Día de la Madre 🌸</h4>
+                                <p>Para la mujer más especial</p>
+                                <div class="gift-amount">$__________</div>
+                                <p class="gift-message">Para: _________________</p>
+                                <p class="gift-message">De: _________________</p>
+                            </div>
+                            <div class="gift-card-footer">
+                                <p>Válido por 6 meses • MalaMale Peluquería</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn-descargar" onclick="descargarGiftCard('dia-madre')">
+                        <i class="fas fa-download"></i>
+                        Descargar Día de la Madre
+                    </button>
+                </div>
+
+                <!-- Gift Card Cumpleaños -->
+                <div class="gift-card-item" data-gift-type="cumpleanos">
+                    <div class="gift-card-preview">
+                        <div class="gift-card-design cumpleanos">
+                            <div class="gift-card-header">
+                                <h3 class="logo-gift">MalaMale</h3>
+                                <i class="fas fa-birthday-cake"></i>
+                            </div>
+                            <div class="gift-card-content">
+                                <h4>🎂 Gift Card Cumpleaños 🎂</h4>
+                                <p>¡Celebra con estilo!</p>
+                                <div class="gift-amount">$__________</div>
+                                <p class="gift-message">Para: _________________</p>
+                                <p class="gift-message">De: _________________</p>
+                            </div>
+                            <div class="gift-card-footer">
+                                <p>Válido por 6 meses • MalaMale Peluquería</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn-descargar" onclick="descargarGiftCard('cumpleanos')">
+                        <i class="fas fa-download"></i>
+                        Descargar Cumpleaños
+                    </button>
+                </div>
+            </div>
+
+            <div class="gift-cards-info">
+                <div class="info-card">
+                    <i class="fas fa-info-circle"></i>
+                    <h4>Cómo usar tu Gift Card</h4>
+                    <ul>
+                        <li>Descarga e imprime la gift card</li>
+                        <li>Completa el monto y los nombres</li>
+                        <li>Preséntala en nuestro salón</li>
+                        <li>Válida por 6 meses desde la fecha de compra</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonios -->
+    <section class="testimonios">
+        <div class="container">
+            <h2>Lo que dicen nuestros clientes</h2>
+            
+            <!-- Formulario para nuevos comentarios -->
+            <div class="nuevo-comentario">
+                <h3>¡Déjanos tu opinión!</h3>
+                <form id="comentarioForm" class="comentario-form">
+                    <div class="form-group">
+                        <input type="text" id="nombreCliente" placeholder="Tu nombre" required>
+                        <input type="text" id="instagramHandle" placeholder="@tu_instagram (opcional)">
+                    </div>
+                    <div class="form-group">
+                        <div class="estrellas-input">
+                            <span>Calificación:</span>
+                            <div class="rating-stars">
+                                <i class="fas fa-star" data-rating="1"></i>
+                                <i class="fas fa-star" data-rating="2"></i>
+                                <i class="fas fa-star" data-rating="3"></i>
+                                <i class="fas fa-star" data-rating="4"></i>
+                                <i class="fas fa-star" data-rating="5"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="comentarioTexto" placeholder="Comparte tu experiencia con nosotros..." rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-enviar-comentario">
+                        <i class="fas fa-paper-plane"></i>
+                        Publicar Comentario
+                    </button>
+                </form>
+            </div>
+
+            <!-- Comentarios en tiempo real -->
+            <div class="comentarios-tiempo-real">
+                <h3>Comentarios Recientes</h3>
+                <div id="comentariosContainer" class="comentarios-container">
+                    <!-- Los comentarios nuevos aparecerán aquí -->
+                </div>
+            </div>
+
+            <!-- Testimonios originales -->
+            <div class="testimonios-originales">
+                <h3>Testimonios Destacados</h3>
+                <div class="testimonios-carousel">
+                <div class="testimonio-slide active">
+                    <div class="testimonio-imagen">
+                        <img src="img/cliente1-instagram.jpg" alt="Cliente Instagram" class="instagram-photo">
+                        <div class="placeholder-img">
+                            <i class="fab fa-instagram"></i>
+                            <p>Foto de Instagram del cliente</p>
+                        </div>
+                    </div>
+                    <div class="testimonio-content">
+                        <div class="estrellas">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"Excelente servicio, los mejores cortes de la ciudad. El peinado Natasha quedó perfecto."</p>
+                        <h4>- María González</h4>
+                        <div class="instagram-handle">@maria_style_</div>
+                    </div>
+                </div>
+                
+                <div class="testimonio-slide">
+                    <div class="testimonio-imagen">
+                        <img src="img/cliente2-instagram.jpg" alt="Cliente Instagram" class="instagram-photo">
+                        <div class="placeholder-img">
+                            <i class="fab fa-instagram"></i>
+                            <p>Foto de Instagram del cliente</p>
+                        </div>
+                    </div>
+                    <div class="testimonio-content">
+                        <div class="estrellas">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"Profesionales increíbles, ambiente acogedor y resultados espectaculares."</p>
+                        <h4>- Carlos Rodríguez</h4>
+                        <div class="instagram-handle">@carlos_look</div>
+                    </div>
+                </div>
+                
+                <div class="testimonio-slide">
+                    <div class="testimonio-imagen">
+                        <img src="img/cliente3-instagram.jpg" alt="Cliente Instagram" class="instagram-photo">
+                        <div class="placeholder-img">
+                            <i class="fab fa-instagram"></i>
+                            <p>Foto de Instagram del cliente</p>
+                        </div>
+                    </div>
+                    <div class="testimonio-content">
+                        <div class="estrellas">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"La mejor peluquería unisex. Siempre salgo contenta con mi nuevo look."</p>
+                        <h4>- Ana López</h4>
+                        <div class="instagram-handle">@ana_beauty</div>
+                    </div>
+                </div>
+                
+                <!-- Controles del carrusel de testimonios -->
+                <button class="testimonio-control prev" onclick="changeTestimonio(-1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="testimonio-control next" onclick="changeTestimonio(1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="contacto">
+        <div class="container">
+            <h2>Contacto y Ubicación</h2>
+            <div class="contacto-content">
+                <div class="contacto-info">
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Dirección</h3>
+                            <p>Alem 880, Monte Grande<br>Buenos Aires 1842, Argentina</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <h3>WhatsApp</h3>
+                            <a href="https://wa.me/1234567890" class="contact-link" target="_blank">
+                                +1 234 567 890
+                            </a>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h3>Horarios</h3>
+                            <p>Lun-Sáb: 9:00 - 20:00<br>Dom: 10:00 - 18:00</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fab fa-instagram"></i>
+                        <div>
+                            <h3>Instagram</h3>
+                            <a href="https://instagram.com/malamale_salon" class="contact-link" target="_blank">
+                                @malamale_salon
+                            </a>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fab fa-facebook"></i>
+                        <div>
+                            <h3>Facebook</h3>
+                            <a href="https://facebook.com/malama.salon" class="contact-link" target="_blank">
+                                MalaMale Peluquería
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="mapa-container">
+                    <h3>Nuestra Ubicación</h3>
+                    <div class="ubicacion-info">
+                        <div class="direccion-completa">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Alem 880, Monte Grande</strong>
+                                <p>Buenos Aires 1842, Argentina</p>
+                            </div>
+                        </div>
+                        <div class="navegacion-botones">
+                            <a href="https://maps.google.com/maps?q=Alem+880+Monte+Grande+Buenos+Aires+1842+Argentina" 
+                               target="_blank" 
+                               class="btn-navegacion">
+                                <i class="fas fa-route"></i>
+                                Cómo llegar desde tu ubicación
+                            </a>
+                            <button onclick="navegarDesdeMiUbicacion()" class="btn-gps">
+                                <i class="fas fa-location-arrow"></i>
+                                Navegar con GPS
+                            </button>
+                        </div>
+                    </div>
+                    <div class="mapa-google">
+                        <!-- Mapa de Monte Grande, Buenos Aires -->
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3273.844444444!2d-58.47500002461!3d-34.81666667013!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcd25c0000000%3A0x0!2sAlem+880%2C+Monte+Grande%2C+Buenos+Aires%2C+Argentina!5e0!3m2!1ses!2sar!4v1697299200000!5m2!1ses!2sar"
+                            width="100%" 
+                            height="350" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="Ubicación MalaMale Peluquería - Alem 880, Monte Grande">
+                        </iframe>
+                        <div class="mapa-overlay">
+                            <div class="info-location">
+                                <h4>MalaMale Peluquería</h4>
+                                <p>📍 Alem 880, Monte Grande</p>
+                                <p>🕒 Lun-Sáb: 9:00 - 20:00 | Dom: 10:00 - 18:00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
-        <div class="logo-contactos">
-            <li> instagram</li> 
-            <li> facebook</li>
-            <li> whatsapp</li>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <h3 class="logo-text gold-text">MalaMale</h3>
+                    </div>
+                    <p>Tu peluquería unisex de confianza. Estilo, calidad y excelencia en cada servicio.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="productos.html">Productos</a></li>
+                        <li><a href="servicios.html">Servicios</a></li>
+                        <li><a href="traramientos.html">Tratamientos</a></li>
+                        <li><a href="#galeria">Galería</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Síguenos</h3>
+                    <div class="social-links">
+                        <a href="https://instagram.com/malamale_salon" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://facebook.com/malamale.salon" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="https://wa.me/1234567890" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://tiktok.com/@malamale_salon" target="_blank"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 MalaMale Peluquería Unisex. Todos los derechos reservados.</p>
+            </div>
         </div>
     </footer>
+
+    <!-- Botón flotante de WhatsApp -->
+    <div id="whatsappFlotante" class="whatsapp-flotante">
+        <a href="https://wa.me/1234567890?text=¡Hola! Me interesa conocer más sobre los servicios de MalaMale 💇‍♀️✨" 
+           target="_blank" 
+           class="whatsapp-btn"
+           title="Chatea con nosotros">
+            <i class="fab fa-whatsapp"></i>
+            <span class="whatsapp-texto">¡Escríbenos!</span>
+        </a>
+    </div>
+
+    <!-- Botón de modo nocturno -->
+    <div id="modoNocturno" class="modo-nocturno-flotante">
+        <button class="modo-nocturno-btn" onclick="toggleModoNocturno()" title="Cambiar modo">
+            <i class="fas fa-moon" id="iconoModo"></i>
+            <span class="modo-texto">Modo Oscuro</span>
+        </button>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/carousel.js"></script>
+    <script src="js/comentarios.js"></script>
+    <script src="js/navegacion-gps.js"></script>
+    <script src="js/gift-cards.js"></script>
+    
+    <!-- Script para modo nocturno -->
+    <script>
+        // Función para toggle del modo nocturno
+        function toggleModoNocturno() {
+            const body = document.body;
+            const icono = document.getElementById('iconoModo');
+            const textoModo = document.querySelector('.modo-texto');
+            
+            body.classList.toggle('modo-nocturno');
+            
+            if (body.classList.contains('modo-nocturno')) {
+                icono.className = 'fas fa-sun';
+                textoModo.textContent = 'Modo Claro';
+                localStorage.setItem('modoNocturno', 'true');
+            } else {
+                icono.className = 'fas fa-moon';
+                textoModo.textContent = 'Modo Oscuro';
+                localStorage.setItem('modoNocturno', 'false');
+            }
+        }
+        
+        // Cargar preferencia guardada al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            const modoGuardado = localStorage.getItem('modoNocturno');
+            const icono = document.getElementById('iconoModo');
+            const textoModo = document.querySelector('.modo-texto');
+            
+            if (modoGuardado === 'true') {
+                document.body.classList.add('modo-nocturno');
+                icono.className = 'fas fa-sun';
+                textoModo.textContent = 'Modo Claro';
+            }
+        });
+    </script>
 </body>
 </html>

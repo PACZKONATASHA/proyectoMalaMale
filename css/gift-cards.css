@@ -1,0 +1,399 @@
+/* Gift Cards Section */
+.gift-cards {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #fdf7f0 0%, #ffeaa7 20%, #fab1a0 60%, #fdcb6e 100%);
+    position: relative;
+}
+
+.gift-cards::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 80%, rgba(255, 192, 203, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 215, 0, 0.2) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.gift-cards h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #8B4513;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(255, 215, 0, 0.3);
+    position: relative;
+    z-index: 1;
+    font-weight: 700;
+}
+
+.gift-cards-intro {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #B8860B;
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 1;
+    font-weight: 500;
+}
+
+.gift-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.gift-card-item {
+    text-align: center;
+}
+
+.gift-card-preview {
+    margin-bottom: 1rem;
+    perspective: 1000px;
+}
+
+.gift-card-design {
+    width: 350px;
+    height: 220px;
+    margin: 0 auto;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.gift-card-design:hover {
+    transform: rotateY(5deg) rotateX(5deg) scale(1.05);
+}
+
+.gift-card-design::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    z-index: 1;
+}
+
+/* Estilos por festividad */
+.gift-card-design.navidad {
+    background: linear-gradient(135deg, #FFB6C1 0%, #FFD700 30%, #F0E68C 60%, #DDA0DD 100%);
+    color: #8B4513;
+    border: 2px solid #FFD700;
+}
+
+.gift-card-design.san-valentin {
+    background: linear-gradient(135deg, #FFC0CB 0%, #FFB6C1 30%, #FFCCCB 60%, #FFE4E1 100%);
+    color: #8B4513;
+    border: 2px solid #FFD700;
+}
+
+.gift-card-design.dia-madre {
+    background: linear-gradient(135deg, #FFEFD5 0%, #FFE4B5 30%, #FFDAB9 60%, #F5DEB3 100%);
+    color: #8B4513;
+    border: 2px solid #FFD700;
+}
+
+.gift-card-design.cumpleanos {
+    background: linear-gradient(135deg, #FFEBCD 0%, #FFEAA7 30%, #FDCB6E 60%, #E17055 100%);
+    color: #8B4513;
+    border: 2px solid #FFD700;
+}
+
+.gift-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2;
+    position: relative;
+}
+
+.logo-gift {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FF8C00 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 2px 4px rgba(255, 215, 0, 0.3);
+    filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.5));
+}
+
+.gift-card-header i {
+    font-size: 1.5rem;
+    opacity: 0.9;
+    color: #FFD700;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.gift-card-content {
+    text-align: center;
+    z-index: 2;
+    position: relative;
+}
+
+.gift-card-content h4 {
+    font-size: 1.3rem;
+    margin: 0.5rem 0;
+    font-weight: 600;
+}
+
+.gift-card-content p {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.gift-amount {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 8px 15px;
+    border-radius: 10px;
+    margin: 1rem 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: 2px dashed rgba(255, 255, 255, 0.5);
+}
+
+.gift-message {
+    font-size: 0.9rem !important;
+    opacity: 0.8 !important;
+}
+
+.gift-card-footer {
+    text-align: center;
+    font-size: 0.8rem;
+    opacity: 0.7;
+    z-index: 2;
+    position: relative;
+}
+
+.btn-descargar {
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FF8C00 100%);
+    color: #8B4513;
+    border: 2px solid #FFD700;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1rem;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.btn-descargar:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.6);
+    background: linear-gradient(135deg, #FFA500 0%, #FFD700 50%, #FFFF00 100%);
+    border-color: #FFA500;
+}
+
+.btn-descargar i {
+    font-size: 1rem;
+}
+
+/* Información adicional */
+.gift-cards-info {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+.info-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    text-align: center;
+}
+
+.info-card i {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.info-card h4 {
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.info-card ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.info-card li {
+    padding: 0.5rem 0;
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+}
+
+.info-card li::before {
+    content: '✓';
+    color: var(--primary-color);
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+/* Efectos especiales para las gift cards */
+.gift-card-design.navidad::after {
+    content: '❄️ ⭐ 🎄';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 0.8rem;
+    opacity: 0.6;
+}
+
+.gift-card-design.san-valentin::after {
+    content: '💕 💖 💝';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 0.8rem;
+    opacity: 0.6;
+}
+
+.gift-card-design.dia-madre::after {
+    content: '🌸 🌺 💐';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 0.8rem;
+    opacity: 0.6;
+}
+
+.gift-card-design.cumpleanos::after {
+    content: '🎉 🎈 🎁';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 0.8rem;
+    opacity: 0.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .gift-cards {
+        padding: 60px 0;
+    }
+    
+    .gift-cards h2 {
+        font-size: 2rem;
+    }
+    
+    .gift-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .gift-card-design {
+        width: 320px;
+        height: 200px;
+        padding: 15px;
+    }
+    
+    .logo-gift {
+        font-size: 1.3rem;
+    }
+    
+    .gift-card-content h4 {
+        font-size: 1.1rem;
+    }
+    
+    .gift-amount {
+        font-size: 1rem;
+    }
+}
+
+/* Modo nocturno */
+.modo-nocturno .gift-cards {
+    background: linear-gradient(135deg, #2c2c2c 0%, #3a3a3a 100%);
+}
+
+.modo-nocturno .gift-cards h2 {
+    color: #e0e0e0;
+}
+
+/* Dark mode con temática dorada y femenina */
+.modo-nocturno .gift-cards {
+    background: linear-gradient(135deg, #2C1810 0%, #3D2914 20%, #4A3319 60%, #5D401F 100%);
+}
+
+.modo-nocturno .gift-cards::before {
+    background: radial-gradient(circle at 20% 80%, rgba(255, 192, 203, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 215, 0, 0.15) 0%, transparent 50%);
+}
+
+.modo-nocturno .gift-cards h2 {
+    color: #FFD700;
+    text-shadow: 2px 2px 4px rgba(255, 215, 0, 0.5);
+}
+
+.modo-nocturno .gift-cards-intro {
+    color: #DEB887;
+}
+
+.modo-nocturno .info-card {
+    background: linear-gradient(135deg, #3A2817 0%, #4A3319 100%);
+    color: #F5DEB3;
+    border: 1px solid #FFD700;
+}
+
+.modo-nocturno .info-card h4 {
+    color: #FFD700;
+}
+
+.modo-nocturno .info-card li {
+    color: #DEB887;
+}
+
+.modo-nocturno .info-card li::before {
+    color: #FFD700;
+}
+
+/* Gift cards en modo oscuro con bordes dorados */
+.modo-nocturno .gift-card-design {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 215, 0, 0.2);
+    border: 2px solid #FFD700;
+}
+
+.modo-nocturno .gift-card-design:hover {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 30px rgba(255, 215, 0, 0.4);
+}
+
+/* Botones en modo oscuro */
+.modo-nocturno .btn-descargar {
+    background: linear-gradient(135deg, #B8860B 0%, #DAA520 50%, #FFD700 100%);
+    color: #2C1810;
+    border-color: #FFD700;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+}
+
+.modo-nocturno .btn-descargar:hover {
+    background: linear-gradient(135deg, #DAA520 0%, #FFD700 50%, #FFFF8F 100%);
+    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5);
+}

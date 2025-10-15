@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios - MalaMale Peluquería</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Estilos específicos para servicios */
+        .servicios-hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+            padding: 120px 0 80px;
+            text-align: center;
+            color: white;
+        }
+
+        .servicios-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .servicios-hero .highlight {
+            color: #d4af37;
+        }
+
+        .servicios-hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .servicios-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .servicio-seccion {
+            margin-bottom: 100px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .servicio-seccion.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .servicio-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .servicio-content h2 {
+            font-size: 2.5rem;
+            color: #d4af37;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .servicio-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .servicio-video {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            background: #000;
+            aspect-ratio: 9/16;
+            max-height: 500px;
+        }
+
+        .video-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(45deg, #1a1a1a, #2c2c2c);
+            color: white;
+            text-align: center;
+        }
+
+        .video-placeholder i {
+            font-size: 4rem;
+            color: #d4af37;
+            margin-bottom: 1rem;
+        }
+
+        .video-placeholder p {
+            font-size: 1.1rem;
+            margin: 0;
+        }
+
+        .btn-mas-info {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #d4af37, #f4d03f);
+            color: #1a1a1a;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-mas-info:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn-mas-info i {
+            transition: transform 0.3s ease;
+        }
+
+        .btn-mas-info:hover i {
+            transform: translateX(5px);
+        }
+
+        .servicio-seccion:nth-child(even) .servicio-content {
+            order: 2;
+        }
+
+        .servicio-seccion:nth-child(even) .servicio-video {
+            order: 1;
+        }
+
+        .tratamientos-especiales {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+            padding: 80px 20px;
+            margin: 100px 0;
+            border-radius: 20px;
+            color: white;
+            text-align: center;
+        }
+
+        .tratamientos-especiales h2 {
+            font-size: 2.5rem;
+            color: #d4af37;
+            margin-bottom: 2rem;
+        }
+
+        .servicio-imagen {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            max-height: 400px;
+        }
+
+        .servicio-imagen img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @media (max-width: 768px) {
+            .servicios-hero {
+                padding: 100px 0 60px;
+            }
+            
+            .servicios-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .servicios-container {
+                padding: 60px 20px;
+            }
+            
+            .servicio-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+            
+            .servicio-seccion:nth-child(even) .servicio-content {
+                order: 1;
+            }
+            
+            .servicio-seccion:nth-child(even) .servicio-video {
+                order: 2;
+            }
+            
+            .servicio-content h2 {
+                font-size: 2rem;
+            }
+            
+            .servicio-seccion {
+                margin-bottom: 80px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .servicios-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .servicio-content h2 {
+                font-size: 1.8rem;
+            }
+            
+            .servicio-content p {
+                font-size: 1rem;
+            }
+        }
+
+        /* Estilos para el Sistema de Reservas */
+        .servicio-precios {
+            margin: 30px 0;
+            padding: 25px;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 15px;
+            border: 2px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .precio-container {
+            margin-bottom: 20px;
+        }
+
+        .precio-principal {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .precio-desde {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        .precio-valor {
+            color: #d4af37;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .precio-seña {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .seña-valor {
+            color: #d4af37;
+            font-weight: bold;
+        }
+
+        .reserva-buttons {
+            text-align: center;
+        }
+
+        .btn-reservar {
+            background: linear-gradient(135deg, #d4af37, #f4d03f);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn-reservar:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
+            background: linear-gradient(135deg, #f4d03f, #d4af37);
+        }
+
+        /* Modal de Reserva */
+        .modal-reserva {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8);
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 5% auto;
+            padding: 0;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, #d4af37, #f4d03f);
+            color: white;
+            padding: 20px;
+            border-radius: 20px 20px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h2 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .close {
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        .close:hover {
+            opacity: 0.8;
+        }
+
+        .modal-body {
+            padding: 30px;
+        }
+
+        .reserva-info {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+        }
+
+        .reserva-info h3 {
+            color: #d4af37;
+            margin: 0 0 10px 0;
+            font-size: 1.3rem;
+        }
+
+        .precios-modal {
+            display: flex;
+            justify-content: space-between;
+            margin: 0;
+        }
+
+        .precios-modal p {
+            margin: 5px 0;
+            font-weight: bold;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #d4af37;
+        }
+
+        .payment-section {
+            margin-top: 30px;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border: 2px solid #e0e0e0;
+        }
+
+        .payment-section h4 {
+            color: #d4af37;
+            margin: 0 0 10px 0;
+            font-size: 1.2rem;
+        }
+
+        .payment-section p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .payment-methods {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn-mercado-pago,
+        .btn-whatsapp-reserva {
+            flex: 1;
+            min-width: 200px;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-mercado-pago {
+            background: #009EE3;
+            color: white;
+        }
+
+        .btn-mercado-pago:hover {
+            background: #0077B6;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 158, 227, 0.4);
+        }
+
+        .btn-whatsapp-reserva {
+            background: #25D366;
+            color: white;
+        }
+
+        .btn-whatsapp-reserva:hover {
+            background: #1DA851;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+        }
+
+        /* Responsive para el Modal */
+        @media (max-width: 768px) {
+            .modal-content {
+                width: 95%;
+                margin: 10% auto;
+            }
+
+            .modal-body {
+                padding: 20px;
+            }
+
+            .precios-modal {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .payment-methods {
+                flex-direction: column;
+            }
+
+            .btn-mercado-pago,
+            .btn-whatsapp-reserva {
+                min-width: auto;
+            }
+
+            .servicio-precios {
+                padding: 20px;
+            }
+
+            .precio-valor {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <span class="logo-text-rosado">MalaMale</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="servicios.html" class="active">Servicios</a></li>
+                    <li><a href="traramientos.html">Tratamientos</a></li>
+                    <li><a href="index.html#galeria">Galería</a></li>
+                    <li><a href="index.html#sobre-nosotros">Sobre Nosotros</a></li>
+                    <li><a href="index.html#contacto">Contacto</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="servicios-hero">
+        <div class="container">
+            <h1>Servicios <span class="highlight">MALA</span></h1>
+            <p>Descubre nuestros servicios profesionales diseñados para realzar tu belleza natural</p>
+        </div>
+    </section>
+
+    <!-- Servicios -->
+    <main class="servicios-container">
+        <!-- Lavado -->
+        <section class="servicio-seccion" id="lavado">
+            <div class="servicio-grid">
+                <div class="servicio-content">
+                    <h2>Lavado</h2>
+                    <p>El primero de los servicios, el más importante.</p>
+                    <p>Lavarte el cabello previo a un corte o peinado y/o luego de una coloración: hace al inicio y/o la finalización perfecta de tu experiencia en MALA.</p>
+                    <p>Contamos con las mejores manos en nuestro equipo y una amplia variedad de marcas Premium que te garantizan un momento único.</p>
+                    <p>Las grandes marcas de la cosmética argentina, francesa, británica, italiana entre otras, dan garantía de formación para la persona que te lavará el pelo y un producto a medida según deseo y necesidad. Contarás con el asesoramiento preciso sobre tu cuero cabelludo y pelo para lograr la excelencia y confort que necesitas.</p>
+                    <p>No te pierdas una de las mejores experiencias en MALA.</p>
+                </div>
+                <div class="servicio-video">
+                    <video autoplay muted loop>
+                        <source src="https://video.wixstatic.com/video/a4f25c_4916b64b2b654402a88b0ebc3ce2455b/720p/mp4/file.mp4" type="video/mp4">
+                        <div class="video-placeholder">
+                            <i class="fas fa-play-circle"></i>
+                            <p>Video de Lavado</p>
+                        </div>
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cortes -->
+        <section class="servicio-seccion" id="cortes">
+            <div class="servicio-grid">
+                <div class="servicio-content">
+                    <h2>Cortes</h2>
+                    <p>Tijeras, máquinas, varios filos, precisión, técnica y sobre todo un estilo único hacen fundamental el Corte en MALA.</p>
+                    <p>¡Nuestro equipo de profesionales podrá asesorarte y hacer lucir tu pelo con el look ideal! El pelo es el accesorio más importante que tenemos.</p>
+                    <p>El Team MALA de corte y peinado está en constante perfeccionamiento sobre nuevas técnicas y tendencias. No dudes en dejarte asesorar. Cada uno de ellos se destaca en poder interpretar tu deseo y adaptarlo para un fácil y práctico día a día. Nuestro corte es diseñado exclusivamente para vos y tu vida cotidiana.</p>
+                    
+                    <!-- Precios y Reserva -->
+                    <div class="servicio-precios">
+                        <div class="precio-container">
+                            <div class="precio-principal">
+                                <span class="precio-desde">Desde</span>
+                                <span class="precio-valor">$15.000</span>
+                            </div>
+                            <div class="precio-seña">
+                                <span class="seña-texto">Seña para reservar:</span>
+                                <span class="seña-valor">$3.000 (20%)</span>
+                            </div>
+                        </div>
+                        
+                        <div class="reserva-buttons">
+                            <button class="btn-reservar" onclick="abrirModalReserva('cortes', 15000, 3000)">
+                                <i class="fas fa-calendar-plus"></i>
+                                Reservar Turno
+                            </button>
+                            <a href="#" class="btn-mas-info">
+                                Más Información <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="servicio-video">
+                    <video autoplay muted loop>
+                        <source src="https://video.wixstatic.com/video/a4f25c_045a0c3afce649e3aaf3487ced0881ed/480p/mp4/file.mp4" type="video/mp4">
+                        <div class="video-placeholder">
+                            <i class="fas fa-play-circle"></i>
+                            <p>Video de Cortes</p>
+                        </div>
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- Peinados -->
+        <section class="servicio-seccion" id="peinados">
+            <div class="servicio-grid">
+                <div class="servicio-content">
+                    <h2>Peinados</h2>
+                    <p>Existe una amplia forma de llegar a tu peinado, Brushing, planchitas, ondas, y muchos más.</p>
+                    
+                    <!-- Precios y Reserva -->
+                    <div class="servicio-precios">
+                        <div class="precio-container">
+                            <div class="precio-principal">
+                                <span class="precio-desde">Desde</span>
+                                <span class="precio-valor">$12.000</span>
+                            </div>
+                            <div class="precio-seña">
+                                <span class="seña-texto">Seña para reservar:</span>
+                                <span class="seña-valor">$2.400 (20%)</span>
+                            </div>
+                        </div>
+                        
+                        <div class="reserva-buttons">
+                            <button class="btn-reservar" onclick="abrirModalReserva('peinados', 12000, 2400)">
+                                <i class="fas fa-calendar-plus"></i>
+                                Reservar Turno
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="servicio-video">
+                    <video autoplay muted loop>
+                        <source src="https://video.wixstatic.com/video/a4f25c_ff8bb625b15c4419a04a51d38d713cb0/480p/mp4/file.mp4" type="video/mp4">
+                        <div class="video-placeholder">
+                            <i class="fas fa-play-circle"></i>
+                            <p>Video de Peinados</p>
+                        </div>
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- Coloración -->
+        <section class="servicio-seccion" id="coloracion">
+            <div class="servicio-grid">
+                <div class="servicio-content">
+                    <h2>Coloración</h2>
+                    <p>El servicio de color es un universo infinito dentro de nuestro salón.</p>
+                    <p>Nuestra marca cuenta con el mejor equipo de coloristas del país. Nos perfeccionamos constantemente para poder abordar todas tus necesidades.</p>
+                    <p>Te asesoramos de una manera minuciosa para poder aconsejarte sobre qué es lo que tu cabello necesita. Cuáles son los pasos que llevara tu pelo para llegar al objetivo que deseas. Nuestra misión fundamental es mantener tu pelo sano y que luzca intacto, garantizamos tu felicidad absoluta.</p>
+                    <p>Como expresamos anteriormente, el universo de color es inmenso e infinito, por eso y para orientarte, te invitamos a que leas atentamente cada una de las descripciones de toda nuestra carta de servicios en color que tenemos para lograr satisfacer tus necesidades.</p>
+                    
+                    <!-- Precios y Reserva -->
+                    <div class="servicio-precios">
+                        <div class="precio-container">
+                            <div class="precio-principal">
+                                <span class="precio-desde">Desde</span>
+                                <span class="precio-valor">$35.000</span>
+                            </div>
+                            <div class="precio-seña">
+                                <span class="seña-texto">Seña para reservar:</span>
+                                <span class="seña-valor">$7.000 (20%)</span>
+                            </div>
+                        </div>
+                        
+                        <div class="reserva-buttons">
+                            <button class="btn-reservar" onclick="abrirModalReserva('coloracion', 35000, 7000)">
+                                <i class="fas fa-calendar-plus"></i>
+                                Reservar Turno
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <a href="#" class="btn-mas-info">
+                        Más Información <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="servicio-video">
+                    <video autoplay muted loop>
+                        <source src="https://video.wixstatic.com/video/a4f25c_f386024b4f1443c58c881bf46a536de1/480p/mp4/file.mp4" type="video/mp4">
+                        <div class="video-placeholder">
+                            <i class="fas fa-play-circle"></i>
+                            <p>Video de Coloración</p>
+                        </div>
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tratamientos para tu cabello -->
+        <section class="tratamientos-especiales">
+            <div class="servicio-grid">
+                <div class="servicio-content">
+                    <h2>Tratamientos<br>para tu cabello</h2>
+                    <p>Keratina, Brillo, Hidratación, Nutrición, Reparación y Reconstrucción.</p>
+                    
+                    <!-- Precios y Reserva -->
+                    <div class="servicio-precios">
+                        <div class="precio-container">
+                            <div class="precio-principal">
+                                <span class="precio-desde">Desde</span>
+                                <span class="precio-valor">$18.000</span>
+                            </div>
+                            <div class="precio-seña">
+                                <span class="seña-texto">Seña para reservar:</span>
+                                <span class="seña-valor">$3.600 (20%)</span>
+                            </div>
+                        </div>
+                        
+                        <div class="reserva-buttons">
+                            <button class="btn-reservar" onclick="abrirModalReserva('tratamientos', 18000, 3600)">
+                                <i class="fas fa-calendar-plus"></i>
+                                Reservar Turno
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <a href="#" class="btn-mas-info">
+                        Más Información <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="servicio-video">
+                    <video autoplay muted loop>
+                        <source src="https://video.wixstatic.com/video/a4f25c_6b0d1bd3cbaa447d8933de8a6c46bd5b/480p/mp4/file.mp4" type="video/mp4">
+                        <div class="video-placeholder">
+                            <i class="fas fa-play-circle"></i>
+                            <p>Video de Tratamientos</p>
+                        </div>
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- Make Up -->
+        <section class="servicio-seccion" id="makeup">
+            <div class="servicio-grid">
+                <div class="servicio-content">
+                    <h2>Make Up</h2>
+                    <p>En MALA brindamos servicio de maquillaje, para eventos sociales, novias, madrinas, quinceañeras, u ocasiones especiales en los cuales quieras resaltar tu belleza con las mejores técnicas y vanguardias en el campo del make up, también brindamos servicios especiales a domicilio o en eventos en los cuales se requiera de un profesional especializado en el rubro.</p>
+                </div>
+                <div class="servicio-imagen">
+                    <img src="img/natasha.png" alt="Servicio de Make Up">
+                </div>
+            </div>
+        </section>
+
+        <!-- Manos y Pies -->
+        <section class="servicio-seccion" id="manos-pies">
+            <div class="servicio-grid">
+                <div class="servicio-content">
+                    <h2>Manos y Pies</h2>
+                    <p>El cuidado de las uñas ha tomado auge en los últimos años y se ha convertido en un accesorio fundamental de la moda. En MALA abogamos por brindar un servicio de excelencia en cuanto técnicas y vanguardias en el mundo del nail art. Ofrecemos servicios tanto permanentes como semipermanente, kapping, esculpidas.</p>
+                    <p>Consultanos por las MALA nails.</p>
+                </div>
+                <div class="servicio-imagen">
+                    <img src="img/natasha.png" alt="Servicio de Manos y Pies">
+                </div>
+            </div>
+        </section>
+
+        <!-- Botones finales -->
+        <section style="text-align: center; margin: 80px 0;">
+            <a href="#" class="btn-mas-info" style="margin-right: 20px;">
+                Política de Reserva <i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="#" class="btn-mas-info">
+                Lista de Precios <i class="fas fa-arrow-right"></i>
+            </a>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <span class="logo-text-rosado">MalaMale</span>
+                    </div>
+                    <p>Tu peluquería unisex de confianza. Estilo, calidad y excelencia en cada servicio.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="productos.html">Productos</a></li>
+                        <li><a href="servicios.html">Servicios</a></li>
+                        <li><a href="traramientos.html">Tratamientos</a></li>
+                        <li><a href="index.html#galeria">Galería</a></li>
+                        <li><a href="index.html#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Síguenos</h3>
+                    <div class="social-links">
+                        <a href="https://instagram.com/malamale_salon" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://facebook.com/malamale.salon" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="https://wa.me/1234567890" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://tiktok.com/@malamale_salon" target="_blank"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 MalaMale Peluquería Unisex. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Animaciones scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            });
+
+            document.querySelectorAll('.servicio-seccion').forEach(section => {
+                observer.observe(section);
+            });
+
+            // Navegación móvil
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+
+            document.querySelectorAll('.nav-menu a').forEach(n => n.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            }));
+        });
+    </script>
+
+    <!-- Modal de Reserva -->
+    <div id="modalReserva" class="modal-reserva">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Reservar Turno</h2>
+                <span class="close" onclick="cerrarModalReserva()">&times;</span>
+            </div>
+            
+            <div class="modal-body">
+                <div class="reserva-info">
+                    <h3 id="servicioSeleccionado">Servicio</h3>
+                    <div class="precios-modal">
+                        <p>Precio total: <span id="precioTotal">$0</span></p>
+                        <p>Seña requerida: <span id="precioSeña">$0</span></p>
+                    </div>
+                </div>
+                
+                <form id="formReserva">
+                    <div class="form-group">
+                        <label for="nombreCliente">Nombre completo:</label>
+                        <input type="text" id="nombreCliente" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="telefonoCliente">Teléfono:</label>
+                        <input type="tel" id="telefonoCliente" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="emailCliente">Email:</label>
+                        <input type="email" id="emailCliente" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="fechaReserva">Fecha preferida:</label>
+                        <input type="date" id="fechaReserva" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="horaReserva">Hora preferida:</label>
+                        <select id="horaReserva" required>
+                            <option value="">Seleccionar hora</option>
+                            <option value="09:00">09:00</option>
+                            <option value="10:00">10:00</option>
+                            <option value="11:00">11:00</option>
+                            <option value="12:00">12:00</option>
+                            <option value="14:00">14:00</option>
+                            <option value="15:00">15:00</option>
+                            <option value="16:00">16:00</option>
+                            <option value="17:00">17:00</option>
+                            <option value="18:00">18:00</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="comentarios">Comentarios adicionales (opcional):</label>
+                        <textarea id="comentarios" rows="3"></textarea>
+                    </div>
+                    
+                    <div class="payment-section">
+                        <h4>Pago de Seña</h4>
+                        <p>Para confirmar tu reserva, debes pagar la seña del 20%</p>
+                        
+                        <div class="payment-methods">
+                            <button type="button" class="btn-mercado-pago" onclick="pagarConMercadoPago()">
+                                <i class="fas fa-credit-card"></i>
+                                Pagar con Mercado Pago
+                            </button>
+                            
+                            <button type="button" class="btn-whatsapp-reserva" onclick="reservarPorWhatsApp()">
+                                <i class="fab fa-whatsapp"></i>
+                                Reservar por WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script de Mercado Pago -->
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
+    
+    <!-- Script del Sistema de Reservas -->
+    <script>
+        // Variables globales para el sistema de reservas
+        let servicioActual = null;
+        let precioTotal = 0;
+        let precioSeña = 0;
+        let mp = null;
+
+        // Inicializar Mercado Pago (reemplaza con tu Public Key)
+        function inicializarMercadoPago() {
+            // Reemplaza 'TEST-...' con tu Public Key de Mercado Pago
+            mp = new MercadoPago('TEST-4d3c9f3a-6b7e-4c8d-9e2f-1a3b5c7d9e0f', {
+                locale: 'es-AR'
+            });
+        }
+
+        // Abrir modal de reserva
+        function abrirModalReserva(servicio, precio, seña) {
+            servicioActual = servicio;
+            precioTotal = precio;
+            precioSeña = seña;
+            
+            document.getElementById('servicioSeleccionado').textContent = 
+                servicio.charAt(0).toUpperCase() + servicio.slice(1);
+            document.getElementById('precioTotal').textContent = '$' + precio.toLocaleString();
+            document.getElementById('precioSeña').textContent = '$' + seña.toLocaleString();
+            
+            // Establecer fecha mínima como mañana
+            const mañana = new Date();
+            mañana.setDate(mañana.getDate() + 1);
+            document.getElementById('fechaReserva').min = mañana.toISOString().split('T')[0];
+            
+            document.getElementById('modalReserva').style.display = 'block';
+        }
+
+        // Cerrar modal de reserva
+        function cerrarModalReserva() {
+            document.getElementById('modalReserva').style.display = 'none';
+            document.getElementById('formReserva').reset();
+        }
+
+        // Validar formulario
+        function validarFormulario() {
+            const form = document.getElementById('formReserva');
+            const formData = new FormData(form);
+            
+            const nombre = document.getElementById('nombreCliente').value.trim();
+            const telefono = document.getElementById('telefonoCliente').value.trim();
+            const email = document.getElementById('emailCliente').value.trim();
+            const fecha = document.getElementById('fechaReserva').value;
+            const hora = document.getElementById('horaReserva').value;
+            
+            if (!nombre || !telefono || !email || !fecha || !hora) {
+                alert('Por favor completa todos los campos obligatorios');
+                return false;
+            }
+            
+            // Validar formato de email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Por favor ingresa un email válido');
+                return false;
+            }
+            
+            // Validar que la fecha no sea en el pasado
+            const fechaSeleccionada = new Date(fecha);
+            const hoy = new Date();
+            hoy.setHours(0, 0, 0, 0);
+            
+            if (fechaSeleccionada < hoy) {
+                alert('La fecha debe ser futura');
+                return false;
+            }
+            
+            return true;
+        }
+
+        // Pagar con Mercado Pago
+        async function pagarConMercadoPago() {
+            if (!validarFormulario()) return;
+            
+            if (!mp) {
+                inicializarMercadoPago();
+            }
+            
+            try {
+                const orderData = {
+                    title: `Seña para ${servicioActual}`,
+                    quantity: 1,
+                    unit_price: precioSeña,
+                    description: `Reserva de turno para ${servicioActual} - ${document.getElementById('fechaReserva').value} ${document.getElementById('horaReserva').value}`,
+                    payer: {
+                        name: document.getElementById('nombreCliente').value,
+                        email: document.getElementById('emailCliente').value,
+                        phone: {
+                            number: document.getElementById('telefonoCliente').value
+                        }
+                    }
+                };
+                
+                // Aquí deberías hacer una llamada a tu backend para crear la preferencia
+                // Por ahora, simulamos la respuesta
+                console.log('Datos de la orden:', orderData);
+                
+                // Simulación de éxito (en producción esto vendría de tu backend)
+                alert('¡Funcionalidad de Mercado Pago configurada! En producción, esto procesaría el pago.');
+                
+                // Guardar reserva
+                guardarReserva('mercado_pago');
+                
+            } catch (error) {
+                console.error('Error al procesar el pago:', error);
+                alert('Error al procesar el pago. Por favor intenta nuevamente.');
+            }
+        }
+
+        // Reservar por WhatsApp
+        function reservarPorWhatsApp() {
+            if (!validarFormulario()) return;
+            
+            const nombre = document.getElementById('nombreCliente').value;
+            const telefono = document.getElementById('telefonoCliente').value;
+            const email = document.getElementById('emailCliente').value;
+            const fecha = document.getElementById('fechaReserva').value;
+            const hora = document.getElementById('horaReserva').value;
+            const comentarios = document.getElementById('comentarios').value;
+            
+            const mensaje = `¡Hola! Quiero reservar un turno para ${servicioActual}
+
+📅 *Datos de la reserva:*
+• Servicio: ${servicioActual.charAt(0).toUpperCase() + servicioActual.slice(1)}
+• Fecha: ${fecha}
+• Hora: ${hora}
+• Precio total: $${precioTotal.toLocaleString()}
+• Seña requerida: $${precioSeña.toLocaleString()}
+
+👤 *Mis datos:*
+• Nombre: ${nombre}
+• Teléfono: ${telefono}
+• Email: ${email}
+${comentarios ? `• Comentarios: ${comentarios}` : ''}
+
+¿Podrían confirmarme la disponibilidad y el método de pago para la seña?
+
+¡Gracias!`;
+            
+            const numeroWhatsApp = '1234567890'; // Reemplaza con tu número
+            const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
+            
+            // Guardar reserva
+            guardarReserva('whatsapp');
+            
+            // Abrir WhatsApp
+            window.open(urlWhatsApp, '_blank');
+            
+            // Cerrar modal
+            cerrarModalReserva();
+        }
+
+        // Guardar reserva en localStorage
+        function guardarReserva(metodoPago) {
+            const reserva = {
+                id: Date.now(),
+                servicio: servicioActual,
+                precioTotal: precioTotal,
+                precioSeña: precioSeña,
+                nombre: document.getElementById('nombreCliente').value,
+                telefono: document.getElementById('telefonoCliente').value,
+                email: document.getElementById('emailCliente').value,
+                fecha: document.getElementById('fechaReserva').value,
+                hora: document.getElementById('horaReserva').value,
+                comentarios: document.getElementById('comentarios').value,
+                metodoPago: metodoPago,
+                estado: 'pendiente',
+                fechaCreacion: new Date().toISOString()
+            };
+            
+            let reservas = JSON.parse(localStorage.getItem('reservas') || '[]');
+            reservas.push(reserva);
+            localStorage.setItem('reservas', JSON.stringify(reservas));
+            
+            console.log('Reserva guardada:', reserva);
+        }
+
+        // Cerrar modal al hacer clic fuera
+        window.onclick = function(event) {
+            const modal = document.getElementById('modalReserva');
+            if (event.target == modal) {
+                cerrarModalReserva();
+            }
+        }
+
+        // Inicializar cuando se carga la página
+        document.addEventListener('DOMContentLoaded', function() {
+            inicializarMercadoPago();
+        });
+    </script>
+
+</body>
+</html>
