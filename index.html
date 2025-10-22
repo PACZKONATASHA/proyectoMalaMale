@@ -8,7 +8,13 @@
     <link rel="stylesheet" href="css/carousel.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/whatsapp-flotante.css">
+    <link rel="stylesheet" href="css/mala-male-experience.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -16,6 +22,7 @@
     <header>
         <nav class="navbar">
             <div class="nav-container">
+                
                 <div class="logo">
                     <span class="logo-text-rosado">MalaMale</span>
                 </div>
@@ -41,13 +48,17 @@
     <section id="inicio" class="hero-carousel">
         <div class="carousel-container">
             <div class="carousel-slide active">
-                <img src="img/natasha.png" alt="Peinado Natasha - Estilo exclusivo">
-                <div class="carousel-content">
-                    <h1>Bienvenidos a MalaMale</h1>
-                    <p>Peluquería Unisex - Estilo y Elegancia para Todos</p>
-                    <div class="hero-buttons">
-                        <a href="traramientos.html" class="btn-primary">Nuestros Servicios</a>
-                        <a href="#contacto" class="btn-secondary">Reservar Cita</a>
+                <div class="mala-male-experience">
+                    <div class="mala-male-content">
+                        <div class="mala-male-text">
+                            <div class="mala-male-experience-title">EXPERIENCE</div>
+                            <a href="traramientos.html" class="mala-male-btn">SHOP COLLECTION</a>
+                        </div>
+                        <div class="mala-male-image">
+                            <div class="mala-male-model">
+                                <img src="img/foto.sin fondo.png" alt="Natasha - MalaMale" class="modelo-img">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -116,19 +127,19 @@
             </div>
         </div>
         
-        <!-- Indicadores del carrusel -->
-        <div class="carousel-indicators">
+        <!-- Indicadores del carrusel - OCULTOS -->
+        <div class="carousel-indicators" style="display: none;">
             <button class="indicator active" data-slide="0"></button>
             <button class="indicator" data-slide="1"></button>
             <button class="indicator" data-slide="2"></button>
             <button class="indicator" data-slide="3"></button>
         </div>
         
-        <!-- Controles del carrusel -->
-        <button class="carousel-control prev" onclick="changeSlide(-1)">
+        <!-- Controles del carrusel - OCULTOS -->
+        <button class="carousel-control prev" onclick="changeSlide(-1)" style="display: none;">
             <i class="fas fa-chevron-left"></i>
         </button>
-        <button class="carousel-control next" onclick="changeSlide(1)">
+        <button class="carousel-control next" onclick="changeSlide(1)" style="display: none;">
             <i class="fas fa-chevron-right"></i>
         </button>
     </section>
@@ -536,7 +547,7 @@
     </div>
 
     <script src="js/script.js"></script>
-    <script src="js/carousel.js"></script>
+    <!-- <script src="js/carousel.js"></script> --> <!-- Carrusel desactivado para hacerlo fijo -->
     <script src="js/comentarios.js"></script>
     <script src="js/navegacion-gps.js"></script>
 
