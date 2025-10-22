@@ -1,0 +1,167 @@
+﻿COMANDOS GIT PARA VOLVER ATRÃS - MALAMALE PELUQUERÃA
+=======================================================
+
+ðŸ“‹ GUÃA COMPLETA DE COMANDOS GIT PARA REVERTIR CAMBIOS
+
+ðŸ” 1. VERIFICAR ESTADO ACTUAL
+=============================
+
+Comando: git status
+QuÃ© hace: Muestra el estado actual de tu repositorio
+CuÃ¡ndo usar: Siempre antes de hacer cualquier cambio
+Ejemplo de resultado:
+- Archivos modificados
+- Archivos en staging
+- Commits pendientes de subir
+
+----------------------------------------------------
+
+ðŸ” 2. VER HISTORIAL DE COMMITS
+==============================
+
+Comando: git log --oneline -5
+QuÃ© hace: Muestra los Ãºltimos 5 commits de forma resumida
+CuÃ¡ndo usar: Para ver quÃ© commits tienes y decidir a cuÃ¡l volver
+Ejemplo: 
+24c802b (HEAD -> main) Ãšltimos cambios
+c19155f (origin/main) Cambios anteriores
+
+----------------------------------------------------
+
+ðŸš« 3. DESCARTAR CAMBIOS NO GUARDADOS
+====================================
+
+Comando: git restore .
+QuÃ© hace: Elimina TODOS los cambios que no se han guardado (commit)
+CuÃ¡ndo usar: Cuando quieres descartar cambios en archivos modificados
+âš ï¸ CUIDADO: Esto no se puede deshacer
+Ejemplo: Si modificaste CSS y no te gusta, esto lo revierte
+
+----------------------------------------------------
+
+ðŸš« 4. QUITAR ARCHIVOS DEL STAGING
+=================================
+
+Comando: git restore --staged .
+QuÃ© hace: Quita archivos del Ã¡rea de staging (antes del commit)
+CuÃ¡ndo usar: Cuando hiciste "git add" pero no quieres hacer commit
+No elimina los cambios, solo los "desstaging"
+
+----------------------------------------------------
+
+ðŸ”„ 5. VOLVER AL ÃšLTIMO COMMIT (SUAVE)
+====================================
+
+Comando: git reset HEAD~1
+QuÃ© hace: Vuelve 1 commit atrÃ¡s pero MANTIENE los cambios en archivos
+CuÃ¡ndo usar: Cuando quieres deshacer el commit pero conservar los cambios
+Los archivos quedan modificados, puedes editarlos y hacer nuevo commit
+
+----------------------------------------------------
+
+ðŸ’¥ 6. VOLVER AL ÃšLTIMO COMMIT (FUERTE)
+=====================================
+
+Comando: git reset --hard HEAD~1
+QuÃ© hace: Vuelve 1 commit atrÃ¡s y ELIMINA todos los cambios
+CuÃ¡ndo usar: Cuando quieres eliminar completamente el Ãºltimo commit
+âš ï¸ CUIDADO: Esto no se puede deshacer, se pierden todos los cambios
+
+----------------------------------------------------
+
+ðŸ’¥ 7. VOLVER VARIOS COMMITS ATRÃS
+=================================
+
+Comando: git reset --hard HEAD~3
+QuÃ© hace: Vuelve 3 commits atrÃ¡s y elimina todos los cambios
+CuÃ¡ndo usar: Cuando quieres volver muy atrÃ¡s en el tiempo
+âš ï¸ CUIDADO: Pierdes todo lo que hiciste en esos 3 commits
+
+----------------------------------------------------
+
+ðŸ”„ 8. VOLVER A UN COMMIT ESPECÃFICO
+===================================
+
+Comando: git reset --hard c19155f
+QuÃ© hace: Vuelve exactamente al commit con ese ID
+CuÃ¡ndo usar: Cuando sabes exactamente a quÃ© punto quieres volver
+Primero usa "git log --oneline" para ver los IDs
+
+----------------------------------------------------
+
+ðŸŒ 9. SINCRONIZAR CON GITHUB
+============================
+
+Comando: git pull origin main
+QuÃ© hace: Descarga los Ãºltimos cambios de GitHub
+CuÃ¡ndo usar: Para asegurarte de tener la versiÃ³n mÃ¡s reciente
+
+Comando: git push origin main
+QuÃ© hace: Sube tus commits locales a GitHub
+CuÃ¡ndo usar: DespuÃ©s de hacer commits que quieres guardar
+
+----------------------------------------------------
+
+ðŸ†˜ 10. COMANDOS DE EMERGENCIA
+=============================
+
+SITUACIÃ“N: "MetÃ­ la pata y quiero volver a como estaba en GitHub"
+SOLUCIÃ“N:
+1. git restore --staged .
+2. git restore .
+3. git reset --hard origin/main
+
+SITUACIÃ“N: "No sÃ© quÃ© hice, ayuda!"
+SOLUCIÃ“N:
+1. git status (para ver quÃ© pasÃ³)
+2. git log --oneline -5 (para ver commits)
+3. git restore . (si solo quieres descartar cambios)
+
+----------------------------------------------------
+
+ðŸ“ 11. FLUJO RECOMENDADO ANTES DE CAMBIOS
+=========================================
+
+1. git status (verificar estado)
+2. git pull origin main (actualizar desde GitHub)
+3. Hacer tus cambios
+4. git add . (si quieres guardar)
+5. git commit -m "DescripciÃ³n del cambio"
+6. git push origin main (subir a GitHub)
+
+----------------------------------------------------
+
+âš ï¸ IMPORTANTE - QUÃ‰ SIGNIFICA CADA COSA:
+==========================================
+
+- working directory: Archivos que estÃ¡s editando
+- staging area: Archivos preparados para commit (despuÃ©s de git add)
+- committed: Archivos guardados en el historial (despuÃ©s de git commit)
+- HEAD: El commit actual donde estÃ¡s
+- origin/main: La versiÃ³n que estÃ¡ en GitHub
+
+----------------------------------------------------
+
+ðŸŽ¯ CONSEJOS PRÃCTICOS:
+======================
+
+1. Siempre haz "git status" antes de cualquier comando
+2. Si no estÃ¡s seguro, haz una copia de tu carpeta antes
+3. Los comandos con --hard NO se pueden deshacer
+4. Usa "git log --oneline" para ver tu historial
+5. Si algo sale mal, pide ayuda antes de seguir
+
+----------------------------------------------------
+
+ðŸ“ž CONTACTO DE SOPORTE:
+=======================
+Si tienes problemas con Git, siempre puedes:
+- Hacer una copia de seguridad de tu carpeta
+- Pedir ayuda especÃ­fica con el error que ves
+- Usar "git status" para explicar quÃ© estÃ¡ pasando
+
+FECHA DE CREACIÃ“N: 21 de Octubre 2025
+PROYECTO: MalaMale PeluquerÃ­a Unisex
+AUTOR: Asistente IA
+
+=======================================================

@@ -216,14 +216,16 @@
 /* Tratamientos Destacados */
 .tratamientos-destacados {
     padding: 80px 0;
-    background: var(--accent-color);
+    background: var(--subtle-gold);
+    background: linear-gradient(135deg, #C9A876 0%, #B8A082 50%, #C9A876 100%);
 }
 
 .tratamientos-destacados h2 {
     text-align: center;
     font-size: 2.5rem;
-    color: var(--secondary-color);
+    color: var(--pure-white);
     margin-bottom: 3rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .tratamientos-grid {
@@ -234,40 +236,55 @@
 }
 
 .tratamiento-card {
-    background: var(--white);
+    background: rgba(255, 255, 255, 0.95);
     padding: 2rem;
     border-radius: 15px;
     text-align: center;
     transition: var(--transition);
-    border: 2px solid transparent;
+    border: 2px solid rgba(255, 255, 255, 0.3);
     position: relative;
+    box-shadow: 0 10px 30px rgba(201, 168, 118, 0.2);
 }
 
 .tratamiento-card:hover {
     transform: translateY(-10px);
-    border-color: var(--gold-color);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border-color: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 20px 40px rgba(201, 168, 118, 0.3);
+    background: rgba(255, 255, 255, 1);
 }
 
 .tratamiento-card.featured {
-    background: var(--gradient-main);
-    color: var(--white);
-    border: 2px solid var(--gold-color);
+    background: linear-gradient(135deg, rgba(139, 115, 85, 0.9) 0%, rgba(201, 168, 118, 0.9) 100%);
+    color: var(--pure-white);
+    border: 3px solid var(--pure-white);
     transform: scale(1.05);
+    box-shadow: 
+        0 15px 35px rgba(201, 168, 118, 0.4),
+        0 0 30px rgba(255, 255, 255, 0.2);
 }
 
 .tratamiento-card.featured:hover {
     transform: scale(1.05) translateY(-5px);
+    box-shadow: 
+        0 25px 50px rgba(201, 168, 118, 0.5),
+        0 0 40px rgba(255, 255, 255, 0.3);
 }
 
 .tratamiento-card i {
     font-size: 3rem;
-    color: var(--primary-color);
+    color: var(--subtle-gold);
     margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.tratamiento-card:hover i {
+    color: var(--dark-brown);
+    transform: scale(1.1);
 }
 
 .tratamiento-card.featured i {
-    color: var(--gold-color);
+    color: var(--pure-white);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .tratamiento-card h3 {
@@ -296,17 +313,19 @@
     position: relative;
     max-width: 800px;
     margin: 0 auto;
+    z-index: 2;
 }
 
 .testimonio-slide {
     display: none;
-    background: var(--white);
+    background: rgba(255, 255, 255, 0.95);
     border-radius: 20px;
     padding: 2rem;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
     grid-template-columns: 1fr 2fr;
     gap: 2rem;
     align-items: center;
+    border: 2px solid rgba(255, 255, 255, 0.3);
 }
 
 .testimonio-slide.active {
@@ -450,14 +469,17 @@
 }
 
 .contact-link {
-    color: var(--primary-color);
+    color: var(--pure-white);
     text-decoration: none;
     font-weight: 500;
     transition: var(--transition);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
 .contact-link:hover {
-    color: var(--gold-color);
+    color: var(--subtle-gold);
+    text-shadow: 0 0 15px rgba(201, 168, 118, 0.8);
+    transform: translateY(-1px);
 }
 
 /* Responsive para carrusel */
