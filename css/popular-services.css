@@ -1,0 +1,332 @@
+/* Popular Services Gallery - Exact replica of reference image */
+.popular-services-gallery {
+    background: #F8F5F0;
+    padding: 80px 0;
+    position: relative;
+}
+
+.gallery-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.gallery-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 400;
+    color: #8B6F47;
+    text-align: center;
+    letter-spacing: 0.1em;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.service-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.service-item {
+    cursor: pointer;
+}
+
+.service-image {
+    width: 250px;
+    height: 300px;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.service-image:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.service-image:hover .image-overlay {
+    opacity: 1;
+}
+
+.image-overlay i {
+    color: #FFFFFF;
+    font-size: 24px;
+}
+
+.service-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.service-label {
+    margin-top: 10px;
+}
+
+.service-label span {
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: #8B6F47;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    background: #FFFFFF;
+    padding: 8px 16px;
+    border-radius: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        max-width: 600px;
+    }
+    
+    .service-image {
+        width: 220px;
+        height: 260px;
+    }
+}
+
+@media (max-width: 768px) {
+    .popular-services-gallery {
+        padding: 60px 0;
+    }
+    
+    .gallery-title {
+        font-size: 24px;
+        margin-bottom: 40px;
+    }
+    
+    .services-grid {
+        gap: 25px;
+    }
+    
+    .service-image {
+        width: 200px;
+        height: 240px;
+    }
+}
+
+@media (max-width: 480px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+        max-width: 300px;
+    }
+    
+    .gallery-container {
+        padding: 0 15px;
+    }
+    
+    .service-image {
+        width: 250px;
+        height: 300px;
+    }
+    
+    .gallery-title {
+        font-size: 20px;
+        margin-bottom: 30px;
+    }
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 1000px;
+    margin: 5% auto;
+    background: transparent;
+}
+
+.close-modal {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    color: #FFFFFF;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1001;
+    transition: color 0.3s ease;
+}
+
+.close-modal:hover {
+    color: #D4AF37;
+}
+
+.modal-carousel {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-carousel-container {
+    position: relative;
+    flex: 1;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.modal-slides {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.modal-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.modal-slide.active {
+    opacity: 1;
+}
+
+.modal-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.modal-prev,
+.modal-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: #FFFFFF;
+    font-size: 24px;
+    padding: 15px 20px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    z-index: 1002;
+}
+
+.modal-prev:hover,
+.modal-next:hover {
+    background: rgba(212, 175, 55, 0.8);
+    color: #FFFFFF;
+}
+
+.modal-prev {
+    left: 20px;
+}
+
+.modal-next {
+    right: 20px;
+}
+
+.modal-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+    padding: 0;
+}
+
+.modal-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.modal-indicator.active {
+    background: #D4AF37;
+}
+
+.modal-indicator:hover {
+    background: rgba(212, 175, 55, 0.7);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Modal Responsive */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        margin: 2% auto;
+    }
+    
+    .modal-carousel {
+        height: 70vh;
+    }
+    
+    .modal-prev,
+    .modal-next {
+        font-size: 18px;
+        padding: 10px 15px;
+    }
+    
+    .modal-prev {
+        left: 10px;
+    }
+    
+    .modal-next {
+        right: 10px;
+    }
+    
+    .close-modal {
+        top: -30px;
+        font-size: 30px;
+    }
+}

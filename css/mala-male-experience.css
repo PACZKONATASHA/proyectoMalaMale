@@ -62,8 +62,8 @@
 }
 
 .mala-male-brand {
-    font-family: 'Great Vibes', 'Allura', 'Dancing Script', cursive;
-    font-size: clamp(35px, 5vw, 60px);
+    font-family: 'Yellowtail', 'Rouge Script', 'Mr Dafoe', cursive;
+    font-size: clamp(50px, 7vw, 90px);
     font-weight: 400;
     font-style: normal;
     color: #D4AF37;
@@ -71,10 +71,10 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.02em;
     margin-bottom: 50px;
     text-transform: none;
-    line-height: 1.1;
+    line-height: 1;
     text-shadow: 0 4px 8px rgba(212, 175, 55, 0.4);
     transform: none;
 }

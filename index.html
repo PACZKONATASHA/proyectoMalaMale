@@ -9,12 +9,14 @@
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/whatsapp-flotante.css">
     <link rel="stylesheet" href="css/mala-male-experience.css">
+    <link rel="stylesheet" href="css/labor-day-sale.css">
+    <link rel="stylesheet" href="css/popular-services.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mr+Dafoe&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rouge+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Yellowtail&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -144,35 +146,89 @@
         </button>
     </section>
 
-    <!-- Sobre Nosotros Section -->
-    <section id="sobre-nosotros" class="sobre-nosotros">
-        <div class="container">
-            <div class="sobre-content">
-                <div class="sobre-text">
-                    <h2>Sobre MalaMale</h2>
-                    <p>En MalaMale creemos que cada persona es única y merece un estilo que refleje su personalidad. Somos una peluquería unisex con más de 10 años de experiencia, especializada en crear looks modernos y sofisticados.</p>
-                    <p>Nuestro equipo de profesionales está constantemente actualizado con las últimas tendencias y técnicas del mundo de la peluquería, garantizando siempre resultados de la más alta calidad.</p>
-                    <div class="caracteristicas">
-                        <div class="caracteristica">
-                            <i class="fas fa-award"></i>
-                            <span>Más de 10 años de experiencia</span>
-                        </div>
-                        <div class="caracteristica">
-                            <i class="fas fa-users"></i>
-                            <span>Equipo de profesionales certificados</span>
-                        </div>
-                        <div class="caracteristica">
-                            <i class="fas fa-leaf"></i>
-                            <span>Productos ecológicos y de alta calidad</span>
-                        </div>
-                        <div class="caracteristica">
-                            <i class="fas fa-heart"></i>
-                            <span>Atención personalizada</span>
+    <!-- Shop Our Popular Services Gallery -->
+    <section class="popular-services-gallery">
+        <div class="gallery-container">
+            <h2 class="gallery-title">SHOP OUR POPULAR SERVICES</h2>
+            <div class="services-grid">
+                <div class="service-item" onclick="openGalleryModal('balayage')">
+                    <div class="service-image">
+                        <img src="img/Balayage/Captura de pantalla 2025-10-14 111503.png" alt="Balayage Service">
+                        <div class="image-overlay">
+                            <i class="fas fa-search-plus"></i>
                         </div>
                     </div>
+                    <div class="service-label">
+                        <span>BALAYAGE • HIGHLIGHTS</span>
+
+                        
+                    </div>
                 </div>
-                <div class="sobre-image">
-                    <img src="img/foto male.jpg" alt="Sobre MalaMale - Estilo y Creatividad">
+                <div class="service-item" onclick="openGalleryModal('treatment')">
+                    <div class="service-image">
+                        <img src="img/Balayage/Captura de pantalla 2025-10-14 111647.png" alt="Hair Treatment">
+                        <div class="image-overlay">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                    <div class="service-label">
+                        <span>HAIR TREATMENT</span>
+                    </div>
+                </div>
+                <div class="service-item" onclick="openGalleryModal('extensions')">
+                    <div class="service-image">
+                        <img src="img/Alisados/morena-iluminada.png" alt="Hair Extensions">
+                        <div class="image-overlay">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                    <div class="service-label">
+                        <span>HAIR EXTENSIONS</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Modal -->
+    <div id="galleryModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeGalleryModal()">&times;</span>
+            <div class="modal-carousel">
+                <div class="modal-carousel-container">
+                    <div class="modal-slides" id="modalSlides">
+                        <!-- Las imágenes se cargarán dinámicamente con JavaScript -->
+                    </div>
+                    <button class="modal-prev" onclick="changeModalSlide(-1)">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="modal-next" onclick="changeModalSlide(1)">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                <div class="modal-indicators" id="modalIndicators">
+                    <!-- Los indicadores se generarán dinámicamente -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Labor Day Sale Section -->
+    <section id="sobre-nosotros" class="labor-day-sale">
+        <div class="sale-container">
+            <div class="sale-content">
+                <div class="sale-text">
+                    <h2 class="sale-title">Sobre Nosotros</h2>
+                    <p class="sale-subtitle">IT'S NEVER TOO LATE!</p>
+                    <div class="sale-offer">
+                        <p class="discount-text">20% OFF ALL HAIRCUTS</p>
+                        <p class="offer-details"></p>
+                        <p class="promo-code">DISCOUNT AUTOMATICALLY APPLIED AT CHECKOUT</p>
+                    </div>
+                    <button class="shop-now-btn">SHOP NOW</button>
+                </div>
+                <div class="sale-image">
+                    <img src="img/labor-day-sale.png" alt="Labor Day Sale - 20% Off All Haircuts">
                 </div>
             </div>
         </div>
@@ -550,6 +606,7 @@
     <!-- <script src="js/carousel.js"></script> --> <!-- Carrusel desactivado para hacerlo fijo -->
     <script src="js/comentarios.js"></script>
     <script src="js/navegacion-gps.js"></script>
+    <script src="js/gallery-modal.js"></script>
 
     
     <!-- Script para modo nocturno -->

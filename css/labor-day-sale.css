@@ -1,0 +1,181 @@
+/* Labor Day Sale Section */
+.labor-day-sale {
+    background: linear-gradient(135deg, #8B6F47 0%, #A0825C 25%, #B8956A 50%, #A0825C 75%, #8B6F47 100%);
+    padding: 80px 0;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.labor-day-sale::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(139, 111, 71, 0.1);
+    pointer-events: none;
+}
+
+.sale-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.sale-content {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    min-height: 500px;
+}
+
+.sale-text {
+    flex: 1;
+    color: #FFFFFF;
+    max-width: 600px;
+}
+
+.sale-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(42px, 5vw, 64px);
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 15px;
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.sale-subtitle {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(24px, 3vw, 32px);
+    font-weight: 400;
+    font-style: italic;
+    color: #F5E6D3;
+    margin-bottom: 30px;
+    letter-spacing: 0.05em;
+}
+
+.sale-offer {
+    margin-bottom: 40px;
+}
+
+.discount-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(28px, 4vw, 36px);
+    font-weight: 600;
+    color: #FFFFFF;
+    margin-bottom: 8px;
+    letter-spacing: 0.02em;
+}
+
+.offer-details {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(18px, 2.5vw, 24px);
+    font-weight: 300;
+    color: #F5E6D3;
+    margin-bottom: 20px;
+    letter-spacing: 0.01em;
+}
+
+.promo-code {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(12px, 1.5vw, 16px);
+    font-weight: 400;
+    color: #E8D5C1;
+    letter-spacing: 0.05em;
+    line-height: 1.4;
+}
+
+.shop-now-btn {
+    background: #FFFFFF;
+    color: #8B6F47;
+    border: none;
+    padding: 18px 40px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.shop-now-btn:hover {
+    background: #F5E6D3;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.sale-image {
+    flex: 1;
+    max-width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sale-image img {
+    width: 100%;
+    height: auto;
+    max-width: 450px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.sale-image img:hover {
+    transform: scale(1.02);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .labor-day-sale {
+        padding: 60px 0;
+    }
+    
+    .sale-content {
+        flex-direction: column;
+        gap: 40px;
+        text-align: center;
+    }
+    
+    .sale-text {
+        max-width: 100%;
+    }
+    
+    .sale-image {
+        max-width: 100%;
+    }
+    
+    .sale-image img {
+        max-width: 350px;
+    }
+}
+
+@media (max-width: 480px) {
+    .labor-day-sale {
+        padding: 40px 0;
+    }
+    
+    .sale-container {
+        padding: 0 15px;
+    }
+    
+    .sale-content {
+        gap: 30px;
+    }
+    
+    .shop-now-btn {
+        padding: 15px 30px;
+        font-size: 14px;
+    }
+}
