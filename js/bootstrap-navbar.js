@@ -35,6 +35,70 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
+    // Ajustar posición del menú en pantallas muy pequeñas
+    function adjustMenuPosition() {
+        const screenWidth = window.innerWidth;
+        
+        if (screenWidth < 992 && navbarCollapse) {
+            if (screenWidth <= 180) {
+                navbarCollapse.style.left = '-5px';
+                navbarCollapse.style.right = '-5px';
+            } else if (screenWidth <= 254) {
+                navbarCollapse.style.left = '-10px';
+                navbarCollapse.style.right = '-10px';
+            } else if (screenWidth <= 360) {
+                navbarCollapse.style.left = '-15px';
+                navbarCollapse.style.right = '-15px';
+            } else if (screenWidth <= 575) {
+                navbarCollapse.style.left = '-20px';
+                navbarCollapse.style.right = '-20px';
+            } else {
+                navbarCollapse.style.left = '0';
+                navbarCollapse.style.right = '0';
+            }
+        } else if (navbarCollapse) {
+            navbarCollapse.style.left = '';
+            navbarCollapse.style.right = '';
+        }
+    }
+    
+    // Aplicar ajustes al cargar y redimensionar
+    adjustMenuPosition();
+    window.addEventListener('resize', adjustMenuPosition);
+    
+    // Cerrar menú al hacer clic fuera
+    document.addEventListener('click', function(event) {
+        if (window.innerWidth < 992) {
+            const isClickInsideNavbar = navbar.contains(event.target);
+            const isNavbarOpen = navbarCollapse.classList.contains('show');
+            
+            if (!isClickInsideNavbar && isNavbarOpen) {
+                const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
+                    hide: true
+                });
+            }
+        }
+    });
+    
+    // Prevenir scroll del body cuando el menú está abierto en móviles
+    const navbarToggle = document.querySelector('.navbar-toggler');
+    if (navbarToggle) {
+        navbarToggle.addEventListener('click', function() {
+            setTimeout(() => {
+                if (navbarCollapse.classList.contains('show')) {
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    document.body.style.overflow = '';
+                }
+            }, 100);
+        });
+    }
+    
+    // Restaurar scroll cuando el menú se cierra
+    navbarCollapse.addEventListener('hidden.bs.collapse', function() {
+        document.body.style.overflow = '';
+    });
+    
     // Actualizar enlace activo basado en la sección visible
     const sections = document.querySelectorAll('section[id]');
     
