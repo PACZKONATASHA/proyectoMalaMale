@@ -10,6 +10,35 @@
     min-height: 600px;
 }
 
+/* Optimización global para imágenes nítidas */
+.modelo-img {
+    /* Configuración base para máxima nitidez */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    /* Renderizado optimizado */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: high-quality;
+    image-rendering: -moz-crisp-edges;
+    /* Transformaciones GPU */
+    transform: translateZ(0) scale(1);
+    -webkit-transform: translateZ(0) scale(1);
+    /* Filtros para nitidez */
+    filter: contrast(1.05) brightness(1.02) saturate(1.04);
+    /* Performance */
+    will-change: transform, filter;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-perspective: 1000px;
+    perspective: 1000px;
+    /* Interpolación suave */
+    -ms-interpolation-mode: bicubic;
+    /* Evitar blur */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
 /* Texto de fondo muy sutil */
 .mala-male-experience::before {
     content: 'MALAMALA';
@@ -366,14 +395,25 @@
     }
     
     .modelo-img {
-        image-rendering: pixelated;
+        /* Máxima nitidez para pantallas ultra pequeñas */
+        image-rendering: -webkit-optimize-contrast;
         image-rendering: -moz-crisp-edges;
         image-rendering: crisp-edges;
-        transform: translateZ(0) scale(1.001);
-        filter: contrast(1.1) brightness(1.05) saturate(1.08);
-        will-change: transform;
+        image-rendering: pixelated;
+        transform: translateZ(0) scale(1);
+        filter: contrast(1.15) brightness(1.08) saturate(1.12) sharpen(1);
+        will-change: transform, filter;
         object-fit: cover;
-        object-position: center;
+        object-position: center top;
+        /* Optimización para PNG con transparencia */
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        /* Evitar blur en escalado */
+        -ms-interpolation-mode: nearest-neighbor;
+        /* Forzar aceleración GPU */
+        -webkit-transform: translateZ(0) scale(1);
+        -webkit-perspective: 1000px;
+        perspective: 1000px;
     }
     
     .mala-male-text {
@@ -435,13 +475,23 @@
     }
     
     .modelo-img {
+        /* Optimización para pantallas pequeñas intermedias */
         image-rendering: -webkit-optimize-contrast;
+        image-rendering: -moz-crisp-edges;
         image-rendering: crisp-edges;
-        transform: translateZ(0) scale(1.001);
-        filter: contrast(1.09) brightness(1.04) saturate(1.06);
-        will-change: transform;
+        transform: translateZ(0) scale(1);
+        filter: contrast(1.12) brightness(1.06) saturate(1.08) sharpen(0.8);
+        will-change: transform, filter;
         object-fit: cover;
-        object-position: center;
+        object-position: center top;
+        /* Prevenir pixelado excesivo */
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        -ms-interpolation-mode: bicubic;
+        /* Aceleración GPU */
+        -webkit-transform: translateZ(0) scale(1);
+        -webkit-perspective: 1000px;
+        perspective: 1000px;
     }
     
     .mala-male-text {
@@ -500,11 +550,23 @@
     }
     
     .modelo-img {
+        /* Optimización para iPhone SE y similares */
         image-rendering: -webkit-optimize-contrast;
-        image-rendering: crisp-edges;
-        transform: translateZ(0) scale(1.001);
-        filter: contrast(1.08) brightness(1.03) saturate(1.05);
-        will-change: transform;
+        image-rendering: high-quality;
+        image-rendering: -moz-crisp-edges;
+        transform: translateZ(0) scale(1);
+        filter: contrast(1.08) brightness(1.04) saturate(1.06) sharpen(0.6);
+        will-change: transform, filter;
+        object-fit: cover;
+        object-position: center top;
+        /* Mejor calidad de imagen */
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        -ms-interpolation-mode: bicubic;
+        /* GPU rendering */
+        -webkit-transform: translateZ(0) scale(1);
+        -webkit-perspective: 1000px;
+        perspective: 1000px;
     }
     
     .mala-male-text {
@@ -556,11 +618,23 @@
     }
     
     .modelo-img {
+        /* Optimización para iPhone 6/7/8 */
         image-rendering: -webkit-optimize-contrast;
-        image-rendering: crisp-edges;
-        transform: translateZ(0) scale(1.001);
-        filter: contrast(1.06) brightness(1.02) saturate(1.04);
-        will-change: transform;
+        image-rendering: high-quality;
+        image-rendering: -webkit-crisp-edges;
+        transform: translateZ(0) scale(1);
+        filter: contrast(1.06) brightness(1.03) saturate(1.05) sharpen(0.4);
+        will-change: transform, filter;
+        object-fit: cover;
+        object-position: center top;
+        /* Calidad superior */
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        -ms-interpolation-mode: bicubic;
+        /* Renderizado suave */
+        -webkit-transform: translateZ(0) scale(1);
+        -webkit-perspective: 1000px;
+        perspective: 1000px;
     }
     
     .mala-male-text {
@@ -612,11 +686,23 @@
     }
     
     .modelo-img {
+        /* Optimización para pantallas grandes móviles */
         image-rendering: -webkit-optimize-contrast;
-        image-rendering: crisp-edges;
-        transform: translateZ(0) scale(1.001);
-        filter: contrast(1.04) brightness(1.01) saturate(1.02);
-        will-change: transform;
+        image-rendering: high-quality;
+        image-rendering: auto;
+        transform: translateZ(0) scale(1);
+        filter: contrast(1.04) brightness(1.02) saturate(1.03) sharpen(0.2);
+        will-change: transform, filter;
+        object-fit: cover;
+        object-position: center top;
+        /* Máxima calidad para pantallas grandes */
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        -ms-interpolation-mode: bicubic;
+        /* Renderizado premium */
+        -webkit-transform: translateZ(0) scale(1);
+        -webkit-perspective: 1000px;
+        perspective: 1000px;
     }
     
     .mala-male-text {
