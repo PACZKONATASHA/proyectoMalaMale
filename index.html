@@ -10,11 +10,16 @@
     <meta name="theme-color" content="#000000">
     <meta name="msapplication-navbutton-color" content="#000000">
     <title>MalaMale - Peluquería Unisex</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/carousel.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/whatsapp-flotante.css">
     <link rel="stylesheet" href="css/mala-male-experience.css">
+    <link rel="stylesheet" href="css/bootstrap-carousel-custom.css">
     <link rel="stylesheet" href="css/labor-day-sale.css">
     <link rel="stylesheet" href="css/popular-services.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -52,109 +57,145 @@
         </nav>
     </header>
 
-    <!-- Carrusel Principal -->
+    <!-- Carrusel Principal Bootstrap -->
     <section id="inicio" class="hero-carousel">
-        <div class="carousel-container">
-            <div class="carousel-slide active">
-                <div class="mala-male-experience">
-                    <div class="mala-male-content">
-                        <div class="mala-male-text">
-                            <div class="mala-male-experience-title">EXPERIENCE</div>
-                            <a href="traramientos.html" class="mala-male-btn">SHOP COLLECTION</a>
+        <div id="malaMaleCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+            <!-- Indicadores -->
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#malaMaleCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#malaMaleCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#malaMaleCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#malaMaleCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+            </div>
+
+            <!-- Slides del Carrusel -->
+            <div class="carousel-inner">
+                <!-- Slide 1: EXPERIENCE -->
+                <div class="carousel-item active">
+                    <div class="mala-male-experience d-flex align-items-center">
+                        <div class="container-fluid h-100">
+                            <div class="row h-100 align-items-center">
+                                <!-- Texto - Orden 2 en mobile, 1 en desktop -->
+                                <div class="col-12 col-md-6 order-2 order-md-1 mala-male-text-col">
+                                    <div class="mala-male-text p-3 p-md-5">
+                                        <h1 class="mala-male-experience-title display-1 fw-bold text-dark mb-3">EXPERIENCE</h1>
+                                        <a href="traramientos.html" class="btn btn-dark btn-lg px-4 py-2 mala-male-btn">SHOP COLLECTION</a>
+                                    </div>
+                                </div>
+                                <!-- Imagen - Orden 1 en mobile, 2 en desktop -->
+                                <div class="col-12 col-md-6 order-1 order-md-2 mala-male-image-col">
+                                    <div class="mala-male-image text-center">
+                                        <img src="img/foto.sin fondo.png" 
+                                             alt="Natasha - MalaMale Experience" 
+                                             class="img-fluid modelo-img"
+                                             loading="eager"
+                                             decoding="sync"
+                                             fetchpriority="high"
+                                             style="max-height: 80vh; object-fit: contain;">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="mala-male-image">
-                            <div class="mala-male-model">
-                                <img src="img/foto.sin fondo.png" 
-                                     alt="Natasha - MalaMale Experience" 
-                                     class="modelo-img"
-                                     loading="eager"
-                                     decoding="sync"
-                                     fetchpriority="high">
+                    </div>
+                </div>
+
+                <!-- Slide 2: Nuestro Espacio -->
+                <div class="carousel-item">
+                    <div class="position-relative vh-100 d-flex align-items-center">
+                        <img src="img/Captura de pantalla 2025-10-14 145204.png" 
+                             class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover" 
+                             alt="Interior de MalaMale Peluquería - Ambiente elegante">
+                        <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50"></div>
+                        <div class="container position-relative z-1">
+                            <div class="row justify-content-center text-center">
+                                <div class="col-12 col-md-8 col-lg-6">
+                                    <h1 class="display-2 fw-bold text-white mb-4">Nuestro Espacio</h1>
+                                    <p class="lead text-white mb-4">Un ambiente moderno y acogedor diseñado para tu comodidad y relajación</p>
+                                    <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
+                                        <a href="traramientos.html" class="btn btn-warning btn-lg px-4">Ver Servicios</a>
+                                        <a href="#contacto" class="btn btn-outline-light btn-lg px-4">Reservar Cita</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 3: Oferta Especial -->
+                <div class="carousel-item">
+                    <div class="position-relative vh-100 d-flex align-items-center bg-gradient" style="background: linear-gradient(135deg, #ffd700, #ffed4e, #fff59d);">
+                        <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center opacity-10">
+                            <i class="fas fa-gift" style="font-size: 20rem; color: #fff;"></i>
+                        </div>
+                        <div class="container position-relative z-1">
+                            <div class="row justify-content-center text-center">
+                                <div class="col-12 col-md-8 col-lg-6">
+                                    <div class="bg-dark text-warning px-3 py-2 rounded-pill d-inline-block mb-4">
+                                        <i class="fas fa-star me-2"></i>¡OFERTA ESPECIAL!<i class="fas fa-star ms-2"></i>
+                                    </div>
+                                    <div class="mb-4">
+                                        <span class="display-1 fw-bold text-dark">10%</span>
+                                        <h2 class="h1 text-dark">de Descuento</h2>
+                                    </div>
+                                    <div class="row g-3 mb-4">
+                                        <div class="col-sm-6">
+                                            <div class="d-flex align-items-center justify-content-center">
+                                                <i class="fas fa-money-bill-wave text-success me-2 fs-4"></i>
+                                                <span class="text-dark fw-semibold">Pagando en Efectivo</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="d-flex align-items-center justify-content-center">
+                                                <i class="fas fa-user-check text-primary me-2 fs-4"></i>
+                                                <span class="text-dark fw-semibold">Asesoramiento Personalizado</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="text-dark mb-4">Válido en todos nuestros servicios • Atención profesional garantizada</p>
+                                    <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
+                                        <a href="traramientos.html" class="btn btn-dark btn-lg px-4">¡Reservar Ahora!</a>
+                                        <a href="#contacto" class="btn btn-outline-dark btn-lg px-4">Más Información</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 4: Experiencia MalaMale -->
+                <div class="carousel-item">
+                    <div class="position-relative vh-100 d-flex align-items-center bg-dark">
+                        <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center opacity-20">
+                            <i class="fas fa-play-circle text-warning" style="font-size: 15rem;"></i>
+                        </div>
+                        <div class="container position-relative z-1">
+                            <div class="row justify-content-center text-center">
+                                <div class="col-12 col-md-8 col-lg-6">
+                                    <h1 class="display-2 fw-bold text-white mb-4">Experiencia MalaMale</h1>
+                                    <p class="lead text-white-50 mb-4">Vive la experiencia completa en nuestra peluquería</p>
+                                    <div class="mb-4">
+                                        <i class="fas fa-cut text-warning fs-1 me-3"></i>
+                                        <i class="fas fa-palette text-warning fs-1 me-3"></i>
+                                        <i class="fas fa-spa text-warning fs-1"></i>
+                                    </div>
+                                    <a href="#contacto" class="btn btn-warning btn-lg px-5">Contactános</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            
-            <div class="carousel-slide">
-                <img src="img/Captura de pantalla 2025-10-14 145204.png" alt="Interior de MalaMale Peluquería - Ambiente elegante">
-                <div class="carousel-content">
-                    <h1>Nuestro Espacio</h1>
-                    <p>Un ambiente moderno y acogedor diseñado para tu comodidad y relajación</p>
-                    <div class="hero-buttons">
-                        <a href="traramientos.html" class="btn-gold">Ver Servicios</a>
-                        <a href="#contacto" class="btn-secondary">Reservar Cita</a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="carousel-slide">
-                <div class="promo-slide">
-                    <div class="promo-background">
-                        <i class="fas fa-gift"></i>
-                        <i class="fas fa-percent"></i>
-                        <i class="fas fa-sparkles"></i>
-                    </div>
-                </div>
-                <div class="carousel-content promo-content">
-                    <div class="promo-badge">¡OFERTA ESPECIAL!</div>
-                    <h1 class="promo-title">
-                        <span class="discount-number">10%</span>
-                        <span class="discount-text">de Descuento</span>
-                    </h1>
-                    <div class="promo-details">
-                        <div class="promo-item">
-                            <i class="fas fa-money-bill-wave"></i>
-                            <span>Pagando en Efectivo</span>
-                        </div>
-                        <div class="promo-item">
-                            <i class="fas fa-user-check"></i>
-                            <span>Asesoramiento Personalizado</span>
-                        </div>
-                    </div>
-                    <p class="promo-description">Válido en todos nuestros servicios • Atención profesional garantizada</p>
-                    <div class="hero-buttons">
-                        <a href="traramientos.html" class="btn-gold promo-btn">¡Reservar Ahora!</a>
-                        <a href="#contacto" class="btn-secondary">Más Información</a>
-                    </div>
-                </div>
-            </div>
 
-            <div class="carousel-slide video-slide">
-                <video muted loop>
-                    <source src="img/salon-video.mp4" type="video/mp4">
-                    <!-- Placeholder para video publicitario -->
-                </video>
-                <div class="placeholder-video">
-                    <i class="fas fa-play-circle"></i>
-                    <h2>Video Publicitario</h2>
-                    <p>Agrega aquí tu video promocional</p>
-                </div>
-                <div class="carousel-content">
-                    <h1>Experiencia MalaMale</h1>
-                    <p>Vive la experiencia completa en nuestra peluquería</p>
-                    <div class="hero-buttons">
-                        <a href="#contacto" class="btn-gold">Contactános</a>
-                    </div>
-                </div>
-            </div>
+            <!-- Controles del Carrusel -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#malaMaleCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#malaMaleCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
-        
-        <!-- Indicadores del carrusel - OCULTOS -->
-        <div class="carousel-indicators" style="display: none;">
-            <button class="indicator active" data-slide="0"></button>
-            <button class="indicator" data-slide="1"></button>
-            <button class="indicator" data-slide="2"></button>
-            <button class="indicator" data-slide="3"></button>
-        </div>
-        
-        <!-- Controles del carrusel - OCULTOS -->
-        <button class="carousel-control prev" onclick="changeSlide(-1)" style="display: none;">
-            <i class="fas fa-chevron-left"></i>
-        </button>
-        <button class="carousel-control next" onclick="changeSlide(1)" style="display: none;">
-            <i class="fas fa-chevron-right"></i>
-        </button>
     </section>
 
     <!-- Shop Our Popular Services Gallery -->
@@ -605,8 +646,11 @@
         </a>
     </div>
 
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    
     <script src="js/script.js"></script>
-    <!-- <script src="js/carousel.js"></script> --> <!-- Carrusel desactivado para hacerlo fijo -->
+    <!-- <script src="js/carousel.js"></script> --> <!-- Carrusel desactivado - Ahora usando Bootstrap -->
     <script src="js/comentarios.js"></script>
     <script src="js/navegacion-gps.js"></script>    <script src="js/gallery-modal.js"></script>
     <script src="js/responsive.js"></script>
