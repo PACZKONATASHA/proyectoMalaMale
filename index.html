@@ -2,7 +2,11 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <title>MalaMale - Peluquería Unisex</title>
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/carousel.css">
@@ -58,7 +62,12 @@
                         </div>
                         <div class="mala-male-image">
                             <div class="mala-male-model">
-                                <img src="img/foto.sin fondo.png" alt="Natasha - MalaMale" class="modelo-img">
+                                <img src="img/foto.sin fondo.png" 
+                                     alt="Natasha - MalaMale Experience" 
+                                     class="modelo-img"
+                                     loading="eager"
+                                     decoding="sync"
+                                     fetchpriority="high">
                             </div>
                         </div>
                     </div>
@@ -594,55 +603,10 @@
         </a>
     </div>
 
-    <!-- Botón de modo nocturno -->
-    <div id="modoNocturno" class="modo-nocturno-flotante">
-        <button class="modo-nocturno-btn" onclick="toggleModoNocturno()" title="Cambiar modo">
-            <i class="fas fa-moon" id="iconoModo"></i>
-            <span class="modo-texto">Modo Oscuro</span>
-        </button>
-    </div>
-
     <script src="js/script.js"></script>
     <!-- <script src="js/carousel.js"></script> --> <!-- Carrusel desactivado para hacerlo fijo -->
     <script src="js/comentarios.js"></script>
-    <script src="js/navegacion-gps.js"></script>
-    <script src="js/gallery-modal.js"></script>
-
-    
-    <!-- Script para modo nocturno -->
-    <script>
-        // Función para toggle del modo nocturno
-        function toggleModoNocturno() {
-            const body = document.body;
-            const icono = document.getElementById('iconoModo');
-            const textoModo = document.querySelector('.modo-texto');
-            
-            body.classList.toggle('modo-nocturno');
-            
-            if (body.classList.contains('modo-nocturno')) {
-                icono.className = 'fas fa-sun';
-                textoModo.textContent = 'Modo Claro';
-                localStorage.setItem('modoNocturno', 'true');
-            } else {
-                icono.className = 'fas fa-moon';
-                textoModo.textContent = 'Modo Oscuro';
-                localStorage.setItem('modoNocturno', 'false');
-            }
-        }
-        
-        // Cargar preferencia guardada al cargar la página
-        document.addEventListener('DOMContentLoaded', function() {
-            const modoGuardado = localStorage.getItem('modoNocturno');
-            const icono = document.getElementById('iconoModo');
-            const textoModo = document.querySelector('.modo-texto');
-            
-            if (modoGuardado === 'true') {
-                document.body.classList.add('modo-nocturno');
-                icono.className = 'fas fa-sun';
-                textoModo.textContent = 'Modo Claro';
-            }
-        });
-    </script>
+    <script src="js/navegacion-gps.js"></script>    <script src="js/gallery-modal.js"></script>
     <script src="js/responsive.js"></script>
 </body>
 </html>

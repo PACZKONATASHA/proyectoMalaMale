@@ -170,34 +170,189 @@
     z-index: 3;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+/* Responsive - Mobile First Approach */
+@media (max-width: 1024px) {
+    .mala-male-experience {
+        min-height: 500px;
+        height: auto;
+        padding: 20px 0;
+    }
+    
     .mala-male-content {
         flex-direction: column;
+        gap: 0;
+    }
+    
+    .mala-male-image {
+        flex: 0 0 350px;
+        order: 1;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+    
+    .mala-male-model {
+        width: 100%;
+        max-width: 300px;
+        height: 350px;
+        position: relative;
+    }
+    
+    .modelo-img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+        position: static;
+        /* Optimización para nitidez en móvil */
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+        backface-visibility: hidden;
+        transform: translateZ(0);
     }
     
     .mala-male-text {
         flex: none;
-        padding: 5% 8%;
+        order: 2;
+        padding: 20px 5% 40px;
         text-align: center;
-        order: 2; /* Texto abajo en móvil */
-    }
-    
-    .mala-male-image {
-        flex: 1;
-        order: 1; /* Imagen arriba en móvil */
-    }
-    
-    .mala-male-model {
-        clip-path: none;
     }
     
     .mala-male-experience-title {
-        transform: skew(-1deg); /* Inclinación más sutil en móvil */
+        font-size: clamp(36px, 8vw, 52px);
+        transform: none;
+        margin-bottom: 10px;
     }
     
-    .mala-male-brand {
-        transform: skew(-1deg); /* Inclinación más sutil en móvil para la marca */
-        text-shadow: 0 2px 4px rgba(212, 175, 55, 0.4);
+    .mala-male-btn {
+        padding: 15px 35px;
+        font-size: 13px;
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .mala-male-experience {
+        min-height: 450px;
+        padding: 15px 0;
+    }
+    
+    .mala-male-experience::before {
+        font-size: clamp(80px, 12vw, 120px);
+        opacity: 0.02; /* Más sutil en móvil */
+    }
+    
+    .mala-male-image {
+        flex: 0 0 300px;
+        padding: 15px;
+    }
+    
+    .mala-male-model {
+        max-width: 280px;
+        height: 300px;
+    }
+    
+    .modelo-img {
+        /* Máxima nitidez para móvil */
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: -moz-crisp-edges;
+        image-rendering: pixelated;
+        transform: translateZ(0) scale(1.001); /* Micro-scale para anti-aliasing */
+        filter: contrast(1.05) brightness(1.02); /* Mejora visual sutil */
+    }
+    
+    .mala-male-text {
+        padding: 15px 8% 30px;
+    }
+    
+    .mala-male-experience-title {
+        font-size: clamp(32px, 7vw, 44px);
+        margin-bottom: 8px;
+    }
+    
+    .mala-male-btn {
+        padding: 12px 28px;
+        font-size: 12px;
+        margin-top: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .mala-male-experience {
+        min-height: 400px;
+        padding: 10px 0;
+    }
+    
+    .mala-male-image {
+        flex: 0 0 250px;
+        padding: 10px;
+    }
+    
+    .mala-male-model {
+        max-width: 220px;
+        height: 250px;
+    }
+    
+    .modelo-img {
+        /* Optimización extrema para pantallas pequeñas */
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+        transform: translateZ(0) scale(1.002);
+        filter: contrast(1.08) brightness(1.03) saturate(1.05) drop-shadow(0 2px 8px rgba(0,0,0,0.1));
+    }
+    
+    .mala-male-text {
+        padding: 10px 6% 25px;
+    }
+    
+    .mala-male-experience-title {
+        font-size: clamp(28px, 6vw, 38px);
+        margin-bottom: 6px;
+    }
+    
+    .mala-male-btn {
+        padding: 10px 24px;
+        font-size: 11px;
+        margin-top: 12px;
+    }
+}
+
+@media (max-width: 360px) {
+    .mala-male-experience {
+        min-height: 350px;
+    }
+    
+    .mala-male-image {
+        flex: 0 0 200px;
+        padding: 8px;
+    }
+    
+    .mala-male-model {
+        max-width: 180px;
+        height: 200px;
+    }
+    
+    .modelo-img {
+        /* Máxima optimización para pantallas muy pequeñas */
+        image-rendering: -webkit-optimize-contrast;
+        transform: translateZ(0) scale(1.003);
+        filter: contrast(1.1) brightness(1.04) saturate(1.08);
+        will-change: transform;
+    }
+    
+    .mala-male-text {
+        padding: 8px 5% 20px;
+    }
+    
+    .mala-male-experience-title {
+        font-size: clamp(24px, 5.5vw, 32px);
+    }
+    
+    .mala-male-btn {
+        padding: 8px 20px;
+        font-size: 10px;
+        margin-top: 10px;
     }
 }
