@@ -170,33 +170,32 @@
     z-index: 3;
 }
 
-/* Responsive - Mobile First Approach */
+/* Responsive - Mantener layout horizontal */
 @media (max-width: 1024px) {
     .mala-male-experience {
-        min-height: 500px;
-        height: auto;
-        padding: 20px 0;
+        min-height: 400px;
+        height: 100vh;
+        padding: 10px 0;
     }
     
     .mala-male-content {
-        flex-direction: column;
-        gap: 0;
+        flex-direction: row-reverse; /* Mantener imagen izquierda, texto derecha */
+        gap: 10px;
+        padding: 0 15px;
     }
     
     .mala-male-image {
-        flex: 0 0 350px;
-        order: 1;
-        width: 100%;
+        flex: 0 0 45%; /* Imagen ocupa 45% del ancho */
+        height: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 20px;
+        padding: 10px;
     }
     
     .mala-male-model {
         width: 100%;
-        max-width: 300px;
-        height: 350px;
+        height: 80%;
         position: relative;
     }
     
@@ -204,7 +203,7 @@
         width: 100%;
         height: 100%;
         object-fit: contain;
-        object-position: center;
+        object-position: center left;
         position: static;
         /* Optimización para nitidez en móvil */
         image-rendering: -webkit-optimize-contrast;
@@ -214,44 +213,53 @@
     }
     
     .mala-male-text {
-        flex: none;
-        order: 2;
-        padding: 20px 5% 40px;
-        text-align: center;
+        flex: 1; /* Texto ocupa el resto del espacio */
+        padding: 20px 15px;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
     
     .mala-male-experience-title {
-        font-size: clamp(36px, 8vw, 52px);
+        font-size: clamp(28px, 6vw, 42px);
         transform: none;
-        margin-bottom: 10px;
+        margin-bottom: 15px;
+        line-height: 1;
     }
     
     .mala-male-btn {
-        padding: 15px 35px;
-        font-size: 13px;
-        margin-top: 20px;
+        padding: 12px 25px;
+        font-size: 11px;
+        margin-top: 15px;
+        align-self: flex-start;
     }
 }
 
 @media (max-width: 768px) {
     .mala-male-experience {
-        min-height: 450px;
-        padding: 15px 0;
+        min-height: 350px;
+        height: 100vh;
+        padding: 5px 0;
     }
     
     .mala-male-experience::before {
-        font-size: clamp(80px, 12vw, 120px);
-        opacity: 0.02; /* Más sutil en móvil */
+        font-size: clamp(60px, 10vw, 100px);
+        opacity: 0.015; /* Más sutil en móvil */
+    }
+    
+    .mala-male-content {
+        padding: 0 10px;
+        gap: 5px;
     }
     
     .mala-male-image {
-        flex: 0 0 300px;
-        padding: 15px;
+        flex: 0 0 42%; /* Imagen más compacta */
+        padding: 5px;
     }
     
     .mala-male-model {
-        max-width: 280px;
-        height: 300px;
+        height: 75%;
     }
     
     .modelo-img {
@@ -264,35 +272,41 @@
     }
     
     .mala-male-text {
-        padding: 15px 8% 30px;
+        padding: 10px 8px;
     }
     
     .mala-male-experience-title {
-        font-size: clamp(32px, 7vw, 44px);
+        font-size: clamp(24px, 5.5vw, 36px);
         margin-bottom: 8px;
+        line-height: 0.9;
     }
     
     .mala-male-btn {
-        padding: 12px 28px;
-        font-size: 12px;
-        margin-top: 15px;
+        padding: 10px 20px;
+        font-size: 10px;
+        margin-top: 12px;
     }
 }
 
 @media (max-width: 480px) {
     .mala-male-experience {
-        min-height: 400px;
-        padding: 10px 0;
+        min-height: 300px;
+        height: 100vh;
+        padding: 5px 0;
+    }
+    
+    .mala-male-content {
+        padding: 0 8px;
+        gap: 3px;
     }
     
     .mala-male-image {
-        flex: 0 0 250px;
-        padding: 10px;
+        flex: 0 0 40%; /* Imagen ocupa 40% */
+        padding: 5px;
     }
     
     .mala-male-model {
-        max-width: 220px;
-        height: 250px;
+        height: 70%;
     }
     
     .modelo-img {
@@ -304,34 +318,42 @@
     }
     
     .mala-male-text {
-        padding: 10px 6% 25px;
+        padding: 8px 5px;
+        flex: 1; /* Texto ocupa el resto del espacio (60%) */
     }
     
     .mala-male-experience-title {
-        font-size: clamp(28px, 6vw, 38px);
+        font-size: clamp(20px, 5vw, 28px);
         margin-bottom: 6px;
+        line-height: 0.85;
     }
     
     .mala-male-btn {
-        padding: 10px 24px;
-        font-size: 11px;
-        margin-top: 12px;
+        padding: 8px 16px;
+        font-size: 9px;
+        margin-top: 10px;
+        letter-spacing: 0.08em;
     }
 }
 
 @media (max-width: 360px) {
     .mala-male-experience {
-        min-height: 350px;
+        min-height: 280px;
+        height: 100vh;
+    }
+    
+    .mala-male-content {
+        padding: 0 5px;
+        gap: 2px;
     }
     
     .mala-male-image {
-        flex: 0 0 200px;
-        padding: 8px;
+        flex: 0 0 38%; /* Imagen más compacta */
+        padding: 3px;
     }
     
     .mala-male-model {
-        max-width: 180px;
-        height: 200px;
+        height: 65%;
     }
     
     .modelo-img {
@@ -343,16 +365,20 @@
     }
     
     .mala-male-text {
-        padding: 8px 5% 20px;
+        padding: 5px 3px;
+        flex: 1; /* Texto ocupa 62% del espacio */
     }
     
     .mala-male-experience-title {
-        font-size: clamp(24px, 5.5vw, 32px);
+        font-size: clamp(16px, 4.5vw, 24px);
+        margin-bottom: 4px;
+        line-height: 0.8;
     }
     
     .mala-male-btn {
-        padding: 8px 20px;
-        font-size: 10px;
-        margin-top: 10px;
+        padding: 6px 12px;
+        font-size: 8px;
+        margin-top: 8px;
+        letter-spacing: 0.06em;
     }
 }
