@@ -1,112 +1,342 @@
-/* Estilos personalizados para el Navbar Bootstrap de MalaMale */
+/* Estilos minimalistas para el Navbar Bootstrap de MalaMale */
 
-/* Configuración general del navbar */
+/* Configuración general del navbar - Estilo minimalista */
 .navbar {
     transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
-    background: rgba(0, 0, 0, 0.95) !important;
-    border-bottom: 2px solid #ffd700;
-    min-height: 76px;
+    background: #ffffff !important;
+    border-bottom: 1px solid #e8e8e8;
+    min-height: 70px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    position: relative;
+    z-index: 1030;
 }
 
-/* Efecto al hacer scroll */
-.navbar.scrolled {
-    background: rgba(0, 0, 0, 0.98) !important;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+/* Mejora para evitar overflow en móviles */
+.navbar-collapse {
+    position: static;
 }
 
-/* Logo personalizado */
+@media (max-width: 991.98px) {
+    .navbar {
+        position: relative;
+    }
+    
+    .navbar-collapse {
+        position: absolute !important;
+        top: 100% !important;
+        left: 0 !important;
+        right: 0 !important;
+        background: #ffffff !important;
+        border: 1px solid #e8e8e8 !important;
+        border-top: none !important;
+        border-radius: 0 0 8px 8px !important;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+        z-index: 1050 !important;
+        padding: 0.5rem 0 !important;
+        margin: 0 !important;
+        max-height: 80vh !important;
+        overflow-y: auto !important;
+    }
+}
+
+/* Logo minimalista */
 .navbar-brand {
-    font-family: 'Playfair Display', serif;
-    font-weight: 900 !important;
-    letter-spacing: 1px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500 !important;
+    letter-spacing: 0.5px;
     text-decoration: none !important;
     transition: all 0.3s ease;
-    font-size: 1.8rem !important;
+    font-size: 1.5rem !important;
+    color: #2c2c2c !important;
 }
 
 .navbar-brand:hover {
-    transform: scale(1.05);
-    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    color: #000 !important;
 }
 
-/* Toggler button personalizado */
+/* Toggler button minimalista */
 .navbar-toggler {
     padding: 0.25rem 0.5rem;
-    border: 2px solid #ffd700 !important;
-    border-radius: 8px;
+    border: 1px solid #ddd !important;
+    border-radius: 4px;
     transition: all 0.3s ease;
 }
 
 .navbar-toggler:hover {
-    background-color: rgba(255, 215, 0, 0.1);
-    border-color: #ffd700 !important;
-    transform: scale(1.05);
+    background-color: #f8f9fa;
+    border-color: #bbb !important;
 }
 
 .navbar-toggler:focus {
-    box-shadow: 0 0 0 0.25rem rgba(255, 215, 0, 0.25);
+    box-shadow: 0 0 0 0.25rem rgba(0, 0, 0, 0.1);
 }
 
 .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23ffd700' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='m4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
-    width: 24px;
-    height: 24px;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23666' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='m4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+    width: 20px;
+    height: 20px;
 }
 
-/* Navbar links personalizados */
+/* Navbar links minimalistas */
 .navbar-nav .nav-link {
     font-family: 'Inter', sans-serif;
-    font-weight: 500;
-    color: #ffffff !important;
+    font-weight: 400;
+    color: #666 !important;
     transition: all 0.3s ease;
     position: relative;
     text-decoration: none;
-    white-space: nowrap;
+    padding: 0.5rem 1rem !important;
+    margin: 0 0.25rem;
 }
 
 .navbar-nav .nav-link:hover {
-    color: #ffd700 !important;
-    background-color: rgba(255, 215, 0, 0.1) !important;
-    transform: translateY(-2px);
+    color: #2c2c2c !important;
 }
 
 .navbar-nav .nav-link.active {
-    color: #ffd700 !important;
-    background-color: rgba(255, 215, 0, 0.15) !important;
-    font-weight: 600;
+    color: #2c2c2c !important;
+    font-weight: 500;
 }
 
-/* Iconos en los links */
+/* Remover iconos para estilo minimalista */
 .navbar-nav .nav-link i {
-    font-size: 0.9em;
-    opacity: 0.8;
-    transition: opacity 0.3s ease;
+    display: none;
 }
 
-.navbar-nav .nav-link:hover i {
-    opacity: 1;
+/* Línea dorada debajo del logo */
+.navbar-brand::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background: #d4af37;
 }
 
-/* Botón CTA personalizado */
+/* Efecto hover sutil para desktop */
+@media (min-width: 992px) {
+    .navbar-nav .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: 5px;
+        left: 50%;
+        width: 0;
+        height: 1px;
+        background: #d4af37;
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+    }
+    
+    .navbar-nav .nav-link:hover::after,
+    .navbar-nav .nav-link.active::after {
+        width: 60%;
+    }
+}
+
+/* Botón CTA minimalista - OCULTO */
 .btn-warning {
-    background: linear-gradient(135deg, #ffd700, #ffed4e) !important;
-    border: none !important;
-    color: #000 !important;
-    font-weight: 700 !important;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+    display: none !important;
 }
 
-.btn-warning:hover {
-    background: linear-gradient(135deg, #ffed4e, #fff59d) !important;
-    color: #000 !important;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+/* Responsive Design Minimalista */
+
+/* Extra Small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+    .navbar-brand {
+        font-size: 1.2rem !important;
+    }
+    
+    .navbar-collapse {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #ffffff;
+        border: 1px solid #e8e8e8;
+        border-top: none;
+        border-radius: 0 0 8px 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        z-index: 1050;
+        padding: 0.5rem 0;
+        margin: 0;
+        max-height: 80vh;
+        overflow-y: auto;
+    }
+    
+    .navbar-nav {
+        padding: 0 0.75rem;
+    }
+    
+    .navbar-nav .nav-link {
+        padding: 0.65rem 0.75rem !important;
+        margin: 0.15rem 0 !important;
+        border-radius: 6px;
+        text-align: left;
+        border: 1px solid #f0f0f0;
+        font-size: 0.95rem;
+        background: #fafafa;
+    }
+    
+    .navbar-nav .nav-link:hover {
+        background-color: #f0f0f0;
+        border-color: #d4af37;
+        transform: translateX(3px);
+    }
+    
+    .navbar-nav .nav-link.active {
+        background-color: #fff8e1;
+        border-color: #d4af37;
+        color: #2c2c2c !important;
+        font-weight: 500;
+    }
+    
+    .container-fluid {
+        padding-left: 0.75rem !important;
+        padding-right: 0.75rem !important;
+    }
 }
 
-.btn-warning:active {
-    transform: translateY(0);
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .navbar-brand {
+        font-size: 1.3rem !important;
+    }
+    
+    .navbar-nav .nav-link {
+        padding: 0.6rem 0 !important;
+        text-align: left;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .navbar-brand {
+        font-size: 1.4rem !important;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .navbar-nav .nav-link {
+        padding: 0.5rem 1rem !important;
+        margin: 0 0.5rem !important;
+    }
+}
+
+/* Optimizaciones para pantallas específicas */
+@media (max-width: 180px) {
+    .navbar-brand {
+        font-size: 0.9rem !important;
+        letter-spacing: 0;
+    }
+    
+    .container-fluid {
+        padding-left: 0.25rem !important;
+        padding-right: 0.25rem !important;
+    }
+    
+    .navbar-collapse {
+        left: -5px;
+        right: -5px;
+        padding: 0.25rem 0;
+    }
+    
+    .navbar-nav {
+        padding: 0 0.5rem;
+    }
+    
+    .navbar-nav .nav-link {
+        padding: 0.5rem 0.5rem !important;
+        margin: 0.1rem 0 !important;
+        font-size: 0.85rem;
+    }
+}
+
+@media (min-width: 181px) and (max-width: 254px) {
+    .navbar-brand {
+        font-size: 1rem !important;
+    }
+    
+    .container-fluid {
+        padding-left: 0.4rem !important;
+        padding-right: 0.4rem !important;
+    }
+    
+    .navbar-collapse {
+        left: -10px;
+        right: -10px;
+        padding: 0.4rem 0;
+    }
+    
+    .navbar-nav {
+        padding: 0 0.6rem;
+    }
+    
+    .navbar-nav .nav-link {
+        padding: 0.6rem 0.6rem !important;
+        margin: 0.12rem 0 !important;
+        font-size: 0.9rem;
+    }
+}
+
+@media (min-width: 255px) and (max-width: 360px) {
+    .navbar-brand {
+        font-size: 1.1rem !important;
+    }
+    
+    .container-fluid {
+        padding-left: 0.5rem !important;
+        padding-right: 0.5rem !important;
+    }
+    
+    .navbar-collapse {
+        left: -15px;
+        right: -15px;
+        padding: 0.5rem 0;
+    }
+    
+    .navbar-nav {
+        padding: 0 0.7rem;
+    }
+}
+
+@media (min-width: 361px) and (max-width: 575px) {
+    .navbar-brand {
+        font-size: 1.15rem !important;
+    }
+    
+    .navbar-collapse {
+        left: -20px;
+        right: -20px;
+        padding: 0.6rem 0;
+    }
+}
+
+/* Animación de entrada minimalista */
+.navbar-nav .nav-item {
+    animation: fadeIn 0.6s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Mejoras para accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+    .navbar,
+    .navbar-nav .nav-link {
+        transition: none;
+    }
+    
+    .navbar-nav .nav-item {
+        animation: none;
+    }
 }
 
 /* Animación de entrada para el menú colapsado */
@@ -116,6 +346,13 @@
 
 .navbar-collapse.show {
     animation: slideDown 0.3s ease;
+    max-height: 100vh;
+    overflow-y: auto;
+}
+
+.navbar-collapse.collapsing {
+    overflow: hidden;
+    transition: height 0.3s ease;
 }
 
 @keyframes slideDown {
@@ -126,6 +363,48 @@
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+/* Mejoras específicas para el menú móvil */
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #ffffff;
+        border: 1px solid #e8e8e8;
+        border-top: none;
+        border-radius: 0 0 8px 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        padding: 1rem 0;
+        margin: 0;
+    }
+    
+    .navbar-nav {
+        padding: 0 1rem;
+    }
+    
+    .navbar-nav .nav-link {
+        padding: 0.75rem 1rem !important;
+        margin: 0.25rem 0 !important;
+        border-radius: 6px;
+        text-align: left;
+        border: 1px solid transparent;
+        transition: all 0.3s ease;
+    }
+    
+    .navbar-nav .nav-link:hover {
+        background-color: #f8f9fa;
+        border-color: #e9ecef;
+    }
+    
+    .navbar-nav .nav-link.active {
+        background-color: #fff3cd;
+        border-color: #d4af37;
+        color: #2c2c2c !important;
     }
 }
 
