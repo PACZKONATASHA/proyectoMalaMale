@@ -405,8 +405,76 @@
     }
 }
 
+/* Optimización específica para pantallas pequeñas intermedias (254x464) */
+@media (min-width: 181px) and (max-width: 254px) and (max-height: 464px) {
+    .mala-male-experience {
+        min-height: 280px;
+        height: 100vh;
+        max-height: 464px;
+        overflow: hidden;
+    }
+    
+    .mala-male-content {
+        padding: 3px;
+        gap: 2px;
+        height: 100%;
+        min-height: 100%;
+    }
+    
+    .mala-male-image {
+        flex: 0 0 38%;
+        padding: 3px;
+        display: flex;
+        align-items: center;
+    }
+    
+    .mala-male-model {
+        height: 90%;
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .modelo-img {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+        transform: translateZ(0) scale(1.001);
+        filter: contrast(1.09) brightness(1.04) saturate(1.06);
+        will-change: transform;
+        object-fit: cover;
+        object-position: center;
+    }
+    
+    .mala-male-text {
+        padding: 6px 4px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 0;
+    }
+    
+    .mala-male-experience-title {
+        font-size: 15px;
+        margin-bottom: 4px;
+        line-height: 0.8;
+        font-weight: 800;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+    }
+    
+    .mala-male-btn {
+        padding: 5px 10px;
+        font-size: 7px;
+        margin-top: 6px;
+        letter-spacing: 0.06em;
+        min-height: 22px;
+        border-radius: 3px;
+        font-weight: bold;
+    }
+}
+
 /* Optimización específica para iPhone SE / Pequeños (360x640) */
-@media (min-width: 181px) and (max-width: 360px) and (max-height: 640px) {
+@media (min-width: 255px) and (max-width: 360px) and (max-height: 640px) {
     .mala-male-experience {
         min-height: 320px;
         height: 100vh;
@@ -624,7 +692,7 @@
 }
 
 /* Optimizaciones críticas para pantallas ultra pequeñas */
-@media screen and (max-width: 200px) {
+@media screen and (max-width: 254px) {
     /* Asegurar máxima eficiencia de espacio */
     * {
         box-sizing: border-box;
@@ -660,7 +728,7 @@
 }
 
 /* Optimizaciones generales para todos los móviles */
-@media screen and (min-width: 201px) and (max-width: 768px) {
+@media screen and (min-width: 255px) and (max-width: 768px) {
     /* Asegurar que el contenedor principal use todo el ancho */
     body {
         overflow-x: hidden;
