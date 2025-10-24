@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="css/whatsapp-flotante.css">
     <link rel="stylesheet" href="css/mala-male-experience.css">
     <link rel="stylesheet" href="css/bootstrap-carousel-custom.css">
+    <link rel="stylesheet" href="css/bootstrap-navbar-custom.css">
     <link rel="stylesheet" href="css/labor-day-sale.css">
     <link rel="stylesheet" href="css/popular-services.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -31,31 +32,71 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <nav class="navbar">
-            <div class="nav-container">
-                
-                <div class="logo">
-                    <span class="logo-text-rosado">MalaMale</span>
-                </div>
-                <ul class="nav-menu">
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="productos.html">Productos</a></li>
-                    <li><a href="servicios.html">Servicios</a></li>
-                    <li><a href="traramientos.html">Tratamientos</a></li>
-                    <li><a href="#galeria">Galería</a></li>
-                    <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
+    <!-- Bootstrap Navbar Responsivo -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow-lg">
+        <div class="container-fluid px-3 px-lg-5">
+            <!-- Logo/Brand -->
+            <a class="navbar-brand fw-bold fs-3" href="#inicio">
+                <span class="text-warning">Mala</span><span class="text-white">Male</span>
+            </a>
+
+            <!-- Toggler Button para móvil -->
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar Links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto me-4">
+                    <li class="nav-item">
+                        <a class="nav-link active px-3 py-2 mx-1 rounded-3" aria-current="page" href="#inicio">
+                            <i class="fas fa-home me-1"></i>Inicio
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3 py-2 mx-1 rounded-3" href="productos.html">
+                            <i class="fas fa-shopping-bag me-1"></i>Productos
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3 py-2 mx-1 rounded-3" href="servicios.html">
+                            <i class="fas fa-cut me-1"></i>Servicios
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3 py-2 mx-1 rounded-3" href="traramientos.html">
+                            <i class="fas fa-spa me-1"></i>Tratamientos
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3 py-2 mx-1 rounded-3" href="#galeria">
+                            <i class="fas fa-images me-1"></i>Galería
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3 py-2 mx-1 rounded-3" href="#sobre-nosotros">
+                            <i class="fas fa-users me-1"></i>Sobre Nosotros
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3 py-2 mx-1 rounded-3" href="#contacto">
+                            <i class="fas fa-phone me-1"></i>Contacto
+                        </a>
+                    </li>
                 </ul>
-                <div class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+
+                <!-- Botón CTA -->
+                <div class="d-flex">
+                    <a href="traramientos.html" class="btn btn-warning fw-bold px-3 py-2 rounded-pill text-dark">
+                        <i class="fas fa-calendar-plus me-1"></i>Reservar Cita
+                    </a>
                 </div>
             </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
+
+    <!-- Spacer para compensar navbar fixed -->
+    <div style="margin-top: 76px;"></div>
 
     <!-- Carrusel Principal Bootstrap -->
     <section id="inicio" class="hero-carousel">
@@ -651,6 +692,7 @@
     
     <script src="js/script.js"></script>
     <!-- <script src="js/carousel.js"></script> --> <!-- Carrusel desactivado - Ahora usando Bootstrap -->
+    <script src="js/bootstrap-navbar.js"></script>
     <script src="js/comentarios.js"></script>
     <script src="js/navegacion-gps.js"></script>    <script src="js/gallery-modal.js"></script>
     <script src="js/responsive.js"></script>
