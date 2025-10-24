@@ -108,14 +108,15 @@
 /* Responsive Design */
 @media (max-width: 968px) {
     .services-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 30px;
-        max-width: 600px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        max-width: 100%;
+        padding: 0 20px;
     }
     
     .service-image {
-        width: 220px;
-        height: 260px;
+        width: 100%;
+        height: 220px;
     }
 }
 
@@ -141,22 +142,55 @@
 
 @media (max-width: 480px) {
     .services-grid {
-        grid-template-columns: 1fr;
-        max-width: 300px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+        max-width: 100%;
+        padding: 0 10px;
     }
     
     .gallery-container {
-        padding: 0 15px;
+        padding: 0 10px;
     }
     
     .service-image {
-        width: 250px;
-        height: 300px;
+        width: 100%;
+        height: 180px;
+    }
+    
+    .service-label span {
+        font-size: 9px;
+        padding: 4px 8px;
+        letter-spacing: 0.1em;
     }
     
     .gallery-title {
-        font-size: 20px;
-        margin-bottom: 30px;
+        font-size: 18px;
+        margin-bottom: 25px;
+    }
+}
+
+@media (max-width: 360px) {
+    .services-grid {
+        gap: 8px;
+        padding: 0 5px;
+    }
+    
+    .service-image {
+        height: 160px;
+    }
+    
+    .service-label span {
+        font-size: 8px;
+        padding: 3px 6px;
+    }
+    
+    .gallery-title {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+    
+    .popular-services-gallery {
+        padding: 40px 0;
     }
 }
 
