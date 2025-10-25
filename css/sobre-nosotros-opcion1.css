@@ -67,12 +67,29 @@
     width: 100% !important;
     height: 100% !important; /* OCUPA TODA LA ALTURA DISPONIBLE */
     object-fit: cover !important;
-    object-position: center !important;
+    object-position: center center !important;
     display: block !important;
     flex: 1 !important; /* Toma todo el espacio disponible */
     border: none !important; /* SIN BORDES EN LA IMAGEN */
     outline: none !important; /* SIN OUTLINE EN LA IMAGEN */
     border-radius: 0 !important; /* SIN BORDES REDONDEADOS EN LA IMAGEN */
+    /* OPTIMIZACIÓN DE CALIDAD PARA TODAS LAS PANTALLAS */
+    image-rendering: -webkit-optimize-contrast !important;
+    image-rendering: crisp-edges !important;
+    image-rendering: high-quality !important;
+    image-rendering: auto !important;
+    /* ACELERACIÓN GPU PARA NITIDEZ */
+    transform: translateZ(0) scale(1.001) !important;
+    -webkit-transform: translateZ(0) scale(1.001) !important;
+    will-change: transform !important;
+    /* FILTROS BASE PARA CALIDAD */
+    filter: contrast(1.05) brightness(1.02) saturate(1.01) !important;
+    -webkit-filter: contrast(1.05) brightness(1.02) saturate(1.01) !important;
+    /* SUAVIZADO OPTIMIZADO */
+    -webkit-backface-visibility: hidden !important;
+    backface-visibility: hidden !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
 }
 
 /* Tipografía RESPONSIVE MEJORADA - PANTALLAS PEQUEÑAS OPTIMIZADA */
@@ -248,6 +265,38 @@
         max-width: 38% !important; /* Imagen compacta pero proporcional */
         height: auto !important; /* Altura automática */
     }
+    
+    /* IMAGEN OPTIMIZADA PARA MÓVILES 480px */
+    .sale-image img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center center !important;
+        display: block !important;
+        border: none !important;
+        outline: none !important;
+        border-radius: 0 !important;
+        /* CALIDAD OPTIMIZADA PARA MÓVILES MEDIANOS */
+        image-rendering: -webkit-optimize-contrast !important;
+        image-rendering: crisp-edges !important;
+        image-rendering: high-quality !important;
+        image-rendering: auto !important;
+        /* ACELERACIÓN GPU PARA NITIDEZ */
+        transform: translate3d(0, 0, 0) scale(1.0015) !important;
+        -webkit-transform: translate3d(0, 0, 0) scale(1.0015) !important;
+        will-change: transform !important;
+        /* FILTROS PARA MANTENER CALIDAD COMPUTADORA */
+        filter: contrast(1.06) brightness(1.03) saturate(1.02) !important;
+        -webkit-filter: contrast(1.06) brightness(1.03) saturate(1.02) !important;
+        /* SUAVIZADO OPTIMIZADO */
+        -webkit-backface-visibility: hidden !important;
+        backface-visibility: hidden !important;
+        -webkit-font-smoothing: antialiased !important;
+        -moz-osx-font-smoothing: grayscale !important;
+        /* OPTIMIZACIÓN ESPECÍFICA MÓVIL */
+        -webkit-tap-highlight-color: transparent !important;
+        -webkit-touch-callout: none !important;
+    }
 }
 
 /* Móviles muy pequeños - SIN SCROLL, TODO VISIBLE */
@@ -280,6 +329,40 @@
         max-width: 40% !important;
         height: auto !important;
         border-radius: 0 !important;
+    }
+    
+    /* IMAGEN OPTIMIZADA ESPECÍFICAMENTE PARA MÓVILES 400px */
+    .sale-image img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center center !important;
+        display: block !important;
+        border: none !important;
+        outline: none !important;
+        border-radius: 0 !important;
+        /* CALIDAD EXTREMA PARA MÓVILES - IGUAL QUE COMPUTADORA */
+        image-rendering: -webkit-optimize-contrast !important;
+        image-rendering: crisp-edges !important;
+        image-rendering: high-quality !important;
+        image-rendering: auto !important;
+        /* ACELERACIÓN GPU FORZADA PARA NITIDEZ */
+        transform: translate3d(0, 0, 0) scale(1.002) !important;
+        -webkit-transform: translate3d(0, 0, 0) scale(1.002) !important;
+        will-change: transform !important;
+        /* FILTROS INTENSIFICADOS PARA PANTALLAS PEQUEÑAS */
+        filter: contrast(1.08) brightness(1.04) saturate(1.03) unsharp-mask(1px, 1px, 0.7) !important;
+        -webkit-filter: contrast(1.08) brightness(1.04) saturate(1.03) !important;
+        /* SUAVIZADO PERFECTO */
+        -webkit-backface-visibility: hidden !important;
+        backface-visibility: hidden !important;
+        -webkit-font-smoothing: antialiased !important;
+        -moz-osx-font-smoothing: grayscale !important;
+        /* OPTIMIZACIÓN ESPECÍFICA MÓVIL */
+        -webkit-tap-highlight-color: transparent !important;
+        -webkit-touch-callout: none !important;
+        -webkit-user-select: none !important;
+        user-select: none !important;
     }
     
     /* Tipografía ultra compacta pero legible */
@@ -334,6 +417,44 @@
     
     .sale-image {
         flex: 1 1 35% !important; /* 35% para imagen */
+    }
+    
+    /* IMAGEN ULTRA OPTIMIZADA PARA PANTALLAS 320px */
+    .sale-image img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center center !important;
+        display: block !important;
+        border: none !important;
+        outline: none !important;
+        border-radius: 0 !important;
+        /* MÁXIMA CALIDAD PARA PANTALLAS EXTREMADAMENTE PEQUEÑAS */
+        image-rendering: -webkit-optimize-contrast !important;
+        image-rendering: crisp-edges !important;
+        image-rendering: high-quality !important;
+        image-rendering: auto !important;
+        image-rendering: pixelated !important; /* Fallback para máxima nitidez */
+        /* ACELERACIÓN GPU MÁXIMA */
+        transform: translate3d(0, 0, 0) scale(1.003) !important;
+        -webkit-transform: translate3d(0, 0, 0) scale(1.003) !important;
+        will-change: transform !important;
+        /* FILTROS MÁXIMOS PARA COMPENSAR PANTALLA PEQUEÑA */
+        filter: contrast(1.12) brightness(1.06) saturate(1.05) unsharp-mask(1.5px, 1.5px, 0.8) !important;
+        -webkit-filter: contrast(1.12) brightness(1.06) saturate(1.05) !important;
+        /* SUAVIZADO PERFECTO PARA PANTALLAS PEQUEÑAS */
+        -webkit-backface-visibility: hidden !important;
+        backface-visibility: hidden !important;
+        -webkit-font-smoothing: antialiased !important;
+        -moz-osx-font-smoothing: grayscale !important;
+        /* OPTIMIZACIÓN MÓVIL ESPECÍFICA */
+        -webkit-tap-highlight-color: transparent !important;
+        -webkit-touch-callout: none !important;
+        -webkit-user-select: none !important;
+        user-select: none !important;
+        /* FORZAR RENDERIZADO DE ALTA CALIDAD */
+        transform-style: preserve-3d !important;
+        -webkit-transform-style: preserve-3d !important;
     }
     
     /* Tipografía extremadamente compacta */
@@ -412,5 +533,50 @@
     .sale-image {
         flex-shrink: 1 !important;
         flex-grow: 1 !important;
+    }
+}
+
+/* OPTIMIZACIÓN ESPECIAL PARA PANTALLAS DE ALTA DENSIDAD (RETINA) */
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+       only screen and (min--moz-device-pixel-ratio: 2),
+       only screen and (-o-min-device-pixel-ratio: 2/1),
+       only screen and (min-device-pixel-ratio: 2),
+       only screen and (min-resolution: 192dpi),
+       only screen and (min-resolution: 2dppx) {
+    
+    .sale-image img {
+        /* CALIDAD EXTREMA PARA PANTALLAS RETINA */
+        image-rendering: -webkit-optimize-contrast !important;
+        image-rendering: crisp-edges !important;
+        image-rendering: high-quality !important;
+        image-rendering: auto !important;
+        /* ESCALA MÍNIMA PARA MÁXIMA NITIDEZ EN RETINA */
+        transform: translate3d(0, 0, 0) scale(1.0005) !important;
+        -webkit-transform: translate3d(0, 0, 0) scale(1.0005) !important;
+        /* FILTROS ESPECÍFICOS PARA RETINA */
+        filter: contrast(1.04) brightness(1.02) saturate(1.01) !important;
+        -webkit-filter: contrast(1.04) brightness(1.02) saturate(1.01) !important;
+        /* SUAVIZADO PERFECTO PARA RETINA */
+        -webkit-backface-visibility: hidden !important;
+        backface-visibility: hidden !important;
+        -webkit-font-smoothing: antialiased !important;
+        -moz-osx-font-smoothing: grayscale !important;
+        transform-style: preserve-3d !important;
+    }
+}
+
+/* OPTIMIZACIÓN ADICIONAL PARA DISPOSITIVOS MÓVILES WEBKIT */
+@media screen and (-webkit-min-device-pixel-ratio: 1) and (max-width: 768px) {
+    .sale-image img {
+        /* RENDERIZADO OPTIMIZADO ESPECÍFICO PARA WEBKIT MÓVIL */
+        -webkit-image-rendering: -webkit-optimize-contrast !important;
+        -webkit-image-rendering: crisp-edges !important;
+        /* ACELERACIÓN HARDWARE FORZADA */
+        -webkit-transform: translate3d(0, 0, 0) !important;
+        -webkit-will-change: transform !important;
+        /* CALIDAD ESPECÍFICA WEBKIT */
+        -webkit-filter: contrast(1.05) brightness(1.025) !important;
+        -webkit-backface-visibility: hidden !important;
+        -webkit-perspective: 1000px !important;
     }
 }
