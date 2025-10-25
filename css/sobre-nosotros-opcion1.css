@@ -257,24 +257,29 @@
 /* Móviles - IMAGEN COMPLETA */
 @media (max-width: 480px) {
     .sale-container {
-        padding: 0 0.5rem;
+        padding: 0 0.3rem; /* Reducido de 0.5rem a 0.3rem */
     }
     
     .sale-content {
-        min-height: 280px !important; /* Altura aumentada para mostrar imagen completa */
+        min-height: 150px !important; /* Reducido aún más de 200px a 150px */
         border-radius: 10px;
     }
     
     .sale-text {
         min-width: 140px !important;
-        max-width: 62% !important; /* Prioridad al contenido textual */
-        padding: 0.8rem;
+        max-width: 50% !important; /* Reducido de 62% a 50% para dar más espacio a imagen */
+        padding: 0.4rem; /* Reducido de 0.5rem a 0.4rem */
     }
     
     .sale-image {
         min-width: 180px !important;
-        max-width: 38% !important; /* Imagen compacta pero proporcional */
+        max-width: 50% !important; /* Aumentado de 38% a 50% para imagen más grande */
         height: auto !important; /* Altura automática */
+    }
+    
+    /* OCULTAR BOTÓN EN MÓVILES */
+    .shop-now-btn {
+        display: none !important; /* Eliminar completamente el botón */
     }
     
     /* IMAGEN OPTIMIZADA PARA MÓVILES 480px */
@@ -313,7 +318,7 @@
 /* Móviles muy pequeños - SIN SCROLL, TODO VISIBLE */
 @media (max-width: 400px) {
     .sale-container {
-        padding: 0 0.5rem; /* Sin overflow */
+        padding: 0 0.3rem; /* Reducido de 0.5rem a 0.3rem */
         width: 100%;
         box-sizing: border-box;
     }
@@ -321,23 +326,23 @@
     .sale-content {
         width: 100% !important; /* Ocupa todo el ancho disponible */
         min-width: auto !important; /* Sin ancho mínimo forzado */
-        min-height: 220px !important; /* Altura aumentada para imagen completa */
+        min-height: 120px !important; /* Reducido de 160px a 120px */
         border-radius: 8px;
         margin: 0;
     }
     
     .sale-text {
-        flex: 1 1 60% !important; /* 60% del espacio disponible */
+        flex: 1 1 45% !important; /* Reducido de 60% a 45% para dar más espacio a imagen */
         min-width: 0 !important; /* Sin ancho mínimo forzado */
-        max-width: 60% !important;
-        padding: 0.6rem;
+        max-width: 45% !important;
+        padding: 0.3rem; /* Reducido de 0.4rem a 0.3rem */
         box-sizing: border-box;
     }
     
     .sale-image {
-        flex: 1 1 40% !important; /* 40% del espacio disponible */
+        flex: 1 1 55% !important; /* Aumentado de 40% a 55% - IMAGEN MÁS GRANDE */
         min-width: 0 !important; /* Sin ancho mínimo forzado */
-        max-width: 40% !important;
+        max-width: 55% !important;
         height: auto !important;
         border-radius: 0 !important;
     }
@@ -402,32 +407,29 @@
     }
     
     .shop-now-btn {
-        padding: 0.4rem 0.7rem !important;
-        font-size: clamp(0.6rem, 3.5vw, 0.75rem) !important;
-        min-width: auto !important; /* Sin ancho mínimo */
-        border-radius: 20px !important;
+        display: none !important; /* BOTÓN ELIMINADO PARA 400px */
     }
 }
 
 /* Pantallas extremadamente pequeñas - TODO SE AJUSTA AUTOMÁTICAMENTE */
 @media (max-width: 320px) {
     .sale-container {
-        padding: 0 0.3rem; /* Padding mínimo */
+        padding: 0 0.2rem; /* Reducido de 0.3rem a 0.2rem */
     }
     
     .sale-content {
         width: 100% !important; /* Ocupa todo el ancho */
-        min-height: 200px !important; /* Altura aumentada para imagen completa */
+        min-height: 100px !important; /* Reducido de 140px a 100px */
         border-radius: 6px;
     }
     
     .sale-text {
-        flex: 1 1 65% !important; /* 65% para texto */
-        padding: 0.4rem;
+        flex: 1 1 40% !important; /* Reducido de 65% a 40% para imagen más grande */
+        padding: 0.25rem; /* Reducido de 0.3rem a 0.25rem */
     }
     
     .sale-image {
-        flex: 1 1 35% !important; /* 35% para imagen */
+        flex: 1 1 60% !important; /* Aumentado de 35% a 60% - IMAGEN DOMINANTE */
     }
     
     /* IMAGEN ULTRA OPTIMIZADA PARA PANTALLAS 320px */
@@ -491,20 +493,18 @@
     }
     
     .shop-now-btn {
-        padding: 0.3rem 0.5rem !important;
-        font-size: clamp(0.5rem, 4vw, 0.65rem) !important;
-        border-radius: 15px !important;
+        display: none !important; /* BOTÓN ELIMINADO PARA 320px */
     }
 }
 
 /* Para pantallas súper extremas (iPhone SE, etc.) */
 @media (max-width: 280px) {
     .sale-content {
-        min-height: 180px !important; /* Altura aumentada para imagen completa */
+        min-height: 90px !important; /* Reducido de 120px a 90px */
     }
     
     .sale-text {
-        padding: 0.3rem;
+        padding: 0.15rem; /* Reducido de 0.2rem a 0.15rem */
     }
     
     .sale-title {
@@ -528,8 +528,7 @@
     }
     
     .shop-now-btn {
-        padding: 0.25rem 0.4rem !important;
-        font-size: 0.45rem !important;
+        display: none !important; /* BOTÓN ELIMINADO PARA 280px */
     }
 }
 
@@ -608,7 +607,7 @@
     
     .sale-text {
         position: relative !important;
-        width: 60% !important; /* 60% para texto en pantalla extrema */
+        width: 45% !important; /* Reducido de 60% a 45% para dar más espacio a imagen */
         padding: 0.25rem !important; /* Padding ultra mínimo */
         z-index: 2 !important;
         background: transparent !important;
@@ -621,7 +620,7 @@
         right: 0 !important;
         top: 0 !important;
         bottom: 0 !important;
-        width: 40% !important; /* 40% para imagen */
+        width: 55% !important; /* Aumentado de 40% a 55% para imagen más grande */
         height: 100% !important;
         margin: 0 !important;
         padding: 0 !important;
