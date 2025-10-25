@@ -580,3 +580,170 @@
         -webkit-perspective: 1000px !important;
     }
 }
+
+/* OPTIMIZACIÓN EXTREMA PARA PANTALLAS 270x474 Y SIMILARES */
+@media (max-width: 280px) {
+    .sale-container {
+        padding: 0 0.1rem !important; /* Padding mínimo absoluto */
+    }
+    
+    .sale-content {
+        width: 100% !important;
+        min-height: 120px !important; /* Altura ultra compacta */
+        border-radius: 4px !important;
+        position: relative !important;
+        overflow: hidden !important;
+    }
+    
+    .sale-text {
+        position: relative !important;
+        width: 60% !important; /* 60% para texto en pantalla extrema */
+        padding: 0.25rem !important; /* Padding ultra mínimo */
+        z-index: 2 !important;
+        background: transparent !important;
+        height: 100% !important;
+        box-sizing: border-box !important;
+    }
+    
+    .sale-image {
+        position: absolute !important;
+        right: 0 !important;
+        top: 0 !important;
+        bottom: 0 !important;
+        width: 40% !important; /* 40% para imagen */
+        height: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        border-radius: 0 4px 4px 0 !important;
+        z-index: 1 !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+    }
+    
+    /* IMAGEN ULTRA OPTIMIZADA PARA 270x474 PÍXELES */
+    .sale-image img {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center center !important;
+        border-radius: 0 4px 4px 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        box-sizing: border-box !important;
+        /* MÁXIMA CALIDAD PARA PANTALLAS EXTREMAS */
+        image-rendering: -webkit-optimize-contrast !important;
+        image-rendering: crisp-edges !important;
+        image-rendering: high-quality !important;
+        image-rendering: auto !important;
+        image-rendering: pixelated !important;
+        /* ACELERACIÓN GPU EXTREMA */
+        transform: translate3d(0, 0, 0) scale(1.005) !important;
+        -webkit-transform: translate3d(0, 0, 0) scale(1.005) !important;
+        will-change: transform !important;
+        /* FILTROS MÁXIMOS PARA PANTALLAS 270px */
+        filter: contrast(1.15) brightness(1.08) saturate(1.08) unsharp-mask(2px, 2px, 1) !important;
+        -webkit-filter: contrast(1.15) brightness(1.08) saturate(1.08) !important;
+        /* SUAVIZADO EXTREMO */
+        -webkit-backface-visibility: hidden !important;
+        backface-visibility: hidden !important;
+        -webkit-font-smoothing: antialiased !important;
+        -moz-osx-font-smoothing: grayscale !important;
+        /* OPTIMIZACIÓN ESPECÍFICA PARA PANTALLAS MUY PEQUEÑAS */
+        transform-style: preserve-3d !important;
+        -webkit-transform-style: preserve-3d !important;
+        -webkit-perspective: 1000px !important;
+        perspective: 1000px !important;
+        /* FORZAR RENDERIZADO DE CALIDAD MÁXIMA */
+        image-orientation: from-image !important;
+        -webkit-tap-highlight-color: transparent !important;
+        -webkit-touch-callout: none !important;
+        -webkit-user-select: none !important;
+        user-select: none !important;
+    }
+    
+    /* Tipografía extremadamente optimizada para 270px */
+    .sale-title {
+        font-size: clamp(0.65rem, 8vw, 0.8rem) !important;
+        line-height: 1.05 !important;
+        margin-bottom: 0.1rem !important;
+        white-space: normal !important;
+    }
+    
+    .sale-subtitle {
+        font-size: clamp(0.45rem, 6vw, 0.55rem) !important;
+        margin-bottom: 0.15rem !important;
+        line-height: 1.1 !important;
+    }
+    
+    .discount-text {
+        font-size: clamp(0.55rem, 7vw, 0.7rem) !important;
+        margin-bottom: 0.1rem !important;
+        line-height: 1.05 !important;
+        white-space: normal !important;
+    }
+    
+    .promo-code {
+        font-size: clamp(0.4rem, 5vw, 0.5rem) !important;
+        margin-bottom: 0.2rem !important;
+        line-height: 1.1 !important;
+    }
+    
+    .shop-now-btn {
+        padding: 0.2rem 0.3rem !important;
+        font-size: clamp(0.45rem, 6vw, 0.55rem) !important;
+        border-radius: 10px !important;
+        min-width: 40px !important;
+        max-width: 80% !important;
+    }
+}
+
+/* OPTIMIZACIÓN ESPECÍFICA PARA 270px DE ANCHO EXACTO */
+@media (max-width: 275px) and (min-width: 260px) {
+    .sale-image img {
+        /* MÁXIMA CALIDAD POSIBLE PARA 270px */
+        transform: translate3d(0, 0, 0) scale(1.008) !important;
+        filter: contrast(1.2) brightness(1.1) saturate(1.1) blur(0px) sepia(0%) hue-rotate(0deg) !important;
+        /* RENDERIZADO ULTRA PRECISO */
+        image-rendering: optimizeQuality !important;
+        image-rendering: -webkit-optimize-contrast !important;
+        image-rendering: crisp-edges !important;
+        /* FORZAR SUAVIZADO MÁXIMO */
+        -webkit-font-smoothing: subpixel-antialiased !important;
+        -moz-osx-font-smoothing: auto !important;
+        /* ACELERACIÓN HARDWARE ESPECÍFICA */
+        -webkit-transform-style: preserve-3d !important;
+        transform-style: preserve-3d !important;
+        /* PRECISIÓN PÍXEL PERFECTA */
+        -webkit-image-rendering: pixelated !important;
+        /* OPTIMIZACIÓN ULTRA ESPECÍFICA */
+        contain: layout style paint !important;
+        content-visibility: auto !important;
+    }
+}
+
+/* OPTIMIZACIÓN PARA DISPOSITIVOS CON DENSIDAD DE PÍXELES ALTA EN PANTALLAS PEQUEÑAS */
+@media (max-width: 280px) and (-webkit-min-device-pixel-ratio: 2) {
+    .sale-image img {
+        /* RENDERIZADO RETINA EN PANTALLAS PEQUEÑAS */
+        transform: scale(1.01) !important;
+        filter: contrast(1.25) brightness(1.12) saturate(1.12) !important;
+        image-rendering: -webkit-optimize-contrast !important;
+        -webkit-filter: unsharp-mask(3px, 3px, 1.5) !important;
+    }
+}
+
+/* FALLBACK PARA NAVEGADORES MUY ANTIGUOS EN MÓVILES */
+@media (max-width: 280px) {
+    .sale-image img {
+        /* FALLBACK BÁSICO PERO EFECTIVO */
+        -ms-interpolation-mode: bicubic !important;
+        max-width: 100% !important;
+        height: auto !important;
+        vertical-align: middle !important;
+    }
+}
