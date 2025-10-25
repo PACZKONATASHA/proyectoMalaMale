@@ -15,25 +15,27 @@
     padding: 0 1rem;
 }
 
-/* FLEXBOX SÚPER FORZADO - JAMÁS se apila */
+/* FLEXBOX SÚPER FORZADO - IMAGEN EXTENDIDA COMPLETAMENTE */
 .sale-content {
     display: flex !important;
     flex-direction: row !important; /* FUERZA dirección horizontal */
     align-items: stretch !important; /* IMPORTANTE: estira ambos elementos a la misma altura */
-    gap: 0 !important; /* Sin gap para más espacio */
+    gap: 0 !important; /* Sin gap para que imagen llegue al borde */
     background: white;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    overflow: hidden;
+    overflow: hidden; /* IMPORTANTE: oculta desbordamiento para imagen completa */
     min-height: 400px;
     width: 100% !important;
+    position: relative;
 }
 
-/* Texto SIEMPRE a la izquierda - ESTRUCTURA PRESERVADA */
+/* Texto SIEMPRE a la izquierda - CONFIGURADO PARA IMAGEN ABSOLUTA */
 .sale-text {
-    flex: 1.2 1 auto !important; /* Más espacio para texto */
-    min-width: 220px !important; /* Ancho mínimo mejorado */
-    max-width: 55% !important; /* Más espacio para contenido */
+    position: relative !important; /* POSICIÓN RELATIVA */
+    width: 55% !important; /* ANCHO FIJO 55% */
+    min-width: 0 !important; /* SIN ANCHO MÍNIMO */
+    max-width: 55% !important; /* MÁXIMO 55% */
     padding: 1.8rem;
     order: 1 !important; /* Fuerza orden */
     display: flex;
@@ -42,110 +44,148 @@
     word-wrap: break-word !important;
     overflow-wrap: break-word !important;
     hyphens: auto !important;
-    /* Mantiene estructura visual */
-    background: rgba(255, 255, 255, 0.95);
-    position: relative;
+    /* IMPORTANTE: SIN MARGIN-RIGHT */
+    margin-right: 0 !important; /* SIN MARGEN DERECHO */
+    background: transparent !important; /* FONDO TRANSPARENTE */
+    z-index: 2 !important; /* ENCIMA de la imagen */
+    box-sizing: border-box !important; /* INCLUYE PADDING EN CÁLCULO */
+    height: 100% !important; /* ALTURA COMPLETA */
 }
 
-/* Imagen SIEMPRE a la derecha - ALTURA COMPLETA SIN BORDES */
+/* Imagen SIEMPRE a la derecha - FORZAR EXTENSIÓN COMPLETA */
 .sale-image {
-    flex: 0.8 1 auto !important; /* Proporción fija para imagen */
-    min-width: 280px !important; /* Ancho mínimo mejorado */
-    max-width: 45% !important; /* Proporción balanceada */
-    height: auto !important; /* ALTURA AUTOMÁTICA para ocupar todo el espacio */
-    align-self: stretch !important; /* ESTIRA para ocupar toda la altura del contenedor */
-    order: 2 !important; /* Fuerza orden */
-    overflow: hidden;
-    position: relative;
-    border-radius: 0 !important; /* SIN BORDES REDONDEADOS */
-    display: flex !important; /* Flexbox para la imagen */
+    position: absolute !important; /* POSICIÓN ABSOLUTA FORZADA */
+    right: 0 !important; /* PEGADA AL BORDE DERECHO */
+    top: 0 !important; /* DESDE ARRIBA */
+    bottom: 0 !important; /* HASTA ABAJO */
+    width: 45% !important; /* ANCHO FIJO 45% */
+    height: 100% !important; /* ALTURA COMPLETA DEL CONTENEDOR */
+    margin: 0 !important; /* SIN MÁRGENES */
+    padding: 0 !important; /* SIN PADDING */
     border: none !important; /* SIN BORDES */
     outline: none !important; /* SIN OUTLINE */
+    border-radius: 0 20px 20px 0 !important; /* BORDES REDONDEADOS SOLO DERECHA */
+    overflow: hidden !important; /* OCULTA DESBORDAMIENTO */
+    z-index: 1 !important; /* DETRÁS DEL TEXTO */
+    background-color: transparent !important; /* Sin fondo */
+    box-sizing: border-box !important; /* INCLUYE BORDES EN CÁLCULO */
 }
 
 .sale-image img {
+    position: absolute !important; /* IMAGEN TAMBIÉN ABSOLUTA */
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
     width: 100% !important;
     height: 100% !important; /* OCUPA TODA LA ALTURA DISPONIBLE */
-    object-fit: cover !important;
-    object-position: center !important;
+    margin: 0 !important; /* SIN MÁRGENES */
+    padding: 0 !important; /* SIN PADDING */
+    object-fit: cover !important; /* Mantiene proporciones sin distorsión */
+    object-position: center center !important; /* Centra la imagen perfectamente */
     display: block !important;
-    flex: 1 !important; /* Toma todo el espacio disponible */
     border: none !important; /* SIN BORDES EN LA IMAGEN */
     outline: none !important; /* SIN OUTLINE EN LA IMAGEN */
-    border-radius: 0 !important; /* SIN BORDES REDONDEADOS EN LA IMAGEN */
+    border-radius: 0 20px 20px 0 !important; /* BORDES REDONDEADOS MATCHING CONTAINER */
+    /* OPTIMIZACIÓN DE CALIDAD */
+    image-rendering: -webkit-optimize-contrast !important; /* Webkit */
+    image-rendering: crisp-edges !important; /* Bordes nítidos */
+    image-rendering: high-quality !important; /* Alta calidad */
+    /* ANTI-ALIASING MEJORADO */
+    -webkit-backface-visibility: hidden !important;
+    backface-visibility: hidden !important;
+    transform: translateZ(0) !important; /* Fuerza aceleración GPU */
+    will-change: transform !important; /* Optimización de rendimiento */
+    box-sizing: border-box !important; /* INCLUYE BORDES EN CÁLCULO */
 }
 
-/* Tipografía RESPONSIVE MEJORADA - PANTALLAS PEQUEÑAS OPTIMIZADA */
+/* Tipografía ULTRA MEJORADA - SIN ROTURA DE TEXTO */
 .sale-title {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(1rem, 5vw, 2.8rem) !important; /* Rango más agresivo para móviles */
+    font-size: clamp(1rem, 4vw, 2.8rem) !important; /* Rango optimizado */
     font-weight: 400;
     font-style: italic;
     color: #2C2C2C;
-    margin-bottom: clamp(0.3rem, 1.5vw, 0.8rem);
-    letter-spacing: clamp(0.2px, 1vw, 2px);
-    line-height: clamp(1.1, 1.5vw, 1.3) !important;
-    word-break: break-word !important; /* Permite romper palabras largas */
-    overflow-wrap: break-word !important;
-    hyphens: auto !important;
+    margin-bottom: clamp(0.4rem, 1.5vw, 0.8rem);
+    letter-spacing: clamp(0.2px, 0.8vw, 2px);
+    line-height: clamp(1.05, 1.3vw, 1.25) !important; /* Línea más compacta */
+    word-break: normal !important; /* NO rompe palabras */
+    overflow-wrap: normal !important; /* NO envuelve palabras */
+    hyphens: none !important; /* NO usa guiones */
+    white-space: nowrap !important; /* UNA SOLA LÍNEA */
+    text-overflow: ellipsis !important; /* Puntos suspensivos si es muy largo */
+    overflow: hidden !important; /* Oculta desbordamiento */
     text-shadow: 0 1px 2px rgba(0,0,0,0.1); /* Sutil sombra para legibilidad */
+    max-width: 100% !important; /* Respeta el contenedor */
 }
 
 .sale-subtitle {
     font-family: 'Georgia', serif;
     font-style: italic;
     color: #8B7355;
-    font-size: clamp(0.7rem, 3vw, 1.2rem) !important; /* Más agresivo en móviles */
-    margin-bottom: clamp(0.5rem, 2vw, 1.2rem);
-    line-height: clamp(1.2, 1.8vw, 1.4) !important;
+    font-size: clamp(0.7rem, 2.5vw, 1.2rem) !important; /* Más agresivo en móviles */
+    margin-bottom: clamp(0.6rem, 2vw, 1.2rem);
+    line-height: clamp(1.15, 1.5vw, 1.3) !important;
     font-weight: 300;
     opacity: 0.9;
-    word-break: break-word !important;
-    overflow-wrap: break-word !important;
+    word-break: normal !important; /* NO rompe palabras */
+    overflow-wrap: normal !important;
+    hyphens: none !important;
+    white-space: normal !important; /* Permite wrap natural */
+    max-width: 100% !important;
 }
 
 .discount-text {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(0.9rem, 4vw, 1.8rem) !important; /* Más agresivo para móviles */
+    font-size: clamp(0.9rem, 3.5vw, 1.8rem) !important; /* Más agresivo para móviles */
     font-weight: 600;
     color: #2C2C2C;
     margin-bottom: clamp(0.3rem, 1.2vw, 0.6rem);
-    line-height: clamp(1.1, 1.5vw, 1.3) !important;
-    word-break: break-word !important;
-    overflow-wrap: break-word !important;
-    letter-spacing: clamp(0.1px, 0.8vw, 1.5px);
+    line-height: clamp(1.05, 1.4vw, 1.2) !important;
+    word-break: normal !important; /* NO rompe palabras */
+    overflow-wrap: normal !important;
+    letter-spacing: clamp(0.1px, 0.6vw, 1.5px);
+    hyphens: none !important;
+    white-space: nowrap !important; /* UNA SOLA LÍNEA */
+    text-overflow: ellipsis !important;
+    overflow: hidden !important;
+    max-width: 100% !important;
 }
 
 .promo-code {
     font-family: 'Inter', sans-serif;
-    font-size: clamp(0.6rem, 2.5vw, 1rem) !important; /* Más pequeño en móviles */
+    font-size: clamp(0.6rem, 2.2vw, 1rem) !important; /* Más pequeño en móviles */
     color: #8B7355;
-    margin-bottom: clamp(0.6rem, 2vw, 1.4rem);
-    line-height: clamp(1.2, 1.8vw, 1.5) !important;
-    word-wrap: break-word !important;
-    overflow-wrap: break-word !important;
+    margin-bottom: clamp(0.7rem, 2vw, 1.4rem);
+    line-height: clamp(1.2, 1.6vw, 1.4) !important;
+    word-wrap: normal !important; /* NO envuelve palabras */
+    overflow-wrap: normal !important;
     font-weight: 400;
     opacity: 0.85;
+    hyphens: none !important;
+    white-space: normal !important; /* Permite wrap natural para este texto */
+    max-width: 100% !important;
 }
 
 .shop-now-btn {
     background: linear-gradient(135deg, #8B7355, #B8A082);
     color: white;
     border: none;
-    padding: clamp(0.5rem, 2.5vw, 1.1rem) clamp(0.8rem, 4vw, 2.2rem) !important;
+    padding: clamp(0.5rem, 2.2vw, 1.1rem) clamp(0.9rem, 3.5vw, 2.2rem) !important;
     border-radius: 50px;
     font-family: 'Inter', sans-serif;
     font-weight: 600;
-    letter-spacing: clamp(0.2px, 1vw, 1.2px);
+    letter-spacing: clamp(0.2px, 0.8vw, 1.2px);
     cursor: pointer;
     transition: all 0.3s ease;
-    font-size: clamp(0.7rem, 3vw, 1.1rem) !important; /* Más agresivo para móviles */
-    white-space: nowrap !important; /* Evita que se rompa el texto */
-    min-width: clamp(80px, 15vw, 120px); /* Ancho mínimo variable */
+    font-size: clamp(0.7rem, 2.8vw, 1.1rem) !important; /* Más agresivo para móviles */
+    white-space: nowrap !important; /* NUNCA se rompe el texto del botón */
+    min-width: clamp(70px, 12vw, 120px); /* Ancho mínimo variable */
     text-align: center;
     box-shadow: 0 4px 12px rgba(139, 115, 85, 0.25);
     width: fit-content !important; /* Solo el ancho necesario */
     align-self: flex-start !important; /* Alineación al inicio */
+    max-width: 90% !important; /* No más del 90% del contenedor */
 }
 
 .shop-now-btn:hover {
@@ -250,7 +290,7 @@
     }
 }
 
-/* Móviles muy pequeños - SIN SCROLL, TODO VISIBLE */
+/* Móviles muy pequeños - IMAGEN EXTENDIDA Y TEXTO OPTIMIZADO */
 @media (max-width: 400px) {
     .sale-container {
         padding: 0 0.5rem; /* Sin overflow */
@@ -264,58 +304,108 @@
         min-height: 180px; /* Altura compacta */
         border-radius: 8px;
         margin: 0;
+        position: relative !important; /* Para imagen absoluta */
     }
     
     .sale-text {
-        flex: 1 1 60% !important; /* 60% del espacio disponible */
+        position: relative !important; /* POSICIÓN RELATIVA */
+        width: 55% !important; /* 55% del espacio disponible */
         min-width: 0 !important; /* Sin ancho mínimo forzado */
-        max-width: 60% !important;
+        max-width: 55% !important;
         padding: 0.6rem;
         box-sizing: border-box;
+        margin-right: 0 !important; /* SIN MARGEN - imagen es absoluta */
+        z-index: 2 !important;
+        background: transparent !important; /* FONDO TRANSPARENTE */
+        height: 100% !important; /* ALTURA COMPLETA */
     }
     
     .sale-image {
-        flex: 1 1 40% !important; /* 40% del espacio disponible */
-        min-width: 0 !important; /* Sin ancho mínimo forzado */
-        max-width: 40% !important;
-        height: auto !important;
-        border-radius: 0 !important;
+        position: absolute !important; /* POSICIÓN ABSOLUTA FORZADA */
+        right: 0 !important; /* PEGADA AL BORDE DERECHO */
+        top: 0 !important; /* DESDE ARRIBA */
+        bottom: 0 !important; /* HASTA ABAJO */
+        width: 45% !important; /* 45% del ancho total FIJO */
+        height: 100% !important; /* ALTURA COMPLETA */
+        margin: 0 !important; /* SIN MÁRGENES */
+        padding: 0 !important; /* SIN PADDING */
+        border-radius: 0 8px 8px 0 !important; /* Coincide con contenedor */
+        z-index: 1 !important; /* DETRÁS DEL TEXTO */
+        /* OPTIMIZACIÓN ESPECÍFICA PARA MÓVILES */
+        background-size: cover !important;
+        background-position: center center !important;
+        background-repeat: no-repeat !important;
+        box-sizing: border-box !important;
     }
     
-    /* Tipografía ultra compacta pero legible */
+    .sale-image img {
+        position: absolute !important; /* IMAGEN ABSOLUTA DENTRO DE SU CONTENEDOR */
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        margin: 0 !important; /* SIN MÁRGENES */
+        padding: 0 !important; /* SIN PADDING */
+        object-fit: cover !important;
+        object-position: center center !important;
+        border-radius: 0 8px 8px 0 !important; /* Coincide con contenedor */
+        /* RENDERIZADO PERFECTO */
+        image-rendering: -webkit-optimize-contrast !important;
+        image-rendering: crisp-edges !important;
+        image-rendering: auto !important; /* Mejor para móviles */
+        /* OPTIMIZACIÓN GPU */
+        transform: translate3d(0, 0, 0) !important;
+        -webkit-transform: translate3d(0, 0, 0) !important;
+        /* CALIDAD DE IMAGEN */
+        filter: contrast(1.05) brightness(1.02) !important; /* Mejora sutil de contraste */
+        box-sizing: border-box !important;
+    }
+    
+    /* Tipografía ultra optimizada SIN ROTURA */
     .sale-title {
-        font-size: clamp(0.85rem, 5vw, 1.1rem) !important;
-        line-height: 1.1 !important;
-        margin-bottom: 0.25rem !important;
+        font-size: clamp(0.8rem, 4.5vw, 1.1rem) !important;
+        line-height: 1.05 !important;
+        margin-bottom: 0.2rem !important;
+        white-space: nowrap !important; /* UNA LÍNEA */
+        text-overflow: ellipsis !important;
+        overflow: hidden !important;
     }
     
     .sale-subtitle {
-        font-size: clamp(0.6rem, 3.5vw, 0.75rem) !important;
-        margin-bottom: 0.4rem !important;
-        line-height: 1.2 !important;
+        font-size: clamp(0.55rem, 3vw, 0.75rem) !important;
+        margin-bottom: 0.3rem !important;
+        line-height: 1.1 !important;
+        white-space: normal !important; /* Permite wrap natural */
     }
     
     .discount-text {
-        font-size: clamp(0.75rem, 4vw, 0.9rem) !important;
-        margin-bottom: 0.25rem !important;
-        line-height: 1.1 !important;
+        font-size: clamp(0.7rem, 3.8vw, 0.9rem) !important;
+        margin-bottom: 0.2rem !important;
+        line-height: 1.05 !important;
+        white-space: nowrap !important; /* UNA LÍNEA */
+        text-overflow: ellipsis !important;
+        overflow: hidden !important;
     }
     
     .promo-code {
-        font-size: clamp(0.5rem, 3vw, 0.65rem) !important;
-        margin-bottom: 0.5rem !important;
-        line-height: 1.2 !important;
+        font-size: clamp(0.5rem, 2.8vw, 0.65rem) !important;
+        margin-bottom: 0.4rem !important;
+        line-height: 1.15 !important;
+        white-space: normal !important; /* Permite wrap */
     }
     
     .shop-now-btn {
-        padding: 0.4rem 0.7rem !important;
-        font-size: clamp(0.6rem, 3.5vw, 0.75rem) !important;
+        padding: 0.35rem 0.6rem !important;
+        font-size: clamp(0.55rem, 3.2vw, 0.75rem) !important;
         min-width: auto !important; /* Sin ancho mínimo */
         border-radius: 20px !important;
+        max-width: 85% !important;
     }
 }
 
-/* Pantallas extremadamente pequeñas - TODO SE AJUSTA AUTOMÁTICAMENTE */
+/* Pantallas extremadamente pequeñas - IMAGEN EXTENDIDA */
 @media (max-width: 320px) {
     .sale-container {
         padding: 0 0.3rem; /* Padding mínimo */
@@ -325,10 +415,58 @@
         width: 100% !important; /* Ocupa todo el ancho */
         min-height: 160px; /* Altura muy compacta */
         border-radius: 6px;
+        position: relative !important;
     }
     
     .sale-text {
-        flex: 1 1 65% !important; /* 65% para texto */
+        position: relative !important;
+        width: 65% !important; /* 65% para texto */
+        padding: 0.4rem;
+        z-index: 2 !important;
+        background: transparent !important;
+        height: 100% !important;
+    }
+    
+    .sale-image {
+        position: absolute !important;
+        right: 0 !important;
+        top: 0 !important;
+        bottom: 0 !important;
+        width: 35% !important; /* 35% para imagen */
+        height: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        border-radius: 0 6px 6px 0 !important;
+        z-index: 1 !important;
+        box-sizing: border-box !important;
+    }
+    
+    .sale-image img {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center center !important;
+        border-radius: 0 6px 6px 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        box-sizing: border-box !important;
+        /* CALIDAD ULTRA NÍTIDA */
+        image-rendering: -webkit-optimize-contrast !important;
+        image-rendering: crisp-edges !important;
+        image-rendering: auto !important;
+        /* MEJORAS VISUALES ESPECÍFICAS */
+        filter: contrast(1.1) brightness(1.05) saturate(1.05) !important;
+        -webkit-filter: contrast(1.1) brightness(1.05) saturate(1.05) !important;
+        /* GPU ACCELERATION MÁXIMA */
+        transform: translate3d(0, 0, 0) scale(1) !important;
+        -webkit-transform: translate3d(0, 0, 0) scale(1) !important;
+        will-change: transform !important;
+    }
         padding: 0.4rem;
     }
     
