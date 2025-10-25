@@ -1,9 +1,9 @@
 /* OPCIÓN 1: Flexbox Horizontal SÚPER FORZADO - NUNCA se rompe el layout */
 
 .labor-day-sale {
-    padding: 4rem 0;
+    padding: 1.5rem 0; /* Antes 4rem 0, ahora mucho más compacto */
     background: linear-gradient(135deg, #C9A876 0%, #B8A082 100%);
-    min-height: 70vh;
+    min-height: 30vh; /* Antes 70vh, ahora más chico */
     display: flex;
     align-items: center;
 }
@@ -22,19 +22,19 @@
     align-items: stretch !important; /* IMPORTANTE: estira ambos elementos a la misma altura */
     gap: 0 !important; /* Sin gap para más espacio */
     background: white;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border-radius: 14px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.10);
     overflow: hidden;
-    min-height: 400px;
+    min-height: 180px; /* Antes 400px, ahora mucho más chico */
     width: 100% !important;
 }
 
 /* Texto SIEMPRE a la izquierda - ESTRUCTURA PRESERVADA */
 .sale-text {
     flex: 1.2 1 auto !important; /* Más espacio para texto */
-    min-width: 220px !important; /* Ancho mínimo mejorado */
-    max-width: 55% !important; /* Más espacio para contenido */
-    padding: 1.8rem;
+    min-width: 120px !important;
+    max-width: 50% !important; /* Más espacio para contenido */
+    padding: 0.8rem; /* Antes 1.8rem, ahora más compacto */
     order: 1 !important; /* Fuerza orden */
     display: flex;
     flex-direction: column;
@@ -50,8 +50,8 @@
 /* Imagen SIEMPRE a la derecha - ALTURA COMPLETA SIN BORDES */
 .sale-image {
     flex: 0.8 1 auto !important; /* Proporción fija para imagen */
-    min-width: 280px !important; /* Ancho mínimo mejorado */
-    max-width: 45% !important; /* Proporción balanceada */
+    min-width: 120px !important;
+    max-width: 50% !important; /* Proporción balanceada */
     height: auto !important; /* ALTURA AUTOMÁTICA para ocupar todo el espacio */
     align-self: stretch !important; /* ESTIRA para ocupar toda la altura del contenedor */
     order: 2 !important; /* Fuerza orden */
@@ -465,9 +465,6 @@
         -webkit-touch-callout: none !important;
         -webkit-user-select: none !important;
         user-select: none !important;
-        /* FORZAR RENDERIZADO DE ALTA CALIDAD */
-        transform-style: preserve-3d !important;
-        -webkit-transform-style: preserve-3d !important;
     }
     
     /* Tipografía extremadamente compacta */
@@ -485,6 +482,7 @@
     .discount-text {
         font-size: clamp(0.65rem, 5vw, 0.75rem) !important;
         margin-bottom: 0.2rem !important;
+        line-height: 1.1 !important;
     }
     
     .promo-code {
