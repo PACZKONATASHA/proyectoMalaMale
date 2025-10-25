@@ -1,0 +1,475 @@
+/* Navbar Bootstrap Responsivo MalaMale - Versión Corregida */
+
+/* Reset crítico para posicionamiento */
+html {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Variables CSS para consistencia */
+:root {
+    --navbar-bg: #F5F0E8;
+    --navbar-text: #2C2C2C;
+    --navbar-accent: #8B7355;
+    --navbar-hover: #B8A082;
+    --navbar-border: #E8DDD0;
+    --navbar-shadow: rgba(44, 44, 44, 0.1);
+    --navbar-height: 70px;
+}
+
+/* Reset inicial para evitar conflictos */
+html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* Asegurar que no haya CSS global interferiendo */
+.navbar {
+    background-color: var(--navbar-bg) !important;
+    background: var(--navbar-bg) !important;
+    border-bottom: 1px solid var(--navbar-border) !important;
+    min-height: var(--navbar-height) !important;
+    height: var(--navbar-height) !important;
+    box-shadow: 0 2px 8px var(--navbar-shadow) !important;
+    transition: all 0.3s ease !important;
+    padding: 0.5rem 0 !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100vw !important;
+    z-index: 1050 !important;
+    margin: 0 !important;
+    transform: none !important;
+}
+
+/* Remover estilos Bootstrap conflictivos */
+.navbar-light {
+    background-color: transparent !important;
+}
+
+.navbar-light .navbar-brand {
+    color: var(--navbar-text) !important;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: var(--navbar-text) !important;
+}
+
+/* Container responsivo */
+.navbar .container-fluid {
+    padding: 0 1rem;
+    position: relative;
+}
+
+@media (min-width: 992px) {
+    .navbar .container-fluid {
+        padding: 0 3rem;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .navbar .container-fluid {
+        padding: 0 0.5rem;
+    }
+}
+
+/* Logo/Brand con tipografía original */
+.navbar-brand {
+    font-family: 'Playfair Display', serif !important;
+    font-weight: 400 !important;
+    font-style: italic !important;
+    letter-spacing: 2px !important;
+    text-decoration: none !important;
+    transition: all 0.3s ease !important;
+    font-size: 1.8rem !important;
+    color: var(--navbar-text) !important;
+}
+
+.navbar-brand:hover,
+.navbar-brand:focus {
+    color: var(--navbar-accent) !important;
+    transform: translateY(-1px);
+    text-decoration: none !important;
+}
+
+/* Botón hamburguesa personalizado */
+.navbar-toggler {
+    border: 2px solid var(--navbar-accent) !important;
+    border-radius: 8px !important;
+    padding: 0.4rem 0.6rem !important;
+    transition: all 0.3s ease !important;
+    background: transparent !important;
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 0.2rem rgba(139, 115, 85, 0.25) !important;
+    border-color: var(--navbar-accent) !important;
+}
+
+.navbar-toggler:hover {
+    background: var(--navbar-accent) !important;
+    border-color: var(--navbar-accent) !important;
+}
+
+.navbar-toggler:hover .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='m4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2844, 44, 44, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='m4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+    width: 1.2em !important;
+    height: 1.2em !important;
+}
+
+/* Collapse responsivo */
+.navbar-collapse {
+    transition: all 0.3s ease !important;
+}
+
+/* Ajuste específico para el collapse en móvil */
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        background: var(--navbar-bg) !important;
+        border: 1px solid var(--navbar-border) !important;
+        border-top: none !important;
+        border-radius: 0 0 12px 12px !important;
+        box-shadow: 0 8px 16px var(--navbar-shadow) !important;
+        margin-top: -1px !important; /* Pegado al navbar */
+        margin-left: -0.5rem !important;
+        margin-right: -0.5rem !important;
+        padding: 0.5rem 0 !important;
+        position: absolute !important;
+        top: 100% !important;
+        left: 0.5rem !important;
+        right: 0.5rem !important;
+        z-index: 1050 !important;
+    }
+    
+    .navbar-collapse.show {
+        animation: slideDown 0.3s ease;
+    }
+    
+    .navbar-collapse.collapsing {
+        border: 1px solid var(--navbar-border) !important;
+        border-top: none !important;
+        background: var(--navbar-bg) !important;
+        margin-top: -1px !important;
+        margin-left: -0.5rem !important;
+        margin-right: -0.5rem !important;
+    }
+    
+    /* Ajustar navbar para móvil */
+    .navbar {
+        padding: 0.4rem 0 !important;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Nav links con tipografía original - Comportamiento uniforme */
+.navbar-nav {
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.navbar-nav .nav-link {
+    font-family: 'Georgia', 'Times New Roman', serif !important;
+    font-weight: 300 !important;
+    letter-spacing: 0.5px !important;
+    color: var(--navbar-text) !important;
+    padding: 0.75rem 1rem !important;
+    border-radius: 6px !important;
+    transition: all 0.3s ease !important;
+    position: relative !important;
+    text-decoration: none !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    min-height: 44px !important; /* Touch-friendly */
+}
+
+/* Estados hover y focus para todos los enlaces */
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus,
+.navbar-nav .nav-link:active {
+    color: var(--navbar-accent) !important;
+    text-decoration: none !important;
+    outline: none !important;
+}
+
+/* Efectos específicos para desktop */
+@media (min-width: 992px) {
+    .navbar-nav .nav-link {
+        margin: 0 0.3rem;
+        justify-content: center;
+    }
+    
+    /* Línea inferior animada para todos los enlaces */
+    .navbar-nav .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: var(--navbar-accent);
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+    }
+    
+    /* Activar línea en hover y estado activo */
+    .navbar-nav .nav-link:hover::after,
+    .navbar-nav .nav-link:focus::after,
+    .navbar-nav .nav-link.active::after {
+        width: 80%;
+    }
+    
+    /* Efecto elevación en hover para todos */
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link:focus {
+        transform: translateY(-1px);
+    }
+    
+    /* Estado activo adicional para desktop */
+    .navbar-nav .nav-link.active {
+        font-weight: 400 !important;
+    }
+}
+
+/* Efectos específicos para móvil */
+@media (max-width: 991.98px) {
+    .navbar-nav {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .navbar-nav .nav-link {
+        margin: 0.1rem 0.5rem;
+        border-left: 3px solid transparent;
+        border-radius: 6px;
+        padding: 0.6rem 1rem !important;
+        min-height: 46px !important;
+        justify-content: center !important;
+        text-align: center !important;
+        display: flex !important;
+        align-items: center !important;
+    }
+    
+    /* Efectos hover y activo para móvil - todos los enlaces */
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link:focus,
+    .navbar-nav .nav-link.active {
+        background: var(--navbar-border) !important;
+        border-left-color: var(--navbar-accent) !important;
+        color: var(--navbar-accent) !important;
+        transform: none; /* Remover transform para mejor centrado */
+    }
+    
+    /* Efecto táctil para dispositivos touch */
+    .navbar-nav .nav-link:active {
+        background: var(--navbar-hover) !important;
+        color: white !important;
+        transform: scale(0.98); /* Efecto de presión */
+    }
+    
+    /* Remover separadores para mejor apariencia */
+    .navbar-nav .nav-item:not(:last-child) .nav-link::before {
+        display: none;
+    }
+}
+
+/* Estados globales para todos los enlaces */
+.navbar-nav .nav-link.active {
+    color: var(--navbar-accent) !important;
+    font-weight: 400 !important;
+}
+
+/* Hover global mejorado */
+.navbar-nav .nav-link:hover {
+    color: var(--navbar-accent) !important;
+}
+
+/* Focus global para accesibilidad */
+.navbar-nav .nav-link:focus {
+    outline: 2px solid var(--navbar-accent) !important;
+    outline-offset: 2px !important;
+}
+
+/* Compensar navbar fixed - Mejorado */
+html {
+    scroll-padding-top: calc(var(--navbar-height) + 10px);
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+body {
+    padding-top: var(--navbar-height) !important;
+    margin: 0 !important;
+    position: relative !important;
+    overflow-x: hidden !important;
+}
+
+/* Asegurar que el navbar esté siempre visible y correctamente posicionado */
+.navbar.fixed-top,
+.navbar {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 1050 !important;
+    width: 100vw !important;
+    margin: 0 !important;
+    transform: translateZ(0) !important; /* Forzar compositing layer */
+}
+
+/* Remover spacer innecesario */
+.navbar + div[style*="margin-top"] {
+    margin-top: 0 !important;
+    display: none;
+}
+
+/* Responsive breakpoints adicionales */
+@media (max-width: 576px) {
+    .navbar-brand {
+        font-size: 1.5rem !important;
+    }
+    
+    .navbar .container-fluid {
+        padding: 0 0.5rem;
+    }
+}
+
+/* Accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+    .navbar,
+    .navbar-nav .nav-link,
+    .navbar-brand,
+    .navbar-toggler,
+    .navbar-collapse {
+        transition: none !important;
+    }
+    
+    @keyframes slideDown {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+}
+
+/* Fix para Bootstrap 5 específicos */
+.navbar-nav .nav-link:focus,
+.navbar-nav .nav-link:hover {
+    color: var(--navbar-accent) !important;
+}
+
+.navbar-toggler:focus:not(:focus-visible) {
+    outline: 0;
+}
+
+.navbar-toggler:focus-visible {
+    outline: 2px solid var(--navbar-accent);
+    outline-offset: 2px;
+}
+
+/* Asegurar posicionamiento correcto en todos los viewports */
+@media (max-width: 1200px) {
+    .navbar {
+        padding: 0.4rem 0 !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        min-height: 60px !important;
+        height: 60px !important;
+    }
+    
+    :root {
+        --navbar-height: 60px;
+    }
+    
+    body {
+        padding-top: 60px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 0.3rem 0 !important;
+    }
+    
+    .navbar-brand {
+        font-size: 1.3rem !important;
+    }
+}
+
+/* Evitar que otros elementos interfieran */
+.navbar * {
+    position: relative;
+}
+
+/* Asegurar que esté siempre encima */
+.navbar {
+    isolation: isolate;
+}
+
+/* Override final para garantizar posicionamiento correcto */
+nav.navbar {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    z-index: 9999 !important;
+    margin: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+/* Force body padding para compensar navbar */
+body.navbar-compensated,
+body {
+    padding-top: var(--navbar-height) !important;
+    margin-top: 0 !important;
+}
+
+/* Override para mobile específico */
+@media (max-width: 768px) {
+    body.navbar-compensated,
+    body {
+        padding-top: 60px !important;
+    }
+    
+    nav.navbar {
+        height: 60px !important;
+        min-height: 60px !important;
+    }
+}
+
+/* Final override para asegurar visibilidad */
+.navbar-brand,
+.navbar-toggler,
+.navbar-nav {
+    z-index: inherit !important;
+    position: relative !important;
+}

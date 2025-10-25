@@ -16,9 +16,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/responsive.css">
-    <link rel="stylesheet" href="css/bootstrap-navbar-custom.css">
+    <link rel="stylesheet" href="css/whatsapp-flotante.css">
+    <!-- Navbar CSS al final para sobrescribir otros estilos -->
+    <link rel="stylesheet" href="css/bootstrap-navbar-fixed.css">
+    <!-- Override final para posicionamiento -->
+    <link rel="stylesheet" href="css/navbar-final-override.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mr+Dafoe&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rouge+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Yellowtail&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         /* Estilos específicos para servicios */
         .servicios-hero {
@@ -26,7 +35,7 @@
             padding: 120px 0 80px;
             text-align: center;
             color: white;
-            margin-top: 70px; /* Compensar navbar fixed */
+            margin-top: 0; /* Ya no necesario, el body tiene padding-top */
         }
 
         .servicios-hero h1 {
@@ -529,9 +538,9 @@
         }
     </style>
 </head>
-<body>
-    <!-- Bootstrap Navbar Minimalista -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+<body class="navbar-compensated">
+    <!-- Bootstrap Navbar Responsivo -->
+    <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container-fluid px-3 px-lg-5">
             <!-- Logo/Brand -->
             <a class="navbar-brand" href="index.html">MalaMale</a>
@@ -1169,7 +1178,7 @@ ${comentarios ? `• Comentarios: ${comentarios}` : ''}
     <!-- Bootstrap JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     
-    <script src="js/bootstrap-navbar.js"></script>
+    <script src="js/navbar-fixed.js"></script>
     <script src="js/responsive.js"></script>
 
 </body>
