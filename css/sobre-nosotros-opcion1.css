@@ -1,3 +1,76 @@
+@media (min-width: 701px) {
+    .labor-day-sale .sale-text {
+        flex: 1 1 0 !important;
+        width: auto !important;
+        max-width: none !important;
+        min-width: 0 !important;
+        box-sizing: border-box;
+        align-items: center !important;
+        justify-content: center !important;
+        display: flex !important;
+        flex-direction: column !important;
+        text-align: center !important;
+        padding: 0 2vw 0 0 !important;
+        margin: 0 !important;
+        height: 100%;
+    }
+}
+@media (min-width: 701px) {
+    .labor-day-sale .sale-content {
+        justify-content: space-between !important;
+        align-items: stretch !important;
+    }
+    .labor-day-sale .sale-text {
+        flex: 1 1 0 !important;
+        width: 100% !important;
+        max-width: none !important;
+        min-width: 0 !important;
+        align-items: center !important;
+        justify-content: center !important;
+        display: flex !important;
+        flex-direction: column !important;
+        text-align: center !important;
+        padding: 0 2vw 0 0 !important;
+        margin: 0 !important;
+        height: 100%;
+        box-sizing: border-box;
+    }
+    .labor-day-sale .sale-image {
+        margin-right: 0 !important;
+        justify-content: flex-end !important;
+        align-items: flex-end !important;
+        align-self: stretch !important;
+        height: 100%;
+        display: flex !important;
+    }
+    .labor-day-sale .sale-image img {
+        margin-right: 0 !important;
+        align-self: flex-end !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        border-radius: 0 18px 18px 0 !important;
+    }
+}
+@media (min-width: 701px) {
+    .labor-day-sale .sale-content {
+        justify-content: space-between !important;
+    }
+    .labor-day-sale .sale-image {
+        margin-right: 0 !important;
+        justify-content: flex-end !important;
+        align-items: flex-end !important;
+        align-self: stretch !important;
+        height: 100%;
+        display: flex !important;
+    }
+    .labor-day-sale .sale-image img {
+        margin-right: 0 !important;
+        align-self: flex-end !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        border-radius: 0 18px 18px 0 !important;
+    }
+}
 /* OPCIÓN 1: Flexbox Horizontal SÚPER FORZADO - NUNCA se rompe el layout */
 
 .labor-day-sale {
@@ -31,36 +104,38 @@
 
 /* Texto SIEMPRE a la izquierda - ESTRUCTURA PRESERVADA */
 .sale-text {
-    flex: 1.2 1 auto !important; /* Más espacio para texto */
-    min-width: 120px !important;
-    max-width: 50% !important; /* Más espacio para contenido */
-    padding: 0.8rem; /* Antes 1.8rem, ahora más compacto */
-    order: 1 !important; /* Fuerza orden */
+    flex: 1 1 0 !important;
+    width: auto !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    padding: 0.8rem;
+    order: 1 !important;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     word-wrap: break-word !important;
     overflow-wrap: break-word !important;
     hyphens: auto !important;
-    /* Mantiene estructura visual */
     background: rgba(255, 255, 255, 0.95);
     position: relative;
 }
 
 /* Imagen SIEMPRE a la derecha - ALTURA COMPLETA SIN BORDES */
 .sale-image {
-    flex: 0.8 1 auto !important; /* Proporción fija para imagen */
-    min-width: 120px !important;
-    max-width: 50% !important; /* Proporción balanceada */
-    height: auto !important; /* ALTURA AUTOMÁTICA para ocupar todo el espacio */
-    align-self: stretch !important; /* ESTIRA para ocupar toda la altura del contenedor */
-    order: 2 !important; /* Fuerza orden */
+    flex: 0 0 auto !important;
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    height: auto !important;
+    align-self: stretch !important;
+    order: 2 !important;
     overflow: hidden;
     position: relative;
-    border-radius: 0 !important; /* SIN BORDES REDONDEADOS */
-    display: flex !important; /* Flexbox para la imagen */
-    border: none !important; /* SIN BORDES */
-    outline: none !important; /* SIN OUTLINE */
+    border-radius: 0 !important;
+    display: flex !important;
+    border: none !important;
+    outline: none !important;
 }
 
 .sale-image img {
@@ -374,40 +449,11 @@
         backface-visibility: hidden !important;
         -webkit-font-smoothing: antialiased !important;
         -moz-osx-font-smoothing: grayscale !important;
-        /* OPTIMIZACIÓN ESPECÍFICA MÓVIL */
+        /* OPTIMIZACIÓN MÓVIL ESPECÍFICA */
         -webkit-tap-highlight-color: transparent !important;
         -webkit-touch-callout: none !important;
         -webkit-user-select: none !important;
         user-select: none !important;
-    }
-    
-    /* Tipografía ultra compacta pero legible */
-    .sale-title {
-        font-size: clamp(0.85rem, 5vw, 1.1rem) !important;
-        line-height: 1.1 !important;
-        margin-bottom: 0.25rem !important;
-    }
-    
-    .sale-subtitle {
-        font-size: clamp(0.6rem, 3.5vw, 0.75rem) !important;
-        margin-bottom: 0.4rem !important;
-        line-height: 1.2 !important;
-    }
-    
-    .discount-text {
-        font-size: clamp(0.75rem, 4vw, 0.9rem) !important;
-        margin-bottom: 0.25rem !important;
-        line-height: 1.1 !important;
-    }
-    
-    .promo-code {
-        font-size: clamp(0.5rem, 3vw, 0.65rem) !important;
-        margin-bottom: 0.5rem !important;
-        line-height: 1.2 !important;
-    }
-    
-    .shop-now-btn {
-        display: none !important; /* BOTÓN ELIMINADO PARA 400px */
     }
 }
 
@@ -469,29 +515,31 @@
     
     /* Tipografía extremadamente compacta */
     .sale-title {
-        font-size: clamp(0.7rem, 6vw, 0.9rem) !important;
-        line-height: 1.05 !important;
-        margin-bottom: 0.2rem !important;
+        font-size: clamp(0.85rem, 5vw, 1.1rem) !important;
+        line-height: 1.1 !important;
+        margin-bottom: 0.25rem !important;
     }
     
     .sale-subtitle {
-        font-size: clamp(0.5rem, 4vw, 0.6rem) !important;
-        margin-bottom: 0.3rem !important;
+        font-size: clamp(0.6rem, 3.5vw, 0.75rem) !important;
+        margin-bottom: 0.4rem !important;
+        line-height: 1.2 !important;
     }
     
     .discount-text {
-        font-size: clamp(0.65rem, 5vw, 0.75rem) !important;
-        margin-bottom: 0.2rem !important;
+        font-size: clamp(0.75rem, 4vw, 0.9rem) !important;
+        margin-bottom: 0.25rem !important;
         line-height: 1.1 !important;
     }
     
     .promo-code {
-        font-size: clamp(0.45rem, 3.5vw, 0.55rem) !important;
-        margin-bottom: 0.4rem !important;
+        font-size: clamp(0.5rem, 3vw, 0.65rem) !important;
+        margin-bottom: 0.5rem !important;
+        line-height: 1.2 !important;
     }
     
     .shop-now-btn {
-        display: none !important; /* BOTÓN ELIMINADO PARA 320px */
+        display: none !important; /* BOTÓN ELIMINADO PARA 400px */
     }
 }
 
@@ -754,4 +802,54 @@
         height: auto !important;
         vertical-align: middle !important;
     }
+}
+
+@media (min-width: 1025px) {
+  .sale-container {
+    padding: 0 !important;
+  }
+  .sale-content {
+    flex-direction: row !important;
+    background: transparent !important;
+    border-radius: 20px !important;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+    overflow: hidden !important;
+    min-height: 350px !important;
+  }
+  .sale-image {
+    flex: 0 0 72% !important;
+    max-width: 72% !important;
+    min-width: 0 !important;
+    border-radius: 0 !important;
+    overflow: hidden !important;
+    align-self: stretch !important;
+    display: flex !important;
+    align-items: stretch !important;
+    background: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .sale-image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+    border-radius: 0 !important;
+    display: block !important;
+    background: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .sale-text {
+    flex: 0 0 28% !important;
+    max-width: 28% !important;
+    min-width: 0 !important;
+    padding: 1.5rem 1.2rem 1.5rem 1.5rem !important;
+    background: white !important;
+    border-radius: 0 20px 20px 0 !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: none !important;
+  }
 }
