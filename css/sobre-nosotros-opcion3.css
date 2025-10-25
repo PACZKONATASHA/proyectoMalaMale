@@ -1,0 +1,274 @@
+/* OPCIÓN 3: Bootstrap Columns Forzadas - NUNCA se apilan */
+
+.labor-day-sale {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, #C9A876 0%, #B8A082 100%);
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+}
+
+.sale-content-bootstrap {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.sale-content-bootstrap .row {
+    min-height: 400px;
+    align-items: center;
+}
+
+/* Forzar que NUNCA se apilen las columnas */
+.sale-content-bootstrap .col-5,
+.sale-content-bootstrap .col-7 {
+    flex: 0 0 auto !important;
+    max-width: none !important;
+}
+
+/* Texto siempre en la columna izquierda */
+.sale-text {
+    padding: 2rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Imagen siempre en la columna derecha */
+.sale-image {
+    height: 400px;
+    overflow: hidden;
+}
+
+.sale-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Estilos de texto */
+.sale-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 400;
+    font-style: italic;
+    color: #2C2C2C;
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+}
+
+.sale-subtitle {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    color: #8B7355;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.discount-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2C2C2C;
+    margin-bottom: 1rem;
+}
+
+.promo-code {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: #8B7355;
+    margin-bottom: 2rem;
+}
+
+.shop-now-btn {
+    background: linear-gradient(135deg, #8B7355, #B8A082);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.shop-now-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(139, 115, 85, 0.4);
+}
+
+/* RESPONSIVE manteniendo columnas lado a lado */
+
+@media (max-width: 1024px) {
+    .sale-content-bootstrap .row {
+        min-height: 350px;
+    }
+    
+    .sale-text {
+        padding: 1.5rem;
+    }
+    
+    .sale-image {
+        height: 350px;
+    }
+    
+    .sale-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .sale-content-bootstrap {
+        margin: 0 1rem;
+        border-radius: 15px;
+    }
+    
+    .sale-content-bootstrap .row {
+        min-height: 300px;
+    }
+    
+    /* Ajustar proporciones en tablet pero mantener lado a lado */
+    .sale-content-bootstrap .col-5 {
+        flex: 0 0 45% !important;
+    }
+    
+    .sale-content-bootstrap .col-7 {
+        flex: 0 0 55% !important;
+    }
+    
+    .sale-text {
+        padding: 1rem;
+    }
+    
+    .sale-image {
+        height: 300px;
+    }
+    
+    .sale-title {
+        font-size: 1.8rem;
+    }
+    
+    .discount-text {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .labor-day-sale {
+        padding: 2rem 0;
+    }
+    
+    .sale-content-bootstrap .row {
+        min-height: 250px;
+    }
+    
+    /* Móviles: texto más pequeño, imagen más grande */
+    .sale-content-bootstrap .col-5 {
+        flex: 0 0 40% !important;
+    }
+    
+    .sale-content-bootstrap .col-7 {
+        flex: 0 0 60% !important;
+    }
+    
+    .sale-text {
+        padding: 0.8rem;
+    }
+    
+    .sale-image {
+        height: 250px;
+    }
+    
+    .sale-title {
+        font-size: 1.4rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .sale-subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+    }
+    
+    .discount-text {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .promo-code {
+        font-size: 0.8rem;
+        margin-bottom: 1rem;
+    }
+    
+    .shop-now-btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .sale-content-bootstrap {
+        margin: 0 0.5rem;
+        border-radius: 10px;
+    }
+    
+    .sale-content-bootstrap .row {
+        min-height: 220px;
+    }
+    
+    /* Móvil pequeño: aún más espacio a la imagen */
+    .sale-content-bootstrap .col-5 {
+        flex: 0 0 35% !important;
+    }
+    
+    .sale-content-bootstrap .col-7 {
+        flex: 0 0 65% !important;
+    }
+    
+    .sale-text {
+        padding: 0.6rem;
+    }
+    
+    .sale-image {
+        height: 220px;
+    }
+    
+    .sale-title {
+        font-size: 1.2rem;
+    }
+    
+    .discount-text {
+        font-size: 1rem;
+    }
+    
+    .shop-now-btn {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.85rem;
+    }
+}
+
+/* Para pantallas muy pequeñas: scroll horizontal */
+@media (max-width: 350px) {
+    .container-fluid {
+        overflow-x: auto;
+        padding: 0;
+    }
+    
+    .sale-content-bootstrap {
+        min-width: 350px;
+        margin: 0 0.25rem;
+    }
+    
+    .sale-content-bootstrap .col-5 {
+        flex: 0 0 140px !important;
+    }
+    
+    .sale-content-bootstrap .col-7 {
+        flex: 0 0 210px !important;
+    }
+}
