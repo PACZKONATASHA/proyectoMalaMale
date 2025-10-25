@@ -243,6 +243,17 @@
     }
 }
 
+/* CONFIGURACIÓN MÓVIL GLOBAL - IMAGEN COMPLETA VISIBLE */
+@media (max-width: 768px) {
+    .sale-image img {
+        object-fit: contain !important;
+        object-position: center center !important;
+        /* Asegurar que se vea toda la imagen de arriba a abajo */
+        max-height: 100% !important;
+        max-width: 100% !important;
+    }
+}
+
 /* Móviles - IMAGEN COMPLETA */
 @media (max-width: 480px) {
     .sale-container {
@@ -250,7 +261,7 @@
     }
     
     .sale-content {
-        min-height: 240px;
+        min-height: 280px !important; /* Altura aumentada para mostrar imagen completa */
         border-radius: 10px;
     }
     
@@ -270,7 +281,7 @@
     .sale-image img {
         width: 100% !important;
         height: 100% !important;
-        object-fit: cover !important;
+        object-fit: contain !important;
         object-position: center center !important;
         display: block !important;
         border: none !important;
@@ -310,7 +321,7 @@
     .sale-content {
         width: 100% !important; /* Ocupa todo el ancho disponible */
         min-width: auto !important; /* Sin ancho mínimo forzado */
-        min-height: 180px; /* Altura compacta */
+        min-height: 220px !important; /* Altura aumentada para imagen completa */
         border-radius: 8px;
         margin: 0;
     }
@@ -335,7 +346,7 @@
     .sale-image img {
         width: 100% !important;
         height: 100% !important;
-        object-fit: cover !important;
+        object-fit: contain !important;
         object-position: center center !important;
         display: block !important;
         border: none !important;
@@ -406,7 +417,7 @@
     
     .sale-content {
         width: 100% !important; /* Ocupa todo el ancho */
-        min-height: 160px; /* Altura muy compacta */
+        min-height: 200px !important; /* Altura aumentada para imagen completa */
         border-radius: 6px;
     }
     
@@ -423,7 +434,7 @@
     .sale-image img {
         width: 100% !important;
         height: 100% !important;
-        object-fit: cover !important;
+        object-fit: contain !important;
         object-position: center center !important;
         display: block !important;
         border: none !important;
@@ -489,7 +500,7 @@
 /* Para pantallas súper extremas (iPhone SE, etc.) */
 @media (max-width: 280px) {
     .sale-content {
-        min-height: 140px; /* Muy compacto */
+        min-height: 180px !important; /* Altura aumentada para imagen completa */
     }
     
     .sale-text {
@@ -629,7 +640,7 @@
         bottom: 0 !important;
         width: 100% !important;
         height: 100% !important;
-        object-fit: cover !important;
+        object-fit: contain !important;
         object-position: center center !important;
         border-radius: 0 4px 4px 0 !important;
         margin: 0 !important;
