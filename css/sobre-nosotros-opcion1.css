@@ -1,0 +1,296 @@
+/* OPCIÓN 1: Flexbox Horizontal SÚPER FORZADO - NUNCA se rompe el layout */
+
+.labor-day-sale {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, #C9A876 0%, #B8A082 100%);
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+}
+
+.sale-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* FLEXBOX SÚPER FORZADO - JAMÁS se apila */
+.sale-content {
+    display: flex !important;
+    flex-direction: row !important; /* FUERZA dirección horizontal */
+    align-items: stretch !important; /* IMPORTANTE: estira ambos elementos a la misma altura */
+    gap: 0 !important; /* Sin gap para más espacio */
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    min-height: 400px;
+    width: 100% !important;
+}
+
+/* Texto SIEMPRE a la izquierda - ESTRUCTURA PRESERVADA */
+.sale-text {
+    flex: 1.2 1 auto !important; /* Más espacio para texto */
+    min-width: 220px !important; /* Ancho mínimo mejorado */
+    max-width: 55% !important; /* Más espacio para contenido */
+    padding: 1.8rem;
+    order: 1 !important; /* Fuerza orden */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    hyphens: auto !important;
+    /* Mantiene estructura visual */
+    background: rgba(255, 255, 255, 0.95);
+    position: relative;
+}
+
+/* Imagen SIEMPRE a la derecha - ALTURA COMPLETA */
+.sale-image {
+    flex: 0.8 1 auto !important; /* Proporción fija para imagen */
+    min-width: 280px !important; /* Ancho mínimo mejorado */
+    max-width: 45% !important; /* Proporción balanceada */
+    height: auto !important; /* ALTURA AUTOMÁTICA para ocupar todo el espacio */
+    align-self: stretch !important; /* ESTIRA para ocupar toda la altura del contenedor */
+    order: 2 !important; /* Fuerza orden */
+    overflow: hidden;
+    position: relative;
+    border-radius: 0 20px 20px 0; /* Esquinas redondeadas solo a la derecha */
+    display: flex !important; /* Flexbox para la imagen */
+}
+
+.sale-image img {
+    width: 100% !important;
+    height: 100% !important; /* OCUPA TODA LA ALTURA DISPONIBLE */
+    object-fit: cover !important;
+    object-position: center !important;
+    display: block !important;
+    flex: 1 !important; /* Toma todo el espacio disponible */
+}
+
+/* Tipografía RESPONSIVE MEJORADA - Estructura preservada */
+.sale-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 4.5vw, 2.8rem) !important; /* Rango más amplio */
+    font-weight: 400;
+    font-style: italic;
+    color: #2C2C2C;
+    margin-bottom: 0.8rem;
+    letter-spacing: clamp(0.5px, 1vw, 2px);
+    line-height: 1.1 !important;
+    word-break: keep-all !important;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.1); /* Sutil sombra para legibilidad */
+}
+
+.sale-subtitle {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    color: #8B7355;
+    font-size: clamp(0.9rem, 2.8vw, 1.2rem) !important; /* Mejor proporción */
+    margin-bottom: 1.2rem;
+    line-height: 1.25 !important;
+    font-weight: 300;
+    opacity: 0.9;
+}
+
+.discount-text {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.1rem, 3.5vw, 1.8rem) !important; /* Más prominente */
+    font-weight: 600;
+    color: #2C2C2C;
+    margin-bottom: 0.6rem;
+    line-height: 1.15 !important;
+    word-break: keep-all !important;
+    letter-spacing: clamp(0.3px, 0.8vw, 1.5px);
+}
+
+.promo-code {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(0.75rem, 2.2vw, 1rem) !important; /* Mejor legibilidad */
+    color: #8B7355;
+    margin-bottom: 1.4rem;
+    line-height: 1.35 !important;
+    word-wrap: break-word !important;
+    font-weight: 400;
+    opacity: 0.85;
+}
+
+.shop-now-btn {
+    background: linear-gradient(135deg, #8B7355, #B8A082);
+    color: white;
+    border: none;
+    padding: clamp(0.7rem, 2.2vw, 1.1rem) clamp(1.2rem, 3.5vw, 2.2rem) !important;
+    border-radius: 50px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    letter-spacing: clamp(0.5px, 1vw, 1.2px);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: clamp(0.85rem, 2.8vw, 1.1rem) !important;
+    white-space: nowrap !important; /* Evita que se rompa el texto */
+    min-width: 120px; /* Ancho mínimo del botón */
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(139, 115, 85, 0.25);
+}
+
+.shop-now-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(139, 115, 85, 0.4);
+}
+
+/* RESPONSIVE EXTREMO - Mantiene layout horizontal SIEMPRE */
+
+/* Tablets grandes - ALTURA COMPLETA MANTENIDA */
+@media (max-width: 1024px) {
+    .sale-content {
+        min-height: 360px;
+    }
+    
+    .sale-text {
+        min-width: 200px !important;
+        max-width: 55% !important;
+        padding: 1.5rem;
+    }
+    
+    .sale-image {
+        min-width: 260px !important;
+        max-width: 45% !important;
+        height: auto !important; /* Altura automática */
+    }
+}
+
+/* Tablets - IMAGEN OCUPANDO TODA LA ALTURA */
+@media (max-width: 768px) {
+    .labor-day-sale {
+        padding: 3rem 0;
+    }
+    
+    .sale-container {
+        padding: 0 0.8rem;
+    }
+    
+    .sale-content {
+        min-height: 320px;
+        border-radius: 15px;
+    }
+    
+    .sale-text {
+        min-width: 180px !important;
+        max-width: 58% !important; /* Más espacio para texto en tablet */
+        padding: 1.2rem;
+    }
+    
+    .sale-image {
+        min-width: 240px !important;
+        max-width: 42% !important; /* Proporción balanceada */
+        height: auto !important; /* Altura automática */
+    }
+}
+
+/* Móviles grandes - IMAGEN EXTENDIDA */
+@media (max-width: 640px) {
+    .labor-day-sale {
+        padding: 2.5rem 0;
+    }
+    
+    .sale-content {
+        min-height: 280px;
+        border-radius: 12px;
+    }
+    
+    .sale-text {
+        min-width: 160px !important;
+        max-width: 60% !important; /* Más espacio para contenido */
+        padding: 1rem;
+    }
+    
+    .sale-image {
+        min-width: 220px !important;
+        max-width: 40% !important; /* Imagen más compacta pero visible */
+        height: auto !important; /* Altura automática */
+    }
+}
+
+/* Móviles - IMAGEN COMPLETA */
+@media (max-width: 480px) {
+    .sale-container {
+        padding: 0 0.5rem;
+    }
+    
+    .sale-content {
+        min-height: 240px;
+        border-radius: 10px;
+    }
+    
+    .sale-text {
+        min-width: 140px !important;
+        max-width: 62% !important; /* Prioridad al contenido textual */
+        padding: 0.8rem;
+    }
+    
+    .sale-image {
+        min-width: 180px !important;
+        max-width: 38% !important; /* Imagen compacta pero proporcional */
+        height: auto !important; /* Altura automática */
+    }
+}
+
+/* Móviles muy pequeños - IMAGEN OCUPANDO TODO EL ESPACIO VERTICAL */
+@media (max-width: 400px) {
+    .sale-container {
+        overflow-x: auto !important;
+        padding: 0 0.3rem;
+    }
+    
+    .sale-content {
+        min-width: 380px !important; /* Fuerza ancho mínimo */
+        min-height: 220px;
+    }
+    
+    .sale-text {
+        min-width: 200px !important; /* Más espacio para legibilidad */
+        flex: 0 0 200px !important; /* Ancho fijo optimizado */
+        padding: 0.7rem;
+    }
+    
+    .sale-image {
+        min-width: 180px !important; /* Imagen visible y proporcional */
+        flex: 0 0 180px !important; /* Ancho fijo optimizado */
+        height: auto !important; /* Altura automática */
+    }
+}
+
+/* Pantallas extremadamente pequeñas - IMAGEN EXTENDIDA */
+@media (max-width: 320px) {
+    .sale-content {
+        min-width: 340px !important; /* Ajustado para mejor visualización */
+    }
+    
+    .sale-text {
+        min-width: 180px !important; /* Espacio suficiente para texto */
+        flex: 0 0 180px !important;
+        padding: 0.6rem;
+    }
+    
+    .sale-image {
+        min-width: 160px !important; /* Imagen compacta pero visible */
+        flex: 0 0 160px !important;
+        height: auto !important; /* Altura automática */
+    }
+}
+
+/* OVERRIDE FINAL para asegurar que NUNCA se apile */
+@media screen and (max-width: 9999px) {
+    .sale-content {
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+    }
+    
+    .sale-text,
+    .sale-image {
+        flex-shrink: 1 !important;
+        flex-grow: 1 !important;
+    }
+}
