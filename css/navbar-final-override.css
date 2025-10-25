@@ -21,7 +21,13 @@ nav.navbar,
 }
 
 /* Body compensación forzada */
-body {
+
+body.hero-carousel-home {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+    position: relative !important;
+}
+body:not(.hero-carousel-home) {
     padding-top: 70px !important;
     margin-top: 0 !important;
     position: relative !important;
