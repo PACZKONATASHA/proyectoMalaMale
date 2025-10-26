@@ -1,3 +1,193 @@
+/* === Tarjeta de comentario horizontal tipo mockup (desktop y mobile) === */
+#comentariosContainer.comentarios-container {
+    display: flex !important;
+    flex-direction: row !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    gap: 32px !important;
+    padding-bottom: 16px !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    max-width: 100vw !important;
+    width: 100vw !important;
+}
+#comentariosContainer .comentario-nuevo {
+    min-width: 380px !important;
+    max-width: 420px !important;
+    flex: 0 0 auto !important;
+    scroll-snap-align: start !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    background: #fff !important;
+    border-radius: 18px !important;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.08) !important;
+    border: none !important;
+    padding: 28px 24px 22px 24px !important;
+    gap: 12px !important;
+}
+#comentariosContainer .comentario-header {
+    display: flex !important;
+    align-items: center !important;
+    gap: 16px !important;
+    margin-bottom: 0 !important;
+}
+#comentariosContainer .comentario-avatar {
+    width: 56px !important;
+    height: 56px !important;
+    border-radius: 50% !important;
+    background: #a3855b !important;
+    color: #fff !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 2rem !important;
+    font-weight: 700 !important;
+    flex-shrink: 0 !important;
+}
+#comentariosContainer .comentario-autor h4 {
+    font-size: 1.18rem !important;
+    font-weight: 700 !important;
+    color: #222 !important;
+    margin: 0 !important;
+    letter-spacing: 0.5px !important;
+}
+#comentariosContainer .comentario-instagram {
+    color: #a3855b !important;
+    font-size: 1rem !important;
+    margin-left: 2px !important;
+}
+#comentariosContainer .comentario-fecha {
+    color: #b8a082 !important;
+    font-size: 0.92rem !important;
+    margin-left: 10px !important;
+}
+#comentariosContainer .comentario-estrellas {
+    color: #d4af37 !important;
+    font-size: 1.15rem !important;
+    margin: 0 0 2px 0 !important;
+    letter-spacing: 1px !important;
+}
+#comentariosContainer .comentario-texto {
+    color: #444 !important;
+    font-size: 1.13rem !important;
+    line-height: 1.5 !important;
+    font-style: normal !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    text-align: left !important;
+}
+/* === Tarjeta de comentario horizontal tipo mockup (mobile y desktop) === */
+@media (max-width: 700px) {
+    #comentariosContainer.comentarios-container {
+        display: flex !important;
+        flex-direction: row !important;
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+        gap: 16px !important;
+        padding-bottom: 8px !important;
+        scroll-snap-type: x mandatory !important;
+        -webkit-overflow-scrolling: touch !important;
+        max-width: 100vw !important;
+        width: 100vw !important;
+    }
+    #comentariosContainer .comentario-nuevo {
+        min-width: 85vw !important;
+        max-width: 90vw !important;
+        flex: 0 0 auto !important;
+        scroll-snap-align: start !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        box-sizing: border-box !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        background: #fff !important;
+        border-radius: 18px !important;
+        box-shadow: 0 2px 16px rgba(0,0,0,0.08) !important;
+        border: none !important;
+        padding: 20px 18px 18px 18px !important;
+        gap: 10px !important;
+    }
+    #comentariosContainer .comentario-header {
+        display: flex !important;
+        align-items: center !important;
+        gap: 12px !important;
+        margin-bottom: 0 !important;
+    }
+    #comentariosContainer .comentario-avatar {
+        width: 48px !important;
+        height: 48px !important;
+        border-radius: 50% !important;
+        background: #a3855b !important;
+        color: #fff !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        font-size: 1.6rem !important;
+        font-weight: 700 !important;
+        flex-shrink: 0 !important;
+    }
+    #comentariosContainer .comentario-autor h4 {
+        font-size: 1.1rem !important;
+        font-weight: 700 !important;
+        color: #222 !important;
+        margin: 0 !important;
+        letter-spacing: 0.5px !important;
+    }
+    #comentariosContainer .comentario-instagram {
+        color: #a3855b !important;
+        font-size: 0.95rem !important;
+        margin-left: 2px !important;
+    }
+    #comentariosContainer .comentario-fecha {
+        color: #b8a082 !important;
+        font-size: 0.85rem !important;
+        margin-left: 8px !important;
+    }
+    #comentariosContainer .comentario-estrellas {
+        color: #d4af37 !important;
+        font-size: 1.1rem !important;
+        margin: 0 0 2px 0 !important;
+        letter-spacing: 1px !important;
+    }
+    #comentariosContainer .comentario-texto {
+        color: #444 !important;
+        font-size: 1.05rem !important;
+        line-height: 1.5 !important;
+        font-style: normal !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        text-align: left !important;
+    }
+}
+/* Carrusel horizontal de comentarios SOLO en móvil */
+@media (max-width: 700px) {
+    #comentariosContainer.comentarios-container {
+        display: flex !important;
+        flex-direction: row !important;
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+        gap: 16px !important;
+        padding-bottom: 8px !important;
+        scroll-snap-type: x mandatory !important;
+        -webkit-overflow-scrolling: touch !important;
+        max-width: 100vw !important;
+        width: 100vw !important;
+    }
+    #comentariosContainer .comentario-nuevo {
+        min-width: 85vw !important;
+        max-width: 90vw !important;
+        flex: 0 0 auto !important;
+        scroll-snap-align: start !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        box-sizing: border-box !important;
+    }
+}
 /* Resalta el comentario recién enviado */
 .comentario-nuevo-resaltado {
     animation: comentarioFlash 1.2s;
