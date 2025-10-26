@@ -1,3 +1,15 @@
+/* Resalta el comentario recién enviado */
+.comentario-nuevo-resaltado {
+    animation: comentarioFlash 1.2s;
+    box-shadow: 0 0 0 3px #ffe082, 0 2px 8px rgba(0,0,0,0.08);
+    background: #fffde7;
+}
+
+@keyframes comentarioFlash {
+    0% { background: #fffde7; }
+    50% { background: #ffe082; }
+    100% { background: #fffde7; }
+}
 /* ==========================================
    RESPONSIVE DESIGN COMPLETO - MalaMale
    ========================================== */

@@ -136,10 +136,26 @@ class SistemaComentarios {
         // Mostrar alerta de éxito
         this.mostrarAlerta('¡Gracias por tu comentario! Se ha publicado correctamente.', 'success');
 
-        // Scroll al área de comentarios
-        document.querySelector('.comentarios-tiempo-real').scrollIntoView({ 
-            behavior: 'smooth' 
-        });
+        // Scroll al área de comentarios y resaltar el nuevo
+        setTimeout(() => {
+            const comentariosArea = document.querySelector('.comentarios-tiempo-real');
+            if (comentariosArea) {
+                // Para máxima compatibilidad móvil/desktop
+                if (typeof comentariosArea.scrollIntoView === 'function') {
+                    comentariosArea.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+                } else {
+                    window.scrollTo(0, comentariosArea.getBoundingClientRect().top + window.scrollY - 60);
+                }
+            }
+            // Resaltar el comentario más nuevo
+            const container = document.getElementById('comentariosContainer');
+            if (container && container.firstElementChild) {
+                container.firstElementChild.classList.add('comentario-nuevo-resaltado');
+                setTimeout(() => {
+                    container.firstElementChild.classList.remove('comentario-nuevo-resaltado');
+                }, 1500);
+            }
+        }, 100);
     }
 
     limpiarFormulario() {
@@ -291,7 +307,17 @@ document.head.appendChild(alertStyles);
 
 // Inicializar el sistema cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', () => {
-    window.sistemaComentarios = new SistemaComentarios();
+    try {
+        window.sistemaComentarios = new SistemaComentarios();
+        console.log('[MalaMale] SistemaComentarios inicializado correctamente');
+    } catch (err) {
+        console.error('[MalaMale] Error al inicializar SistemaComentarios:', err);
+        // Mostrar alerta visual en la página
+        const alerta = document.createElement('div');
+        alerta.style.cssText = 'position:fixed;top:0;left:0;right:0;z-index:99999;background:#f44336;color:#fff;padding:10px;text-align:center;font-size:1.1rem;';
+        alerta.textContent = 'Error al inicializar comentarios: ' + err.message;
+        document.body.appendChild(alerta);
+    }
 });
 
 // Función global para limpiar comentarios (solo para desarrollo/testing)
