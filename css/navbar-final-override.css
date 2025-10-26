@@ -35,10 +35,12 @@ body:not(.hero-carousel-home) {
 
 /* Mobile specific */
 @media (max-width: 768px) {
-    body {
+    body.hero-carousel-home {
+        padding-top: 0 !important;
+    }
+    body:not(.hero-carousel-home) {
         padding-top: 60px !important;
     }
-    
     nav.navbar,
     .navbar {
         height: 60px !important;
