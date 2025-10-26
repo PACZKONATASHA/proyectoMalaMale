@@ -1,3 +1,62 @@
+// Carrusel de testimonios destacados (4 primeros con 5 estrellas)
+function renderTestimoniosDestacados() {
+    const container = document.getElementById('testimoniosCarousel');
+    if (!container) return;
+    let comentarios = JSON.parse(localStorage.getItem('comentariosMalaMale') || '[]');
+    // Filtrar solo los de 5 estrellas y tomar los 4 primeros
+    const destacados = comentarios.filter(c => c.rating === 5).slice(0, 4);
+    if (destacados.length === 0) {
+        container.innerHTML = '<div style="text-align:center;color:#b8a082;padding:2rem;">Aún no hay testimonios destacados.</div>';
+        return;
+    }
+    container.innerHTML = destacados.map((c, i) => {
+        const inicial = c.nombre.trim().charAt(0).toUpperCase();
+        return `
+        <div class="testimonio-slide${i === 0 ? ' active' : ''}">
+            <div class="testimonio-imagen">
+                <div class="comentario-avatar">${inicial}</div>
+            </div>
+            <div class="testimonio-content">
+                <div class="estrellas">
+                    ${'<i class=\'fas fa-star\' style=\'color:#d4af37;\'></i>'.repeat(5)}
+                </div>
+                <p>"${c.texto.replace(/"/g, '&quot;')}"</p>
+                <h4>- ${c.nombre}</h4>
+                ${c.instagram ? `<div class="instagram-handle">${c.instagram}</div>` : ''}
+            </div>
+        </div>
+        `;
+    }).join('');
+}
+
+// Lógica de carrusel automático
+let testimonioIndex = 0;
+function autoCarruselTestimonios() {
+    const slides = document.querySelectorAll('#testimoniosCarousel .testimonio-slide');
+    if (slides.length <= 1) return;
+    slides.forEach((s, i) => s.classList.remove('active'));
+    testimonioIndex = (testimonioIndex + 1) % slides.length;
+    slides[testimonioIndex].classList.add('active');
+}
+
+// Inicializar carrusel y actualizar al agregar comentarios
+function iniciarCarruselTestimonios() {
+    renderTestimoniosDestacados();
+    testimonioIndex = 0;
+    setInterval(autoCarruselTestimonios, 3500);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    // ...existing code...
+    iniciarCarruselTestimonios();
+});
+
+// Actualizar testimonios destacados cuando se agregue un comentario
+const originalMostrarComentarios = SistemaComentarios.prototype.mostrarComentarios;
+SistemaComentarios.prototype.mostrarComentarios = function() {
+    originalMostrarComentarios.call(this);
+    renderTestimoniosDestacados();
+};
 // Sistema de Comentarios en Tiempo Real - MalaMale
 class SistemaComentarios {
     constructor() {

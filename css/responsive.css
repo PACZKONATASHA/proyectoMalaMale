@@ -1,3 +1,86 @@
+/* Carrusel testimonios destacados */
+.testimonios-carousel {
+    display: flex;
+    flex-direction: row;
+    overflow-x: hidden;
+    position: relative;
+    min-height: 220px;
+    align-items: center;
+    justify-content: center;
+}
+.testimonio-slide {
+    min-width: 90vw;
+    max-width: 90vw;
+    flex: 0 0 90vw;
+    opacity: 0;
+    transition: opacity 0.5s, transform 0.5s;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    z-index: 1;
+    pointer-events: none;
+    transform: scale(0.98);
+}
+.testimonio-slide.active {
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 2;
+    transform: scale(1);
+}
+.testimonio-imagen .comentario-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #a3855b;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+.testimonio-content {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    padding: 18px 16px 14px 16px;
+    margin: 0 auto;
+    max-width: 90vw;
+    text-align: left;
+}
+.testimonio-content h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #222;
+    margin: 0 0 2px 0;
+}
+.testimonio-content .estrellas {
+    color: #d4af37;
+    font-size: 1.1rem;
+    margin-bottom: 2px;
+}
+.testimonio-content p {
+    color: #444;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    margin: 0 0 8px 0;
+}
+.testimonio-content .instagram-handle {
+    color: #a3855b;
+    font-size: 0.95rem;
+}
+@media (min-width: 700px) {
+    .testimonio-slide, .testimonio-content {
+        min-width: 520px;
+        max-width: 520px;
+        flex: 0 0 520px;
+    }
+    .testimonios-carousel {
+        min-height: 260px;
+    }
+}
 /* === Tarjeta de comentario horizontal tipo mockup (desktop y mobile) === */
 #comentariosContainer.comentarios-container {
     display: flex !important;
