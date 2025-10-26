@@ -180,9 +180,13 @@ class SistemaComentarios {
             return;
         }
 
-        container.innerHTML = this.comentarios.map(comentario => `
+        container.innerHTML = this.comentarios.map(comentario => {
+            // Avatar con inicial
+            const inicial = this.escapeHtml(comentario.nombre.trim().charAt(0).toUpperCase());
+            return `
             <div class="comentario-nuevo">
                 <div class="comentario-header">
+                    <div class="comentario-avatar">${inicial}</div>
                     <div class="comentario-autor">
                         <h4>${this.escapeHtml(comentario.nombre)}</h4>
                         ${comentario.instagram ? `<span class="comentario-instagram">${this.escapeHtml(comentario.instagram)}</span>` : ''}
@@ -192,9 +196,10 @@ class SistemaComentarios {
                 <div class="comentario-estrellas">
                     ${this.generarEstrellas(comentario.rating)}
                 </div>
-                <p class="comentario-texto">"${this.escapeHtml(comentario.texto)}"</p>
+                <p class="comentario-texto">${this.escapeHtml(comentario.texto)}</p>
             </div>
-        `).join('');
+            `;
+        }).join('');
 
         // Animar la aparición del último comentario
         const ultimoComentario = container.firstElementChild;
