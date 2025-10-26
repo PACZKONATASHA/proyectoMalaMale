@@ -30,10 +30,15 @@
     gap: 12px !important;
 }
 @media (min-width: 700px) {
+    #comentariosContainer.comentarios-container {
+        justify-content: center !important;
+    }
     #comentariosContainer .comentario-nuevo {
-        min-width: 480px !important;
-        max-width: 480px !important;
-        flex: 0 0 480px !important;
+        min-width: 520px !important;
+        max-width: 520px !important;
+        flex: 0 0 520px !important;
+        margin-left: calc((100vw - 520px) / 2) !important;
+        margin-right: calc((100vw - 520px) / 2) !important;
     }
 }
 #comentariosContainer .comentario-header {
