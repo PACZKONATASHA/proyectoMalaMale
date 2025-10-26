@@ -325,34 +325,31 @@
 
     <!-- Galería Section -->
     <section id="galeria" class="galeria">
-        <div class="container">
+        <div class="container" style="max-width: 480px; margin: 0 auto;">
             <h2>Galería de Trabajos</h2>
             <div class="galeria-grid">
                 <div class="galeria-item featured video-item">
-                    <!-- Video placeholder hasta que agregues el archivo real -->
+                    <!-- Video demo o real -->
                     <div class="video-placeholder" id="video-placeholder">
                         <div class="video-demo">
-                            <i class="fas fa-video"></i>
+                            <i class="fas fa-video" style="font-size:2.2rem;color:#a3855b;"></i>
                             <h3>Video Peinado Natasha</h3>
                             <p>Proceso paso a paso de nuestro estilo exclusivo</p>
                             <div class="video-actions">
-                                <button class="btn-gold video-demo-btn">
+                                <button class="video-demo-btn">
                                     <i class="fas fa-play"></i>
                                     Ver Demo
                                 </button>
-                                <small>Agrega tu video como "video natasha.mp4" en img/</small>
+                                <small style="display:block;margin-top:6px;color:#b8a082;">Agrega tu video como "video natasha.mp4" en img/</small>
                             </div>
                         </div>
                     </div>
-
                     <!-- Video real (oculto hasta que exista el archivo) -->
-                    <video muted loop playsinline preload="metadata" poster="img/natasha.png" id="natasha-video"
-                        style="display: none;">
+                    <video muted loop playsinline preload="metadata" poster="img/natasha.png" id="natasha-video" style="display: none;">
                         <source src="img/video-natasha.mp4" type="video/mp4">
                         <source src="img/video-natasha copy.mp4" type="video/mp4">
                         <source src="img/video natasha.mp4" type="video/mp4">
                     </video>
-
                     <div class="galeria-overlay">
                         <h3>Video Peinado Natasha</h3>
                         <p>Mira el proceso completo de creación</p>
@@ -445,7 +442,9 @@
     <!-- Contacto -->
     <section id="contacto" class="contacto">
         <div class="container">
-            <h2>Contacto y Ubicación</h2>
+            <div class="titulo-contacto-wrapper">
+                <h3 class="titulo-contacto-responsive titulo-contacto-centrado">Nos podés encontrar en</h3>
+            </div>
             <div class="contacto-content">
                 <div class="contacto-info">
                     <div class="info-item">
