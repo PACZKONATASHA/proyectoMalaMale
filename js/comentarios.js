@@ -1,3 +1,55 @@
+// Carrusel 5 estrellas independiente
+function renderCarruselCincoEstrellas() {
+    const container = document.getElementById('carruselCincoEstrellas');
+    if (!container) return;
+    let comentarios = JSON.parse(localStorage.getItem('comentariosMalaMale') || '[]');
+    // Filtrar solo los 5 más recientes de 5 estrellas
+    const destacados = comentarios.filter(c => c.rating === 5).slice(0, 5);
+    if (destacados.length === 0) {
+        container.innerHTML = '<div style="text-align:center;color:#b8a082;padding:2rem;">Aún no hay testimonios de 5 estrellas.</div>';
+        return;
+    }
+    container.innerHTML = destacados.map((c, i) => {
+        const inicial = c.nombre.trim().charAt(0).toUpperCase();
+        return `
+        <div class="carrusel-5-slide${i === 0 ? ' active' : ''}">
+            <div class="carrusel-5-avatar">${inicial}</div>
+            <div class="carrusel-5-content">
+                <div class="carrusel-5-estrellas">
+                    ${'<i class=\'fas fa-star\' style=\'color:#d4af37;\'></i>'.repeat(5)}
+                </div>
+                <p>"${c.texto.replace(/"/g, '&quot;')}"</p>
+                <h4>- ${c.nombre}</h4>
+                ${c.instagram ? `<div class="carrusel-5-instagram">${c.instagram}</div>` : ''}
+            </div>
+        </div>
+        `;
+    }).join('');
+}
+
+let carrusel5Index = 0;
+function autoCarruselCincoEstrellas() {
+    const slides = document.querySelectorAll('#carruselCincoEstrellas .carrusel-5-slide');
+    if (slides.length <= 1) return;
+    slides.forEach((s, i) => s.classList.remove('active'));
+    carrusel5Index = (carrusel5Index + 1) % slides.length;
+    slides[carrusel5Index].classList.add('active');
+}
+
+function iniciarCarruselCincoEstrellas() {
+    renderCarruselCincoEstrellas();
+    carrusel5Index = 0;
+    setInterval(autoCarruselCincoEstrellas, 5000);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    iniciarCarruselCincoEstrellas();
+});
+
+// Actualizar carrusel cuando se agregue un comentario
+document.addEventListener('comentario-agregado', () => {
+    renderCarruselCincoEstrellas();
+});
 // Sistema de Comentarios en Tiempo Real - MalaMale
 class SistemaComentarios {
     constructor() {
