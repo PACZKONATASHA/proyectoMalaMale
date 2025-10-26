@@ -13,23 +13,43 @@ class SistemaComentarios {
     }
 
     setupEventListeners() {
-        const form = document.getElementById('comentarioForm');
-        if (form) {
-            form.addEventListener('submit', (e) => this.enviarComentario(e));
-        }
+        // Reintentar si el form no está aún en el DOM (por ejemplo, en móviles con render diferido)
+        const tryAttach = () => {
+            const form = document.getElementById('comentarioForm');
+            if (form && !form._listenerAttached) {
+                form.addEventListener('submit', (e) => this.enviarComentario(e));
+                form._listenerAttached = true;
+            } else if (!form) {
+                setTimeout(tryAttach, 300); // Reintenta hasta que aparezca
+            }
+        };
+        tryAttach();
     }
 
     setupRatingSystem() {
-        const stars = document.querySelectorAll('.rating-stars i');
-        stars.forEach((star, index) => {
-            star.addEventListener('click', () => this.seleccionarRating(index + 1));
-            star.addEventListener('mouseenter', () => this.hoverRating(index + 1));
-        });
-
-        const ratingContainer = document.querySelector('.rating-stars');
-        if (ratingContainer) {
-            ratingContainer.addEventListener('mouseleave', () => this.resetHoverRating());
-        }
+        // Reintentar si las estrellas no están aún en el DOM
+        const tryAttachStars = () => {
+            const stars = document.querySelectorAll('.rating-stars i');
+            if (stars.length > 0) {
+                stars.forEach((star, index) => {
+                    // Click para desktop y touch para móvil
+                    star.addEventListener('click', () => this.seleccionarRating(index + 1));
+                    star.addEventListener('touchstart', (e) => {
+                        e.preventDefault();
+                        this.seleccionarRating(index + 1);
+                    }, {passive: false});
+                    star.addEventListener('mouseenter', () => this.hoverRating(index + 1));
+                });
+                const ratingContainer = document.querySelector('.rating-stars');
+                if (ratingContainer) {
+                    ratingContainer.addEventListener('mouseleave', () => this.resetHoverRating());
+                    ratingContainer.addEventListener('touchend', () => this.resetHoverRating());
+                }
+            } else {
+                setTimeout(tryAttachStars, 300);
+            }
+        };
+        tryAttachStars();
     }
 
     seleccionarRating(rating) {
