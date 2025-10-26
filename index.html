@@ -26,6 +26,9 @@
     <link rel="stylesheet" href="css/labor-day-sale.css">
     <link rel="stylesheet" href="css/popular-services.css">
     <link rel="stylesheet" href="css/sobre-nosotros-opcion1.css">
+    <!-- Carrusel galería -->
+    <script defer src="js/gallery-carousel.js"></script>
+    <script defer src="js/gallery-multicarousel.js"></script>
     <!-- Navbar CSS al final para sobrescribir otros estilos -->
     <link rel="stylesheet" href="css/bootstrap-navbar-fixed.css">
     <!-- Override final para posicionamiento -->
@@ -326,32 +329,58 @@
     <!-- Galería Section -->
     <section id="galeria" class="galeria">
         <div class="container" style="max-width: 480px; margin: 0 auto;">
-            <h2>Galería de Trabajos</h2>
-            <div class="galeria-grid">
-                <div class="galeria-item featured video-item">
-                    <video controls muted loop playsinline preload="metadata" poster="img/natasha.png" id="natasha-video" style="width:100%;border-radius:16px;">
-                        <source src="img/video-natasha.mp4" type="video/mp4">
-                        <source src="img/video-natasha copy.mp4" type="video/mp4">
-                        <source src="img/video natasha.mp4" type="video/mp4">
-                        Tu navegador no soporta el video.
-                    </video>
-                    <div class="galeria-overlay">
-                        <h3>Video Peinado Natasha</h3>
-                        <p>Mira el proceso completo de creación</p>
-                        <div class="video-status">
-                            <i class="fas fa-video"></i>
-                            <span>Click para reproducir</span>
+            <h2>Nuestros Trabajos</h2>
+            <div class="galeria-multi-carrusel" style="display:flex;flex-direction:column;gap:22px;width:100%;">
+                <!-- Carrusel Izquierdo -->
+                <div class="galeria-carrusel-wrapper" style="position:relative;width:100%;">
+                    <button class="galeria-carrusel-btn galeria-carrusel-prev" data-carrusel="left" aria-label="Anterior" style="position:absolute;left:-18px;top:50%;transform:translateY(-50%);z-index:10;background:#fffbe6;border:none;border-radius:50%;box-shadow:0 2px 8px #c9a876;width:38px;height:38px;display:flex;align-items:center;justify-content:center;cursor:pointer;">
+                        <i class="fas fa-chevron-left" style="color:#a3855b;font-size:1.3rem;"></i>
+                    </button>
+                    <div class="galeria-carrusel galeria-carrusel-left" style="display:flex;overflow-x:hidden;scroll-behavior:smooth;height:340px;">
+                        <div class="galeria-carrusel-item" style="min-width:100%;height:100%;display:flex;align-items:center;justify-content:center;">
+                            <img src="img/foto1.png" alt="Galería Corte Bob Moderno" class="placeholder-img" style="object-fit:cover;width:100%;height:100%;border-radius:16px;" />
+                        </div>
+                        <div class="galeria-carrusel-item" style="min-width:100%;height:100%;display:flex;align-items:center;justify-content:center;">
+                            <img src="img/foto2.png" alt="Galería Balayage" class="placeholder-img" style="object-fit:cover;width:100%;height:100%;border-radius:16px;" />
                         </div>
                     </div>
+                    <button class="galeria-carrusel-btn galeria-carrusel-next" data-carrusel="left" aria-label="Siguiente" style="position:absolute;right:-18px;top:50%;transform:translateY(-50%);z-index:10;background:#fffbe6;border:none;border-radius:50%;box-shadow:0 2px 8px #c9a876;width:38px;height:38px;display:flex;align-items:center;justify-content:center;cursor:pointer;">
+                        <i class="fas fa-chevron-right" style="color:#a3855b;font-size:1.3rem;"></i>
+                    </button>
                 </div>
-                <div class="galeria-item">
-                    <img src="img/foto1.png" alt="Galería Corte Bob Moderno" class="placeholder-img" style="object-fit:cover;width:100%;height:100%;" />
+                <!-- Carrusel Central (Video) -->
+                <div class="galeria-carrusel-wrapper" style="position:relative;width:100%;">
+                    <button class="galeria-carrusel-btn galeria-carrusel-prev" data-carrusel="center" aria-label="Anterior" style="position:absolute;left:-18px;top:50%;transform:translateY(-50%);z-index:10;background:#fffbe6;border:none;border-radius:50%;box-shadow:0 2px 8px #c9a876;width:38px;height:38px;display:flex;align-items:center;justify-content:center;cursor:pointer;">
+                        <i class="fas fa-chevron-left" style="color:#a3855b;font-size:1.3rem;"></i>
+                    </button>
+                    <div class="galeria-carrusel galeria-carrusel-center" style="display:flex;overflow-x:hidden;scroll-behavior:smooth;height:340px;">
+                        <div class="galeria-carrusel-item" style="min-width:100%;height:100%;display:flex;align-items:center;justify-content:center;">
+                            <video controls muted loop playsinline preload="metadata" poster="img/natasha.png" id="natasha-video" style="width:100%;height:100%;object-fit:cover;border-radius:16px;">
+                                <source src="img/video-natasha.mp4" type="video/mp4">
+                                <source src="img/video-natasha copy.mp4" type="video/mp4">
+                                <source src="img/video natasha.mp4" type="video/mp4">
+                                Tu navegador no soporta el video.
+                            </video>
+                        </div>
+                    </div>
+                    <button class="galeria-carrusel-btn galeria-carrusel-next" data-carrusel="center" aria-label="Siguiente" style="position:absolute;right:-18px;top:50%;transform:translateY(-50%);z-index:10;background:#fffbe6;border:none;border-radius:50%;box-shadow:0 2px 8px #c9a876;width:38px;height:38px;display:flex;align-items:center;justify-content:center;cursor:pointer;">
+                        <i class="fas fa-chevron-right" style="color:#a3855b;font-size:1.3rem;"></i>
+                    </button>
                 </div>
-                <div class="galeria-item">
-                    <img src="img/foto2.png" alt="Galería Balayage" class="placeholder-img" style="object-fit:cover;width:100%;height:100%;" />
-                </div>
-                <div class="galeria-item">
-                    <img src="img/foto3.png" alt="Galería Corte Masculino" class="placeholder-img" style="object-fit:cover;width:100%;height:100%;" />
+                <!-- Carrusel Derecho -->
+                <div class="galeria-carrusel-wrapper" style="position:relative;width:100%;">
+                    <button class="galeria-carrusel-btn galeria-carrusel-prev" data-carrusel="right" aria-label="Anterior" style="position:absolute;left:-18px;top:50%;transform:translateY(-50%);z-index:10;background:#fffbe6;border:none;border-radius:50%;box-shadow:0 2px 8px #c9a876;width:38px;height:38px;display:flex;align-items:center;justify-content:center;cursor:pointer;">
+                        <i class="fas fa-chevron-left" style="color:#a3855b;font-size:1.3rem;"></i>
+                    </button>
+                    <div class="galeria-carrusel galeria-carrusel-right" style="display:flex;overflow-x:hidden;scroll-behavior:smooth;height:340px;">
+                        <div class="galeria-carrusel-item" style="min-width:100%;height:100%;display:flex;align-items:center;justify-content:center;">
+                            <img src="img/foto3.png" alt="Galería Corte Masculino" class="placeholder-img" style="object-fit:cover;width:100%;height:100%;border-radius:16px;" />
+                        </div>
+                        <!-- Puedes agregar más imágenes aquí -->
+                    </div>
+                    <button class="galeria-carrusel-btn galeria-carrusel-next" data-carrusel="right" aria-label="Siguiente" style="position:absolute;right:-18px;top:50%;transform:translateY(-50%);z-index:10;background:#fffbe6;border:none;border-radius:50%;box-shadow:0 2px 8px #c9a876;width:38px;height:38px;display:flex;align-items:center;justify-content:center;cursor:pointer;">
+                        <i class="fas fa-chevron-right" style="color:#a3855b;font-size:1.3rem;"></i>
+                    </button>
                 </div>
             </div>
         </div>
