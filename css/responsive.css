@@ -1,3 +1,105 @@
+/* Carrusel de clientes 5 estrellas debajo de comentarios recientes */
+.carrusel-cinco-estrellas {
+    margin: 32px 0 0 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.titulo-carrusel-5 {
+    font-size: 1.5rem;
+    color: #a3855b;
+    margin-bottom: 18px;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    letter-spacing: 1px;
+}
+.carrusel-5-carousel {
+    display: flex;
+    flex-direction: row;
+    overflow-x: hidden;
+    position: relative;
+    min-height: 180px;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    max-width: 100vw;
+}
+.carrusel-5-slide {
+    min-width: 90vw;
+    max-width: 90vw;
+    flex: 0 0 90vw;
+    opacity: 0;
+    transition: opacity 0.5s, transform 0.5s;
+    position: static;
+    margin: 0 auto;
+    z-index: 1;
+    pointer-events: none;
+    transform: scale(0.98);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    padding: 22px 16px 16px 16px;
+    gap: 10px;
+}
+.carrusel-5-slide.active {
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 2;
+    transform: scale(1);
+    display: flex;
+}
+.carrusel-5-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #a3855b;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+.carrusel-5-content {
+    text-align: left;
+    width: 100%;
+}
+.carrusel-5-estrellas {
+    color: #d4af37;
+    font-size: 1.1rem;
+    margin-bottom: 2px;
+}
+.carrusel-5-content p {
+    color: #444;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    margin: 0 0 8px 0;
+}
+.carrusel-5-content h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #222;
+    margin: 0 0 2px 0;
+}
+.carrusel-5-instagram {
+    color: #a3855b;
+    font-size: 0.95rem;
+}
+@media (min-width: 700px) {
+    .carrusel-5-slide, .carrusel-5-content {
+        min-width: 520px;
+        max-width: 520px;
+        flex: 0 0 520px;
+    }
+    .carrusel-5-carousel {
+        min-height: 220px;
+    }
+}
 /* Carrusel testimonios destacados */
 .testimonios-carousel {
     display: flex;
