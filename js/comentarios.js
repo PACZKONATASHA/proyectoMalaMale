@@ -278,32 +278,23 @@ class SistemaComentarios {
     }
 }
 
-// CSS para las animaciones de las alertas
-const alertStyles = document.createElement('style');
-alertStyles.textContent = `
-    @keyframes slideInRight {
-        from {
-            transform: translateX(100%);
-            opacity: 0;
-        }
-        to {
-            transform: translateX(0);
-            opacity: 1;
-        }
-    }
 
-    @keyframes slideOutRight {
-        from {
-            transform: translateX(0);
-            opacity: 1;
+// CSS para las animaciones de las alertas (con id único para evitar conflicto)
+if (!document.querySelector('#comentarios-alert-styles')) {
+    let alertStyles = document.createElement('style');
+    alertStyles.id = 'comentarios-alert-styles';
+    alertStyles.textContent = `
+        @keyframes slideInRight {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
         }
-        to {
-            transform: translateX(100%);
-            opacity: 0;
+        @keyframes slideOutRight {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(100%); opacity: 0; }
         }
-    }
-`;
-document.head.appendChild(alertStyles);
+    `;
+    document.head.appendChild(alertStyles);
+}
 
 // Inicializar el sistema cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', () => {

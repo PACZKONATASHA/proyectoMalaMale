@@ -386,21 +386,20 @@
 
     <!-- Testimonios -->
     <section class="testimonios">
+
         <div class="container">
             <h2>Lo que dicen nuestros clientes</h2>
-
             <!-- Formulario para nuevos comentarios -->
             <div class="nuevo-comentario">
                 <h3>¡Déjanos tu opinión!</h3>
                 <form id="comentarioForm" class="comentario-form">
-                    <div class="form-group">
+                    <div class="form-group" style="display: flex; gap: 15px; flex-wrap: wrap;">
                         <input type="text" id="nombreCliente" placeholder="Tu nombre" required>
                         <input type="text" id="instagramHandle" placeholder="@tu_instagram (opcional)">
                     </div>
                     <div class="form-group">
                         <div class="estrellas-input">
-                            <span>Calificación:</span>
-                            <div class="rating-stars">
+                            <div class="rating-stars" style="font-size: 2rem; color: #D4AF37; display: flex; justify-content: center; gap: 8px; cursor: pointer;">
                                 <i class="fas fa-star" data-rating="1"></i>
                                 <i class="fas fa-star" data-rating="2"></i>
                                 <i class="fas fa-star" data-rating="3"></i>
@@ -410,16 +409,14 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <textarea id="comentarioTexto" placeholder="Comparte tu experiencia con nosotros..." rows="4"
-                            required></textarea>
+                        <textarea id="comentarioTexto" placeholder="Escribe tu comentario aquí..." rows="4" required></textarea>
                     </div>
                     <button type="submit" class="btn-enviar-comentario">
                         <i class="fas fa-paper-plane"></i>
-                        Publicar Comentario
+                        Enviar Comentario
                     </button>
                 </form>
             </div>
-
             <!-- Comentarios en tiempo real -->
             <div class="comentarios-tiempo-real">
                 <h3>Comentarios Recientes</h3>
