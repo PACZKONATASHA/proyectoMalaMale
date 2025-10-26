@@ -95,6 +95,8 @@
         min-width: 520px;
         max-width: 520px;
         flex: 0 0 520px;
+        min-height: 140px;
+        max-height: 180px;
     }
     .carrusel-5-carousel {
         min-height: 220px;
