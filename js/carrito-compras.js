@@ -2,7 +2,7 @@
 class CarritoCompras {
     constructor() {
         this.carrito = JSON.parse(localStorage.getItem('carritoMalaMale') || '[]');
-        this.numeroWhatsApp = '5491234567890'; // Reemplazar con el número real (con código de país Argentina +54 9)
+    this.numeroWhatsApp = '5491170845893'; // Número real de WhatsApp (con código de país Argentina +54 9)
         this.monedaSymbol = '$';
         this.costoEnvio = 5.99; // Costo fijo de envío
         this.envioGratisDesdePara = 50.00; // Envío gratis desde este monto
