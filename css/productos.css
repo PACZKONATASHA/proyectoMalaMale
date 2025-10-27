@@ -701,36 +701,68 @@
 /* Responsive para carrito */
 @media (max-width: 768px) {
     .carrito-widget {
-        width: 100%;
-        right: -100%;
+        width: 100vw;
+        max-width: 100vw;
+        height: 100vh;
+        right: -100vw;
+        left: 0;
+        border-radius: 0;
+        top: 0;
+        bottom: 0;
+        box-shadow: none;
+        z-index: 10000;
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
     }
-    
+    .carrito-widget.activo {
+        right: 0;
+        left: 0;
+    }
     .carrito-item {
         grid-template-columns: 50px 1fr 70px 60px 30px;
         gap: 0.5rem;
         padding: 0.75rem;
     }
-    
     .item-imagen {
         width: 50px;
         height: 50px;
     }
-    
     .item-info h4 {
         font-size: 0.8rem;
     }
-    
     .carrito-acciones {
         grid-template-columns: 1fr;
     }
-    
     .carrito-nav {
         margin-left: 0.5rem;
     }
-    
     .carrito-btn {
         width: 45px;
         height: 45px;
+    }
+}
+
+@media (max-width: 480px) {
+    .carrito-header {
+        padding: 0.75rem;
+    }
+    .carrito-acciones {
+        padding: 0.5rem;
+    }
+    .btn-finalizar {
+        font-size: 1.1rem;
+        width: 100%;
+        padding: 1rem 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+    .carrito-widget {
+        min-height: 100vh;
+        height: 100vh;
+        max-width: 100vw;
+        left: 0;
+        right: 0;
+        border-radius: 0;
     }
 }
 
