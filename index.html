@@ -102,32 +102,23 @@
 
             <!-- Slides del Carrusel -->
             <div class="carousel-inner">
-                <!-- Slide 1: EXPERIENCE -->
-                <div class="carousel-item active">
-                    <div class="mala-male-experience d-flex align-items-center">
-                        <div class="container-fluid h-100">
-                            <div class="row h-100 align-items-center">
-                                <!-- Texto - Orden 2 en mobile, 1 en desktop -->
-                                <div class="col-12 col-md-6 order-2 order-md-1 mala-male-text-col">
-                                    <div class="mala-male-text p-3 p-md-5">
-                                        <h1 class="mala-male-experience-title display-1 fw-bold text-dark mb-3">
-                                            EXPERIENCE</h1>
-                                        <a href="traramientos.html"
-                                            class="btn btn-dark btn-lg px-4 py-2 mala-male-btn">SHOP COLLECTION</a>
+                                <!-- Slide 1: EXPERIENCE -->
+                                <div class="carousel-item active">
+                                    <div class="hero-experience-carousel d-flex align-items-center w-100" style="background:#f8f3ed;min-height:420px;position:relative;overflow:hidden;">
+                                        <div class="hero-experience-bg-text position-absolute w-100 text-center" style="top:18%;left:0;font-size:8vw;color:#181818;opacity:0.08;font-family:'Playfair Display',serif;font-weight:700;letter-spacing:0.2em;pointer-events:none;z-index:1;user-select:none;">MALA MALE</div>
+                                        <div class="container-fluid d-flex flex-row align-items-center justify-content-center position-relative z-2" style="max-width:1200px;padding:48px 0 32px 0;">
+                                            <div class="hero-experience-img flex-shrink-0" style="flex:1 1 48%;display:flex;align-items:flex-end;justify-content:flex-end;min-width:260px;max-width:420px;margin-right:0;">
+                                                <img src="img/foto.sin fondo.png" alt="Mala Male" style="width:100%;max-width:420px;height:auto;object-fit:contain;background:transparent;box-shadow:none;" />
+                                            </div>
+                                            <div class="hero-experience-text d-flex flex-column align-items-start justify-content-center" style="flex:1 1 52%;padding-left:3vw;min-width:260px;">
+                                                <h1 class="hero-experience-title" style="font-size:2.1rem;color:#181818;font-family:'Playfair Display',serif;font-weight:700;letter-spacing:0.12em;margin-bottom:0.5rem;line-height:1.1;">EXPERIENCE</h1>
+                                                <div class="hero-experience-sub" style="font-family:'Playfair Display',serif;font-size:2.1rem;color:#a3855b;margin-bottom:2.2rem;margin-left:0.2rem;font-style:italic;letter-spacing:0.04em;">SHOP COLLECTION</div>
+                                                <!-- Si quieres el botón debajo, descomenta la siguiente línea -->
+                                                <!-- <a href="#productos" class="hero-experience-btn" style="display:inline-block;padding:0.8rem 2.2rem;font-size:1.1rem;font-family:'Poppins',sans-serif;font-weight:600;color:#181818;background:#fff;border:2px solid #a3855b;border-radius:32px;text-decoration:none;letter-spacing:0.08em;box-shadow:0 2px 12px #c9a87622;transition:background 0.2s,color 0.2s,box-shadow 0.2s;">SHOP COLLECTION</a> -->
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <!-- Imagen - Orden 1 en mobile, 2 en desktop -->
-                                <div class="col-12 col-md-6 order-1 order-md-2 mala-male-image-col">
-                                    <div class="mala-male-image text-center">
-                                        <img src="img/foto.sin fondo.png" alt="Natasha - MalaMale Experience"
-                                            class="img-fluid modelo-img" loading="eager" decoding="sync"
-                                            fetchpriority="high" style="max-height: 80vh; object-fit: contain;">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
                 <!-- Slide 2: Nuestro Espacio -->
                 <div class="carousel-item">
@@ -304,26 +295,20 @@
         </div>
     </div>
 
-    <!-- Labor Day Sale Section - OPCIÓN 1: Flexbox Forzado Horizontal -->
-    <section id="sobre-nosotros" class="labor-day-sale">
-        <div class="sale-container">
-            <div class="sale-content">
-                <div class="sale-text">
-                    <h2 class="sale-title">Sobre Nosotros</h2>
-                    <p class="sale-subtitle">IT'S NEVER TOO LATE!</p>
-                    <div class="sale-offer">
-                        <p class="discount-text">20% OFF ALL HAIRCUTS</p>
-                        <p class="offer-details"></p>
-                        <p class="promo-code">DISCOUNT AUTOMATICALLY APPLIED AT CHECKOUT</p>
-                    </div>
-                    <button class="shop-now-btn">SHOP NOW</button>
+        <!-- Hero Experience Section -->
+        <section id="hero-experience" class="hero-experience">
+            <div class="hero-experience-bg-text">LUXURY &nbsp; &nbsp; PREMIUM</div>
+            <div class="hero-experience-content">
+                <div class="hero-experience-img">
+                    <img src="img/foto.nati.png" alt="Experience MalaMale" />
                 </div>
-                <div class="sale-image">
-                    <img src="img/labor-day-sale.png" alt="Labor Day Sale - 20% Off All Haircuts">
+                <div class="hero-experience-text">
+                    <h1 class="hero-experience-title">EXPERIENCE</h1>
+                    <div class="hero-experience-sub">The Art of Hair</div>
+                    <a href="#productos" class="hero-experience-btn">SHOP COLLECTION</a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
 
     <!-- Galería Section -->
@@ -591,7 +576,6 @@
         crossorigin="anonymous"></script>
 
     <script src="js/script.js"></script>
-    <!-- <script src="js/carousel.js"></script> --> <!-- Carrusel desactivado para evitar conflicto -->
     <script src="js/navbar-fixed.js"></script>
     <script src="js/navegacion-gps.js"></script>
     <script src="js/gallery-modal.js"></script>

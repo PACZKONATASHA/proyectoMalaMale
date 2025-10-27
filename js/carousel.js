@@ -10,8 +10,8 @@ const testimonioSlides = document.querySelectorAll('.testimonio-slide');
 
 // Función para cambiar slide del carrusel principal
 function changeSlide(direction) {
-    slides[currentSlide].classList.remove('active');
-    indicators[currentSlide].classList.remove('active');
+    if (slides[currentSlide]) slides[currentSlide].classList.remove('active');
+    if (indicators[currentSlide]) indicators[currentSlide].classList.remove('active');
     
     currentSlide += direction;
     
@@ -21,19 +21,19 @@ function changeSlide(direction) {
         currentSlide = slides.length - 1;
     }
     
-    slides[currentSlide].classList.add('active');
-    indicators[currentSlide].classList.add('active');
+    if (slides[currentSlide]) slides[currentSlide].classList.add('active');
+    if (indicators[currentSlide]) indicators[currentSlide].classList.add('active');
 }
 
 // Función para ir a un slide específico
 function goToSlide(slideIndex) {
-    slides[currentSlide].classList.remove('active');
-    indicators[currentSlide].classList.remove('active');
+    if (slides[currentSlide]) slides[currentSlide].classList.remove('active');
+    if (indicators[currentSlide]) indicators[currentSlide].classList.remove('active');
     
     currentSlide = slideIndex;
     
-    slides[currentSlide].classList.add('active');
-    indicators[currentSlide].classList.add('active');
+    if (slides[currentSlide]) slides[currentSlide].classList.add('active');
+    if (indicators[currentSlide]) indicators[currentSlide].classList.add('active');
 }
 
 // Función para auto-play del carrusel

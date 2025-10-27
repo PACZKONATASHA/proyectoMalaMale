@@ -10,19 +10,20 @@ document.addEventListener('DOMContentLoaded', function() {
     function createHamburgerMenu() {
         // Solo crear si no existe ya
         if (document.querySelector('.hamburger')) return;
-        
+        if (!navContainer) return; // Si no existe el contenedor, no hacer nada
+
         const hamburger = document.createElement('div');
         hamburger.className = 'hamburger';
         hamburger.innerHTML = '<i class="fas fa-bars"></i>';
-        
+
         // Agregar al nav-container
         navContainer.appendChild(hamburger);
-        
+
         // Event listener para toggle del menú
         hamburger.addEventListener('click', function() {
             navMenu.classList.toggle('active');
             const icon = hamburger.querySelector('i');
-            
+
             if (navMenu.classList.contains('active')) {
                 icon.className = 'fas fa-times';
             } else {
