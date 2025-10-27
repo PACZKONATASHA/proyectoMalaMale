@@ -1,3 +1,133 @@
+/* HERO EXPERIENCE - inspirado en referencia */
+.hero-experience {
+    position: relative;
+    width: 100vw;
+    min-height: 420px;
+    background: #f8f3ed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 0;
+    margin-bottom: 0;
+}
+.hero-experience-bg-text {
+    position: absolute;
+    top: 18%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 4.5vw;
+    color: #fff;
+    opacity: 0.18;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    pointer-events: none;
+    z-index: 1;
+    user-select: none;
+}
+.hero-experience-content {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+    z-index: 2;
+    padding: 48px 0 32px 0;
+}
+.hero-experience-img {
+    flex: 1 1 48%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    min-width: 260px;
+    max-width: 420px;
+    margin-right: 0;
+}
+.hero-experience-img img {
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+    border-radius: 0 0 32px 32px;
+    box-shadow: 0 8px 48px rgba(44,44,44,0.18), 0 2.5px 12px rgba(201,168,118,0.13);
+    object-fit: cover;
+    background: #181818;
+}
+.hero-experience-text {
+    flex: 1 1 52%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding-left: 3vw;
+    min-width: 260px;
+}
+.hero-experience-title {
+    font-size: 3.8rem;
+    color: #181818;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    margin-bottom: 0.5rem;
+    line-height: 1.1;
+}
+.hero-experience-sub {
+    font-family: 'Rouge Script', 'Playfair Display', cursive;
+    font-size: 2.1rem;
+    color: #a3855b;
+    margin-bottom: 2.2rem;
+    margin-left: 0.2rem;
+    font-style: italic;
+    letter-spacing: 0.04em;
+}
+.hero-experience-btn {
+    display: inline-block;
+    padding: 0.8rem 2.2rem;
+    font-size: 1.1rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: #181818;
+    background: #fff;
+    border: 2px solid #a3855b;
+    border-radius: 32px;
+    text-decoration: none;
+    letter-spacing: 0.08em;
+    box-shadow: 0 2px 12px #c9a87622;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.hero-experience-btn:hover {
+    background: #a3855b;
+    color: #fff;
+    box-shadow: 0 8px 24px #c9a87644;
+}
+@media (max-width: 900px) {
+    .hero-experience-content {
+        flex-direction: column;
+        padding: 32px 0 18px 0;
+    }
+    .hero-experience-img {
+        margin: 0 auto 18px auto;
+        justify-content: center;
+        align-items: center;
+        max-width: 320px;
+    }
+    .hero-experience-text {
+        align-items: center;
+        padding-left: 0;
+        text-align: center;
+        min-width: 0;
+    }
+    .hero-experience-title {
+        font-size: 2.2rem;
+    }
+    .hero-experience-sub {
+        font-size: 1.3rem;
+        margin-bottom: 1.2rem;
+    }
+}
 .titulo-contacto-wrapper {
     width: 100%;
     display: flex;

@@ -1,3 +1,107 @@
+/* Hero Experience Float Image Customization */
+.hero-carousel {
+    height: 100vh;
+    overflow: hidden;
+    padding: 0;
+.hero-static-image-section {
+    background: #f8f3ed;
+    min-height: 420px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Imagen principal */
+.hero-static-img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+    box-shadow: 0 8px 48px rgba(44, 44, 44, 0.18),
+                            0 2.5px 12px rgba(201, 168, 118, 0.13);
+    background: transparent;
+    transition: all 0.3s ease; /* animación suave en resize */
+}
+
+/* --- Tablets --- */
+@media (max-width: 900px) {
+    .hero-static-image-section {
+        min-height: 360px;
+        padding: 20px;
+    }
+
+    .hero-static-img {
+        max-width: 85%;
+    }
+}
+
+/* --- Celulares --- */
+@media (max-width: 600px) {
+    .hero-static-image-section {
+        min-height: 300px;
+        padding: 15px;
+    }
+
+    .hero-static-img {
+        max-width: 95%;
+    }
+}
+
+/* --- Muy pantallas pequeñas (ej. 320px) --- */
+@media (max-width: 400px) {
+    .hero-static-image-section {
+        min-height: 260px;
+        padding: 10px;
+    }
+
+    .hero-static-img {
+        max-width: 100%;
+    }
+}
+/* Hero Experience Float Image Customization */
+.hero-experience-img img {
+    filter: drop-shadow(0 8px 48px rgba(44,44,44,0.18)) drop-shadow(0 2.5px 12px rgba(201,168,118,0.13));
+    background: transparent;
+    border-radius: 0 0 32px 32px;
+}
+
+.hero-experience-bg-text {
+    font-size: 8vw !important;
+    color: #181818 !important;
+    opacity: 0.08 !important;
+    font-family: 'Playfair Display', serif !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.2em !important;
+    pointer-events: none;
+    z-index: 1;
+    user-select: none;
+}
+
+.hero-experience-title {
+    font-size: 3.8rem !important;
+    color: #181818 !important;
+    font-family: 'Playfair Display', serif !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.12em !important;
+    margin-bottom: 0.5rem !important;
+    line-height: 1.1 !important;
+}
+
+.hero-experience-sub {
+    font-family: 'Playfair Display', serif !important;
+    font-size: 2.1rem !important;
+    color: #a3855b !important;
+    margin-bottom: 2.2rem !important;
+    margin-left: 0.2rem !important;
+    font-style: italic !important;
+    letter-spacing: 0.04em !important;
+}
 /* Estilos para el Logo de Texto */
 .logo-text {
     font-size: 1.8rem;
@@ -18,59 +122,78 @@
 
 .carousel-container {
     position: relative;
-    width: 100%;
-    height: 100%;
-}
+    @media (max-width: 900px) {
+        .hero-experience-carousel {
+            flex-direction: row !important;
+            align-items: center !important;
+            justify-content: center !important;
+            min-height: 320px;
+            padding: 16px 0 16px 0;
+        }
+        .hero-experience-img {
+            max-width: 48vw;
+            min-width: 120px;
+            margin: 0 0 0 2vw;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        .hero-experience-img img {
+            max-width: 100%;
+            width: 38vw;
+            min-width: 120px;
+            height: auto;
+            border-radius: 0 0 18px 18px;
+            object-fit: contain;
+            display: block;
+        }
+        .hero-experience-text {
+            padding-left: 3vw;
+            align-items: flex-start;
+            text-align: left;
+            min-width: 0;
+            width: 50vw;
+            justify-content: center;
+        }
+        .hero-experience-title {
+            font-size: 2.1rem;
+            line-height: 1.1;
+        }
+        .hero-experience-sub {
+            font-size: 1.1rem;
+            margin-bottom: 1.1rem;
+        }
+    }
 
-.carousel-slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.carousel-slide.active {
-    opacity: 1;
-}
-
-/* Soporte para el slide de MALA MALE EXPERIENCE */
-.carousel-slide .mala-male-experience {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-}
-
-.carousel-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    filter: brightness(0.8);
-    transition: all 0.5s ease;
-}
-
-/* Estilos específicos para la foto del salón */
-.carousel-slide img[src*="Captura de pantalla"] {
-    object-fit: cover;
-    object-position: center center;
-    filter: brightness(0.7) contrast(1.1);
-}
-
-.carousel-slide:hover img {
-    filter: brightness(0.9) contrast(1.1);
+    @media (max-width: 600px) {
+        .hero-experience-carousel {
+            min-height: 220px;
+            padding: 8px 0 8px 0;
+        }
+        .hero-experience-img {
+            max-width: 44vw;
+            min-width: 80px;
+            margin: 0 0 0 1vw;
+        }
+        .hero-experience-img img {
+            max-width: 100%;
+            width: 38vw;
+            min-width: 80px;
+            border-radius: 0 0 10px 10px;
+        }
+        .hero-experience-title {
+            font-size: 1.1rem;
+        }
+        .hero-experience-sub {
+            font-size: 0.95rem;
+        }
+        .hero-experience-text {
+            padding-left: 2vw;
+            width: 54vw;
+        }
+        .hero-experience-bg-text {
+            font-size: 13vw;
+        }
+    }
     transform: scale(1.02);
 }
 
