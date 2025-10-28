@@ -7,7 +7,7 @@
         align-items: center;       /* centra verticalmente */
         justify-content: center;   /* centra horizontalmente */
         position: relative;
-        min-height: 100vh;
+        min-height: 420px;
         overflow: hidden;
     }
 
@@ -42,9 +42,8 @@
     }
     .hero-experience-img img {
         width: 100%;
-        height: auto;
-        max-height: 80vh;
-        object-fit: contain;
+        height: 100%;
+        object-fit: cover;
         object-position: center;
         background: transparent;
         border: none;
@@ -160,7 +159,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
     color: var(--white);
     position: absolute;
     top: 0;
