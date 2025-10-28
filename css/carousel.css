@@ -1,173 +1,129 @@
 /* Hero Experience Float Image Customization */
 .hero-carousel {
-    height: 100vh;
-    overflow: hidden;
-    padding: 0;
-.hero-static-image-section {
-    background: #f8f3ed;
-    min-height: 420px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Imagen principal */
-.hero-static-img {
-    width: 100%;
-    max-width: 600px;
-    height: auto;
-    object-fit: contain;
-    display: block;
-    margin: 0 auto;
-    box-shadow: 0 8px 48px rgba(44, 44, 44, 0.18),
-                            0 2.5px 12px rgba(201, 168, 118, 0.13);
-    background: transparent;
-    transition: all 0.3s ease; /* animación suave en resize */
-}
-
-/* --- Tablets --- */
-@media (max-width: 900px) {
-    .hero-static-image-section {
-        min-height: 360px;
-        padding: 20px;
+    /* ==== SLIDE 1 - EXPERIENCE ==== */
+    .hero-experience-carousel {
+        background: #f8f3ed;
+        display: flex;
+        align-items: center;       /* centra verticalmente */
+        justify-content: center;   /* centra horizontalmente */
+        position: relative;
+        min-height: 100vh;
+        overflow: hidden;
     }
 
-    .hero-static-img {
-        max-width: 85%;
-    }
-}
-
-/* --- Celulares --- */
-@media (max-width: 600px) {
-    .hero-static-image-section {
-        min-height: 300px;
-        padding: 15px;
-    }
-
-    .hero-static-img {
-        max-width: 95%;
-    }
-}
-
-/* --- Muy pantallas pequeñas (ej. 320px) --- */
-@media (max-width: 400px) {
-    .hero-static-image-section {
-        min-height: 260px;
-        padding: 10px;
+    /* Texto de fondo “MALA MALE” */
+    .hero-experience-bg-text {
+        position: absolute;
+        width: 100%;
+        top: 12%;
+        left: 0;
+        font-size: 8vw;
+        color: #181818;
+        opacity: 0.08;
+        font-family: 'Playfair Display', serif;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        user-select: none;
+        pointer-events: none;
+        z-index: 1;
     }
 
-    .hero-static-img {
-        max-width: 100%;
+    /* Contenedor principal de imagen + texto */
+    .hero-experien
+
+    /* Imagen */
+    .hero-experience-img {
+        flex: 1 1 48%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        max-width: 420px;
+        min-width: 260px;
     }
-}
-/* Hero Experience Float Image Customization */
-.hero-experience-img img {
-    filter: drop-shadow(0 8px 48px rgba(44,44,44,0.18)) drop-shadow(0 2.5px 12px rgba(201,168,118,0.13));
-    background: transparent;
-    border-radius: 0 0 32px 32px;
-}
+    .hero-experience-img img {
+        width: 100%;
+        height: auto;
+        max-height: 80vh;
+        object-fit: contain;
+        object-position: center;
+        background: transparent;
+        border: none;
+    }
 
-.hero-experience-bg-text {
-    font-size: 8vw !important;
-    color: #181818 !important;
-    opacity: 0.08 !important;
-    font-family: 'Playfair Display', serif !important;
-    font-weight: 700 !important;
-    letter-spacing: 0.2em !important;
-    pointer-events: none;
-    z-index: 1;
-    user-select: none;
-}
+    /* Texto */
+    .hero-experience-text {
+        flex: 1 1 52%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: #181818;
+        padding-left: 3vw;
+    }
+    .hero-experience-title {
+        font-size: clamp(1.8rem, 4vw, 3rem);
+        font-weight: 600;
+        margin-bottom: 0.4em;
+        line-height: 1.1;
+    }
+    .hero-experience-text p {
+        font-size: clamp(0.95rem, 2vw, 1.2rem);
+        line-height: 1.4;
+        margin-bottom: 0;
+        max-width: 90%;
+    }
 
-.hero-experience-title {
-    font-size: 3.8rem !important;
-    color: #181818 !important;
-    font-family: 'Playfair Display', serif !important;
-    font-weight: 700 !important;
-    letter-spacing: 0.12em !important;
-    margin-bottom: 0.5rem !important;
-    line-height: 1.1 !important;
-}
+    /* ===== MEDIA QUERIES ===== */
 
-.hero-experience-sub {
-    font-family: 'Playfair Display', serif !important;
-    font-size: 2.1rem !important;
-    color: #a3855b !important;
-    margin-bottom: 2.2rem !important;
-    margin-left: 0.2rem !important;
-    font-style: italic !important;
-    letter-spacing: 0.04em !important;
-}
-/* Estilos para el Logo de Texto */
-.logo-text {
-    font-size: 1.8rem;
-    font-weight: 700;
-    margin: 0;
-    background: var(--gradient-luxury);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-/* Carrusel Principal Pantalla Completa */
-.hero-carousel {
-    position: relative;
-    height: 100vh;
-    overflow: hidden;
-}
-
-.carousel-container {
-    position: relative;
-    @media (max-width: 900px) {
-        .hero-experience-carousel {
-            flex-direction: row !important;
-            align-items: center !important;
-            justify-content: center !important;
-            min-height: 320px;
-            padding: 16px 0 16px 0;
+    /* Tablets */
+    @media (max-width: 992px) {
+        .hero-experience-carousel .container-fluid {
+            flex-direction: column;
+            text-align: center;
         }
         .hero-experience-img {
-            max-width: 48vw;
-            min-width: 120px;
-            margin: 0 0 0 2vw;
-            justify-content: flex-end;
-            align-items: center;
-        }
-        .hero-experience-img img {
-            max-width: 100%;
-            width: 38vw;
-            min-width: 120px;
-            height: auto;
-            border-radius: 0 0 18px 18px;
-            object-fit: contain;
-            display: block;
+            justify-content: center;
+            max-width: 340px;
         }
         .hero-experience-text {
-            padding-left: 3vw;
-            align-items: flex-start;
-            text-align: left;
-            min-width: 0;
-            width: 50vw;
-            justify-content: center;
-        }
-        .hero-experience-title {
-            font-size: 2.1rem;
-            line-height: 1.1;
-        }
-        .hero-experience-sub {
-            font-size: 1.1rem;
-            margin-bottom: 1.1rem;
+            padding-left: 0;
+            align-items: center;
         }
     }
 
+    /* Celulares */
     @media (max-width: 600px) {
         .hero-experience-carousel {
-            min-height: 220px;
-            padding: 8px 0 8px 0;
+            min-height: 90vh;
+            padding-top: 24px;
+        }
+        .hero-experience-bg-text {
+            font-size: 14vw;
+            top: 8%;
+        }
+        .hero-experience-img img {
+            max-width: 80%;
+            max-height: 50vh;
+        }
+        .hero-experience-title {
+            font-size: 1.6rem;
+        }
+        .hero-experience-text p {
+            font-size: 0.9rem;
+        }
+    }
+
+    /* Muy pequeños (≤400px) */
+    @media (max-width: 400px) {
+        .hero-experience-img img {
+            max-width: 70%;
+        }
+        .hero-experience-title {
+            font-size: 1.3rem;
+        }
+        .hero-experience-text p {
+            font-size: 0.85rem;
+        }
+    }
         }
         .hero-experience-img {
             max-width: 44vw;
