@@ -88,17 +88,8 @@
 
     <!-- Carrusel Principal Bootstrap -->
     <section id="inicio" class="hero-carousel">
-        <div id="malaMaleCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
-            <!-- Indicadores -->
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#malaMaleCarousel" data-bs-slide-to="0" class="active"
-                <button type="button" data-bs-target="#malaMaleCarousel" data-bs-slide-to="1"
-                    aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#malaMaleCarousel" data-bs-slide-to="2"
-                    aria-label="Slide 3"></button>
-                <button type="button" data-bs-target="#malaMaleCarousel" data-bs-slide-to="3"
-                    aria-label="Slide 4"></button>
-            </div>
+    <div id="malaMaleCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="false">
+            <!-- Indicadores eliminados para un look más limpio -->
 
             <!-- Slides del Carrusel -->
             <div class="carousel-inner">
@@ -209,13 +200,14 @@
             </div>
 
             <!-- Controles del Carrusel -->
-            <button class="carousel-control-prev" type="button" data-bs-target="#malaMaleCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
+            <!-- Controles sutiles a los costados -->
+            <button class="carousel-control-prev custom-carousel-control" type="button" data-bs-target="#malaMaleCarousel" data-bs-slide="prev" style="width:40px;height:40px;top:50%;left:12px;transform:translateY(-50%);background:rgba(255,255,255,0.18);border:none;border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:10;box-shadow:0 2px 8px #c9a87622;opacity:0.7;transition:opacity 0.2s;">
+                <span class="carousel-control-prev-icon" aria-hidden="true" style="filter:invert(0.7) grayscale(1);"></span>
+                <span class="visually-hidden">Anterior</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#malaMaleCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
+            <button class="carousel-control-next custom-carousel-control" type="button" data-bs-target="#malaMaleCarousel" data-bs-slide="next" style="width:40px;height:40px;top:50%;right:12px;transform:translateY(-50%);background:rgba(255,255,255,0.18);border:none;border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:10;box-shadow:0 2px 8px #c9a87622;opacity:0.7;transition:opacity 0.2s;">
+                <span class="carousel-control-next-icon" aria-hidden="true" style="filter:invert(0.7) grayscale(1);"></span>
+                <span class="visually-hidden">Siguiente</span>
             </button>
         </div>
     </section>

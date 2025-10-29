@@ -37,15 +37,14 @@ function goToSlide(slideIndex) {
 }
 
 // Función para auto-play del carrusel
+// Auto-play desactivado: función vacía
 function startCarousel() {
-    slideInterval = setInterval(() => {
-        changeSlide(1);
-    }, 5000); // Cambia cada 5 segundos
+    // No hacer nada, solo movimiento manual
 }
 
 // Función para detener auto-play
 function stopCarousel() {
-    clearInterval(slideInterval);
+    // No hacer nada, auto-play desactivado
 }
 
 // Función para cambiar testimonios

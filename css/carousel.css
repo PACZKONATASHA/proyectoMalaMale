@@ -1,3 +1,25 @@
+/* Controles sutiles para el carrusel principal */
+.custom-carousel-control {
+    opacity: 0.5;
+    transition: opacity 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px #c9a87622;
+}
+.custom-carousel-control:hover, .custom-carousel-control:focus {
+    opacity: 1;
+    box-shadow: 0 4px 16px #c9a87644;
+}
+.custom-carousel-control .carousel-control-prev-icon,
+.custom-carousel-control .carousel-control-next-icon {
+    filter: invert(0.7) grayscale(1);
+}
+@media (max-width: 600px) {
+    .custom-carousel-control {
+        width: 32px !important;
+        height: 32px !important;
+        left: 4px !important;
+        right: 4px !important;
+    }
+}
 /* Hero Experience Float Image Customization */
 .hero-carousel {
     /* ==== SLIDE 1 - EXPERIENCE ==== */
