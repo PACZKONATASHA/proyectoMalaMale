@@ -861,4 +861,8 @@
     .shop-our-service {
         margin-top: 0; /* Elimina el espacio superior */
     }
+
+    .shop-our-service {
+        display: none; /* Oculta la sección en dispositivos móviles */
+    }
 }
