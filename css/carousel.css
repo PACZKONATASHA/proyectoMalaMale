@@ -841,7 +841,7 @@
 
 @media (max-width: 600px) {
     .hero-experience-carousel {
-        min-height: 40vh; /* Reduce el largo al 40% */
+        min-height: 20vh; /* Reduce el largo al 20% */
     }
 
     .hero-experience-title {
