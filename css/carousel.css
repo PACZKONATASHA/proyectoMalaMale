@@ -67,7 +67,18 @@
     }
 
     /* Contenedor principal de imagen + texto */
-    .hero-experien
+    .hero-experience-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        position: relative;
+        z-index: 2;
+    }
 
     /* Imagen */
     .hero-experience-img {
@@ -130,22 +141,20 @@
     /* Celulares */
     @media (max-width: 600px) {
         .hero-experience-carousel {
-            min-height: 90vh;
-            padding-top: 24px;
+            min-height: 10vh; /* Reduce el largo al 10% */
         }
-        .hero-experience-bg-text {
-            font-size: 14vw;
-            top: 8%;
-        }
+
         .hero-experience-img img {
-            max-width: 80%;
-            max-height: 50vh;
+            width: 100%;
+            height: auto; /* Asegura que la imagen se vea grande */
         }
+
         .hero-experience-title {
-            font-size: 1.6rem;
-        }
-        .hero-experience-text p {
-            font-size: 0.9rem;
+            position: absolute;
+            top: 50%; /* Centra el título verticalmente en la imagen */
+            left: 50%; /* Centra el título horizontalmente */
+            transform: translate(-50%, -50%);
+            font-size: 1.6rem; /* Ajusta el tamaño del título */
         }
     }
 
@@ -841,28 +850,28 @@
 
 @media (max-width: 600px) {
     .hero-experience-carousel {
-        min-height: 20vh; /* Reduce el largo al 20% */
+        min-height: 10vh; /* Reduce el largo al 10% */
+    }
+
+    .hero-experience-img img {
+        width: 100%;
+        height: auto; /* Asegura que la imagen se vea grande */
     }
 
     .hero-experience-title {
-        margin-top: 5%; /* Baja el título un 5% */
+        position: absolute;
+        top: 50%; /* Centra el título verticalmente en la imagen */
+        left: 50%; /* Centra el título horizontalmente */
+        transform: translate(-50%, -50%);
+        font-size: 1.6rem; /* Ajusta el tamaño del título */
     }
+}
 
-    .shop-our-service {
-        position: relative;
-        top: 5%; /* Ajusta la posición debajo del carrusel */
-        text-align: center;
-    }
-
-    .hero-experience-carousel {
-        margin-bottom: 0; /* Elimina el espacio debajo del carrusel */
-    }
-
-    .shop-our-service {
-        margin-top: 0; /* Elimina el espacio superior */
-    }
-
-    .shop-our-service {
-        display: none; /* Oculta la sección en dispositivos móviles */
-    }
+/* Corrección de errores */
+.hero-experience-text {
+    padding-left: 2vw;
+    width: 54vw;
+}
+.hero-experience-bg-text {
+    font-size: 13vw;
 }
