@@ -843,4 +843,22 @@
     .hero-experience-carousel {
         min-height: 40vh; /* Reduce el largo al 40% */
     }
+
+    .hero-experience-title {
+        margin-top: 5%; /* Baja el título un 5% */
+    }
+
+    .shop-our-service {
+        position: relative;
+        top: 5%; /* Ajusta la posición debajo del carrusel */
+        text-align: center;
+    }
+
+    .hero-experience-carousel {
+        margin-bottom: 0; /* Elimina el espacio debajo del carrusel */
+    }
+
+    .shop-our-service {
+        margin-top: 0; /* Elimina el espacio superior */
+    }
 }
