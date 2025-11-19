@@ -1,3 +1,84 @@
+/* Estilos base para el carrusel (Mobile First) */
+.galeria-container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.galeria-multi-carrusel {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+    align-items: center;
+}
+
+.galeria-carrusel-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.galeria-carrusel {
+    display: flex;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    height: 450px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.galeria-carrusel-item {
+    min-width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.galeria-carrusel-item img,
+.galeria-carrusel-item video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+.galeria-carrusel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background: rgba(255, 251, 230, 0.9);
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(201, 168, 118, 0.5);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.galeria-carrusel-prev {
+    left: 15px;
+}
+
+.galeria-carrusel-next {
+    right: 15px;
+}
+
+.galeria-carrusel-btn i {
+    color: #a3855b;
+    font-size: 1.2rem;
+}
+
 /* Galería multi-carrusel estilo boock de fotos antiguas */
 @media screen and (min-width: 900px) {
         .galeria-multi-carrusel {
