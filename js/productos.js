@@ -325,4 +325,28 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // Interacción de tarjetas de productos (Expandir al hacer click)
+    const productCards = document.querySelectorAll('.producto-card');
+    productCards.forEach(card => {
+        // Asegurar cursor pointer para indicar interactividad
+        card.style.cursor = 'pointer';
+        
+        card.addEventListener('click', function(e) {
+            // Si se clickea el botón de agregar al carrito, no hacer toggle
+            if (e.target.closest('.btn-agregar-carrito')) {
+                return;
+            }
+            
+            // Toggle de la clase expanded
+            this.classList.toggle('expanded');
+            
+            // Colapsar otras tarjetas abiertas (efecto acordeón)
+            productCards.forEach(otherCard => {
+                if (otherCard !== this && otherCard.classList.contains('expanded')) {
+                    otherCard.classList.remove('expanded');
+                }
+            });
+        });
+    });
 });
