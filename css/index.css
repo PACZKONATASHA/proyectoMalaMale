@@ -1473,22 +1473,91 @@ header {
     margin: 1rem 0;
 }
 
-/* Responsive para comentarios */
+/* Responsive para comentarios y espaciado general en móvil */
 @media (max-width: 768px) {
+    /* Espaciado extra entre secciones principales */
+    #galeria {
+        margin-bottom: 4rem;
+    }
+
+    #imagen-responsiva {
+        margin-top: 4rem;
+        margin-bottom: 4rem;
+    }
+
+    .testimonios {
+        padding: 60px 0;
+    }
+
+    .testimonios h2 {
+        font-size: 2.2rem;
+        margin-bottom: 4rem;
+        line-height: 1.3;
+        margin-top: 1rem;
+    }
+
+    .nuevo-comentario,
+    .comentarios-tiempo-real,
+    .carrusel-cinco-estrellas {
+        padding: 2rem;
+        margin: 5rem 0; /* Aumentado para más separación */
+        border-radius: 15px;
+    }
+
+    .nuevo-comentario h3,
+    .comentarios-tiempo-real h3,
+    .titulo-carrusel-5 {
+        font-size: 1.8rem;
+        text-align: center;
+        margin-bottom: 3rem; /* Aumentado */
+        line-height: 1.3;
+    }
+
     .form-group:first-child {
         grid-template-columns: 1fr;
     }
     
     .estrellas-input {
         flex-direction: column;
-        align-items: flex-start;
-        gap: 0.5rem;
+        align-items: center;
+        gap: 1rem;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .rating-stars {
+        justify-content: center;
+        margin-top: 0.5rem;
     }
     
+    .btn-enviar-comentario {
+        width: 100%;
+        justify-content: center;
+        margin-top: 2rem;
+        padding: 1.2rem;
+    }
+
     .comentario-header {
         flex-direction: column;
-        align-items: flex-start;
-        gap: 0.5rem;
+        align-items: center;
+        text-align: center;
+        gap: 0.8rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .comentario-autor {
+        flex-direction: column;
+        gap: 0.4rem;
+    }
+
+    .comentario-texto {
+        text-align: center;
+        font-size: 1.05rem;
+    }
+
+    /* Ajustes para el carrusel de 5 estrellas */
+    .carrusel-cinco-estrellas {
+        text-align: center;
     }
 }
 
