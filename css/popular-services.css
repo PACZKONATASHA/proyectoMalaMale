@@ -3,6 +3,12 @@
     background: #F8F5F0;
     padding: 80px 0;
     position: relative;
+    margin-top: 0 !important; /* Forzar la eliminación del espacio superior */
+}
+
+/* Ajustar el contenedor para eliminar cualquier espacio en blanco */
+.popular-services-gallery {
+    padding-top: 0; /* Asegurar que no haya relleno superior */
 }
 
 .gallery-container {
