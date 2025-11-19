@@ -58,6 +58,149 @@ body.productos-page .navbar {
     margin-bottom: 0 !important;
 }
 
+/* Logo del navbar */
+.navbar-brand img {
+    height: 40px;
+    width: auto;
+}
+
+@media (max-width: 600px) {
+    .navbar-brand img {
+        height: 30px;
+    }
+}
+
+/* Centrar los links del navbar en desktop */
+@media (min-width: 992px) {
+    body.productos-page .navbar .navbar-nav {
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+/* Ajustar botón del carrito en celular */
+@media (max-width: 600px) {
+    .carrito-nav {
+        top: 15px !important;
+        right: 70px !important;
+        z-index: 1050 !important;
+    }
+    
+    .carrito-btn {
+        width: 40px !important;
+        height: 40px !important;
+        padding: 0 !important;
+    }
+    
+    /* Carrito a pantalla completa en celular */
+    .carrito-widget {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        max-width: 100% !important;
+        border-radius: 0 !important;
+        z-index: 2000 !important;
+    }
+    
+    .carrito-contenido {
+        height: calc(100vh - 120px) !important;
+    }
+    
+    .carrito-items {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        padding: 1rem !important;
+    }
+    
+    .carrito-item {
+        width: 100% !important;
+        max-width: 400px !important;
+        margin: 0 auto 1rem auto !important;
+    }
+    
+    .carrito-total {
+        text-align: center !important;
+    }
+    
+    .carrito-acciones {
+        flex-direction: column !important;
+        gap: 0.5rem !important;
+    }
+    
+    .carrito-acciones .btn {
+        width: 100% !important;
+        max-width: 300px !important;
+        margin: 0 auto !important;
+    }
+    
+    /* Filtros en una línea en celular */
+    .filtros-container {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        gap: 0.5rem !important;
+        padding: 0.5rem !important;
+        -webkit-overflow-scrolling: touch !important;
+    }
+    
+    .filtro-btn {
+        white-space: nowrap !important;
+        flex-shrink: 0 !important;
+        padding: 8px 16px !important;
+        font-size: 0.9rem !important;
+    }
+    
+    /* Grilla de productos 3 columnas en celular */
+    .productos-grid .grid {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 0.5rem !important;
+        padding: 0.5rem !important;
+    }
+    
+    .producto-card {
+        margin: 0 !important;
+    }
+    
+    .producto-imagen {
+        height: 120px !important;
+    }
+    
+    .producto-info {
+        padding: 0.5rem !important;
+    }
+    
+    .producto-info h3 {
+        font-size: 0.75rem !important;
+        margin-bottom: 0.25rem !important;
+    }
+    
+    .producto-info .marca {
+        font-size: 0.65rem !important;
+    }
+    
+    .producto-info .descripcion {
+        font-size: 0.65rem !important;
+        display: none !important;
+    }
+    
+    .producto-precio {
+        font-size: 0.85rem !important;
+    }
+    
+    .btn-agregar {
+        font-size: 0.75rem !important;
+        padding: 0.4rem 0.8rem !important;
+    }
+}
+
 /* Estilos específicos para productos */
 .productos-hero {
     padding-top: 90px; /* Espacio para el navbar */
@@ -1026,4 +1169,128 @@ body.productos-page .navbar {
         padding: revert !important;
         margin: revert !important;
     }
+}
+
+/* Footer */
+footer {
+    background: #0F0F0F;
+    background: linear-gradient(135deg, #0F0F0F 0%, #1C1C1C 25%, #0A0A0A 50%, #1C1C1C 75%, #0F0F0F 100%);
+    color: var(--pure-white);
+    padding: 60px 0 30px;
+    position: relative;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at center top, rgba(255,255,255,0.05) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.footer-section h3 {
+    color: var(--pure-white);
+    margin-bottom: 1rem;
+    text-shadow: 
+        0 0 10px rgba(255, 255, 255, 0.3),
+        0 0 20px rgba(255, 255, 255, 0.2);
+    font-weight: 500;
+}
+
+.footer-section p {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+    text-shadow: 0 1px 3px rgba(255, 255, 255, 0.1);
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section ul li a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: var(--transition);
+    text-shadow: 0 1px 3px rgba(255, 255, 255, 0.1);
+}
+
+.footer-section ul li a:hover {
+    color: var(--subtle-gold);
+    text-shadow: 0 0 10px rgba(201, 168, 118, 0.5);
+    transform: translateX(5px);
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(135deg, var(--subtle-gold), rgba(201, 168, 118, 0.8));
+    color: var(--deep-black);
+    border-radius: 50%;
+    text-decoration: none;
+    transition: var(--transition);
+    font-size: 1.2rem;
+    font-weight: bold;
+    box-shadow: 
+        0 4px 15px rgba(201, 168, 118, 0.3),
+        inset 0 2px 5px rgba(255, 255, 255, 0.2);
+}
+
+.social-links a:hover {
+    transform: translateY(-5px) scale(1.1);
+    background: linear-gradient(135deg, #E6D366, var(--subtle-gold));
+    box-shadow: 
+        0 8px 25px rgba(201, 168, 118, 0.5),
+        0 0 20px rgba(230, 211, 102, 0.4);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 2rem 0 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.8);
+    background: linear-gradient(90deg, 
+        rgba(15, 15, 15, 0.95), 
+        rgba(28, 28, 28, 0.95), 
+        rgba(15, 15, 15, 0.95)
+    );
+    text-shadow: 0 1px 3px rgba(255, 255, 255, 0.1);
+    position: relative;
+    margin-top: 1rem;
+}
+
+.footer-bottom::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--subtle-gold), transparent);
+    border-radius: 2px;
 }
