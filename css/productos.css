@@ -44,23 +44,50 @@
 /* Importar estilos base del index */
 @import url('index.css');
 
+/* Reset para eliminar espacios */
+body.productos-page {
+    margin: 0 !important;
+    padding: 0 !important;
+    padding-top: 0 !important;
+}
+
+/* Eliminar borde inferior del navbar en productos */
+body.productos-page .navbar {
+    border-bottom: none !important;
+    box-shadow: none !important;
+    margin-bottom: 0 !important;
+}
+
 /* Estilos específicos para productos */
 .productos-hero {
-    padding: 120px 0 60px;
-    background: var(--gradient-sunset);
-    color: white;
+    padding-top: 90px; /* Espacio para el navbar */
+    padding-bottom: 60px;
+    background: linear-gradient(135deg, #F8F5F0 0%, #E8DFD0 100%);
+    color: #2C2C2C;
     text-align: center;
+    margin: 0 !important;
+    margin-top: -1px !important; /* Eliminar cualquier línea blanca */
+}
+
+.productos-hero .container {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
 }
 
 .productos-hero h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
     font-weight: 700;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    color: #8B7355;
 }
 
 .productos-hero p {
     font-size: 1.2rem;
     opacity: 0.9;
+    margin-top: 0 !important;
+    color: #5A5A5A;
 }
 
 /* Filtros */
@@ -333,6 +360,38 @@
     .filtro-btn {
         width: 200px;
     }
+}
+
+/* Eliminar espacio en el menú y ajustar el fondo del hero */
+.navbar {
+    margin-bottom: 0; /* Elimina el espacio debajo del menú */
+}
+
+.productos-hero {
+    background-color: transparent; /* Elimina el fondo del hero */
+    padding: 0; /* Elimina el espacio interno */
+}
+
+/* Eliminar espacio en blanco entre el menú y el contenedor hero */
+.productos-hero {
+    margin-top: 0; /* Elimina el margen superior */
+}
+
+/* Ajustar el contenedor para que se pegue al menú */
+.container {
+    margin-top: 0; /* Elimina el espacio superior del contenedor */
+    padding-top: 0; /* Ajusta el relleno superior */
+}
+
+/* Subir el contenedor 1cm arriba */
+.productos-hero {
+    margin-top: -1cm; /* Ajusta la posición hacia arriba */
+}
+
+/* Ajustar el contenedor hero */
+.productos-hero {
+    margin-top: -1cm; /* Sube el contenedor 1cm hacia arriba */
+    height: 50vh; /* Ocupa el 50% de la altura de la página */
 }
 
 /* Animaciones específicas para productos */
@@ -866,6 +925,10 @@
 }
 
 @media (max-width: 768px) {
+    body.productos-page {
+        padding-top: 0 !important;
+    }
+    
     .cta-buttons {
         flex-direction: column;
         gap: 0.75rem;
@@ -874,5 +937,93 @@
     .btn-test-whatsapp {
         width: 100%;
         max-width: 250px;
+    }
+    
+    .productos-hero {
+        padding-top: 80px;
+        padding-bottom: 40px;
+    }
+    
+    .productos-hero h1 {
+        font-size: 2.2rem;
+    }
+}
+
+/* Ajustes para celulares - SOLUCIÓN RADICAL */
+@media (max-width: 600px) {
+    /* Reset total */
+    * {
+        margin: 0 !important;
+        padding: 0 !important;
+        border: 0 !important;
+        box-sizing: border-box !important;
+    }
+    
+    html, body {
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow-x: hidden !important;
+    }
+    
+    body.productos-page {
+        padding-top: 70px !important;
+    }
+    
+    /* Navbar */
+    body.productos-page .navbar,
+    .navbar-expand-lg,
+    nav.navbar {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100vw !important;
+        height: 70px !important;
+        padding: 0.5rem 1rem !important;
+        z-index: 1000 !important;
+        background-color: #F5F0E8 !important;
+    }
+    
+    /* CONTENEDOR HERO - Empieza en la posición 0 relativa al body que ya tiene padding-top */
+    .productos-hero {
+        margin-top: -70px !important;
+        padding-top: 70px !important;
+        padding-bottom: 30px !important;
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+        background: linear-gradient(135deg, #F8F5F0 0%, #E8DFD0 100%) !important;
+        color: #2C2C2C !important;
+        text-align: center !important;
+        width: 100% !important;
+    }
+    
+    .productos-hero .container {
+        padding: 0 1rem !important;
+        padding-top: 30px !important;
+        margin: 0 auto !important;
+    }
+    
+    .productos-hero h1 {
+        font-size: 2rem !important;
+        margin-bottom: 1rem !important;
+        color: #8B7355 !important;
+    }
+    
+    .productos-hero p {
+        font-size: 1rem !important;
+        opacity: 0.9 !important;
+        color: #5A5A5A !important;
+    }
+    
+    /* Restaurar padding para otros elementos */
+    .filtros,
+    .productos,
+    .producto-card,
+    .carrito-widget,
+    button,
+    a,
+    input {
+        padding: revert !important;
+        margin: revert !important;
     }
 }
