@@ -2452,3 +2452,132 @@ html {
         font-size: 1.2rem;
     }
 }
+
+/* About Section - Labor Day Sale / Sobre Nosotros */
+.about-section {
+    background: linear-gradient(135deg, #8B6F47 0%, #A0825C 25%, #B8956A 50%, #A0825C 75%, #8B6F47 100%);
+    padding: 80px 50px;
+    color: white;
+    position: relative;
+}
+
+.about-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-title {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    font-family: 'Playfair Display', serif;
+}
+
+.about-subtitle {
+    font-size: 24px;
+    font-style: italic;
+    color: #F5E6D3;
+    margin-bottom: 30px;
+    font-family: 'Playfair Display', serif;
+}
+
+.about-offer {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    letter-spacing: 0.05em;
+}
+
+.about-details {
+    font-size: 14px;
+    color: #E8D5C1;
+    margin-bottom: 30px;
+    letter-spacing: 0.1em;
+}
+
+.about-btn {
+    display: inline-block;
+    background: white;
+    color: #8B6F47;
+    border: none;
+    padding: 18px 40px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.about-btn:hover {
+    background: #F5E6D3;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.about-image {
+    flex: 0 0 400px;
+    height: 300px;
+    background: #ddd;
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    font-size: 18px;
+}
+
+.about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+/* About Section Responsive */
+@media (max-width: 968px) {
+    .about-section {
+        padding: 60px 30px;
+    }
+    
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+    
+    .about-title {
+        font-size: 36px;
+    }
+    
+    .about-subtitle {
+        font-size: 20px;
+    }
+    
+    .about-offer {
+        font-size: 24px;
+    }
+    
+    .about-image {
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 400px;
+        height: 250px;
+    }
+    
+    .about-btn {
+        width: 100%;
+        max-width: 300px;
+    }
+}
