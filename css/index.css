@@ -1,7 +1,36 @@
-/* HERO EXPERIENCE - inspirado en referencia */
+/* ========================================
+   RESET Y BASE RESPONSIVE
+   ======================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+body {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ========================================
+   HERO EXPERIENCE - RESPONSIVE
+   ======================================== */
 .hero-experience {
     position: relative;
-    width: 100vw;
+    width: 100%;
     min-height: 420px;
     background: #f8f3ed;
     display: flex;
@@ -36,7 +65,7 @@
     width: 100%;
     max-width: 1200px;
     z-index: 2;
-    padding: 48px 0 32px 0;
+    padding: 48px 20px 32px 20px;
 }
 .hero-experience-img {
     flex: 1 1 48%;
@@ -97,6 +126,124 @@
     letter-spacing: 0.08em;
     box-shadow: 0 2px 12px #c9a87622;
     transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+/* ========================================
+   RESPONSIVE HERO EXPERIENCE - MOBILE
+   ======================================== */
+
+/* Tablets y pantallas medianas (768px) */
+@media (max-width: 768px) {
+    .hero-experience {
+        min-height: 320px;
+        padding: 0;
+    }
+    
+    .hero-experience-content {
+        flex-direction: column;
+        padding: 32px 16px 24px 16px;
+        text-align: center;
+    }
+    
+    .hero-experience-img {
+        margin-right: 0;
+        margin-bottom: 24px;
+        max-width: 100%;
+        justify-content: center;
+    }
+    
+    .hero-experience-img img {
+        max-width: 320px;
+        width: 90%;
+    }
+    
+    .hero-experience-text {
+        padding-left: 0;
+        align-items: center;
+        width: 100%;
+    }
+    
+    .hero-experience-title {
+        font-size: 2.4rem;
+        text-align: center;
+    }
+    
+    .hero-experience-sub {
+        font-size: 1.5rem;
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+    
+    .hero-experience-btn {
+        font-size: 1rem;
+        padding: 0.7rem 1.8rem;
+    }
+    
+    .hero-experience-bg-text {
+        font-size: 5vw;
+    }
+}
+
+/* Móviles pequeños (480px) */
+@media (max-width: 480px) {
+    .hero-experience {
+        min-height: 280px;
+    }
+    
+    .hero-experience-content {
+        padding: 24px 12px 20px 12px;
+    }
+    
+    .hero-experience-img img {
+        max-width: 280px;
+        width: 85%;
+    }
+    
+    .hero-experience-title {
+        font-size: 1.8rem;
+        letter-spacing: 0.08em;
+    }
+    
+    .hero-experience-sub {
+        font-size: 1.2rem;
+        margin-bottom: 1.2rem;
+    }
+    
+    .hero-experience-btn {
+        font-size: 0.9rem;
+        padding: 0.6rem 1.5rem;
+    }
+}
+
+/* Móviles muy pequeños (360px) */
+@media (max-width: 360px) {
+    .hero-experience {
+        min-height: 240px;
+    }
+    
+    .hero-experience-content {
+        padding: 20px 10px 16px 10px;
+    }
+    
+    .hero-experience-img img {
+        max-width: 240px;
+        width: 80%;
+    }
+    
+    .hero-experience-title {
+        font-size: 1.5rem;
+        letter-spacing: 0.06em;
+    }
+    
+    .hero-experience-sub {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .hero-experience-btn {
+        font-size: 0.85rem;
+        padding: 0.5rem 1.2rem;
+    }
 }
 .hero-experience-btn:hover {
     background: #a3855b;
@@ -1201,15 +1348,14 @@ header {
 
 /* Sistema de Comentarios Interactivos */
 .nuevo-comentario {
-    background: var(--subtle-gold);
-    background: linear-gradient(135deg, #C9A876 0%, #B8A082 50%, #C9A876 100%);
-    padding: 2.5rem;
-    border-radius: 20px;
-    margin: 3rem 0;
+    background: #FFFFFF;
+    padding: 3rem 2.5rem;
+    border-radius: 24px;
+    margin: 3rem auto;
+    max-width: 980px;
     box-shadow: 
-        0 15px 35px rgba(201, 168, 118, 0.3),
-        0 0 30px rgba(201, 168, 118, 0.1);
-    border: 3px solid rgba(255, 255, 255, 0.3);
+        0 8px 32px rgba(0, 0, 0, 0.08),
+        0 2px 8px rgba(0, 0, 0, 0.04);
     position: relative;
     overflow: hidden;
 }
@@ -1221,22 +1367,24 @@ header {
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at top right, rgba(255,255,255,0.1) 0%, transparent 50%);
+    background: transparent;
     pointer-events: none;
 }
 
 .nuevo-comentario h3 {
     text-align: center;
-    color: var(--pure-white);
-    margin-bottom: 2rem;
-    font-size: 1.8rem;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    color: #B8935C;
+    margin-bottom: 2.5rem;
+    font-size: 2rem;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: -0.02em;
     position: relative;
     z-index: 2;
 }
 
 .comentario-form {
-    max-width: 600px;
+    max-width: 100%;
     margin: 0 auto;
     position: relative;
     z-index: 2;
@@ -1249,27 +1397,28 @@ header {
 .form-group input,
 .form-group textarea {
     width: 100%;
-    padding: 1rem;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.9);
-    color: var(--soft-black);
+    padding: 1.1rem 1.4rem;
+    border: 1px solid #E5E5E5;
+    border-radius: 12px;
+    background: #F5F5F5;
+    color: #2C2C2C;
     font-family: 'Poppins', sans-serif;
-    font-size: 1rem;
-    transition: var(--transition);
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
 }
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
-    color: rgba(44, 44, 44, 0.6);
+    color: #999999;
+    font-weight: 400;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: var(--pure-white);
-    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
-    background: var(--pure-white);
+    border-color: #D5D5D5;
+    background: #FAFAFA;
+    box-shadow: 0 0 0 3px rgba(184, 147, 92, 0.08);
 }
 
 .form-group:first-child {
@@ -1278,64 +1427,73 @@ header {
     gap: 1rem;
 }
 
+.form-group textarea {
+    resize: none;
+    min-height: 140px;
+    line-height: 1.6;
+}
+
 .estrellas-input {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 0.5rem 0;
 }
 
 .estrellas-input span {
-    color: var(--pure-white);
-    font-weight: 500;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    display: none;
 }
 
 .rating-stars {
     display: flex;
-    gap: 0.3rem;
+    gap: 0.5rem;
+    justify-content: center;
 }
 
 .rating-stars i {
-    font-size: 1.5rem;
-    color: rgba(255, 255, 255, 0.4);
+    font-size: 2.2rem;
+    color: #D4AF37;
     cursor: pointer;
-    transition: var(--transition);
+    transition: all 0.2s ease;
+    filter: drop-shadow(0 2px 4px rgba(212, 175, 55, 0.2));
 }
 
 .rating-stars i:hover,
 .rating-stars i.active {
-    color: var(--pure-white);
+    color: #D4AF37;
     transform: scale(1.1);
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    filter: drop-shadow(0 3px 8px rgba(212, 175, 55, 0.4));
 }
 
 .btn-enviar-comentario {
     width: 100%;
-    padding: 1rem 2rem;
-    background: var(--pure-white);
-    color: var(--soft-black);
-    border: 2px solid rgba(255, 255, 255, 0.5);
-    border-radius: 10px;
+    max-width: 320px;
+    margin: 0 auto;
+    display: block;
+    padding: 1rem 2.5rem;
+    background: #B8935C;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 28px;
     font-family: 'Poppins', sans-serif;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     font-weight: 600;
     cursor: pointer;
-    transition: var(--transition);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    position: relative;
-    z-index: 2;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 16px rgba(184, 147, 92, 0.25);
+    letter-spacing: 0.02em;
 }
 
 .btn-enviar-comentario:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-    background: rgba(255, 255, 255, 0.95);
-    border-color: var(--pure-white);
+    box-shadow: 0 6px 24px rgba(184, 147, 92, 0.35);
+    background: #A5834F;
+}
+
+.btn-enviar-comentario i {
+    display: none;
 }
 
 .comentarios-tiempo-real {
@@ -1530,26 +1688,44 @@ header {
         margin-top: 1rem;
     }
 
-    /* Formulario Estético y Responsivo */
+    /* Formulario Responsivo - MÓVIL */
     .nuevo-comentario {
         padding: 2.5rem 1.5rem;
-        margin: 4rem 0;
+        margin: 3rem 1rem;
         border-radius: 20px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
     }
 
     .nuevo-comentario h3 {
-        font-size: 1.6rem;
+        font-size: 1.65rem;
         text-align: center;
         margin-bottom: 2rem;
         line-height: 1.3;
+        color: #B8935C;
     }
 
     .form-group input,
     .form-group textarea {
-        font-size: 16px; /* Evita zoom en iOS */
-        padding: 15px;
+        font-size: 16px;
+        padding: 1rem 1.2rem;
         border-radius: 12px;
+        background: #F5F5F5;
+        border: 1px solid #E5E5E5;
+    }
+    
+    .form-group:first-child {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .rating-stars i {
+        font-size: 2rem;
+    }
+    
+    .btn-enviar-comentario {
+        max-width: 100%;
+        padding: 1rem 2rem;
+        font-size: 1rem;
     }
 
     /* Comentarios Recientes - Carrusel de 1 item */
@@ -2188,6 +2364,68 @@ footer::before {
     .galeria-grid,
     .testimonios-grid {
         grid-template-columns: 1fr;
+    }
+    
+    /* Formulario en móviles pequeños */
+    .nuevo-comentario {
+        padding: 2rem 1.2rem;
+        margin: 2.5rem 0.8rem;
+        border-radius: 18px;
+    }
+    
+    .nuevo-comentario h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1.8rem;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+        font-size: 15px;
+        padding: 0.9rem 1rem;
+        border-radius: 10px;
+    }
+    
+    .rating-stars i {
+        font-size: 1.8rem;
+        gap: 0.4rem;
+    }
+    
+    .btn-enviar-comentario {
+        padding: 0.9rem 1.8rem;
+        font-size: 0.95rem;
+        border-radius: 24px;
+    }
+}
+
+/* Móviles muy pequeños */
+@media (max-width: 360px) {
+    .nuevo-comentario {
+        padding: 1.8rem 1rem;
+        margin: 2rem 0.5rem;
+        border-radius: 16px;
+    }
+    
+    .nuevo-comentario h3 {
+        font-size: 1.3rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+        font-size: 14px;
+        padding: 0.8rem 0.9rem;
+        border-radius: 10px;
+    }
+    
+    .rating-stars i {
+        font-size: 1.6rem;
+        gap: 0.3rem;
+    }
+    
+    .btn-enviar-comentario {
+        padding: 0.85rem 1.5rem;
+        font-size: 0.9rem;
+        border-radius: 22px;
     }
 }
 
