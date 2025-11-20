@@ -63,15 +63,18 @@ body.productos-page .navbar {
         max-width: 100% !important;
         border-radius: 0 !important;
         z-index: 2000 !important;
-        overflow-y: auto !important;
+        overflow-y: auto !important; /* Scroll vertical habilitado */
+        -webkit-overflow-scrolling: touch; /* Scroll suave en iOS */
         display: flex !important;
         flex-direction: column !important;
         background: #fff !important;
-        transition: left 0.3s ease !important; /* Transición suave */
+        transition: left 0.3s ease !important;
+        padding-bottom: 100px !important; /* Espacio extra para scroll final */
     }
 
     .carrito-widget.activo {
         left: 0 !important; /* Visible ocupando toda la pantalla */
+        overflow-y: auto !important; /* Asegurar scroll cuando activo */
     }
     
     .carrito-contenido {
@@ -88,7 +91,8 @@ body.productos-page .navbar {
         justify-content: flex-start !important;
         padding: 1rem !important;
         height: auto !important;
-        overflow: visible !important; /* No scroll interno */
+        overflow: visible !important;
+        width: 100% !important;
     }
     
     .carrito-item {

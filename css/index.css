@@ -104,28 +104,62 @@
     box-shadow: 0 8px 24px #c9a87644;
 }
 @media (max-width: 900px) {
+    .hero-experience {
+        min-height: 360px;
+        padding: 0;
+        margin-bottom: 2rem;
+    }
+
+    .hero-experience-bg-text {
+        font-size: 6vw;
+        opacity: 0.12;
+        top: 15%;
+    }
+
     .hero-experience-content {
         flex-direction: column;
-        padding: 32px 0 18px 0;
+        padding: 24px 16px 16px 16px;
+        max-width: 100%;
     }
+    
     .hero-experience-img {
-        margin: 0 auto 18px auto;
+        margin: 0 auto 16px auto;
         justify-content: center;
         align-items: center;
-        max-width: 320px;
+        max-width: 85%;
+        min-width: 0;
     }
+
+    .hero-experience-img img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 0 0 24px 24px;
+        box-shadow: 0 6px 24px rgba(44,44,44,0.12);
+    }
+    
     .hero-experience-text {
         align-items: center;
         padding-left: 0;
+        padding: 0 12px;
         text-align: center;
         min-width: 0;
     }
+    
     .hero-experience-title {
-        font-size: 2.2rem;
+        font-size: 2.4rem;
+        letter-spacing: 0.08em;
+        margin-bottom: 0.6rem;
     }
+    
     .hero-experience-sub {
-        font-size: 1.3rem;
-        margin-bottom: 1.2rem;
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+    }
+
+    .hero-experience-btn {
+        padding: 0.7rem 1.8rem;
+        font-size: 1rem;
+        border-radius: 24px;
     }
 }
 .titulo-contacto-wrapper {
@@ -1490,27 +1524,81 @@ header {
     }
 
     .testimonios h2 {
-        font-size: 2.2rem;
-        margin-bottom: 4rem;
+        font-size: 2rem;
+        margin-bottom: 3rem;
         line-height: 1.3;
         margin-top: 1rem;
     }
 
-    .nuevo-comentario,
-    .comentarios-tiempo-real,
-    .carrusel-cinco-estrellas {
-        padding: 2rem;
-        margin: 5rem 0; /* Aumentado para más separación */
+    /* Formulario Estético y Responsivo */
+    .nuevo-comentario {
+        padding: 2.5rem 1.5rem;
+        margin: 4rem 0;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .nuevo-comentario h3 {
+        font-size: 1.6rem;
+        text-align: center;
+        margin-bottom: 2rem;
+        line-height: 1.3;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        font-size: 16px; /* Evita zoom en iOS */
+        padding: 15px;
+        border-radius: 12px;
+    }
+
+    /* Comentarios Recientes - Carrusel de 1 item */
+    .comentarios-tiempo-real {
+        padding: 2rem 1rem;
+        margin: 4rem 0;
+        border-radius: 20px;
+    }
+
+    .comentarios-tiempo-real h3 {
+        font-size: 1.6rem;
+        margin-bottom: 2rem;
+    }
+
+    .comentarios-container {
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 1rem;
+        padding: 0.5rem 0 1.5rem 0;
+        -webkit-overflow-scrolling: touch;
+        max-height: none; /* Quitar restricción de altura */
+    }
+    
+    /* Ocultar scrollbar pero permitir scroll */
+    .comentarios-container::-webkit-scrollbar {
+        height: 4px;
+    }
+    
+    .comentario-nuevo {
+        min-width: 100%;
+        flex: 0 0 100%;
+        scroll-snap-align: center;
+        margin: 0;
         border-radius: 15px;
     }
 
-    .nuevo-comentario h3,
-    .comentarios-tiempo-real h3,
-    .titulo-carrusel-5 {
-        font-size: 1.8rem;
+    /* Salón Cinco Estrellas */
+    .carrusel-cinco-estrellas {
+        padding: 2.5rem 1.5rem;
+        margin: 4rem 0;
+        border-radius: 20px;
         text-align: center;
-        margin-bottom: 3rem; /* Aumentado */
-        line-height: 1.3;
+    }
+
+    .titulo-carrusel-5 {
+        font-size: 1.6rem;
+        margin-bottom: 2rem;
     }
 
     .form-group:first-child {
@@ -1535,6 +1623,8 @@ header {
         justify-content: center;
         margin-top: 2rem;
         padding: 1.2rem;
+        font-size: 1.1rem;
+        border-radius: 12px;
     }
 
     .comentario-header {
@@ -1552,12 +1642,36 @@ header {
 
     .comentario-texto {
         text-align: center;
-        font-size: 1.05rem;
+        font-size: 1rem;
+        padding: 0 0.5rem;
     }
 
-    /* Ajustes para el carrusel de 5 estrellas */
-    .carrusel-cinco-estrellas {
-        text-align: center;
+    /* Contacto Typography - Letra más chica y estética */
+    .contacto-info {
+        padding: 0 1rem;
+    }
+
+    .info-item {
+        margin-bottom: 1.5rem;
+        align-items: flex-start;
+    }
+
+    .info-item i {
+        font-size: 1.2rem;
+        margin-top: 0.2rem;
+    }
+
+    .info-item h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.3rem;
+    }
+
+    .info-item p, 
+    .info-item a,
+    .contact-link,
+    .numero-wsp {
+        font-size: 0.9rem !important;
+        line-height: 1.4;
     }
 }
 
