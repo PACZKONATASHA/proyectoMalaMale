@@ -1,0 +1,203 @@
+/* Sobre Nosotros Section */
+.sobre-nosotros {
+    padding: 60px 20px;
+    background: #F5EFE0;
+}
+
+.sobre-nosotros .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.sobre-nosotros .row {
+    display: flex;
+    align-items: stretch;
+}
+
+.sobre-nosotros-text {
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.sobre-nosotros-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-style: italic;
+    color: #2C2C2C;
+    margin-bottom: 20px;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.sobre-nosotros-subtitle {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: #B8935C;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.sobre-nosotros-offer {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    color: #2C2C2C;
+    margin-bottom: 20px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.sobre-nosotros-description {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    color: #8B7355;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    line-height: 1.8;
+    font-weight: 500;
+}
+
+.sobre-nosotros-image {
+    padding: 20px;
+}
+
+.sobre-nosotros-image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    object-fit: cover;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sobre-nosotros {
+        padding: 40px 15px;
+    }
+
+    .sobre-nosotros .row {
+        display: flex;
+        flex-wrap: nowrap;
+    }
+
+    .sobre-nosotros-text {
+        padding: 30px 15px;
+        margin-bottom: 0;
+        flex: 0 0 50%;
+        min-width: 50%;
+    }
+
+    .sobre-nosotros-title {
+        font-size: 36px;
+        margin-bottom: 15px;
+    }
+
+    .sobre-nosotros-subtitle {
+        font-size: 12px;
+    }
+
+    .sobre-nosotros-offer {
+        font-size: 32px;
+    }
+
+    .sobre-nosotros-description {
+        font-size: 12px;
+    }
+
+    .sobre-nosotros-image {
+        padding: 15px;
+        flex: 0 0 50%;
+        min-width: 50%;
+    }
+}
+
+@media (max-width: 480px) {
+    .sobre-nosotros {
+        padding: 30px 10px;
+    }
+
+    .sobre-nosotros .row {
+        display: flex;
+        flex-wrap: nowrap;
+    }
+
+    .sobre-nosotros-text {
+        padding: 20px 12px;
+        margin-bottom: 0;
+        flex: 0 0 50%;
+        min-width: 50%;
+    }
+
+    .sobre-nosotros-title {
+        font-size: 28px;
+        margin-bottom: 12px;
+    }
+
+    .sobre-nosotros-subtitle {
+        font-size: 11px;
+        margin-bottom: 10px;
+    }
+
+    .sobre-nosotros-offer {
+        font-size: 26px;
+        margin-bottom: 15px;
+    }
+
+    .sobre-nosotros-description {
+        font-size: 11px;
+    }
+
+    .sobre-nosotros-image {
+        padding: 10px;
+        flex: 0 0 50%;
+        min-width: 50%;
+    }
+
+    .sobre-nosotros-image img {
+        border-radius: 10px;
+    }
+}
+
+@media (max-width: 360px) {
+    .sobre-nosotros {
+        padding: 25px 8px;
+    }
+
+    .sobre-nosotros .row {
+        display: flex;
+        flex-wrap: nowrap;
+    }
+
+    .sobre-nosotros-text {
+        padding: 15px 10px;
+        margin-bottom: 0;
+        flex: 0 0 50%;
+        min-width: 50%;
+    }
+
+    .sobre-nosotros-title {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .sobre-nosotros-subtitle {
+        font-size: 10px;
+    }
+
+    .sobre-nosotros-offer {
+        font-size: 22px;
+    }
+
+    .sobre-nosotros-description {
+        font-size: 10px;
+    }
+
+    .sobre-nosotros-image {
+        padding: 8px;
+        flex: 0 0 50%;
+        min-width: 50%;
+    }
+}
