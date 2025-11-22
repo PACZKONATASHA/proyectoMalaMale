@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrusel MalaMale - Responsive</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&family=Rouge+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/carrusel.css">
+</head>
+<body>
+    <!-- Carrusel Principal -->
+    <div class="carousel-container">
+        <div class="carousel-bg-text">MALA MALE</div>
+        
+        <div class="carousel-wrapper">
+            <!-- Slide 1 -->
+            <div class="carousel-slide active">
+                <div class="slide-content">
+                    <div class="slide-image">
+                        <img src="img/chica-degradado-magenta.png" alt="Experience MalaMale">
+                    </div>
+                    <div class="slide-text">
+                        <h1 class="slide-title">EXPERIENCE</h1>
+                        <p class="slide-subtitle">SHOP COLLECTION</p>
+                        <a href="#servicios" class="slide-button">Explorar</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="carousel-slide">
+                <div class="slide-content">
+                    <div class="slide-image">
+                        <img src="img/Alisados/morena-iluminada.png" alt="Hair Transformation" onerror="this.src='img/foto.nati.png'">
+                    </div>
+                    <div class="slide-text">
+                        <h1 class="slide-title">TRANSFORM</h1>
+                        <p class="slide-subtitle">YOUR BEAUTY</p>
+                        <a href="#servicios" class="slide-button">Descubrir</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="carousel-slide">
+                <div class="slide-content">
+                    <div class="slide-image">
+                        <img src="img/Balayage/Captura de pantalla 2025-10-14 111503.png" alt="Balayage Service" onerror="this.src='img/foto.nati.png'">
+                    </div>
+                    <div class="slide-text">
+                        <h1 class="slide-title">LUXE</h1>
+                        <p class="slide-subtitle">COLLECTION</p>
+                        <a href="#servicios" class="slide-button">Ver Más</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Botones de Navegación -->
+        <button class="carousel-nav-button prev" onclick="prevSlide()">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="carousel-nav-button next" onclick="nextSlide()">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+
+        <!-- Indicadores -->
+        <div class="carousel-indicators">
+            <span class="indicator-dot active" onclick="goToSlide(0)"></span>
+            <span class="indicator-dot" onclick="goToSlide(1)"></span>
+            <span class="indicator-dot" onclick="goToSlide(2)"></span>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/carrusel.js"></script>
+</body>
+</html>
