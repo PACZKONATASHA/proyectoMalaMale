@@ -98,23 +98,27 @@
 /* Columna texto */
 .slide-experience-text {
     flex: 1;
+    text-align: left;
 }
 
+/* Título tipo banner Glamour */
 .slide-experience-title {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Playfair Display', serif;   /* o la serif que ya usás */
     font-size: 56px;
-    font-weight: 700;
+    font-weight: 600;
     color: #2C2C2C;
-    margin-bottom: 8px;
-    letter-spacing: 3px;
+    margin-bottom: 6px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
 }
 
+/* Subtítulo manuscrito / elegante */
 .slide-experience-subtitle {
-    font-family: 'Poppins', sans-serif;
-    font-size: 18px;
+    font-family: 'Playfair Display', serif;   /* podés cambiar a 'Lora' o similar */
+    font-size: 20px;
     color: #B8935C;
-    letter-spacing: 1.5px;
-    font-weight: 500;
+    font-style: italic;
+    letter-spacing: 0.12em;
 }
 
 /* Fondo base de cualquier slide del carrusel */
@@ -128,52 +132,54 @@
 
 @media (max-width: 768px) {
 
-    /* El alto del hero se adapta al contenido,
-       así el "banner" mide lo que mide la imagen */
+    /* Sin alturas forzadas: el alto del banner lo manda la imagen */
     .hero-carousel .carousel-item {
         height: auto;
         min-height: auto;
+        padding: 0;
     }
 
     .slide-experience {
-        padding: 20px 16px 24px;
-        gap: 12px;
+        padding: 16px 12px 20px;
+        gap: 8px;
+        align-items: center;
     }
 
-    /* --- AGRANDAR LA CARA Y PARECERSE A GLAMOUR --- */
+    /* AGRANDAR MUCHO LA CARA Y QUE OCUPE CASI TODO EL ALTO */
     .slide-experience-img {
-        flex: 0 0 55%;
-        max-width: 55%;
+        flex: 0 0 70%;
+        max-width: 70%;
         align-items: flex-end;
-        justify-content: center;
-        overflow: visible; /* por si sobresale un poco */
+        justify-content: flex-start;
+        overflow: visible;
     }
 
     .slide-experience-img img {
-        /* Zoom de la cara: más grande y recortada hacia la izquierda */
-        width: 130%;
+        width: 180%;          /* ZOOM de la cara: subí/bajá este valor si querés más/menos */
         height: auto;
         max-height: none;
         object-fit: cover;
-        transform: translateX(-12%);
-        filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.20));
+        transform: translateX(-28%);  /* mueve la cara hacia la izquierda */
+        filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.25));
     }
 
-    /* Columna texto a la derecha, más grande */
+    /* Texto más grande y a la derecha */
     .slide-experience-text {
-        flex: 1;
-        max-width: 45%;
+        flex: 0 0 30%;
+        max-width: 30%;
         text-align: left;
     }
 
     .slide-experience-title {
         font-size: 28px;
-        line-height: 1.1;
+        letter-spacing: 0.16em;
         margin-bottom: 4px;
+        line-height: 1.1;
     }
 
     .slide-experience-subtitle {
-        font-size: 14px;
+        font-size: 13px;
+        letter-spacing: 0.14em;
     }
 }
 
@@ -184,22 +190,23 @@
 @media (max-width: 480px) {
 
     .slide-experience {
-        padding: 16px 12px 20px;
-        gap: 8px;
+        padding: 14px 10px 18px;
+        gap: 6px;
     }
 
     .slide-experience-img {
-        flex: 0 0 60%;
-        max-width: 60%;
+        flex: 0 0 72%;
+        max-width: 72%;
     }
 
     .slide-experience-img img {
-        width: 140%;
-        transform: translateX(-18%);
+        width: 190%;
+        transform: translateX(-32%);
     }
 
     .slide-experience-text {
-        max-width: 40%;
+        flex: 0 0 28%;
+        max-width: 28%;
     }
 
     .slide-experience-title {
@@ -207,7 +214,7 @@
     }
 
     .slide-experience-subtitle {
-        font-size: 13px;
+        font-size: 12px;
     }
 }
 
@@ -384,4 +391,179 @@
     .slide-experience-img img {
         max-height: 200px;
     }
+}
+
+/* =========================================
+   OVERRIDE PARA MOBILE – HERO TIPO GLAMOUR
+   ========================================= */
+@media (max-width: 768px) {
+
+  /* El banner: alto fijo tipo hero */
+  .hero-carousel .carousel-item {
+    height: 65vh !important;      /* podés probar 60 o 70 */
+    min-height: 0 !important;
+    padding: 0 !important;
+  }
+
+  .hero-carousel .slide-experience {
+    height: 100% !important;
+    padding: 0 12px !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 8px !important;
+    background: #F5EFE0 !important;
+  }
+
+  /* ---- COLUMNA IMAGEN (CARA GRANDE) ---- */
+  .slide-experience-img {
+    flex: 0 0 55% !important;
+    max-width: 55% !important;
+    height: 100% !important;
+    display: flex !important;
+    align-items: flex-end !important;
+    justify-content: flex-start !important;
+    overflow: hidden !important;
+  }
+
+  .slide-experience-img img {
+    height: 100% !important;      /* ACA la imagen toma toda la altura del banner */
+    width: auto !important;
+    max-width: none !important;
+    object-fit: cover !important;
+    transform: translateX(-10%) !important;  /* mueve un poquito a la izquierda */
+    animation: none !important;
+    filter: drop-shadow(0 12px 24px rgba(0,0,0,0.25)) !important;
+  }
+
+  /* ---- COLUMNA TEXTO (TIPO BANNER 2ª IMAGEN) ---- */
+  .slide-experience-text {
+    flex: 0 0 40% !important;
+    max-width: 40% !important;
+    text-align: left !important;
+  }
+
+  .slide-experience-title {
+    font-family: 'Playfair Display', serif !important;
+    font-size: 26px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.16em !important;
+    text-transform: uppercase !important;
+    margin-bottom: 4px !important;
+    color: #2C2C2C !important;
+  }
+
+  .slide-experience-subtitle {
+    font-family: 'Playfair Display', serif !important; /* si querés otra cursiva, cambiala acá */
+    font-size: 13px !important;
+    font-style: italic !important;
+    letter-spacing: 0.14em !important;
+    color: #B8935C !important;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .hero-carousel .carousel-item {
+    height: 70vh !important;   /* en celulares muy chicos, un poco más alto */
+  }
+
+  .slide-experience-title {
+    font-size: 22px !important;
+  }
+
+  .slide-experience-subtitle {
+    font-size: 12px !important;
+  }
+}
+
+/* =========================================
+   AJUSTE HERO MOBILE: IMAGEN GRANDE + TEXTO CERCA
+   ========================================= */
+@media (max-width: 768px) {
+
+  /* El carrusel toma exactamente la altura de la imagen */
+  .hero-carousel .carousel-item {
+    padding: 0 !important;
+    height: auto !important;
+    min-height: 0 !important;
+  }
+
+  .slide-experience {
+    padding: 0 10px !important;
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 6px !important;
+    background: #F5EFE0 !important;
+  }
+
+  /* -------- IMAGEN: MÁS ANCHA Y DOMINANTE -------- */
+  .slide-experience-img {
+    flex: 0 0 70% !important;      /* más porcentaje = imagen más grande */
+    max-width: 70% !important;
+    height: 100% !important;
+    display: flex !important;
+    align-items: flex-end !important;
+    justify-content: flex-start !important;
+    overflow: hidden !important;
+  }
+
+  .slide-experience-img img {
+    width: 100% !important;        /* la imagen manda la altura del banner */
+    height: auto !important;
+    max-width: none !important;
+    object-fit: cover !important;
+    animation: none !important;
+  }
+
+  /* -------- TEXTO: MÁS CERCA DE LA CARA -------- */
+  .slide-experience-text {
+    flex: 0 0 30% !important;
+    max-width: 30% !important;
+    text-align: left !important;
+    padding-left: 4px !important;  /* pegado a la imagen */
+  }
+
+  .slide-experience-title {
+    font-family: 'Playfair Display', serif !important;
+    font-size: 24px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.16em !important;
+    text-transform: uppercase !important;
+    margin: 0 0 4px 0 !important;
+    color: #2C2C2C !important;
+  }
+
+  .slide-experience-subtitle {
+    font-family: 'Playfair Display', serif !important;
+    font-size: 12px !important;
+    font-style: italic !important;
+    letter-spacing: 0.12em !important;
+    color: #B8935C !important;
+    margin: 0 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .slide-experience-img {
+    flex: 0 0 75% !important;   /* todavía más dominante en celu chico */
+    max-width: 75% !important;
+  }
+
+  .slide-experience-text {
+    flex: 0 0 25% !important;
+    max-width: 25% !important;
+  }
+
+  .slide-experience-title {
+    font-size: 20px !important;
+  }
+
+  .slide-experience-subtitle {
+    font-size: 11px !important;
+  }
 }
