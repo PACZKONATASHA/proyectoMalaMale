@@ -310,12 +310,81 @@
     }
 }
 
-/* Ajuste de tamaños en celulares más chicos */
-@media (max-width: 480px) {
-    .slide-experience-title {
-        font-size: 24px;
+/* =========================================
+   FIX REAL PARA HACERLO IGUAL AL DESKTOP EN CELULAR
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    /* Mantener layout HORIZONTAL en celular */
+    .slide-experience {
+        flex-direction: row !important;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 15px;
+        min-height: 280px !important; /* evita altura gigante */
+        gap: 10px;
     }
+
+    /* Columna de texto más chica */
+    .slide-experience-text {
+        width: 50%;
+        max-width: 50%;
+        text-align: left !important;
+    }
+
+    .slide-experience-title {
+        font-size: 22px !important;
+        line-height: 1.1;
+    }
+
     .slide-experience-subtitle {
-        font-size: 13px;
+        font-size: 12px !important;
+    }
+
+    /* Foto pegada abajo (como en desktop) */
+    .slide-experience-img {
+        width: 50%;
+        max-width: 50%;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+    }
+
+    .slide-experience-img img {
+        width: 100%;
+        height: auto;
+        max-height: 260px;   /* evita que quede gigante */
+        object-fit: contain;
+        animation: none !important; /* no se mueve */
+        transform: translateY(0);   /* pegado abajo */
+    }
+
+    /* Ajuste del carrusel para que no sea muy alto */
+    .carousel-item {
+        min-height: 280px !important;
+        height: auto !important;
+    }
+
+    /* Botones del slide más chicos */
+    .hero-carousel .btn {
+        padding: 6px 14px !important;
+        font-size: 12px !important;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .slide-experience {
+        min-height: 240px !important;
+        gap: 6px;
+    }
+
+    .slide-experience-title {
+        font-size: 18px !important;
+    }
+
+    .slide-experience-img img {
+        max-height: 200px;
     }
 }
