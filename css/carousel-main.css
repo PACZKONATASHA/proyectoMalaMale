@@ -60,15 +60,15 @@
     }
 }
 
-/* ==========================
-   HERO CARRUSEL – SLIDE 1
-   ========================== */
+/* =====================================
+   HERO CARRUSEL – SLIDE 1 (ESCRITORIO)
+   ===================================== */
 
 .hero-carousel {
     background: #F5EFE0;
 }
 
-/* ---- Desktop / general ---- */
+/* Contenedor principal del slide */
 .slide-experience {
     display: flex;
     align-items: center;
@@ -78,10 +78,10 @@
     background: #F5EFE0;
 }
 
-/* Columna imagen */
+/* Columna imagen (cara grande) */
 .slide-experience-img {
     flex: 0 0 40%;
-    max-width: 480px;
+    max-width: 520px;
     display: flex;
     align-items: flex-end;
     justify-content: center;
@@ -93,7 +93,6 @@
     display: block;
     object-fit: contain;
     filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15));
-    /* animation: float 3s ease-in-out infinite; */ /* Opcional */
 }
 
 /* Columna texto */
@@ -103,105 +102,112 @@
 
 .slide-experience-title {
     font-family: 'Playfair Display', serif;
-    font-size: 48px;
+    font-size: 56px;
     font-weight: 700;
     color: #2C2C2C;
-    margin-bottom: 10px;
-    letter-spacing: 2px;
+    margin-bottom: 8px;
+    letter-spacing: 3px;
 }
 
 .slide-experience-subtitle {
     font-family: 'Poppins', sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     color: #B8935C;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
     font-weight: 500;
 }
 
-/* ==========================
-   FIX — Evitar superposición
-   ========================== */
-/* NO usar display:flex en .carousel-item porque rompe Bootstrap */
+/* Fondo base de cualquier slide del carrusel */
 .hero-carousel .carousel-item {
     background: #F5EFE0;
 }
 
-
-/* ==========================
-   HERO RESPONSIVE – MOBILE
-   ========================== */
+/* =====================================
+   RESPONSIVE – TABLET / MOBILE (≤ 768px)
+   ===================================== */
 
 @media (max-width: 768px) {
 
-    /* Alto tipo banner — NO usamos display:flex aquí */
+    /* El alto del hero se adapta al contenido,
+       así el "banner" mide lo que mide la imagen */
     .hero-carousel .carousel-item {
-        height: min(60vh, 420px);
-        min-height: 260px;
+        height: auto;
+        min-height: auto;
     }
 
-    /* Centrado del contenido del slide 1 */
     .slide-experience {
-        height: 100%;
-        padding: 0 16px;
+        padding: 20px 16px 24px;
         gap: 12px;
-        display: flex;
-        align-items: center;
     }
 
+    /* --- AGRANDAR LA CARA Y PARECERSE A GLAMOUR --- */
     .slide-experience-img {
-        flex: 0 0 45%;
-        max-width: 45%;
+        flex: 0 0 55%;
+        max-width: 55%;
         align-items: flex-end;
         justify-content: center;
+        overflow: visible; /* por si sobresale un poco */
     }
 
     .slide-experience-img img {
-        width: 100%;
-        max-height: 260px;
+        /* Zoom de la cara: más grande y recortada hacia la izquierda */
+        width: 130%;
         height: auto;
-        object-fit: contain;
-        animation: none; /* evitar que se mueva */
+        max-height: none;
+        object-fit: cover;
+        transform: translateX(-12%);
+        filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.20));
     }
 
+    /* Columna texto a la derecha, más grande */
     .slide-experience-text {
         flex: 1;
-        max-width: 55%;
+        max-width: 45%;
         text-align: left;
     }
 
     .slide-experience-title {
-        font-size: clamp(20px, 4vw, 26px);
-        margin-bottom: 4px;
+        font-size: 28px;
         line-height: 1.1;
+        margin-bottom: 4px;
     }
 
     .slide-experience-subtitle {
-        font-size: clamp(11px, 2.5vw, 14px);
+        font-size: 14px;
     }
 }
 
+/* =====================================
+   RESPONSIVE – MOBILE PEQUEÑO (≤ 480px)
+   ===================================== */
+
 @media (max-width: 480px) {
 
-    .hero-carousel .carousel-item {
-        height: min(55vh, 360px);
-        min-height: 240px;
+    .slide-experience {
+        padding: 16px 12px 20px;
+        gap: 8px;
     }
 
-    .slide-experience {
-        gap: 8px;
-        padding: 0 12px;
+    .slide-experience-img {
+        flex: 0 0 60%;
+        max-width: 60%;
     }
 
     .slide-experience-img img {
-        max-height: 210px;
+        width: 140%;
+        transform: translateX(-18%);
+    }
+
+    .slide-experience-text {
+        max-width: 40%;
     }
 
     .slide-experience-title {
-        font-size: 20px;
+        font-size: 24px;
     }
 
     .slide-experience-subtitle {
-        font-size: 12px;
+        font-size: 13px;
     }
 }
 
