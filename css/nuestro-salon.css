@@ -1,0 +1,71 @@
+/* Nuestro Salón Section */
+.nuestro-salon {
+    width: 100%;
+    padding: 60px 0;
+    background: #ffffff;
+}
+
+.nuestro-salon .container {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.salon-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    color: #2C2C2C;
+    margin-bottom: 40px;
+    text-align: center;
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.salon-title::before,
+.salon-title::after {
+    content: '';
+    width: 100px;
+    height: 3px;
+    background: #D4AF37;
+    flex-shrink: 0;
+}
+
+.salon-image {
+    width: 100vw;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nuestro-salon {
+        padding: 40px 0;
+    }
+
+    .salon-title {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nuestro-salon {
+        padding: 30px 0;
+    }
+
+    .salon-title {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+}

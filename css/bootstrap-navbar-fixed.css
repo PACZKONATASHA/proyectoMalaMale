@@ -19,7 +19,7 @@ body {
     --navbar-hover: #B8A082;
     --navbar-border: #E8DDD0;
     --navbar-shadow: rgba(44, 44, 44, 0.1);
-    --navbar-height: 70px;
+    --navbar-height: 110px;
 }
 
 /* Reset inicial para evitar conflictos */
@@ -84,23 +84,43 @@ html, body {
     }
 }
 
-/* Logo/Brand con tipografía original */
+/* Logo/Brand con tipografía elegante cursiva */
 .navbar-brand {
-    font-family: 'Playfair Display', serif !important;
+    font-family: 'Great Vibes', 'Dancing Script', 'Pacifico', cursive !important;
     font-weight: 400 !important;
-    font-style: italic !important;
     letter-spacing: 2px !important;
     text-decoration: none !important;
     transition: all 0.3s ease !important;
-    font-size: 1.8rem !important;
-    color: var(--navbar-text) !important;
+    font-size: 2.8rem !important;
+    color: white !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    margin-left: -12px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    min-height: 110px !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2) !important;
+}
+
+.navbar-logo {
+    height: 80px !important;
+    width: auto !important;
+    object-fit: contain !important;
+    transition: all 0.3s ease !important;
 }
 
 .navbar-brand:hover,
 .navbar-brand:focus {
-    color: var(--navbar-accent) !important;
-    transform: translateY(-1px);
+    color: #FFD700 !important;
+    transform: translateY(-2px);
     text-decoration: none !important;
+}
+
+.navbar-brand:hover .navbar-logo,
+.navbar-brand:focus .navbar-logo {
+    transform: scale(1.05) translateY(-2px);
+    opacity: 0.9;
 }
 
 /* Botón hamburguesa personalizado */
