@@ -145,18 +145,21 @@ html, body {
         border-top: none !important;
         border-radius: 0 0 12px 12px !important;
         box-shadow: 0 8px 16px var(--navbar-shadow) !important;
-        margin-top: -1px !important; /* Pegado al navbar */
-        margin-left: -0.5rem !important;
-        margin-right: -0.5rem !important;
-        padding: 0.5rem 0 !important;
-        position: absolute !important;
-        top: 100% !important;
-        left: 0.5rem !important;
-        right: 0.5rem !important;
+        margin-top: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding: 1rem 0 !important;
+        position: static !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
         z-index: 1050 !important;
+        width: 100% !important;
+        display: none;
     }
     
     .navbar-collapse.show {
+        display: block !important;
         animation: slideDown 0.3s ease;
     }
     
@@ -164,16 +167,36 @@ html, body {
         border: 1px solid var(--navbar-border) !important;
         border-top: none !important;
         background: var(--navbar-bg) !important;
-        margin-top: -1px !important;
-        margin-left: -0.5rem !important;
-        margin-right: -0.5rem !important;
+        margin-top: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        display: block !important;
     }
     
     /* Ajustar navbar para móvil */
     .navbar {
-        padding: 0.4rem 0 !important;
+        padding: 0.75rem 0 !important;
     }
-}
+
+    .navbar-nav {
+        gap: 0 !important;
+        padding: 0.5rem 0 !important;
+    }
+
+    .navbar-nav .nav-link {
+        padding: 1rem 1.5rem !important;
+        border-radius: 0 !important;
+        font-size: 1rem !important;
+    }
+
+    .nav-item {
+        width: 100%;
+        border-bottom: 1px solid var(--navbar-border) !important;
+    }
+
+    .nav-item:last-child {
+        border-bottom: none !important;
+    }
 
 @keyframes slideDown {
     from {
