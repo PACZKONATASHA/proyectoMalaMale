@@ -12,9 +12,9 @@
 }
 
 .salon-title {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Great Vibes', 'Dancing Script', 'Pacifico', cursive;
     font-size: clamp(2rem, 5vw, 3.5rem);
-    font-weight: 700;
+    font-weight: 400;
     color: #2C2C2C;
     margin-bottom: 40px;
     text-align: center;
