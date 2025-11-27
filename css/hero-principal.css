@@ -59,6 +59,13 @@ body .nav-link:hover {
     color: #C9A876 !important;
 }
 
+/* Desktop - Ajustar posición de la imagen */
+@media (min-width: 992px) {
+    .hero-principal {
+        background-position: center 30%;
+    }
+}
+
 /* Responsivo Tablet */
 @media (max-width: 768px) {
     .hero-principal {
