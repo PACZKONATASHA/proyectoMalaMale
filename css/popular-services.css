@@ -13,14 +13,14 @@
 }
 
 .gallery-title {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Great Vibes', 'Dancing Script', 'Pacifico', cursive;
     font-size: clamp(2rem, 5vw, 3.5rem);
-    font-weight: 700;
+    font-weight: 400;
     color: #000000;
     text-align: center;
     letter-spacing: 0.02em;
     margin-bottom: 60px;
-    text-transform: uppercase;
+    text-transform: none;
     line-height: 1.2;
     display: flex;
     align-items: center;
@@ -37,11 +37,20 @@
     flex-shrink: 0;
 }
 
+.gallery-title::before,
+.gallery-title::after {
+    content: '';
+    width: 100px;
+    height: 3px;
+    background: #D4AF37;
+    flex-shrink: 0;
+}
+
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr;
     gap: 50px;
-    max-width: 1200px;
+    max-width: 600px;
     margin: 0 auto;
     justify-items: center;
 }
@@ -439,7 +448,7 @@
     }
 
     .gallery-title {
-        font-size: 20px;
+        font-size: 2rem;
         margin-bottom: 32px;
         letter-spacing: 0.08em;
     }
