@@ -1017,15 +1017,20 @@ header {
 
 /* Testimonios */
 .testimonios {
-    padding: 80px 0;
-    background: var(--pure-white);
+    padding: 0;
+    background: #EBE6DD;
 }
 
 .testimonios h2 {
     text-align: center;
+    font-family: 'Great Vibes', 'Dancing Script', 'Pacifico', cursive;
     font-size: 2.5rem;
-    color: var(--soft-black);
+    font-weight: 400;
+    color: #2C2C2C;
     margin-bottom: 3rem;
+    margin-top: -5cm;
+    letter-spacing: 0.02em;
+    line-height: 1.2;
 }
 
 .testimonios-grid {
@@ -1077,6 +1082,7 @@ header {
         0 2px 8px rgba(0, 0, 0, 0.04);
     position: relative;
     overflow: hidden;
+    border: 3px solid #D4AF37;
 }
 
 .nuevo-comentario::before {
