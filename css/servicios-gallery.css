@@ -1,0 +1,86 @@
+/* Servicios Gallery Section */
+.servicios-gallery-section {
+    width: 100%;
+    padding: 0;
+    background: #ffffff;
+}
+
+.servicios-gallery-container {
+    position: relative;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+}
+
+.servicios-gallery-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    image-rendering: high-quality;
+    -webkit-font-smoothing: antialiased;
+    border-top: 3px solid #D4AF37;
+    border-bottom: 3px solid #D4AF37;
+}
+
+.servicios-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    text-align: center;
+}
+
+.servicios-title {
+    font-family: 'Great Vibes', 'Dancing Script', 'Pacifico', cursive;
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    font-weight: 400;
+    color: #ffffff;
+    margin: 0;
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.servicios-btn {
+    display: inline-block;
+    padding: 10px 25px;
+    border: 2px solid #D4AF37;
+    background: transparent;
+    color: #ffffff;
+    font-family: 'Playfair Display', serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.servicios-btn:hover {
+    background: #D4AF37;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .servicios-btn {
+        padding: 10px 25px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .servicios-btn {
+        padding: 8px 20px;
+        font-size: 0.85rem;
+    }
+}
