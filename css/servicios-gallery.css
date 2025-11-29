@@ -79,6 +79,7 @@
     .servicios-gallery-section {
         background: #ffffff;
         padding: 60px 0;
+        margin-bottom: 80px;
     }
 
     .servicios-gallery-container {
@@ -98,6 +99,12 @@
 
 /* Responsive */
 @media (max-width: 768px) {
+    .servicios-gallery-section {
+        background: #ffffff;
+        padding: 40px 20px;
+        margin-bottom: 60px;
+    }
+
     .servicios-btn {
         padding: 10px 25px;
         font-size: 0.9rem;
