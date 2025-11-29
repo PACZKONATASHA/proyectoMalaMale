@@ -1017,20 +1017,21 @@ header {
 
 /* Testimonios */
 .testimonios {
-    padding: 0;
+    padding: 40px 0 80px 0;
     background: #EBE6DD;
 }
 
 .testimonios h2 {
     text-align: center;
     font-family: 'Great Vibes', 'Dancing Script', 'Pacifico', cursive;
-    font-size: 2.5rem;
+    font-size: 3rem;
     font-weight: 400;
     color: #2C2C2C;
-    margin-bottom: 3rem;
-    margin-top: -5cm;
+    margin-bottom: 2rem;
+    margin-top: 0;
     letter-spacing: 0.02em;
     line-height: 1.2;
+    padding: 0 20px;
 }
 
 .testimonios-grid {
@@ -1073,10 +1074,10 @@ header {
 /* Sistema de Comentarios Interactivos */
 .nuevo-comentario {
     background: #FFFFFF;
-    padding: 3rem 2.5rem;
+    padding: 2.5rem 2.5rem;
     border-radius: 24px;
-    margin: 3rem auto;
-    max-width: 980px;
+    margin: 2rem auto;
+    max-width: 900px;
     box-shadow: 
         0 8px 32px rgba(0, 0, 0, 0.08),
         0 2px 8px rgba(0, 0, 0, 0.04);
@@ -1099,11 +1100,11 @@ header {
 .nuevo-comentario h3 {
     text-align: center;
     color: #B8935C;
-    margin-bottom: 2.5rem;
-    font-size: 2rem;
-    font-weight: 600;
-    font-family: 'Poppins', sans-serif;
-    letter-spacing: -0.02em;
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+    font-weight: 400;
+    font-family: 'Great Vibes', 'Dancing Script', 'Pacifico', cursive;
+    letter-spacing: 0.02em;
     position: relative;
     z-index: 2;
 }

@@ -79,7 +79,7 @@
     .servicios-gallery-section {
         background: #ffffff;
         padding: 60px 0;
-        margin-bottom: 80px;
+        margin-bottom: 0;
     }
 
     .servicios-gallery-container {
@@ -102,7 +102,7 @@
     .servicios-gallery-section {
         background: #ffffff;
         padding: 40px 20px;
-        margin-bottom: 60px;
+        margin-bottom: 0;
     }
 
     .servicios-btn {
