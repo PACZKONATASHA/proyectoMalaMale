@@ -47,6 +47,8 @@
     margin-right: calc(-50vw + 50%);
     border-top: 4px solid #D4AF37;
     border-bottom: 4px solid #D4AF37;
+    image-rendering: high-quality;
+    -webkit-font-smoothing: antialiased;
 }
 
 /* Responsive */
@@ -56,7 +58,7 @@
     }
 
     .salon-title {
-        font-size: 1.8rem;
+        font-size: 2.5rem;
         margin-bottom: 30px;
     }
 }
@@ -67,7 +69,7 @@
     }
 
     .salon-title {
-        font-size: 1.5rem;
+        font-size: 2.2rem;
         margin-bottom: 20px;
     }
 }
