@@ -21,6 +21,9 @@
     -webkit-font-smoothing: antialiased;
     border-top: 3px solid #D4AF37;
     border-bottom: 3px solid #D4AF37;
+    border-left: 3px solid #D4AF37;
+    border-right: 3px solid #D4AF37;
+    filter: contrast(1.1) brightness(1.05) saturate(1.08) sharpen(1.2);
 }
 
 .servicios-overlay {
@@ -68,6 +71,23 @@
     color: #ffffff;
     transform: translateY(-2px);
     box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+}
+
+/* Desktop - Imagen más pequeña pero completa */
+@media (min-width: 992px) {
+    .servicios-gallery-container {
+        width: 90%;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+    }
+
+    .servicios-gallery-image {
+        width: 100%;
+        height: auto;
+        max-height: none;
+    }
 }
 
 /* Responsive */
