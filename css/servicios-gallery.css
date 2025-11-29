@@ -2,8 +2,8 @@
 .servicios-gallery-section {
     width: 100%;
     padding: 0;
-    background: #ffffff;
-    margin-top: 80px;
+    background: transparent;
+    margin-top: 0;
 }
 
 .servicios-gallery-container {
@@ -76,6 +76,11 @@
 
 /* Desktop - Imagen más pequeña pero completa */
 @media (min-width: 992px) {
+    .servicios-gallery-section {
+        background: #ffffff;
+        padding: 60px 0;
+    }
+
     .servicios-gallery-container {
         width: 90%;
         max-width: 700px;
