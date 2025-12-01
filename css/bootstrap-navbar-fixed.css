@@ -1,75 +1,34 @@
-/* Navbar Bootstrap Responsivo MalaMale - Versión Corregida */
+/* Navbar Bootstrap Responsivo MalaMale */
 
-/* Reset crítico para posicionamiento */
-html {
-    margin: 0 !important;
-    padding: 0 !important;
-}
-
-body {
-    margin: 0 !important;
-    padding: 0 !important;
-}
-
-/* Variables CSS para consistencia */
 :root {
-    --navbar-bg: #F5F0E8;
-    --navbar-text: #2C2C2C;
-    --navbar-accent: #8B7355;
-    --navbar-hover: #B8A082;
-    --navbar-border: #E8DDD0;
-    --navbar-shadow: rgba(44, 44, 44, 0.1);
     --navbar-height: 110px;
 }
 
-/* Reset inicial para evitar conflictos */
-html, body {
-    margin: 0 !important;
-    padding: 0 !important;
-    box-sizing: border-box;
-}
-
+/* Reset */
 * {
     box-sizing: border-box;
 }
 
-/* Asegurar que no haya CSS global interferiendo */
+/* Navbar base */
 .navbar {
-    background-color: var(--navbar-bg) !important;
-    background: var(--navbar-bg) !important;
-    border-bottom: 1px solid var(--navbar-border) !important;
-    min-height: var(--navbar-height) !important;
-    height: var(--navbar-height) !important;
-    box-shadow: 0 2px 8px var(--navbar-shadow) !important;
-    transition: all 0.3s ease !important;
-    padding: 0.5rem 0 !important;
     position: fixed !important;
     top: 0 !important;
     left: 0 !important;
     right: 0 !important;
-    width: 100vw !important;
-    z-index: 1050 !important;
-    margin: 0 !important;
-    transform: none !important;
+    width: 100% !important;
+    z-index: 9999 !important;
+    min-height: var(--navbar-height);
+    height: var(--navbar-height);
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0.5rem 0;
+    transition: all 0.3s ease;
 }
 
-/* Remover estilos Bootstrap conflictivos */
-.navbar-light {
-    background-color: transparent !important;
-}
-
-.navbar-light .navbar-brand {
-    color: var(--navbar-text) !important;
-}
-
-.navbar-light .navbar-nav .nav-link {
-    color: var(--navbar-text) !important;
-}
-
-/* Container responsivo */
+/* Container */
 .navbar .container-fluid {
     padding: 0 1rem;
-    position: relative;
 }
 
 @media (min-width: 992px) {
@@ -78,173 +37,151 @@ html, body {
     }
 }
 
-@media (max-width: 991.98px) {
-    .navbar .container-fluid {
-        padding: 0 0.5rem;
-    }
-}
-
-/* Logo/Brand con tipografía elegante cursiva */
+/* Logo */
 .navbar-brand {
-    font-family: 'Great Vibes', 'Dancing Script', 'Pacifico', cursive !important;
-    font-weight: 400 !important;
-    letter-spacing: 2px !important;
-    text-decoration: none !important;
-    transition: all 0.3s ease !important;
-    font-size: 2.8rem !important;
-    color: white !important;
     padding: 0 !important;
     margin: 0 !important;
-    margin-left: -12px !important;
     display: flex !important;
     align-items: center !important;
-    justify-content: flex-start !important;
-    min-height: 110px !important;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2) !important;
 }
 
 .navbar-logo {
-    height: auto !important;
+    height: 90px !important;
     max-height: 90px !important;
     width: auto !important;
     max-width: 250px !important;
     object-fit: contain !important;
-    transition: all 0.3s ease !important;
     filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.6)) brightness(1.1) !important;
 }
 
-.navbar-brand:hover,
-.navbar-brand:focus {
-    color: #FFD700 !important;
-    transform: translateY(-2px);
-    text-decoration: none !important;
-}
-
-.navbar-brand:hover .navbar-logo,
-.navbar-brand:focus .navbar-logo {
-    transform: scale(1.05) translateY(-2px);
-    filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.8)) brightness(1.2) !important;
-}
-
-/* Botón hamburguesa personalizado */
+/* Botón hamburguesa */
 .navbar-toggler {
-    border: 2px solid var(--navbar-accent) !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
     border-radius: 8px !important;
     padding: 0.4rem 0.6rem !important;
-    transition: all 0.3s ease !important;
     background: transparent !important;
 }
 
-.navbar-toggler:focus {
-    box-shadow: 0 0 0 0.2rem rgba(139, 115, 85, 0.25) !important;
-    border-color: var(--navbar-accent) !important;
-}
-
-.navbar-toggler:hover {
-    background: var(--navbar-accent) !important;
-    border-color: var(--navbar-accent) !important;
-}
-
-.navbar-toggler:hover .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='m4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+.navbar-toggler:focus,
+.navbar-toggler:active {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
 }
 
 .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2844, 44, 44, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='m4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23D4AF37' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='m4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
     width: 1.2em !important;
     height: 1.2em !important;
 }
 
-/* Collapse responsivo */
-.navbar-collapse {
-    transition: all 0.3s ease !important;
+/* Nav links desktop */
+.navbar-nav .nav-link {
+    color: #FFFFFF !important;
+    font-family: 'Playfair Display', 'Georgia', serif !important;
+    font-weight: 400 !important;
+    font-size: 1rem !important;
+    padding: 0.75rem 1rem !important;
+    transition: color 0.3s ease !important;
 }
 
-/* Ajuste específico para el collapse en móvil */
+.navbar-nav .nav-link:hover {
+    color: #D4AF37 !important;
+}
+
+/* Body padding */
+body {
+    padding-top: var(--navbar-height) !important;
+    margin: 0 !important;
+}
+
+/* =============================================
+   MOBILE STYLES
+   ============================================= */
 @media (max-width: 991.98px) {
+    
+    :root {
+        --navbar-height: 60px;
+    }
+    
+    .navbar {
+        height: 60px !important;
+        min-height: 60px !important;
+    }
+    
+    body {
+        padding-top: 60px !important;
+    }
+    
+    .navbar-logo {
+        height: 50px !important;
+        max-height: 50px !important;
+        max-width: 150px !important;
+    }
+    
+    /* MENÚ DESPLEGABLE - FONDO NEGRO */
     .navbar-collapse {
-        background: transparent !important;
-        background-color: transparent !important;
-        border: none !important;
-        border-top: none !important;
-        border-radius: 0 !important;
-        box-shadow: none !important;
-        margin-top: 0 !important;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-        padding: 1rem 0 !important;
         position: absolute !important;
         top: 60px !important;
         left: 0 !important;
         right: 0 !important;
-        z-index: 1050 !important;
         width: 100% !important;
-        display: none;
+        background: rgba(0, 0, 0, 0.95) !important;
+        backdrop-filter: blur(10px) !important;
+        -webkit-backdrop-filter: blur(10px) !important;
+        border-radius: 0 0 16px 16px !important;
+        padding: 1rem 0 !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
     }
     
     .navbar-collapse.show {
         display: block !important;
-        animation: slideDown 0.3s ease;
-        background: transparent !important;
-        background-color: transparent !important;
-        backdrop-filter: none !important;
-        border: none !important;
-        border-top: none !important;
-        position: absolute !important;
-        top: 60px !important;
     }
     
     .navbar-collapse.collapsing {
-        border: none !important;
-        border-top: none !important;
-        background: transparent !important;
-        background-color: transparent !important;
-        margin-top: 0 !important;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
         display: block !important;
-        position: absolute !important;
-        top: 60px !important;
+        height: auto !important;
     }
     
-    /* Ajustar navbar para móvil */
-    .navbar {
-        padding: 0.75rem 0 !important;
-    }
-
+    /* LINKS - LETRAS DORADAS */
     .navbar-nav {
-        gap: 0 !important;
-        padding: 0.5rem 0 !important;
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
     }
-
+    
+    .navbar-nav .nav-item {
+        width: 100% !important;
+        text-align: center !important;
+        border-bottom: 1px solid rgba(212, 175, 55, 0.2) !important;
+    }
+    
+    .navbar-nav .nav-item:last-child {
+        border-bottom: none !important;
+    }
+    
     .navbar-nav .nav-link {
-        padding: 1rem 1.5rem !important;
-        border-radius: 0 !important;
-        font-size: 1rem !important;
-        color: #5C4033 !important;
-        background: transparent !important;
-        background-color: transparent !important;
+        color: #D4AF37 !important;
+        font-family: 'Playfair Display', 'Georgia', serif !important;
+        font-size: 1.3rem !important;
+        font-weight: 500 !important;
+        padding: 1rem 2rem !important;
+        text-align: center !important;
+        display: block !important;
+        width: 100% !important;
+        letter-spacing: 1px !important;
     }
-
+    
     .navbar-nav .nav-link:hover,
     .navbar-nav .nav-link:focus {
-        color: #8B7355 !important;
-        background: transparent !important;
-        background-color: transparent !important;
+        color: #FFFFFF !important;
+        background: rgba(212, 175, 55, 0.1) !important;
     }
+}
 
-    .nav-item {
-        width: 100%;
-        border: none !important;
-        border-bottom: none !important;
-        background: transparent !important;
-        background-color: transparent !important;
-    }
-
-    .nav-item:last-child {
-        border-bottom: none !important;
-    }
-
+/* Animación */
 @keyframes slideDown {
     from {
         opacity: 0;
@@ -256,374 +193,6 @@ html, body {
     }
 }
 
-/* Nav links con tipografía original - Comportamiento uniforme */
-.navbar-nav {
-    gap: 0.5rem;
-    width: 100%;
-}
-
-.navbar-nav .nav-link {
-    font-family: 'Georgia', 'Times New Roman', serif !important;
-    font-weight: 400 !important;
-    letter-spacing: 0.5px !important;
-    color: var(--navbar-text) !important;
-    padding: 0.75rem 1rem !important;
-    border-radius: 6px !important;
-    transition: all 0.3s ease !important;
-    position: relative !important;
-    text-decoration: none !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    font-size: 1rem !important;
-    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3) !important;
-}
-    text-align: center !important;
-    min-height: 44px !important; /* Touch-friendly */
-}
-
-/* Estados hover y focus para todos los enlaces */
-.navbar-nav .nav-link:hover,
-.navbar-nav .nav-link:focus,
-.navbar-nav .nav-link:active {
-    color: var(--navbar-accent) !important;
-    text-decoration: none !important;
-    outline: none !important;
-}
-
-/* Efectos específicos para desktop */
-@media (min-width: 992px) {
-    .navbar-nav .nav-link {
-        margin: 0 0.3rem;
-        justify-content: center;
-    }
-    
-    /* Línea inferior animada para todos los enlaces */
-    .navbar-nav .nav-link::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        width: 0;
-        height: 2px;
-        background: var(--navbar-accent);
-        transition: all 0.3s ease;
-        transform: translateX(-50%);
-    }
-    
-    /* Activar línea en hover y estado activo */
-    .navbar-nav .nav-link:hover::after,
-    .navbar-nav .nav-link:focus::after,
-    .navbar-nav .nav-link.active::after {
-        width: 80%;
-    }
-    
-    /* Efecto elevación en hover para todos */
-    .navbar-nav .nav-link:hover,
-    .navbar-nav .nav-link:focus {
-        transform: translateY(-1px);
-    }
-    
-    /* Estado activo adicional para desktop */
-    .navbar-nav .nav-link.active {
-        font-weight: 400 !important;
-    }
-}
-
-/* Efectos específicos para móvil */
-@media (max-width: 991.98px) {
-    .navbar-nav {
-        width: 100%;
-        text-align: center;
-    }
-    
-    .navbar-nav .nav-link {
-        margin: 0.1rem 0.5rem;
-        border-left: none !important;
-        border-radius: 0 !important;
-        padding: 1rem 1.5rem !important;
-        min-height: 46px !important;
-        justify-content: center !important;
-        text-align: center !important;
-        display: flex !important;
-        align-items: center !important;
-        color: #FFFFFF !important;
-        background: transparent !important;
-    }
-    
-    /* Efectos hover y activo para móvil - todos los enlaces */
-    .navbar-nav .nav-link:hover,
-    .navbar-nav .nav-link:focus,
-    .navbar-nav .nav-link.active {
-        background: rgba(255, 255, 255, 0.15) !important;
-        border-left: none !important;
-        color: #D4AF37 !important;
-        transform: none;
-    }
-    
-    /* Efecto táctil para dispositivos touch */
-    .navbar-nav .nav-link:active {
-        background: rgba(255, 255, 255, 0.2) !important;
-        color: #D4AF37 !important;
-        transform: scale(0.98);
-    }
-    
-    /* Remover separadores para mejor apariencia */
-    .navbar-nav .nav-item:not(:last-child) .nav-link::before {
-        display: none;
-    }
-}
-
-/* Estados globales para todos los enlaces */
-.navbar-nav .nav-link.active {
-    color: var(--navbar-accent) !important;
-    font-weight: 400 !important;
-}
-
-/* Hover global mejorado */
-.navbar-nav .nav-link:hover {
-    color: var(--navbar-accent) !important;
-}
-
-/* Focus global para accesibilidad */
-.navbar-nav .nav-link:focus {
-    outline: 2px solid var(--navbar-accent) !important;
-    outline-offset: 2px !important;
-}
-
-/* Compensar navbar fixed - Mejorado */
-html {
-    scroll-padding-top: calc(var(--navbar-height) + 10px);
-    margin: 0 !important;
-    padding: 0 !important;
-}
-
-body {
-    padding-top: var(--navbar-height) !important;
-    margin: 0 !important;
-    position: relative !important;
-    overflow-x: hidden !important;
-}
-
-/* Asegurar que el navbar esté siempre visible y correctamente posicionado */
-.navbar.fixed-top,
-.navbar {
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    z-index: 1050 !important;
-    width: 100vw !important;
-    margin: 0 !important;
-    transform: translateZ(0) !important; /* Forzar compositing layer */
-}
-
-/* Remover spacer innecesario */
-.navbar + div[style*="margin-top"] {
-    margin-top: 0 !important;
-    display: none;
-}
-
-/* Responsive breakpoints adicionales */
-@media (max-width: 576px) {
-    .navbar-brand {
-        font-size: 1.5rem !important;
-    }
-    
-    .navbar .container-fluid {
-        padding: 0 0.5rem;
-    }
-}
-
-/* Accesibilidad */
-@media (prefers-reduced-motion: reduce) {
-    .navbar,
-    .navbar-nav .nav-link,
-    .navbar-brand,
-    .navbar-toggler,
-    .navbar-collapse {
-        transition: none !important;
-    }
-    
-    @keyframes slideDown {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
-}
-
-/* Fix para Bootstrap 5 específicos */
-.navbar-nav .nav-link:focus,
-.navbar-nav .nav-link:hover {
-    color: var(--navbar-accent) !important;
-}
-
-.navbar-toggler:focus:not(:focus-visible) {
-    outline: 0;
-}
-
-.navbar-toggler:focus-visible {
-    outline: 2px solid var(--navbar-accent);
-    outline-offset: 2px;
-}
-
-/* Asegurar posicionamiento correcto en todos los viewports */
-@media (max-width: 1200px) {
-    .navbar {
-        padding: 0.4rem 0 !important;
-    }
-}
-
-@media (max-width: 768px) {
-    .navbar {
-        min-height: 60px !important;
-        height: 60px !important;
-        background: transparent !important;
-        background-color: transparent !important;
-        box-shadow: none !important;
-        border-bottom: none !important;
-    }
-    
-    :root {
-        --navbar-height: 60px;
-    }
-    
-    body {
-        padding-top: 60px !important;
-    }
-}
-
-@media (max-width: 480px) {
-    .navbar {
-        padding: 0.3rem 0 !important;
-    }
-    
-    .navbar-brand {
-        font-size: 1.3rem !important;
-    }
-}
-
-/* Evitar que otros elementos interfieran */
-.navbar * {
-    position: relative;
-}
-
-/* Asegurar que esté siempre encima */
-.navbar {
-    isolation: isolate;
-}
-
-/* Override final para garantizar posicionamiento correcto */
-nav.navbar {
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    width: 100% !important;
-    z-index: 9999 !important;
-    margin: 0 !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-}
-
-/* Force body padding para compensar navbar */
-body.navbar-compensated,
-body {
-    padding-top: var(--navbar-height) !important;
-    margin-top: 0 !important;
-}
-
-/* Override para mobile específico */
-@media (max-width: 768px) {
-    body.navbar-compensated,
-    body {
-        padding-top: 60px !important;
-    }
-    
-    nav.navbar {
-        height: 60px !important;
-        min-height: 60px !important;
-        background: transparent !important;
-        background-color: transparent !important;
-        box-shadow: none !important;
-        border-bottom: none !important;
-    }
-}
-
-/* Final override para asegurar visibilidad */
-.navbar-brand,
-.navbar-toggler,
-.navbar-nav {
-    z-index: inherit !important;
-    position: relative !important;
-}
-
-/* ============================================
-   MENÚ MÓVIL TRANSPARENTE - OVERRIDE FINAL
-   ============================================ */
-@media (max-width: 991.98px) {
-    /* Menú desplegable completamente transparente */
-    .navbar-collapse,
-    .navbar-collapse.show,
-    .navbar-collapse.collapsing,
-    #navbarNav,
-    #navbarNav.show,
-    #navbarNav.collapsing {
-        background: transparent !important;
-        background-color: transparent !important;
-        backdrop-filter: none !important;
-        -webkit-backdrop-filter: none !important;
-        border: none !important;
-        border-radius: 0 !important;
-        box-shadow: none !important;
-    }
-    
-    /* Links del menú transparentes con letras marrones */
-    .navbar-nav .nav-link,
-    #navbarNav .nav-link {
-        color: #5C4033 !important;
-        font-family: 'Playfair Display', 'Georgia', serif !important;
-        font-size: 1.4rem !important;
-        font-weight: 500 !important;
-        letter-spacing: 1px !important;
-        padding: 1.2rem 2rem !important;
-        text-align: center !important;
-        background: transparent !important;
-        background-color: transparent !important;
-        border: none !important;
-        text-shadow: 0 1px 3px rgba(255, 255, 255, 0.6) !important;
-    }
-    
-    /* Hover - solo cambia el color de la letra */
-    .navbar-nav .nav-link:hover,
-    .navbar-nav .nav-link:focus,
-    .navbar-nav .nav-link.active,
-    #navbarNav .nav-link:hover,
-    #navbarNav .nav-link:focus {
-        color: #8B7355 !important;
-        background: transparent !important;
-        background-color: transparent !important;
-    }
-    
-    /* Sin separadores */
-    .navbar-nav .nav-item,
-    #navbarNav .nav-item {
-        border: none !important;
-        border-bottom: none !important;
-        background: transparent !important;
-    }
-    
-    .navbar-nav .nav-item:last-child,
-    #navbarNav .nav-item:last-child {
-        border-bottom: none !important;
-    }
-    
-    /* Botón hamburguesa marrón */
-    .navbar-toggler {
-        border-color: rgba(92, 64, 51, 0.5) !important;
-        background: transparent !important;
-    }
-    
-    .navbar-toggler-icon {
-        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2892, 64, 51, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='m4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
-    }
+.navbar-collapse.show {
+    animation: slideDown 0.3s ease;
 }
