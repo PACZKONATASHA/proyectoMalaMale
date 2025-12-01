@@ -163,19 +163,20 @@ html, body {
 /* Ajuste específico para el collapse en móvil */
 @media (max-width: 991.98px) {
     .navbar-collapse {
-        background: rgba(0, 0, 0, 0.7) !important;
+        background: transparent !important;
+        background-color: transparent !important;
         border: none !important;
         border-top: none !important;
-        border-radius: 0 0 12px 12px !important;
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3) !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
         margin-top: 0 !important;
         margin-left: 0 !important;
         margin-right: 0 !important;
         padding: 1rem 0 !important;
-        position: static !important;
-        top: auto !important;
-        left: auto !important;
-        right: auto !important;
+        position: absolute !important;
+        top: 60px !important;
+        left: 0 !important;
+        right: 0 !important;
         z-index: 1050 !important;
         width: 100% !important;
         display: none;
@@ -184,20 +185,26 @@ html, body {
     .navbar-collapse.show {
         display: block !important;
         animation: slideDown 0.3s ease;
-        background: rgba(0, 0, 0, 0.7) !important;
-        backdrop-filter: blur(10px) !important;
+        background: transparent !important;
+        background-color: transparent !important;
+        backdrop-filter: none !important;
         border: none !important;
         border-top: none !important;
+        position: absolute !important;
+        top: 60px !important;
     }
     
     .navbar-collapse.collapsing {
         border: none !important;
         border-top: none !important;
-        background: rgba(0, 0, 0, 0.7) !important;
+        background: transparent !important;
+        background-color: transparent !important;
         margin-top: 0 !important;
         margin-left: 0 !important;
         margin-right: 0 !important;
         display: block !important;
+        position: absolute !important;
+        top: 60px !important;
     }
     
     /* Ajustar navbar para móvil */
@@ -214,18 +221,24 @@ html, body {
         padding: 1rem 1.5rem !important;
         border-radius: 0 !important;
         font-size: 1rem !important;
-        color: #FFFFFF !important;
+        color: #5C4033 !important;
+        background: transparent !important;
+        background-color: transparent !important;
     }
 
     .navbar-nav .nav-link:hover,
     .navbar-nav .nav-link:focus {
-        color: #D4AF37 !important;
-        background: rgba(255, 255, 255, 0.1) !important;
+        color: #8B7355 !important;
+        background: transparent !important;
+        background-color: transparent !important;
     }
 
     .nav-item {
         width: 100%;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+        border: none !important;
+        border-bottom: none !important;
+        background: transparent !important;
+        background-color: transparent !important;
     }
 
     .nav-item:last-child {
@@ -548,50 +561,55 @@ body {
    MENÚ MÓVIL TRANSPARENTE - OVERRIDE FINAL
    ============================================ */
 @media (max-width: 991.98px) {
-    /* Menú desplegable con fondo transparente oscuro */
+    /* Menú desplegable completamente transparente */
     .navbar-collapse,
     .navbar-collapse.show,
     .navbar-collapse.collapsing,
     #navbarNav,
     #navbarNav.show,
     #navbarNav.collapsing {
-        background: rgba(0, 0, 0, 0.85) !important;
-        backdrop-filter: blur(15px) !important;
-        -webkit-backdrop-filter: blur(15px) !important;
+        background: transparent !important;
+        background-color: transparent !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
         border: none !important;
-        border-radius: 0 0 16px 16px !important;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4) !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
     }
     
-    /* Links del menú en blanco */
+    /* Links del menú transparentes con letras marrones */
     .navbar-nav .nav-link,
     #navbarNav .nav-link {
-        color: #FFFFFF !important;
+        color: #5C4033 !important;
         font-family: 'Playfair Display', 'Georgia', serif !important;
-        font-size: 1.3rem !important;
-        font-weight: 400 !important;
+        font-size: 1.4rem !important;
+        font-weight: 500 !important;
         letter-spacing: 1px !important;
         padding: 1.2rem 2rem !important;
         text-align: center !important;
         background: transparent !important;
+        background-color: transparent !important;
         border: none !important;
-        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !important;
+        text-shadow: 0 1px 3px rgba(255, 255, 255, 0.6) !important;
     }
     
-    /* Hover dorado */
+    /* Hover - solo cambia el color de la letra */
     .navbar-nav .nav-link:hover,
     .navbar-nav .nav-link:focus,
     .navbar-nav .nav-link.active,
     #navbarNav .nav-link:hover,
     #navbarNav .nav-link:focus {
-        color: #D4AF37 !important;
-        background: rgba(212, 175, 55, 0.1) !important;
+        color: #8B7355 !important;
+        background: transparent !important;
+        background-color: transparent !important;
     }
     
-    /* Separadores entre items */
+    /* Sin separadores */
     .navbar-nav .nav-item,
     #navbarNav .nav-item {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+        border: none !important;
+        border-bottom: none !important;
+        background: transparent !important;
     }
     
     .navbar-nav .nav-item:last-child,
@@ -599,12 +617,13 @@ body {
         border-bottom: none !important;
     }
     
-    /* Botón hamburguesa blanco */
+    /* Botón hamburguesa marrón */
     .navbar-toggler {
-        border-color: rgba(255, 255, 255, 0.5) !important;
+        border-color: rgba(92, 64, 51, 0.5) !important;
+        background: transparent !important;
     }
     
     .navbar-toggler-icon {
-        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='m4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2892, 64, 51, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='m4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
     }
 }
