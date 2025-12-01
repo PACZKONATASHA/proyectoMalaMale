@@ -1223,17 +1223,17 @@ header {
 }
 
 .comentarios-tiempo-real {
-    margin: 3rem 0;
-    background: var(--turquoise-teal);
-    background: linear-gradient(135deg, #4A9B9B 0%, #5CADAD 50%, #4A9B9B 100%);
+    margin: 2rem auto;
+    background: #0f0f0f;
     padding: 2.5rem;
     border-radius: 20px;
     box-shadow: 
-        0 15px 35px rgba(74, 155, 155, 0.3),
-        0 0 30px rgba(74, 155, 155, 0.1);
-    border: 3px solid rgba(255, 255, 255, 0.2);
+        0 15px 35px rgba(0, 0, 0, 0.4),
+        0 0 30px rgba(0, 0, 0, 0.2);
+    border: 3px solid #D4AF37;
     position: relative;
     overflow: hidden;
+    max-width: 900px;
 }
 
 .comentarios-tiempo-real::before {
@@ -1243,16 +1243,19 @@ header {
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at bottom left, rgba(255,255,255,0.1) 0%, transparent 50%);
+    background: radial-gradient(circle at bottom left, rgba(255,255,255,0.05) 0%, transparent 50%);
     pointer-events: none;
 }
 
 .comentarios-tiempo-real h3 {
     text-align: center;
-    color: var(--pure-white);
+    color: #D4AF37;
     margin-bottom: 2rem;
     font-size: 1.8rem;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    font-weight: 400;
+    font-family: 'Great Vibes', 'Dancing Script', 'Pacifico', cursive;
+    letter-spacing: 0.02em;
+    text-shadow: none;
     position: relative;
     z-index: 2;
 }
@@ -1284,6 +1287,48 @@ header {
 
 .comentarios-container::-webkit-scrollbar-thumb:hover {
     background: rgba(255, 255, 255, 0.6);
+}
+
+.carrusel-cinco-estrellas {
+    margin: 2rem auto;
+    background: #0f0f0f;
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.4),
+        0 0 30px rgba(0, 0, 0, 0.2);
+    border: 3px solid #D4AF37;
+    position: relative;
+    overflow: hidden;
+    max-width: 900px;
+}
+
+.carrusel-cinco-estrellas::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at bottom left, rgba(255,255,255,0.05) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.titulo-carrusel-5 {
+    text-align: center;
+    color: #D4AF37;
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+    font-weight: 400;
+    font-family: 'Great Vibes', 'Dancing Script', 'Pacifico', cursive;
+    letter-spacing: 0.02em;
+    position: relative;
+    z-index: 2;
+}
+
+.carrusel-5-carousel {
+    position: relative;
+    z-index: 2;
 }
 
 .comentario-nuevo {
