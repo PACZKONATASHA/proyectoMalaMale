@@ -163,11 +163,11 @@ html, body {
 /* Ajuste específico para el collapse en móvil */
 @media (max-width: 991.98px) {
     .navbar-collapse {
-        background: var(--navbar-bg) !important;
-        border: 1px solid var(--navbar-border) !important;
+        background: rgba(0, 0, 0, 0.7) !important;
+        border: none !important;
         border-top: none !important;
         border-radius: 0 0 12px 12px !important;
-        box-shadow: 0 8px 16px var(--navbar-shadow) !important;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3) !important;
         margin-top: 0 !important;
         margin-left: 0 !important;
         margin-right: 0 !important;
@@ -184,16 +184,16 @@ html, body {
     .navbar-collapse.show {
         display: block !important;
         animation: slideDown 0.3s ease;
-        background: rgba(245, 240, 232, 0.95) !important;
+        background: rgba(0, 0, 0, 0.7) !important;
         backdrop-filter: blur(10px) !important;
-        border: 1px solid var(--navbar-border) !important;
+        border: none !important;
         border-top: none !important;
     }
     
     .navbar-collapse.collapsing {
-        border: 1px solid var(--navbar-border) !important;
+        border: none !important;
         border-top: none !important;
-        background: var(--navbar-bg) !important;
+        background: rgba(0, 0, 0, 0.7) !important;
         margin-top: 0 !important;
         margin-left: 0 !important;
         margin-right: 0 !important;
@@ -214,11 +214,18 @@ html, body {
         padding: 1rem 1.5rem !important;
         border-radius: 0 !important;
         font-size: 1rem !important;
+        color: #FFFFFF !important;
+    }
+
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link:focus {
+        color: #D4AF37 !important;
+        background: rgba(255, 255, 255, 0.1) !important;
     }
 
     .nav-item {
         width: 100%;
-        border-bottom: 1px solid var(--navbar-border) !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
     }
 
     .nav-item:last-child {
@@ -319,31 +326,33 @@ html, body {
     
     .navbar-nav .nav-link {
         margin: 0.1rem 0.5rem;
-        border-left: 3px solid transparent;
-        border-radius: 6px;
-        padding: 0.6rem 1rem !important;
+        border-left: none !important;
+        border-radius: 0 !important;
+        padding: 1rem 1.5rem !important;
         min-height: 46px !important;
         justify-content: center !important;
         text-align: center !important;
         display: flex !important;
         align-items: center !important;
+        color: #FFFFFF !important;
+        background: transparent !important;
     }
     
     /* Efectos hover y activo para móvil - todos los enlaces */
     .navbar-nav .nav-link:hover,
     .navbar-nav .nav-link:focus,
     .navbar-nav .nav-link.active {
-        background: var(--navbar-border) !important;
-        border-left-color: var(--navbar-accent) !important;
-        color: var(--navbar-accent) !important;
-        transform: none; /* Remover transform para mejor centrado */
+        background: rgba(255, 255, 255, 0.15) !important;
+        border-left: none !important;
+        color: #D4AF37 !important;
+        transform: none;
     }
     
     /* Efecto táctil para dispositivos touch */
     .navbar-nav .nav-link:active {
-        background: var(--navbar-hover) !important;
-        color: white !important;
-        transform: scale(0.98); /* Efecto de presión */
+        background: rgba(255, 255, 255, 0.2) !important;
+        color: #D4AF37 !important;
+        transform: scale(0.98);
     }
     
     /* Remover separadores para mejor apariencia */
@@ -455,6 +464,10 @@ body {
     .navbar {
         min-height: 60px !important;
         height: 60px !important;
+        background: transparent !important;
+        background-color: transparent !important;
+        box-shadow: none !important;
+        border-bottom: none !important;
     }
     
     :root {

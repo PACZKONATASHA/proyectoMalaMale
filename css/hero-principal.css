@@ -151,7 +151,9 @@ body .nav-link:hover {
     }
 
     .hero-experience {
-        bottom: 25px;
+        bottom: auto;
+        top: 50%;
+        transform: translateY(-50%);
     }
 
     .hero-experience-title {
@@ -172,7 +174,9 @@ body .nav-link:hover {
     }
 
     .hero-experience {
-        bottom: 20px;
+        bottom: auto;
+        top: 50%;
+        transform: translateY(-50%);
     }
 
     .hero-experience-title {
