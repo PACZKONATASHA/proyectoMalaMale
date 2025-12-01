@@ -104,10 +104,13 @@ html, body {
 }
 
 .navbar-logo {
-    height: 80px !important;
+    height: auto !important;
+    max-height: 90px !important;
     width: auto !important;
+    max-width: 250px !important;
     object-fit: contain !important;
     transition: all 0.3s ease !important;
+    filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.6)) brightness(1.1) !important;
 }
 
 .navbar-brand:hover,
@@ -120,7 +123,7 @@ html, body {
 .navbar-brand:hover .navbar-logo,
 .navbar-brand:focus .navbar-logo {
     transform: scale(1.05) translateY(-2px);
-    opacity: 0.9;
+    filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.8)) brightness(1.2) !important;
 }
 
 /* Botón hamburguesa personalizado */

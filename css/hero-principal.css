@@ -23,6 +23,67 @@
     z-index: 1;
 }
 
+/* Experience Overlay */
+.hero-experience {
+    position: absolute;
+    z-index: 2;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    bottom: 30px;
+    left: 0;
+    right: 0;
+    width: 100%;
+}
+
+.hero-experience-title {
+    font-family: 'Playfair Display', 'Georgia', serif;
+    font-size: clamp(2rem, 8vw, 4.5rem);
+    font-weight: 100;
+    letter-spacing: -0.02em;
+    color: #FFFFFF;
+    margin: 0;
+    text-transform: uppercase;
+    text-shadow: none;
+    line-height: 1;
+    padding: 0 20px;
+}
+
+.hero-experience-subtitle {
+    display: none;
+}
+
+.hero-mala-male {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.2rem, 3.5vw, 2.2rem);
+    font-weight: 100;
+    color: #D4AF37;
+    margin: 12px 0 0 0;
+    text-shadow: 0 2px 8px rgba(212, 175, 55, 0.4);
+    line-height: 1;
+    letter-spacing: 0.05em;
+    font-style: normal;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+}
+
+.hero-mala-male::before,
+.hero-mala-male::after {
+    content: '';
+    width: 60px;
+    height: 2px;
+    background: #D4AF37;
+    flex-shrink: 0;
+}
+
+.hero-m {
+    font-size: 1em;
+}
+
 /* Estilos para el navbar dentro del hero */
 body .navbar {
     background-color: transparent !important;
@@ -89,16 +150,16 @@ body .nav-link:hover {
         height: 70px;
     }
 
+    .hero-experience {
+        bottom: 25px;
+    }
+
+    .hero-experience-title {
+        font-size: 2rem;
+        letter-spacing: 0.08em;
+    }
+
     body .navbar-brand {
-        font-size: 1.2rem;
-    }
-
-    body .navbar-brand .navbar-logo {
-        height: 75px;
-        max-width: 170px;
-    }
-}
-
 /* Responsivo Mobile */
 @media (max-width: 480px) {
     .hero-principal {
@@ -110,6 +171,24 @@ body .nav-link:hover {
         height: 60px;
     }
 
+    .hero-experience {
+        bottom: 20px;
+    }
+
+    .hero-experience-title {
+        font-size: 1.5rem;
+        letter-spacing: 0.08em;
+    }
+
+    body .navbar-brand {
+        font-size: 1rem;
+    }
+
+    body .navbar-brand .navbar-logo {
+        height: 65px;
+        max-width: 140px;
+    }
+}
     body .navbar-brand {
         font-size: 1rem;
     }
