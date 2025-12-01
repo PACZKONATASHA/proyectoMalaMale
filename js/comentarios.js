@@ -1,10 +1,96 @@
 // Carrusel 5 estrellas independiente
+
+// Lista de palabras/nombres inválidos que no son nombres reales
+const nombresInvalidos = [
+    'hola', 'test', 'prueba', 'asdf', 'qwerty', 'aaa', 'bbb', 'ccc', 'xxx', 'zzz',
+    'jajaja', 'lol', 'xd', 'hehe', 'jeje', 'holaaa', 'holaa', 'hi', 'hello',
+    'abc', '123', 'admin', 'user', 'usuario', 'nombre', 'name', 'tu nombre',
+    'cliente', 'anonimo', 'anónimo', 'nadie', 'yo', 'alguien', 'persona',
+    'dfdf', 'asas', 'fdfd', 'sdsd', 'jdjd', 'djdj', 'fdjf', 'jdjdfj', 'jdjdfjdjs',
+    'dhdhdfd', 'benjamon', 'sdfsdf', 'fghfgh', 'ghjghj', 'tyutyu'
+];
+
+// Lista de palabras inválidas en comentarios
+const textosInvalidos = [
+    'hola', 'test', 'prueba', 'asdf', 'qwerty', 'aaa', 'bbb', 
+    'jajaja', 'lol', 'xd', 'hehe', 'jeje', 'hi', 'hello',
+    'abc', '123', 'dfdf', 'asas', 'fdfd', 'sdsd', 'jdjd',
+    'hola como estas', 'hola me encanto', 'jdjdfjdjs'
+];
+
+// Función para validar si un nombre es real
+function esNombreValido(nombre) {
+    if (!nombre || nombre.length < 3) return false;
+    const nombreLower = nombre.toLowerCase().trim();
+    
+    // Verificar si está en la lista de nombres inválidos
+    if (nombresInvalidos.some(inv => nombreLower === inv || nombreLower.includes(inv))) {
+        return false;
+    }
+    
+    // Verificar que tenga al menos una vocal y una consonante (nombre real)
+    const tieneVocal = /[aeiouáéíóú]/i.test(nombre);
+    const tieneConsonante = /[bcdfghjklmnñpqrstvwxyz]/i.test(nombre);
+    if (!tieneVocal || !tieneConsonante) return false;
+    
+    // Verificar que no sea solo caracteres repetidos
+    if (/^(.)\1+$/.test(nombre)) return false;
+    
+    // Verificar que no tenga más de 3 caracteres iguales seguidos
+    if (/(.)\1{3,}/.test(nombre)) return false;
+    
+    // Verificar longitud mínima razonable
+    if (nombre.length < 3 || nombre.length > 30) return false;
+    
+    return true;
+}
+
+// Función para validar si un texto de comentario es válido
+function esTextoValido(texto) {
+    if (!texto || texto.length < 10) return false;
+    const textoLower = texto.toLowerCase().trim();
+    
+    // Verificar si es solo texto inválido
+    if (textosInvalidos.some(inv => textoLower === inv)) {
+        return false;
+    }
+    
+    // Verificar que tenga al menos 10 caracteres
+    if (texto.length < 10) return false;
+    
+    // Verificar que no sea solo caracteres repetidos
+    if (/^(.)\1+$/.test(texto)) return false;
+    
+    return true;
+}
+
+// Función para limpiar comentarios inválidos del localStorage
+function limpiarComentariosInvalidos() {
+    let comentarios = JSON.parse(localStorage.getItem('comentariosMalaMale') || '[]');
+    const comentariosValidos = comentarios.filter(c => 
+        esNombreValido(c.nombre) && esTextoValido(c.texto)
+    );
+    localStorage.setItem('comentariosMalaMale', JSON.stringify(comentariosValidos));
+    return comentariosValidos;
+}
+
+// Limpiar comentarios inválidos al cargar
+document.addEventListener('DOMContentLoaded', () => {
+    limpiarComentariosInvalidos();
+});
+
 function renderCarruselCincoEstrellas() {
     const container = document.getElementById('carruselCincoEstrellas');
     if (!container) return;
-    let comentarios = JSON.parse(localStorage.getItem('comentariosMalaMale') || '[]');
-    // Filtrar solo los 5 más recientes de 5 estrellas
-    const destacados = comentarios.filter(c => c.rating === 5).slice(0, 5);
+    
+    // Limpiar y obtener solo comentarios válidos
+    let comentarios = limpiarComentariosInvalidos();
+    
+    // Filtrar solo los 5 más recientes de 5 estrellas con datos válidos
+    const destacados = comentarios
+        .filter(c => c.rating === 5 && esNombreValido(c.nombre) && esTextoValido(c.texto))
+        .slice(0, 5);
+        
     if (destacados.length === 0) {
         container.innerHTML = '<div style="text-align:center;color:#b8a082;padding:2rem;">Aún no hay testimonios de 5 estrellas.</div>';
         return;
@@ -141,9 +227,21 @@ class SistemaComentarios {
         const instagram = document.getElementById('instagramHandle').value.trim();
         const texto = document.getElementById('comentarioTexto').value.trim();
 
-        // Validaciones
+        // Validaciones básicas
         if (!nombre || !texto) {
             this.mostrarAlerta('Por favor completa tu nombre y comentario', 'error');
+            return;
+        }
+
+        // Validar nombre real
+        if (!esNombreValido(nombre)) {
+            this.mostrarAlerta('Por favor ingresa tu nombre real (mínimo 3 caracteres)', 'error');
+            return;
+        }
+
+        // Validar texto del comentario
+        if (!esTextoValido(texto)) {
+            this.mostrarAlerta('Por favor escribe un comentario más detallado (mínimo 10 caracteres)', 'error');
             return;
         }
 
@@ -222,7 +320,12 @@ class SistemaComentarios {
         const container = document.getElementById('comentariosContainer');
         if (!container) return;
 
-        if (this.comentarios.length === 0) {
+        // Filtrar solo comentarios válidos
+        const comentariosValidos = this.comentarios.filter(c => 
+            esNombreValido(c.nombre) && esTextoValido(c.texto)
+        );
+
+        if (comentariosValidos.length === 0) {
             container.innerHTML = `
                 <div class="sin-comentarios">
                     <i class="fas fa-comments" style="font-size: 2rem; margin-bottom: 1rem; color: var(--primary-color);"></i>
@@ -232,7 +335,7 @@ class SistemaComentarios {
             return;
         }
 
-        container.innerHTML = this.comentarios.map(comentario => {
+        container.innerHTML = comentariosValidos.map(comentario => {
             // Avatar con inicial
             const inicial = this.escapeHtml(comentario.nombre.trim().charAt(0).toUpperCase());
             return `
