@@ -7,6 +7,155 @@
     box-sizing: border-box;
 }
 
+/* ========================================
+   CONTACTO HERO - Imagen con botones (Desktop y Mobile)
+   ======================================== */
+.contacto-mobile-hero {
+    display: block;
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto 30px auto;
+}
+
+.contacto-hero-imagen {
+    position: relative;
+    width: 90%;
+    max-width: 600px;
+    height: auto;
+    overflow: hidden;
+    margin: 0 auto;
+    border: 3px solid #D4AF37;
+}
+
+.contacto-hero-imagen img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.contacto-hero-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 40px;
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.5) 60%, transparent 100%);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.contacto-hero-botones {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+.btn-contacto-hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    border: 2px solid #D4AF37;
+    transition: all 0.3s ease;
+    color: #FFFFFF;
+    background: transparent;
+    min-width: 180px;
+    text-align: center;
+}
+
+.btn-contacto-hero:hover {
+    background: #D4AF37;
+    color: #000000;
+}
+
+.btn-contacto-hero:hover i {
+    color: #000000;
+}
+
+.btn-contacto-hero i {
+    font-size: 1.2rem;
+    color: #FFFFFF;
+}
+
+.btn-whatsapp {
+    background: transparent;
+    color: #FFFFFF;
+    border-color: #D4AF37;
+}
+
+.btn-instagram {
+    background: transparent;
+    color: #FFFFFF;
+    border-color: #D4AF37;
+}
+
+.btn-horarios {
+    background: transparent;
+    color: #FFFFFF;
+    border-color: #D4AF37;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .contacto-mobile-hero {
+        width: 100vw;
+        margin-left: calc(-50vw + 50%);
+        margin-right: calc(-50vw + 50%);
+        margin-top: -50px;
+        margin-bottom: 0;
+        max-width: none;
+    }
+    
+    .contacto {
+        padding-top: 0 !important;
+        margin-top: -20px !important;
+    }
+    
+    .carrusel-cinco-estrellas {
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
+    }
+    
+    .contacto-hero-imagen {
+        height: auto;
+        width: 100%;
+        max-width: none;
+        border: none;
+        border-top: 3px solid #D4AF37;
+        border-bottom: 3px solid #D4AF37;
+        margin: 0;
+    }
+    
+    .contacto-hero-overlay {
+        padding: 15px;
+    }
+    
+    .contacto-hero-botones {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .btn-contacto-hero {
+        padding: 10px 16px;
+        font-size: 0.85rem;
+        min-width: 200px;
+    }
+    
+    .btn-contacto-hero i {
+        font-size: 1rem;
+    }
+}
+
 html {
     font-size: 16px;
     -webkit-text-size-adjust: 100%;
@@ -25,9 +174,6 @@ img {
     display: block;
 }
 
-
-.
-}
 .titulo-contacto-wrapper {
     width: 100%;
     display: flex;
@@ -38,7 +184,7 @@ img {
 .titulo-contacto-centrado {
     text-align: center !important;
     width: 100%;
-    margin-top: 2.2rem;
+    margin-top: -50px;
     margin-bottom: 2rem;
 }
 /* Título responsivo para datos de contacto */
@@ -46,33 +192,29 @@ img {
 /* Título grande y destacado para contacto */
 .titulo-contacto-responsive {
     font-size: 2.2rem;
-    color: #a3855b;
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-        margin-top: 0.2rem;
-        margin-bottom: 0.7rem;
-    letter-spacing: 1.5px;
+    color: #B8935C;
+    font-family: 'Great Vibes', 'Dancing Script', 'Pacifico', cursive;
+    font-weight: 400;
+    margin-top: -50px;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
     text-align: center;
-    line-height: 1.1;
+    line-height: 1.2;
+    text-decoration: underline;
+    text-decoration-color: #D4AF37;
+    text-underline-offset: 8px;
 }
 @media (max-width: 900px) {
     .titulo-contacto-responsive {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
         margin-top: 1.2rem;
         margin-bottom: 1.2rem;
     }
 }
-@media (max-width: 900px) {
+@media (max-width: 600px) {
     .titulo-contacto-responsive {
-        font-size: 1.2rem;
-        margin-bottom: 0.7rem;
-    }
-}
-@media (max-width: 900px) {
-    .titulo-contacto-responsive {
-        font-size: 1.1rem;
-        text-align: center;
-        margin-bottom: 0.7rem;
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
     }
 }
 /* Import de fuentes elegantes */
@@ -1973,41 +2115,39 @@ header {
 }
 
 .navegacion-botones {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-}
-
-.btn-navegacion,
-.btn-gps {
     display: flex;
-    align-items: center;
     justify-content: center;
-    gap: 0.5rem;
-    padding: 1rem 1.5rem;
-    border-radius: 10px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    text-decoration: none;
-    transition: var(--transition);
-    border: none;
-    cursor: pointer;
-    font-size: 1rem;
+    gap: 1rem;
+    margin-bottom: 30px;
 }
 
 .btn-navegacion {
-    background: linear-gradient(135deg, var(--subtle-gold), rgba(201, 168, 118, 0.9));
-    color: var(--pure-white);
-    border: 2px solid rgba(201, 168, 118, 0.5);
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 16px 32px;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-size: 1rem;
+    background: transparent;
+    color: #D4AF37;
+    border: 2px solid #D4AF37;
 }
 
 .btn-navegacion:hover {
-    background: linear-gradient(135deg, #E6D366, var(--subtle-gold));
-    color: var(--pure-white);
-    border-color: var(--subtle-gold);
-    box-shadow: 0 8px 25px rgba(201, 168, 118, 0.4);
-    transform: translateY(-3px);
+    background: #D4AF37;
+    color: #000000;
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+    transform: translateY(-2px);
+}
+
+.btn-navegacion i {
+    font-size: 1.1rem;
 }
 
 .btn-gps {
@@ -2026,48 +2166,77 @@ header {
 
 .mapa-container {
     position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
 }
 
 .mapa-google {
     position: relative;
-    border-radius: 15px;
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 
-        0 15px 35px rgba(201, 168, 118, 0.3),
-        0 0 30px rgba(86, 60, 41, 0.2);
-    border: 3px solid rgba(201, 168, 118, 0.4);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border: 3px solid #D4AF37;
+}
+
+.mapa-google iframe {
+    border-radius: 8px;
+    height: 400px;
 }
 
 .mapa-overlay {
     position: absolute;
-    top: 15px;
-    left: 15px;
+    top: 50%;
+    left: 60%;
+    transform: translate(-50%, -50%);
     background: linear-gradient(135deg, rgba(201, 168, 118, 0.95), rgba(86, 60, 41, 0.9));
     backdrop-filter: blur(10px);
-    padding: 1rem;
+    padding: 2rem 3rem;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(86, 60, 41, 0.4);
     border: 1px solid rgba(255, 255, 255, 0.3);
+    text-align: center;
+    z-index: 10;
 }
 
 .info-location h4 {
     color: var(--pure-white);
-    margin: 0 0 0.5rem 0;
-    font-size: 1.1rem;
+    margin: 0 0 1rem 0;
+    font-size: 1.3rem;
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
     font-weight: 600;
+    text-align: center;
 }
 
 .info-location p {
-    margin: 0.3rem 0;
+    margin: 0.5rem 0;
     color: rgba(255, 255, 255, 0.95);
-    font-size: 0.9rem;
+    font-size: 1rem;
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-    line-height: 1.4;
+    line-height: 1.6;
+    text-align: center;
 }
 
-/* Responsive para navegación GPS */
+/* En móvil volver a la posición original */
 @media (max-width: 768px) {
+    .mapa-overlay {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        transform: none;
+        padding: 1rem;
+    }
+    
+    .info-location h4 {
+        font-size: 1rem;
+        text-align: left;
+    }
+    
+    .info-location p {
+        font-size: 0.85rem;
+        text-align: left;
+    }
+    
     .navegacion-botones {
         grid-template-columns: 1fr;
     }

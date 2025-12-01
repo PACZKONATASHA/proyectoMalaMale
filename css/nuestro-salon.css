@@ -39,16 +39,14 @@
 }
 
 .salon-image {
-    width: 100vw;
+    width: 100%;
+    max-width: 900px;
     height: auto;
     display: block;
     object-fit: cover;
-    margin-left: calc(-50vw + 50%);
-    margin-right: calc(-50vw + 50%);
-    border-top: 3px solid #D4AF37;
-    border-bottom: 3px solid #D4AF37;
-    border-left: 3px solid #D4AF37;
-    border-right: 3px solid #D4AF37;
+    margin-left: auto;
+    margin-right: auto;
+    border: 3px solid #D4AF37;
     image-rendering: high-quality;
     -webkit-font-smoothing: antialiased;
 }
@@ -66,7 +64,7 @@
 
     .salon-image {
         width: 90%;
-        max-width: 600px;
+        max-width: 900px;
         height: auto;
         margin-left: auto;
         margin-right: auto;
@@ -96,22 +94,34 @@
 /* Responsive */
 @media (max-width: 768px) {
     .nuestro-salon {
-        padding: 40px 20px;
+        padding: 40px 0;
     }
 
     .salon-title {
         font-size: 2.5rem;
         margin-bottom: 30px;
+        padding: 0 20px;
+    }
+    
+    .salon-image {
+        width: 100vw;
+        max-width: none;
+        margin-left: calc(-50vw + 50%);
+        margin-right: calc(-50vw + 50%);
+        border: none;
+        border-top: 3px solid #D4AF37;
+        border-bottom: 3px solid #D4AF37;
     }
 }
 
 @media (max-width: 480px) {
     .nuestro-salon {
-        padding: 30px 15px;
+        padding: 30px 0;
     }
 
     .salon-title {
         font-size: 2.2rem;
         margin-bottom: 20px;
+        padding: 0 15px;
     }
 }

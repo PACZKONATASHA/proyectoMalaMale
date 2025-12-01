@@ -245,77 +245,38 @@
     <!-- Contacto -->
     <section id="contacto" class="contacto">
         <div class="container">
-            <div class="titulo-contacto-wrapper">
-                <h3 class="titulo-contacto-responsive titulo-contacto-centrado">Nos podés encontrar en</h3>
-            </div>
-            <div class="contacto-content">
-                <div class="contacto-info">
-                    <div class="info-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h3>Dirección</h3>
-                            <p>Alem 880, Monte Grande<br>Buenos Aires 1842, Argentina</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fab fa-whatsapp"></i>
-                        <div>
-                            <h3>WhatsApp</h3>
-                                <a href="https://wa.me/5491170845893?text=Hola%2C%20quiero%20consultar%20contigo." class="contact-link" target="_blank">
-                                    +54 9 11 7084-5893
-                                </a>
-                            <div class="numero-wsp" style="font-size:0.95rem; color:#25D366; margin-top:2px;">
-                                5491170845893
+            
+            <!-- Sección móvil con imagen del local -->
+            <div class="contacto-mobile-hero">
+                <div class="contacto-hero-imagen">
+                    <img src="img/foto para dirrecion.png" alt="MalaMale Peluquería - Local">
+                    <div class="contacto-hero-overlay">
+                        <div class="contacto-hero-botones">
+                            <a href="https://wa.me/5491170845893?text=Hola%2C%20quiero%20consultar%20contigo." class="btn-contacto-hero btn-whatsapp" target="_blank">
+                                <i class="fab fa-whatsapp"></i>
+                                <span>5491170845893</span>
+                            </a>
+                            <a href="https://www.instagram.com/mala_male_/" class="btn-contacto-hero btn-instagram" target="_blank">
+                                <i class="fab fa-instagram"></i>
+                                <span>mala_male_</span>
+                            </a>
+                            <div class="btn-contacto-hero btn-horarios">
+                                <i class="fas fa-clock"></i>
+                                <span>9am a 20hs</span>
                             </div>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-clock"></i>
-                        <div>
-                            <h3>Horarios</h3>
-                            <p>Lun-Sáb: 9:00 - 20:00<br>Dom: 10:00 - 18:00</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fab fa-instagram"></i>
-                        <div>
-                            <h3>Instagram</h3>
-                            <a href="https://instagram.com/malamale_salon" class="contact-link" target="_blank">
-                                @malamale_salon
-                            </a>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fab fa-facebook"></i>
-                        <div>
-                            <h3>Facebook</h3>
-                            <a href="https://facebook.com/malama.salon" class="contact-link" target="_blank">
-                                MalaMale Peluquería
-                            </a>
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div class="contacto-content">
                 <div class="mapa-container">
-                    <h3>Nuestra Ubicación</h3>
-                    <div class="ubicacion-info">
-                        <div class="direccion-completa">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
-                                <strong>Alem 880, Monte Grande</strong>
-                                <p>Buenos Aires 1842, Argentina</p>
-                            </div>
-                        </div>
-                        <div class="navegacion-botones">
-                            <a href="https://maps.google.com/maps?q=Alem+880+Monte+Grande+Buenos+Aires+1842+Argentina"
-                                target="_blank" class="btn-navegacion">
-                                <i class="fas fa-route"></i>
-                                Cómo llegar desde tu ubicación
-                            </a>
-                            <button onclick="navegarDesdeMiUbicacion()" class="btn-gps">
-                                <i class="fas fa-location-arrow"></i>
-                                Navegar con GPS
-                            </button>
-                        </div>
+                    <div class="navegacion-botones">
+                        <a href="https://maps.google.com/maps?q=Alem+880+Monte+Grande+Buenos+Aires+1842+Argentina"
+                            target="_blank" class="btn-navegacion">
+                            <i class="fas fa-route"></i>
+                            Cómo llegar desde tu ubicación
+                        </a>
                     </div>
                     <div class="mapa-google">
                         <!-- Mapa de Monte Grande, Buenos Aires -->
