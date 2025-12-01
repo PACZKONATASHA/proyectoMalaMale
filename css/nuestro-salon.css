@@ -94,13 +94,55 @@
 /* Responsive */
 @media (max-width: 768px) {
     .nuestro-salon {
-        padding: 40px 0;
+        padding: 0;
+        margin: 0;
+        position: relative;
+    }
+
+    .nuestro-salon .container {
+        padding: 0 !important;
+        margin: 0 !important;
+        max-width: 100% !important;
+        position: relative;
     }
 
     .salon-title {
+        position: absolute;
+        top: 30px;
+        left: 50%;
+        transform: translateX(-50%);
         font-size: 2.5rem;
-        margin-bottom: 30px;
+        margin: 0;
         padding: 0 20px;
+        color: #FFFFFF;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+        z-index: 10;
+        width: 100%;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+    }
+    
+    .salon-title::before,
+    .salon-title::after {
+        display: block;
+        content: '';
+        width: 60px;
+        height: 2px;
+        background: #D4AF37;
+        flex-shrink: 0;
+    }
+
+    .nuestro-salon .row {
+        margin: 0;
+        padding: 0;
+    }
+
+    .nuestro-salon .col-12 {
+        padding: 0;
+        position: relative;
     }
     
     .salon-image {
@@ -109,19 +151,17 @@
         margin-left: calc(-50vw + 50%);
         margin-right: calc(-50vw + 50%);
         border: none;
-        border-top: 3px solid #D4AF37;
-        border-bottom: 3px solid #D4AF37;
+        display: block;
     }
 }
 
 @media (max-width: 480px) {
     .nuestro-salon {
-        padding: 30px 0;
+        padding: 0;
     }
 
     .salon-title {
-        font-size: 2.2rem;
-        margin-bottom: 20px;
-        padding: 0 15px;
+        font-size: 2rem;
+        top: 20px;
     }
 }
