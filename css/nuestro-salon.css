@@ -151,6 +151,8 @@
         margin-left: calc(-50vw + 50%);
         margin-right: calc(-50vw + 50%);
         border: none;
+        border-top: 3px solid #D4AF37;
+        border-bottom: 3px solid #D4AF37;
         display: block;
     }
 }
