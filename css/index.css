@@ -1107,6 +1107,9 @@ header {
     letter-spacing: 0.02em;
     position: relative;
     z-index: 2;
+    text-decoration: underline;
+    text-decoration-color: #D4AF37;
+    text-underline-offset: 8px;
 }
 
 .comentario-form {
@@ -1124,7 +1127,7 @@ header {
 .form-group textarea {
     width: 100%;
     padding: 1.1rem 1.4rem;
-    border: 1px solid #E5E5E5;
+    border: 2px solid #D4AF37;
     border-radius: 12px;
     background: #F5F5F5;
     color: #2C2C2C;
@@ -1142,9 +1145,9 @@ header {
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: #D5D5D5;
+    border-color: #B8935C;
     background: #FAFAFA;
-    box-shadow: 0 0 0 3px rgba(184, 147, 92, 0.08);
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
 }
 
 .form-group:first-child {
@@ -1224,53 +1227,101 @@ header {
 
 .comentarios-tiempo-real {
     margin: 2rem auto;
-    background: #0f0f0f;
-    padding: 2.5rem;
-    border-radius: 20px;
-    box-shadow: 
-        0 15px 35px rgba(0, 0, 0, 0.4),
-        0 0 30px rgba(0, 0, 0, 0.2);
-    border: 3px solid #D4AF37;
+    background: transparent !important;
+    padding: 2rem 20px;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
     position: relative;
-    overflow: hidden;
-    max-width: 900px;
+    overflow: visible;
+    max-width: 500px;
+    width: 100%;
 }
 
 .comentarios-tiempo-real::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle at bottom left, rgba(255,255,255,0.05) 0%, transparent 50%);
-    pointer-events: none;
+    display: none !important;
 }
 
 .comentarios-tiempo-real h3 {
     text-align: center;
-    color: #D4AF37;
+    color: #B8935C;
     margin-bottom: 2rem;
-    font-size: 1.8rem;
+    margin-top: 0;
+    font-size: 2rem;
     font-weight: 400;
     font-family: 'Great Vibes', 'Dancing Script', 'Pacifico', cursive;
     letter-spacing: 0.02em;
     text-shadow: none;
     position: relative;
     z-index: 2;
+    text-decoration: underline;
+    text-decoration-color: #D4AF37;
+    text-underline-offset: 8px;
 }
 
 .comentarios-container {
-    display: grid;
-    gap: 1.5rem;
-    max-height: 600px;
-    overflow-y: auto;
-    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    gap: 20px;
+    max-height: none;
+    padding: 10px;
     position: relative;
     z-index: 2;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto;
+    border: none !important;
+    background: transparent !important;
+    cursor: grab;
 }
 
-/* Scrollbar personalizada para comentarios */
+.comentarios-container:active {
+    cursor: grabbing;
+}
+
+.comentarios-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.comentarios-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.comentarios-container::-webkit-scrollbar-thumb {
+    background: #D4AF37;
+    border-radius: 10px;
+}
+
+.comentarios-container::-webkit-scrollbar-thumb:hover {
+    background: #B8935C;
+}
+
+.comentarios-container .comentario-nuevo {
+    min-width: 100%;
+    max-width: 100%;
+    flex: 0 0 100%;
+    scroll-snap-align: center;
+    margin: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #FFFFFF !important;
+    border-radius: 20px !important;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08) !important;
+    border: 2px solid #D4AF37 !important;
+    padding: 40px 30px;
+    gap: 12px;
+    text-align: center;
+}
+
+/* Scrollbar personalizada para comentarios - oculta */
+/*
 .comentarios-container::-webkit-scrollbar {
     width: 8px;
 }
@@ -1291,39 +1342,33 @@ header {
 
 .carrusel-cinco-estrellas {
     margin: 2rem auto;
-    background: #0f0f0f;
+    background: #FFFFFF;
     padding: 2.5rem;
     border-radius: 20px;
-    box-shadow: 
-        0 15px 35px rgba(0, 0, 0, 0.4),
-        0 0 30px rgba(0, 0, 0, 0.2);
-    border: 3px solid #D4AF37;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
+    border: 2px solid #D4AF37;
     position: relative;
     overflow: hidden;
-    max-width: 900px;
+    max-width: 500px;
 }
 
 .carrusel-cinco-estrellas::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle at bottom left, rgba(255,255,255,0.05) 0%, transparent 50%);
-    pointer-events: none;
+    display: none;
 }
 
 .titulo-carrusel-5 {
     text-align: center;
-    color: #D4AF37;
+    color: #B8935C;
     margin-bottom: 2rem;
-    font-size: 1.8rem;
+    font-size: 2rem;
     font-weight: 400;
     font-family: 'Great Vibes', 'Dancing Script', 'Pacifico', cursive;
     letter-spacing: 0.02em;
     position: relative;
     z-index: 2;
+    text-decoration: underline;
+    text-decoration-color: #D4AF37;
+    text-underline-offset: 8px;
 }
 
 .carrusel-5-carousel {
@@ -1332,15 +1377,15 @@ header {
 }
 
 .comentario-nuevo {
-    background: rgba(255, 255, 255, 0.95);
-    padding: 1.5rem;
-    border-radius: 15px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    border-left: 4px solid var(--pure-white);
+    background: #FFFFFF !important;
+    padding: 40px 30px !important;
+    border-radius: 20px !important;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08) !important;
+    border: 2px solid #D4AF37 !important;
     opacity: 0;
     transform: translateY(20px);
     animation: aparecer 0.5s ease forwards;
+    text-align: center;
 }
 
 @keyframes aparecer {
@@ -1352,42 +1397,48 @@ header {
 
 .comentario-header {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     margin-bottom: 1rem;
 }
 
 .comentario-autor {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.3rem;
 }
 
 .comentario-autor h4 {
-    color: var(--secondary-color);
+    color: #2C2C2C;
     font-size: 1.1rem;
     margin: 0;
+    font-weight: 700;
 }
 
 .comentario-instagram {
-    color: var(--primary-color);
+    color: #8B7355;
     font-size: 0.9rem;
 }
 
 .comentario-fecha {
-    color: var(--text-light);
+    color: #999;
     font-size: 0.8rem;
+    display: none;
 }
 
 .comentario-estrellas {
-    color: var(--primary-color);
+    color: #D4AF37;
     margin-bottom: 0.5rem;
+    text-align: center;
 }
 
 .comentario-texto {
-    color: var(--text-dark);
+    color: #2C2C2C;
     line-height: 1.6;
     font-style: italic;
+    text-align: center;
 }
 
 .testimonios-originales {
@@ -1449,20 +1500,22 @@ header {
     }
 
     .testimonios {
-        padding: 60px 0;
+        padding: 0 0 40px 0;
+        margin-top: -50px;
     }
 
     .testimonios h2 {
-        font-size: 2rem;
-        margin-bottom: 3rem;
-        line-height: 1.3;
-        margin-top: 1rem;
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
+        line-height: 1.2;
+        margin-top: 0;
+        padding-top: 10px;
     }
 
     /* Formulario Responsivo - MÓVIL */
     .nuevo-comentario {
         padding: 2.5rem 1.5rem;
-        margin: 3rem 1rem;
+        margin: 1rem 1rem;
         border-radius: 20px;
         box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
     }
@@ -1471,8 +1524,12 @@ header {
         font-size: 1.65rem;
         text-align: center;
         margin-bottom: 2rem;
+        margin-top: 20px;
         line-height: 1.3;
         color: #B8935C;
+        text-decoration: underline;
+        text-decoration-color: #D4AF37;
+        text-underline-offset: 8px;
     }
 
     .form-group input,
@@ -1481,7 +1538,14 @@ header {
         padding: 1rem 1.2rem;
         border-radius: 12px;
         background: #F5F5F5;
-        border: 1px solid #E5E5E5;
+        border: 2px solid #D4AF37;
+    }
+    
+    .form-group input:focus,
+    .form-group textarea:focus {
+        border-color: #B8935C;
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
     }
     
     .form-group:first-child {
@@ -1501,14 +1565,28 @@ header {
 
     /* Comentarios Recientes - Carrusel de 1 item */
     .comentarios-tiempo-real {
-        padding: 2rem 1rem;
-        margin: 4rem 0;
-        border-radius: 20px;
+        padding: 0;
+        margin: 0;
+        border-radius: 0;
+        background: #FFFFFF;
+        max-width: 100vw;
+        width: 100vw;
+        border: none;
+        box-shadow: none;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
     }
 
     .comentarios-tiempo-real h3 {
         font-size: 1.6rem;
         margin-bottom: 2rem;
+        margin-top: 30px;
+        padding: 0 20px;
+        color: #B8935C;
+        text-decoration: underline;
+        text-decoration-color: #D4AF37;
+        text-underline-offset: 8px;
     }
 
     .comentarios-container {
@@ -1516,8 +1594,8 @@ header {
         flex-direction: row;
         overflow-x: auto;
         scroll-snap-type: x mandatory;
-        gap: 1rem;
-        padding: 0.5rem 0 1.5rem 0;
+        gap: 0;
+        padding: 0;
         -webkit-overflow-scrolling: touch;
         max-height: none; /* Quitar restricción de altura */
     }
@@ -1532,7 +1610,9 @@ header {
         flex: 0 0 100%;
         scroll-snap-align: center;
         margin: 0;
-        border-radius: 15px;
+        border-radius: 20px;
+        box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
+        border: none;
     }
 
     /* Salón Cinco Estrellas */
