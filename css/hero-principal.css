@@ -152,7 +152,7 @@ body .nav-link:hover {
 
     .hero-experience {
         bottom: auto;
-        top: 50%;
+        top: calc(50% + 50px);
         transform: translateY(-50%);
     }
 
@@ -175,7 +175,7 @@ body .nav-link:hover {
 
     .hero-experience {
         bottom: auto;
-        top: 50%;
+        top: calc(50% + 50px);
         transform: translateY(-50%);
     }
 
