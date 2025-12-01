@@ -1343,13 +1343,13 @@ header {
 .carrusel-cinco-estrellas {
     margin: 2rem auto;
     background: #FFFFFF;
-    padding: 2.5rem;
+    padding: 30px 25px;
     border-radius: 20px;
     box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
     border: 2px solid #D4AF37;
     position: relative;
-    overflow: hidden;
-    max-width: 500px;
+    overflow: visible;
+    max-width: 450px;
 }
 
 .carrusel-cinco-estrellas::before {
@@ -1374,6 +1374,76 @@ header {
 .carrusel-5-carousel {
     position: relative;
     z-index: 2;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.carrusel-5-slide {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+    background: transparent;
+}
+
+.carrusel-5-slide.active {
+    display: flex !important;
+}
+
+.carrusel-5-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #a3855b;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 0 auto 10px auto;
+}
+
+.carrusel-5-estrellas {
+    color: #d4af37;
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.carrusel-5-content {
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.carrusel-5-content p {
+    color: #444;
+    font-size: 1rem;
+    margin: 0 0 10px 0;
+    text-align: center;
+}
+
+.carrusel-5-content h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #222;
+    margin: 0 0 4px 0;
+    text-align: center;
+}
+
+.carrusel-5-instagram {
+    color: #a3855b;
+    font-size: 0.95rem;
+    text-align: center;
 }
 
 .comentario-nuevo {
