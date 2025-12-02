@@ -55,7 +55,7 @@
 
             <!-- Navbar Links -->
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav ms-auto align-items-center">
                     <li class="nav-item">
                         <a class="nav-link" href="index.html">Inicio</a>
                     </li>
@@ -65,18 +65,16 @@
                     <li class="nav-item">
                         <a class="nav-link" href="servicios.html">Servicios</a>
                     </li>
+                    <li class="nav-item ms-3">
+                        <button id="toggleCarrito" class="carrito-btn-nav" style="background: transparent; border: none; position: relative; cursor: pointer;">
+                            <i class="fas fa-shopping-cart" style="color: #A08C5B !important; font-size: 1.5rem;"></i>
+                            <span id="carritoContador" class="position-absolute translate-middle badge rounded-pill bg-danger" style="top: 0; left: 100%; font-size: 0.65rem;">0</span>
+                        </button>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
-
-    <!-- Icono del carrito flotante -->
-    <div class="carrito-nav position-fixed" style="top: 85px; right: 20px; z-index: 1040;">
-        <button id="toggleCarrito" class="carrito-btn btn btn-primary rounded-circle">
-            <i class="fas fa-shopping-cart"></i>
-            <span id="carritoContador" class="carrito-contador position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
-        </button>
-    </div>
 
     <!-- Hero Section -->
     <!-- Hero Section -->
