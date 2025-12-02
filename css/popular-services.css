@@ -21,7 +21,7 @@
             radial-gradient(ellipse at 80% 70%, rgba(255, 255, 255, 0.03) 0%, transparent 50%),
             linear-gradient(135deg, #0f0f0f 0%, #000000 25%, #0f0f0f 50%, #000000 75%, #0f0f0f 100%);
         padding: 30px 20px 20px 20px;
-        margin-top: -3px;
+        margin-top: -1px;
     }
 }
 

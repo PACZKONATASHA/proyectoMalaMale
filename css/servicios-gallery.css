@@ -100,9 +100,17 @@
 /* Responsive */
 @media (max-width: 768px) {
     .servicios-gallery-section {
-        background: #ffffff;
-        padding: 40px 20px;
-        margin-bottom: 0;
+        background: #000000 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        margin-top: -1px !important;
+    }
+
+    .servicios-gallery-container {
+        margin: 0 !important;
+        width: 100%;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
     }
 
     .servicios-btn {
