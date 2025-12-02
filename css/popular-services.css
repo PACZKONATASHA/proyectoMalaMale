@@ -89,7 +89,7 @@
 
 .service-image {
     width: 100%;
-    height: auto;
+    height: 450px;
     border-radius: 25px;
     overflow: hidden;
     margin-bottom: 25px;
@@ -98,9 +98,6 @@
     position: relative;
     background: transparent;
     border: 3px solid #D4AF37;
-    display: block;
-    line-height: 0;
-    font-size: 0;
 }
 
 .service-image:hover {
@@ -133,13 +130,9 @@
 
 .service-image img {
     width: 100%;
-    height: auto;
-    display: block;
+    height: 100%;
     object-fit: cover;
     object-position: center;
-    margin: 0;
-    padding: 0;
-    vertical-align: top;
 }
 
 .service-label {
@@ -193,8 +186,7 @@
     
     .service-image {
         width: 100%;
-        height: auto;
-        min-height: 200px;
+        height: 280px;
         border-radius: 20px;
         margin-bottom: 15px;
     }
@@ -243,14 +235,12 @@
     
     .service-image {
         width: 100%;
-        height: auto;
-        min-height: 160px;
+        height: 200px;
         border-radius: 15px;
         margin-bottom: 12px;
         box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
     }
     
-    .service-label {
     .service-label span {
         font-size: 8px;
         padding: 6px 10px;
@@ -258,9 +248,6 @@
         background: rgba(0, 0, 0, 0.5);
         color: #D4AF37;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-        border-radius: 18px;
-        white-space: nowrap;
-    }   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         border-radius: 18px;
         white-space: nowrap;
     }
@@ -284,8 +271,7 @@
     }
     
     .service-image {
-        height: auto;
-        min-height: 120px;
+        height: 160px;
         border-radius: 12px;
         margin-bottom: 10px;
     }
@@ -316,8 +302,7 @@
     }
     
     .service-image {
-        height: auto;
-        min-height: 100px;
+        height: 140px;
         border-radius: 10px;
         margin-bottom: 8px;
     }
