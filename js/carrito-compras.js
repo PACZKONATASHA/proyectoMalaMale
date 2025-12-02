@@ -53,10 +53,32 @@ class CarritoCompras {
             vaciarBtn.addEventListener('click', () => this.vaciarCarrito());
         }
 
-        // Finalizar compra
+        // Finalizar compra - con soporte táctil para móviles
         const finalizarBtn = document.getElementById('finalizarCompra');
         if (finalizarBtn) {
-            finalizarBtn.addEventListener('click', () => this.finalizarCompra());
+            // Prevenir doble click/tap
+            let procesando = false;
+            
+            // Solo usar click - touchend puede causar doble disparo
+            finalizarBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                console.log('Botón finalizar clickeado');
+                
+                if (procesando) {
+                    console.log('Ya procesando, ignorando click');
+                    return;
+                }
+                procesando = true;
+                
+                this.finalizarCompra();
+                
+                // Reset después de un tiempo
+                setTimeout(() => {
+                    procesando = false;
+                }, 3000);
+            });
         }
 
         // Tecla ESC para cerrar carrito
@@ -275,8 +297,9 @@ class CarritoCompras {
     }
 
     finalizarCompra() {
-        console.log('finalizarCompra ejecutado');
+        console.log('=== FINALIZAR COMPRA EJECUTADO ===');
         console.log('Carrito:', this.carrito);
+        console.log('Cantidad items:', this.carrito.length);
         
         if (this.carrito.length === 0) {
             this.mostrarNotificacion('El carrito está vacío', 'warning');
@@ -286,7 +309,7 @@ class CarritoCompras {
 
         // Generar mensaje para WhatsApp
         const mensaje = this.generarMensajeWhatsApp();
-        console.log('Mensaje generado:', mensaje);
+        console.log('Mensaje generado');
         
         // Crear URL de WhatsApp
         const urlWhatsApp = `https://wa.me/${this.numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
@@ -295,14 +318,15 @@ class CarritoCompras {
         // Mostrar confirmación
         this.mostrarNotificacion('Abriendo WhatsApp...', 'success');
         
-        // Abrir WhatsApp - método directo que funciona en móvil y desktop
-        try {
-            window.open(urlWhatsApp, '_blank');
-        } catch (e) {
-            console.log('Error window.open:', e);
-            // Fallback: usar location.href
+        // Cerrar el carrito primero
+        this.cerrarCarrito();
+        
+        // Método más directo y confiable para móviles
+        // Usar setTimeout para asegurar que el carrito se cierre primero
+        setTimeout(() => {
+            console.log('Redirigiendo a WhatsApp...');
             window.location.href = urlWhatsApp;
-        }
+        }, 200);
     }
 
     // Nueva función para manejar popups bloqueados
