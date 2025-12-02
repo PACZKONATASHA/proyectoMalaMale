@@ -46,9 +46,9 @@
     object-fit: cover;
     margin-left: auto;
     margin-right: auto;
-    border: none;
-    border-top: 3px solid #D4AF37;
-    border-bottom: 3px solid #D4AF37;
+    border: none !important;
+    border-top: 3px solid #D4AF37 !important;
+    border-bottom: 3px solid #D4AF37 !important;
     image-rendering: high-quality;
     -webkit-font-smoothing: antialiased;
 }
@@ -95,14 +95,14 @@
 
 .unisex-btn {
     font-family: 'Great Vibes', cursive;
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     font-weight: 400;
     color: #FFFFFF;
     text-decoration: none;
-    padding: 8px 25px;
-    border: 2px solid #D4AF37;
+    padding: 5px 15px;
+    border: 1px solid #D4AF37;
     display: inline-block;
-    margin-top: 15px;
+    margin-top: 10px;
     letter-spacing: 0.05em;
     transition: all 0.3s ease;
     text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
@@ -222,9 +222,9 @@
         margin: 0 !important;
         margin-left: calc(-50vw + 50%) !important;
         margin-right: calc(-50vw + 50%) !important;
-        border: none;
-        border-top: 3px solid #D4AF37;
-        border-bottom: 3px solid #D4AF37;
+        border: none !important;
+        border-top: 3px solid #D4AF37 !important;
+        border-bottom: 3px solid #D4AF37 !important;
         display: block;
         vertical-align: bottom;
     }

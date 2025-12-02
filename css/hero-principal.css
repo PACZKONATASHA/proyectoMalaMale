@@ -40,7 +40,7 @@
 
 .hero-experience-title {
     font-family: 'Playfair Display', 'Georgia', serif;
-    font-size: clamp(2rem, 8vw, 4.5rem);
+    font-size: clamp(3rem, 12vw, 6rem);
     font-weight: 100;
     letter-spacing: -0.02em;
     color: #FFFFFF;
@@ -57,10 +57,10 @@
 
 .hero-mala-male {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(1.2rem, 3.5vw, 2.2rem);
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
     font-weight: 100;
     color: #D4AF37;
-    margin: 12px 0 0 0;
+    margin: 20px 0 0 0;
     text-shadow: 0 2px 8px rgba(212, 175, 55, 0.4);
     line-height: 1;
     letter-spacing: 0.05em;
@@ -68,7 +68,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 3px;
+    gap: 5px;
 }
 
 .hero-mala-male::before,
@@ -105,9 +105,9 @@ body .navbar-brand {
 }
 
 body .navbar-brand .navbar-logo {
-    height: 90px;
+    height: 130px;
     width: auto;
-    max-width: 200px;
+    max-width: 280px;
     object-fit: contain;
     filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
 }
