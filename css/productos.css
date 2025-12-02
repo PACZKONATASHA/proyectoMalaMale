@@ -445,13 +445,58 @@ body.productos-page .navbar-logo {
 }
 
 /* Estilos del buscador */
-.search-input {
-    color: #A08C5B !important;
+.search-input,
+#buscadorProductos {
+    padding: 10px 20px;
+    border: 1.5px solid #A08C5B;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    width: 220px;
+    transition: all 0.3s ease;
+    color: #A08C5B;
+    background: transparent;
+    font-family: 'Playfair Display', serif;
+    outline: none;
 }
 
-.search-input::placeholder {
-    color: #A08C5B !important;
+.search-input:focus,
+#buscadorProductos:focus {
+    border-color: #8B7355;
+    box-shadow: 0 0 0 2px rgba(160, 140, 91, 0.2);
+}
+
+.search-input::placeholder,
+#buscadorProductos::placeholder {
+    color: #A08C5B;
     opacity: 0.7;
+}
+
+/* Buscador responsive */
+@media (max-width: 768px) {
+    .search-input,
+    #buscadorProductos {
+        width: 100%;
+        max-width: 280px;
+        margin: 0.5rem 0;
+        font-size: 0.85rem;
+        padding: 10px 18px;
+    }
+    
+    .filtros-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .search-input,
+    #buscadorProductos {
+        width: 90%;
+        max-width: 260px;
+        font-size: 0.8rem;
+        padding: 8px 15px;
+    }
 }
 
 .filtro-btn {
