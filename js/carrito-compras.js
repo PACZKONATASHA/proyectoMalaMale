@@ -53,6 +53,12 @@ class CarritoCompras {
             vaciarBtn.addEventListener('click', () => this.vaciarCarrito());
         }
 
+        // Finalizar compra
+        const finalizarBtn = document.getElementById('finalizarCompra');
+        if (finalizarBtn) {
+            finalizarBtn.addEventListener('click', () => this.finalizarCompra());
+        }
+
         // Tecla ESC para cerrar carrito
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
@@ -195,19 +201,10 @@ class CarritoCompras {
         }
         if (totalEl) totalEl.textContent = `${this.monedaSymbol}${total.toFixed(2)}`;
 
-        // Actualizar enlace de WhatsApp con el mensaje del carrito
-        const finalizarLink = document.getElementById('finalizarCompraLink');
-        if (finalizarLink) {
-            if (this.carrito.length > 0) {
-                const mensaje = this.generarMensajeWhatsApp();
-                const urlWhatsApp = `https://wa.me/${this.numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
-                finalizarLink.href = urlWhatsApp;
-                finalizarLink.style.opacity = '1';
-            } else {
-                // Cuando está vacío, mostrar alerta al hacer click
-                finalizarLink.href = 'javascript:alert("El carrito está vacío. Agrega productos primero.")';
-                finalizarLink.style.opacity = '0.5';
-            }
+        // Habilitar/deshabilitar botón de finalizar
+        const finalizarBtn = document.getElementById('finalizarCompra');
+        if (finalizarBtn) {
+            finalizarBtn.disabled = this.carrito.length === 0;
         }
     }
 
@@ -278,36 +275,37 @@ class CarritoCompras {
     }
 
     finalizarCompra() {
-        console.log('=== FINALIZAR COMPRA EJECUTADO ===');
-        console.log('Carrito:', this.carrito);
-        console.log('Cantidad items:', this.carrito.length);
-        
         if (this.carrito.length === 0) {
             this.mostrarNotificacion('El carrito está vacío', 'warning');
-            alert('El carrito está vacío');
             return;
         }
 
         // Generar mensaje para WhatsApp
         const mensaje = this.generarMensajeWhatsApp();
-        console.log('Mensaje generado');
-        
+
+        // Detectar dispositivo para mejor experiencia
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
         // Crear URL de WhatsApp
         const urlWhatsApp = `https://wa.me/${this.numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
-        console.log('URL WhatsApp:', urlWhatsApp);
-        
-        // Mostrar confirmación
+
+        // Mostrar confirmación inmediata
         this.mostrarNotificacion('Abriendo WhatsApp...', 'success');
-        
-        // Cerrar el carrito primero
-        this.cerrarCarrito();
-        
-        // Método más directo y confiable para móviles
-        // Usar setTimeout para asegurar que el carrito se cierre primero
-        setTimeout(() => {
-            console.log('Redirigiendo a WhatsApp...');
+
+        // Abrir WhatsApp según el dispositivo
+        if (isMobile) {
+            // En móviles, abrir la app directamente
             window.location.href = urlWhatsApp;
-        }, 200);
+        } else {
+            // En escritorio, abrir en nueva pestaña
+            const ventanaWhatsApp = window.open(urlWhatsApp, '_blank');
+
+            // Verificar si se bloqueó el popup
+            if (!ventanaWhatsApp || ventanaWhatsApp.closed || typeof ventanaWhatsApp.closed === 'undefined') {
+                // Si se bloqueó, mostrar instrucciones
+                this.mostrarPopupWhatsApp(urlWhatsApp);
+            }
+        }
     }
 
     // Nueva función para manejar popups bloqueados
