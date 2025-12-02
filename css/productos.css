@@ -266,8 +266,8 @@ body.productos-page .navbar {
 
 /* Estilos específicos para productos */
 .productos-hero {
-    padding-top: 140px;
-    padding-bottom: 80px;
+    padding-top: 160px;
+    padding-bottom: 100px;
     background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
     color: white;
     text-align: center;
@@ -275,6 +275,10 @@ body.productos-page .navbar {
     margin-top: 0 !important;
     position: relative;
     top: 0;
+    min-height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .productos-hero .container {
@@ -283,30 +287,55 @@ body.productos-page .navbar {
 }
 
 .productos-hero h1 {
+    font-family: 'Playfair Display', 'Georgia', serif;
     font-size: 3.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     font-weight: 400;
     margin-top: 0 !important;
     padding-top: 0 !important;
     color: #FFFFFF;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.15em;
     font-style: italic;
+    line-height: 1.2;
 }
 
 .productos-hero h1 .highlight {
     color: #d4af37;
-    font-weight: 700;
+    font-weight: 600;
+    display: inline;
 }
 
 .productos-hero p {
-    font-size: 1.2rem;
+    font-family: 'Playfair Display', 'Georgia', serif;
+    font-size: 1.25rem;
     opacity: 0.9;
     margin-top: 0 !important;
     color: #FFFFFF;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+    font-style: italic;
+    letter-spacing: 0.02em;
+}
+
+/* Responsive para el hero */
+@media (max-width: 768px) {
+    .productos-hero {
+        padding-top: 130px;
+        padding-bottom: 60px;
+        min-height: 280px;
+    }
+    
+    .productos-hero h1 {
+        font-size: 2.2rem;
+        letter-spacing: 0.1em;
+    }
+    
+    .productos-hero p {
+        font-size: 1rem;
+        padding: 0 20px;
+    }
 }
 
 /* Filtros */
