@@ -5,10 +5,49 @@
     background: url('../img/foto-principal.png') center/cover no-repeat;
     position: relative;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
     margin-top: -110px;
     overflow: hidden;
+}
+
+/* Logo en la parte inferior del hero */
+.hero-logo-bottom {
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+.hero-logo-bottom img {
+    height: 180px;
+    width: auto;
+    max-width: 500px;
+    filter: sepia(100%) saturate(300%) brightness(0.4) hue-rotate(-10deg) drop-shadow(0 4px 15px rgba(0, 0, 0, 0.3));
+}
+
+/* Responsive para logo inferior */
+@media (max-width: 768px) {
+    .hero-logo-bottom {
+        bottom: -30px;
+    }
+    
+    .hero-logo-bottom img {
+        height: 160px;
+        max-width: 420px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-logo-bottom {
+        bottom: -25px;
+    }
+    
+    .hero-logo-bottom img {
+        height: 140px;
+        max-width: 350px;
+    }
 }
 
 /* Degradado en la parte superior para el navbar */
