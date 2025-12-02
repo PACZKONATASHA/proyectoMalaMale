@@ -53,31 +53,19 @@ class CarritoCompras {
             vaciarBtn.addEventListener('click', () => this.vaciarCarrito());
         }
 
-        // Finalizar compra - con soporte táctil para móviles
-        const finalizarBtn = document.getElementById('finalizarCompra');
-        if (finalizarBtn) {
-            // Prevenir doble click/tap
-            let procesando = false;
-            
-            // Solo usar click - touchend puede causar doble disparo
-            finalizarBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                
-                console.log('Botón finalizar clickeado');
-                
-                if (procesando) {
-                    console.log('Ya procesando, ignorando click');
+        // Finalizar compra - usando enlace directo para máxima compatibilidad móvil
+        const finalizarLink = document.getElementById('finalizarCompraLink');
+        if (finalizarLink) {
+            finalizarLink.addEventListener('click', (e) => {
+                if (this.carrito.length === 0) {
+                    e.preventDefault();
+                    this.mostrarNotificacion('El carrito está vacío', 'warning');
+                    alert('El carrito está vacío');
                     return;
                 }
-                procesando = true;
-                
-                this.finalizarCompra();
-                
-                // Reset después de un tiempo
-                setTimeout(() => {
-                    procesando = false;
-                }, 3000);
+                // El href ya está actualizado, permitir navegación normal
+                this.mostrarNotificacion('Abriendo WhatsApp...', 'success');
+                this.cerrarCarrito();
             });
         }
 
@@ -223,10 +211,20 @@ class CarritoCompras {
         }
         if (totalEl) totalEl.textContent = `${this.monedaSymbol}${total.toFixed(2)}`;
 
-        // Habilitar/deshabilitar botón de finalizar
-        const finalizarBtn = document.getElementById('finalizarCompra');
-        if (finalizarBtn) {
-            finalizarBtn.disabled = this.carrito.length === 0;
+        // Actualizar enlace de WhatsApp con el mensaje del carrito
+        const finalizarLink = document.getElementById('finalizarCompraLink');
+        if (finalizarLink) {
+            if (this.carrito.length > 0) {
+                const mensaje = this.generarMensajeWhatsApp();
+                const urlWhatsApp = `https://wa.me/${this.numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
+                finalizarLink.href = urlWhatsApp;
+                finalizarLink.style.opacity = '1';
+                finalizarLink.style.pointerEvents = 'auto';
+            } else {
+                finalizarLink.href = '#';
+                finalizarLink.style.opacity = '0.5';
+                finalizarLink.style.pointerEvents = 'auto';
+            }
         }
     }
 
