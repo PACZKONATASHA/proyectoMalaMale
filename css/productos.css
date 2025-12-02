@@ -2,20 +2,26 @@
 /* Importar estilos base del index */
 @import url('index.css');
 
+/* =============================================
+   ESTILOS PRODUCTOS - DESKTOP Y MÓVIL
+   ============================================= */
+
 /* Reset para eliminar espacios */
 body.productos-page {
     margin: 0 !important;
     padding: 0 !important;
-    padding-top: 0 !important;
+    padding-top: 110px !important;
     background-color: #1a1a1a !important;
 }
 
-/* Eliminar borde inferior del navbar en productos */
+/* Navbar en productos - FONDO NEGRO */
 body.productos-page .navbar {
     border-bottom: none !important;
     box-shadow: none !important;
     margin-bottom: 0 !important;
     background: #000000 !important;
+    height: 110px !important;
+    min-height: 110px !important;
 }
 
 /* Links del navbar en blanco para productos */
@@ -29,7 +35,77 @@ body.productos-page .navbar .nav-link:hover {
 
 /* Logo en dorado para productos */
 body.productos-page .navbar-logo {
-    filter: brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(15deg) !important;
+    filter: sepia(100%) saturate(200%) brightness(0.65) hue-rotate(-5deg) !important;
+}
+
+/* =============================================
+   MÓVIL - PRODUCTOS
+   ============================================= */
+@media (max-width: 991px) {
+    /* Body padding reducido en móvil */
+    body.productos-page {
+        padding-top: 80px !important;
+    }
+    
+    /* Navbar móvil */
+    body.productos-page .navbar {
+        background: #000000 !important;
+        height: 80px !important;
+        min-height: 80px !important;
+        padding: 5px 0 !important;
+    }
+    
+    /* Logo más pequeño en móvil */
+    body.productos-page .navbar-brand img,
+    body.productos-page .navbar-logo {
+        height: 65px !important;
+        max-height: 65px !important;
+    }
+    
+    /* Menú desplegable con fondo negro */
+    body.productos-page .navbar-collapse {
+        position: absolute !important;
+        top: 80px !important;
+        left: 0 !important;
+        right: 0 !important;
+        background: #000000 !important;
+        padding: 15px 0 !important;
+        border-radius: 0 0 12px 12px !important;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5) !important;
+    }
+    
+    /* Links del menú en móvil - DORADOS */
+    body.productos-page .navbar-nav .nav-link {
+        color: #d4af37 !important;
+        padding: 15px 20px !important;
+        font-size: 1.2rem !important;
+        text-align: center !important;
+        border-bottom: 1px solid rgba(212,175,55,0.2) !important;
+    }
+    
+    body.productos-page .navbar-nav .nav-link:hover {
+        color: #FFFFFF !important;
+        background: rgba(212,175,55,0.1) !important;
+    }
+    
+    /* Ocultar carrito del navbar en móvil */
+    body.productos-page .navbar-nav .nav-item.ms-3 {
+        display: none !important;
+    }
+    
+    /* Iconos móviles visibles */
+    body.productos-page .mobile-social-icons {
+        display: flex !important;
+        align-items: center !important;
+        gap: 0.8rem !important;
+    }
+}
+
+/* Ocultar iconos móviles en desktop */
+@media (min-width: 992px) {
+    body.productos-page .mobile-social-icons {
+        display: none !important;
+    }
 }
 
 /* Logo del navbar */
@@ -280,24 +356,20 @@ body.productos-page .navbar-logo {
 
 /* Estilos específicos para productos */
 .productos-hero {
-    padding-top: 140px;
-    padding-bottom: 80px;
+    padding-top: 60px;
+    padding-bottom: 60px;
     background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
     color: white;
     text-align: center;
     margin: 0 !important;
-    margin-top: 0 !important;
-    position: relative;
-    top: 0;
-    min-height: 320px;
+    min-height: 280px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .productos-hero .container {
-    margin-top: 40px !important;
-    padding-top: 40px !important;
+    padding: 20px !important;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -306,18 +378,15 @@ body.productos-page .navbar-logo {
 
 .productos-hero h1 {
     font-family: 'Playfair Display', 'Georgia', serif;
-    font-size: 3.5rem;
-    margin-bottom: 1.5rem;
+    font-size: 3.2rem;
+    margin-bottom: 1.2rem;
     font-weight: 400;
-    margin-top: 20px !important;
-    padding-top: 0 !important;
     color: #FFFFFF;
     text-transform: uppercase;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.12em;
     font-style: italic;
     line-height: 1.2;
     text-align: center;
-    width: 100%;
 }
 
 .productos-hero h1 .highlight {
@@ -328,99 +397,44 @@ body.productos-page .navbar-logo {
 
 .productos-hero p {
     font-family: 'Playfair Display', 'Georgia', serif;
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     opacity: 0.9;
-    margin-top: 20px !important;
     color: #FFFFFF;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
+    max-width: 550px;
+    margin: 0 auto;
     font-style: italic;
     letter-spacing: 0.02em;
+    line-height: 1.5;
 }
 
-/* Responsive para el hero */
-@media (max-width: 768px) {
+/* =============================================
+   HERO RESPONSIVE - MÓVIL
+   ============================================= */
+@media (max-width: 991px) {
     .productos-hero {
-        padding-top: 100px;
+        padding-top: 40px;
         padding-bottom: 40px;
-        min-height: 220px;
-    }
-    
-    .productos-hero .container {
-        margin-top: 10px !important;
-        padding-top: 10px !important;
+        min-height: 200px;
     }
     
     .productos-hero h1 {
-        font-size: 1.8rem;
-        letter-spacing: 0.05em;
+        font-size: 2rem;
+        letter-spacing: 0.08em;
         margin-bottom: 0.8rem;
     }
     
     .productos-hero p {
-        font-size: 0.9rem;
-        padding: 0 15px;
+        font-size: 0.95rem;
+        padding: 0 20px;
         line-height: 1.4;
-    }
-}
-
-/* Estilos móviles para navbar en productos */
-@media (max-width: 991px) {
-    /* Navbar móvil con fondo negro sólido */
-    body.productos-page .navbar {
-        background: #000000 !important;
-        padding: 10px 0 !important;
-        min-height: auto !important;
-        height: auto !important;
-    }
-    
-    /* Logo más pequeño en móvil */
-    body.productos-page .navbar-brand img,
-    body.productos-page .navbar-logo {
-        height: 60px !important;
-        max-height: 60px !important;
-    }
-    
-    /* Menú desplegable con fondo negro */
-    body.productos-page .navbar-collapse {
-        background: #000000 !important;
-        padding: 15px !important;
-        margin-top: 10px !important;
-        border-radius: 8px !important;
-    }
-    
-    /* Links del menú en móvil */
-    body.productos-page .navbar-nav .nav-link {
-        color: #FFFFFF !important;
-        padding: 12px 15px !important;
-        font-size: 1.1rem !important;
-        border-bottom: 1px solid rgba(255,255,255,0.1) !important;
-    }
-    
-    /* Ocultar carrito del navbar en móvil */
-    .navbar-nav .nav-item.ms-3 {
-        display: none !important;
-    }
-    
-    /* Mostrar iconos móviles */
-    .mobile-social-icons {
-        display: flex !important;
-    }
-}
-
-/* Ocultar iconos móviles en desktop */
-@media (min-width: 992px) {
-    .mobile-social-icons {
-        display: none !important;
     }
 }
 
 /* Filtros */
 .filtros {
     padding: 40px 0;
-    background: var(--white);
-    border-bottom: 1px solid #eee;
+    background: #1a1a1a;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
 .filtros-container {
