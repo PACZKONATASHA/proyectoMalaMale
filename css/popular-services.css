@@ -96,11 +96,10 @@
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
-    background: #1a1a1a;
+    background: transparent;
     border: 3px solid #D4AF37;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: block;
+    line-height: 0;
 }
 
 .service-image:hover {
@@ -134,7 +133,8 @@
 .service-image img {
     width: 100%;
     height: auto;
-    object-fit: contain;
+    display: block;
+    object-fit: cover;
     object-position: center;
 }
 
