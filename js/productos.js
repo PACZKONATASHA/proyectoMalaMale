@@ -261,51 +261,34 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(producto);
     });
 
-    // Búsqueda en tiempo real (opcional)
+    // Búsqueda en tiempo real
     function agregarBusqueda() {
         const searchContainer = document.querySelector('.filtros-container');
+        if (!searchContainer) return;
+        
         const searchInput = document.createElement('input');
         searchInput.type = 'text';
         searchInput.placeholder = 'Buscar productos...';
         searchInput.className = 'search-input';
-        searchInput.style.cssText = `
-            padding: 10px 15px;
-            border: 1.5px solid #A08C5B;
-            border-radius: 30px;
-            font-size: 0.9rem;
-            width: 200px;
-            margin-left: 1rem;
-            transition: all 0.3s ease;
-            color: #A08C5B;
-            background: transparent;
-            font-family: 'Playfair Display', serif;
-        `;
-        
-        searchInput.addEventListener('focus', function() {
-            this.style.borderColor = '#8B7355';
-            this.style.boxShadow = '0 0 0 2px rgba(160, 140, 91, 0.2)';
-        });
-        
-        searchInput.addEventListener('blur', function() {
-            this.style.borderColor = '#A08C5B';
-            this.style.boxShadow = 'none';
-        });
-        
-        searchInput.addEventListener('input', function() {
-            const termino = this.value.toLowerCase();
-            buscarProductos(termino);
-        });
+        searchInput.id = 'buscadorProductos';
         
         searchContainer.appendChild(searchInput);
+        
+        searchInput.addEventListener('input', function() {
+            const termino = this.value.toLowerCase().trim();
+            buscarProductos(termino);
+        });
     }
 
     function buscarProductos(termino) {
+        const productos = document.querySelectorAll('.producto-card');
+        
         productos.forEach(producto => {
-            const nombre = producto.querySelector('h3').textContent.toLowerCase();
-            const descripcion = producto.querySelector('.descripcion').textContent.toLowerCase();
+            const nombreElement = producto.querySelector('h3');
+            const nombre = nombreElement ? nombreElement.textContent.toLowerCase() : '';
             
-            if (nombre.includes(termino) || descripcion.includes(termino)) {
-                producto.style.display = 'block';
+            if (termino === '' || nombre.includes(termino)) {
+                producto.style.display = 'flex';
                 producto.classList.remove('hide');
             } else {
                 producto.style.display = 'none';
