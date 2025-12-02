@@ -476,12 +476,12 @@ body.productos-page .navbar-logo {
 
 .producto-card {
     background: #fff;
-    border: 1px solid #C9A876;
-    border-radius: 12px;
+    border: 1px solid rgba(201, 168, 118, 0.4);
+    border-radius: 8px;
     overflow: hidden;
-    box-shadow: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
     transition: all 0.3s ease;
-    padding: 25px 25px 45px 25px;
+    padding: 20px 20px 35px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -490,12 +490,17 @@ body.productos-page .navbar-logo {
     position: relative;
 }
 
+.producto-card:hover {
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transform: translateY(-2px);
+}
+
 .badge-oferta {
     position: absolute;
-    top: 20px;
-    left: 20px;
-    width: 60px;
-    height: 60px;
+    top: 15px;
+    left: 15px;
+    width: 50px;
+    height: 50px;
     background-color: #C5A059;
     color: #fff;
     border-radius: 50%;
@@ -503,17 +508,17 @@ body.productos-page .navbar-logo {
     align-items: center;
     justify-content: center;
     text-align: center;
-    font-size: 0.85rem;
-    font-weight: 700;
+    font-size: 0.75rem;
+    font-weight: 600;
     line-height: 1.1;
     z-index: 10;
 }
 
 .separador-dorado {
-    width: calc(100% + 50px); /* Compensate for card padding */
-    height: 2px;
-    background-color: #C9A876;
-    margin: 0 -25px 20px -25px;
+    width: calc(100% + 40px);
+    height: 1px;
+    background-color: rgba(201, 168, 118, 0.5);
+    margin: 0 -20px 15px -20px;
 }
 
 .precios-container {
