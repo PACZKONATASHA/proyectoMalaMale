@@ -342,19 +342,45 @@ body.productos-page .navbar-logo {
 /* Responsive para el hero */
 @media (max-width: 768px) {
     .productos-hero {
-        padding-top: 130px;
-        padding-bottom: 60px;
-        min-height: 280px;
+        padding-top: 120px;
+        padding-bottom: 50px;
+        min-height: 250px;
+    }
+    
+    .productos-hero .container {
+        margin-top: 20px !important;
+        padding-top: 20px !important;
     }
     
     .productos-hero h1 {
-        font-size: 2.2rem;
-        letter-spacing: 0.1em;
+        font-size: 2rem;
+        letter-spacing: 0.08em;
+        margin-bottom: 1rem;
     }
     
     .productos-hero p {
-        font-size: 1rem;
-        padding: 0 20px;
+        font-size: 0.95rem;
+        padding: 0 15px;
+        line-height: 1.5;
+    }
+}
+
+/* Ocultar carrito del navbar en móvil */
+@media (max-width: 991px) {
+    .navbar-nav .nav-item.ms-3 {
+        display: none !important;
+    }
+    
+    /* Mostrar iconos móviles */
+    .mobile-social-icons {
+        display: flex !important;
+    }
+}
+
+/* Ocultar iconos móviles en desktop */
+@media (min-width: 992px) {
+    .mobile-social-icons {
+        display: none !important;
     }
 }
 
