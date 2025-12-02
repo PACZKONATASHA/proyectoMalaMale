@@ -270,20 +270,25 @@ document.addEventListener('DOMContentLoaded', function() {
         searchInput.className = 'search-input';
         searchInput.style.cssText = `
             padding: 10px 15px;
-            border: 2px solid #ddd;
-            border-radius: 25px;
-            font-size: 1rem;
+            border: 1.5px solid #A08C5B;
+            border-radius: 30px;
+            font-size: 0.9rem;
             width: 200px;
             margin-left: 1rem;
-            transition: border-color 0.3s ease;
+            transition: all 0.3s ease;
+            color: #A08C5B;
+            background: transparent;
+            font-family: 'Playfair Display', serif;
         `;
         
         searchInput.addEventListener('focus', function() {
-            this.style.borderColor = '#d4af37';
+            this.style.borderColor = '#8B7355';
+            this.style.boxShadow = '0 0 0 2px rgba(160, 140, 91, 0.2)';
         });
         
         searchInput.addEventListener('blur', function() {
-            this.style.borderColor = '#ddd';
+            this.style.borderColor = '#A08C5B';
+            this.style.boxShadow = 'none';
         });
         
         searchInput.addEventListener('input', function() {
