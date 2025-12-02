@@ -21,9 +21,9 @@
 }
 
 .hero-logo-bottom img {
-    height: 180px;
+    height: 220px;
     width: auto;
-    max-width: 500px;
+    max-width: 90vw;
     filter: sepia(100%) saturate(300%) brightness(0.4) hue-rotate(-10deg) drop-shadow(0 4px 15px rgba(0, 0, 0, 0.3));
 }
 
@@ -34,8 +34,8 @@
     }
     
     .hero-logo-bottom img {
-        height: 160px;
-        max-width: 420px;
+        height: 200px;
+        max-width: 85vw;
     }
 }
 
@@ -45,8 +45,8 @@
     }
     
     .hero-logo-bottom img {
-        height: 140px;
-        max-width: 350px;
+        height: 180px;
+        max-width: 80vw;
     }
 }
 
