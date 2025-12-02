@@ -145,7 +145,7 @@
         /* FILTROS - FONDO BLANCO Y LETRAS DORADAS */
         .filtros {
             background: #FFFFFF !important;
-            padding: 25px 0 !important;
+            padding: 25px 15px !important;
             border-bottom: 1px solid #eee !important;
         }
         
@@ -161,7 +161,7 @@
             background: transparent !important;
             border: 2px solid #A08C5B !important;
             color: #A08C5B !important;
-            padding: 10px 20px !important;
+            padding: 12px 25px !important;
             border-radius: 25px !important;
             font-family: 'Playfair Display', serif !important;
             font-size: 0.95rem !important;
@@ -175,45 +175,23 @@
             color: #FFFFFF !important;
         }
         
-        /* Buscador */
-        .buscador-container {
-            display: flex !important;
-            align-items: center !important;
-            gap: 0.5rem !important;
-        }
-        
-        .buscador-input {
-            border: 2px solid #A08C5B !important;
-            border-radius: 25px !important;
-            padding: 10px 20px !important;
-            font-family: 'Playfair Display', serif !important;
-            font-size: 0.95rem !important;
-            outline: none !important;
-            width: 200px !important;
-        }
-        
-        .buscador-input:focus {
-            border-color: #8B7355 !important;
-        }
-        
-        .buscador-input::placeholder {
-            color: #A08C5B !important;
-            opacity: 0.7 !important;
-        }
-        
         @media (max-width: 768px) {
+            .filtros {
+                padding: 20px 10px !important;
+            }
+            
             .filtros-container {
-                gap: 0.5rem !important;
+                flex-direction: column !important;
+                gap: 10px !important;
+                width: 100% !important;
             }
             
             .filtro-btn {
-                padding: 8px 15px !important;
-                font-size: 0.85rem !important;
-            }
-            
-            .buscador-input {
-                width: 150px !important;
-                padding: 8px 15px !important;
+                width: 80% !important;
+                max-width: 250px !important;
+                padding: 12px 20px !important;
+                font-size: 0.9rem !important;
+                text-align: center !important;
             }
         }
     </style>
@@ -285,9 +263,6 @@
                 <button class="filtro-btn" data-categoria="shampoo">Shampoos</button>
                 <button class="filtro-btn" data-categoria="acondicionador">Acondicionadores</button>
                 <button class="filtro-btn" data-categoria="tratamiento">Tratamientos</button>
-                <div class="buscador-container">
-                    <input type="text" id="buscadorProductos" class="buscador-input" placeholder="Buscar productos...">
-                </div>
             </div>
         </div>
     </section>
@@ -479,31 +454,5 @@
     <script src="js/productos.js"></script>
     <script src="js/carrito-compras.js"></script>
     <script src="js/responsive.js"></script>
-    
-    <!-- Buscador de productos -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const buscador = document.getElementById('buscadorProductos');
-            
-            if (buscador) {
-                buscador.addEventListener('input', function() {
-                    const termino = this.value.toLowerCase().trim();
-                    const productos = document.querySelectorAll('.producto-card');
-                    
-                    productos.forEach(function(producto) {
-                        const nombre = producto.querySelector('h3');
-                        if (nombre) {
-                            const textoNombre = nombre.textContent.toLowerCase();
-                            if (termino === '' || textoNombre.includes(termino)) {
-                                producto.style.display = 'block';
-                            } else {
-                                producto.style.display = 'none';
-                            }
-                        }
-                    });
-                });
-            }
-        });
-    </script>
 </body>
 </html>
