@@ -15,7 +15,21 @@ body.productos-page .navbar {
     border-bottom: none !important;
     box-shadow: none !important;
     margin-bottom: 0 !important;
-    background: #F8F5F0 !important;
+    background: #000000 !important;
+}
+
+/* Links del navbar en blanco para productos */
+body.productos-page .navbar .nav-link {
+    color: #FFFFFF !important;
+}
+
+body.productos-page .navbar .nav-link:hover {
+    color: #d4af37 !important;
+}
+
+/* Logo en dorado para productos */
+body.productos-page .navbar-logo {
+    filter: brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(15deg) !important;
 }
 
 /* Logo del navbar */
@@ -266,8 +280,8 @@ body.productos-page .navbar {
 
 /* Estilos específicos para productos */
 .productos-hero {
-    padding-top: 160px;
-    padding-bottom: 100px;
+    padding-top: 120px;
+    padding-bottom: 80px;
     background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
     color: white;
     text-align: center;
@@ -275,7 +289,7 @@ body.productos-page .navbar {
     margin-top: 0 !important;
     position: relative;
     top: 0;
-    min-height: 350px;
+    min-height: 320px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -283,7 +297,11 @@ body.productos-page .navbar {
 
 .productos-hero .container {
     margin-top: 0 !important;
-    padding-top: 0 !important;
+    padding-top: 40px !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .productos-hero h1 {
@@ -298,6 +316,8 @@ body.productos-page .navbar {
     letter-spacing: 0.15em;
     font-style: italic;
     line-height: 1.2;
+    text-align: center;
+    width: 100%;
 }
 
 .productos-hero h1 .highlight {
