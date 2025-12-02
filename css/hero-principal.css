@@ -112,14 +112,29 @@ body .navbar-brand .navbar-logo {
     filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
 }
 
-/* Menú hamburguesa blanco */
+/* Menú hamburguesa dorado destacado */
 body .navbar-toggler {
-    border-color: #FFFFFF;
-    color: #FFFFFF;
+    border: 3px solid #D4AF37 !important;
+    padding: 10px 12px;
+    background: rgba(0, 0, 0, 0.5) !important;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.6), inset 0 0 5px rgba(212, 175, 55, 0.2);
+}
+
+body .navbar-toggler:focus {
+    box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.7), 0 0 20px rgba(212, 175, 55, 0.8);
+    outline: none;
+}
+
+body .navbar-toggler:hover {
+    background: rgba(212, 175, 55, 0.2) !important;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.8);
 }
 
 body .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23ffffff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23D4AF37' stroke-linecap='round' stroke-miterlimit='10' stroke-width='3' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    width: 28px;
+    height: 28px;
 }
 
 /* Links del navbar blancos */
@@ -162,6 +177,15 @@ body .nav-link:hover {
     }
 
     body .navbar-brand {
+        font-size: 1.2rem;
+    }
+
+    body .navbar-brand .navbar-logo {
+        height: 120px;
+        max-width: 240px;
+    }
+}
+
 /* Responsivo Mobile */
 @media (max-width: 480px) {
     .hero-principal {
@@ -189,17 +213,8 @@ body .nav-link:hover {
     }
 
     body .navbar-brand .navbar-logo {
-        height: 65px;
-        max-width: 140px;
-    }
-}
-    body .navbar-brand {
-        font-size: 1rem;
-    }
-
-    body .navbar-brand .navbar-logo {
-        height: 65px;
-        max-width: 140px;
+        height: 110px;
+        max-width: 220px;
     }
 }
 
@@ -211,5 +226,10 @@ body .nav-link:hover {
 
     body .navbar-brand {
         font-size: 0.9rem;
+    }
+
+    body .navbar-brand .navbar-logo {
+        height: 100px;
+        max-width: 200px;
     }
 }
