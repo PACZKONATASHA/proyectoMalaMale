@@ -390,16 +390,51 @@
                     <i class="fas fa-trash"></i>
                     Vaciar Carrito
                 </button>
-                <a id="finalizarCompraLink" href="https://wa.me/5491170845893" class="btn-finalizar" style="text-decoration: none; text-align: center; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                <button id="btnWhatsApp" class="btn-finalizar" type="button" style="display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; border: none; cursor: pointer;">
                     <i class="fab fa-whatsapp"></i>
                     Finalizar por WhatsApp
-                </a>
+                </button>
             </div>
         </div>
     </div>
 
     <!-- Overlay del carrito -->
     <div id="carritoOverlay" class="carrito-overlay"></div>
+
+    <!-- Script para WhatsApp - INDEPENDIENTE -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var btnWA = document.getElementById('btnWhatsApp');
+        if (btnWA) {
+            btnWA.onclick = function() {
+                var carritoData = localStorage.getItem('carritoMalaMale');
+                var carrito = carritoData ? JSON.parse(carritoData) : [];
+                
+                if (carrito.length === 0) {
+                    alert('El carrito está vacío');
+                    return;
+                }
+                
+                var mensaje = '🛍️ *PEDIDO - MalaMale*\n\n';
+                var total = 0;
+                
+                for (var i = 0; i < carrito.length; i++) {
+                    var item = carrito[i];
+                    var subtotal = item.precio * item.cantidad;
+                    total += subtotal;
+                    mensaje += '• ' + item.nombre + ' x' + item.cantidad + ' - $' + subtotal.toFixed(2) + '\n';
+                }
+                
+                mensaje += '\n💰 *TOTAL: $' + total.toFixed(2) + '*\n\n';
+                mensaje += '📝 Por favor envíame tus datos para coordinar la entrega.';
+                
+                var url = 'https://wa.me/5491170845893?text=' + encodeURIComponent(mensaje);
+                
+                window.location.href = url;
+            };
+        }
+    });
+    </script>
 
     <!-- CTA Section -->
     <section class="cta-productos">
