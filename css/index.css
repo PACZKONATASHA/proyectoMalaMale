@@ -2304,6 +2304,9 @@ footer::before {
     margin-bottom: 1rem;
     font-size: 1.1rem;
     font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: #A08C5B;
+    text-underline-offset: 6px;
 }
 
 .footer-section p {
