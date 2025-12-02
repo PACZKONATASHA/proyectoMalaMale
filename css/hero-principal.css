@@ -151,27 +151,27 @@ body .navbar-brand .navbar-logo {
     filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
 }
 
-/* Menú hamburguesa dorado destacado */
+/* Menú hamburguesa marrón destacado */
 body .navbar-toggler {
-    border: 3px solid #D4AF37 !important;
+    border: 3px solid #4A2C17 !important;
     padding: 10px 12px;
     background: rgba(0, 0, 0, 0.5) !important;
     border-radius: 8px;
-    box-shadow: 0 0 15px rgba(212, 175, 55, 0.6), inset 0 0 5px rgba(212, 175, 55, 0.2);
+    box-shadow: 0 0 15px rgba(74, 44, 23, 0.6), inset 0 0 5px rgba(74, 44, 23, 0.2);
 }
 
 body .navbar-toggler:focus {
-    box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.7), 0 0 20px rgba(212, 175, 55, 0.8);
+    box-shadow: 0 0 0 4px rgba(74, 44, 23, 0.7), 0 0 20px rgba(74, 44, 23, 0.8);
     outline: none;
 }
 
 body .navbar-toggler:hover {
-    background: rgba(212, 175, 55, 0.2) !important;
-    box-shadow: 0 0 20px rgba(212, 175, 55, 0.8);
+    background: rgba(74, 44, 23, 0.2) !important;
+    box-shadow: 0 0 20px rgba(74, 44, 23, 0.8);
 }
 
 body .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23D4AF37' stroke-linecap='round' stroke-miterlimit='10' stroke-width='3' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%234A2C17' stroke-linecap='round' stroke-miterlimit='10' stroke-width='3' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
     width: 28px;
     height: 28px;
 }
