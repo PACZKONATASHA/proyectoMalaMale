@@ -386,11 +386,11 @@
             </div>
             
             <div class="carrito-acciones">
-                <button id="vaciarCarrito" class="btn-vaciar">
+                <button id="vaciarCarrito" class="btn-vaciar" type="button">
                     <i class="fas fa-trash"></i>
                     Vaciar Carrito
                 </button>
-                <button id="finalizarCompra" class="btn-finalizar">
+                <button id="finalizarCompra" class="btn-finalizar" type="button" onclick="if(window.carrito) window.carrito.finalizarCompra();">
                     <i class="fab fa-whatsapp"></i>
                     Finalizar por WhatsApp
                 </button>

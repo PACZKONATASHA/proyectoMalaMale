@@ -275,46 +275,34 @@ class CarritoCompras {
     }
 
     finalizarCompra() {
+        console.log('finalizarCompra ejecutado');
+        console.log('Carrito:', this.carrito);
+        
         if (this.carrito.length === 0) {
             this.mostrarNotificacion('El carrito está vacío', 'warning');
+            alert('El carrito está vacío');
             return;
         }
 
         // Generar mensaje para WhatsApp
         const mensaje = this.generarMensajeWhatsApp();
-        
-        // Detectar dispositivo para mejor experiencia
-        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        console.log('Mensaje generado:', mensaje);
         
         // Crear URL de WhatsApp
         const urlWhatsApp = `https://wa.me/${this.numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
+        console.log('URL WhatsApp:', urlWhatsApp);
         
-        // Mostrar confirmación inmediata
+        // Mostrar confirmación
         this.mostrarNotificacion('Abriendo WhatsApp...', 'success');
         
-        // Abrir WhatsApp según el dispositivo
-        if (isMobile) {
-            // En móviles, intentar abrir la app directamente
+        // Abrir WhatsApp - método directo que funciona en móvil y desktop
+        try {
+            window.open(urlWhatsApp, '_blank');
+        } catch (e) {
+            console.log('Error window.open:', e);
+            // Fallback: usar location.href
             window.location.href = urlWhatsApp;
-        } else {
-            // En escritorio, abrir en nueva pestaña
-            const ventanaWhatsApp = window.open(urlWhatsApp, '_blank');
-            
-            // Verificar si se bloqueó el popup
-            if (!ventanaWhatsApp || ventanaWhatsApp.closed || typeof ventanaWhatsApp.closed === 'undefined') {
-                // Si se bloqueó, mostrar instrucciones
-                this.mostrarPopupWhatsApp(urlWhatsApp);
-            }
         }
-        
-        // Opcional: Vaciar carrito después de enviar
-        setTimeout(() => {
-            const vaciarDespues = confirm('¿Quieres vaciar el carrito después de enviar el pedido?');
-            if (vaciarDespues) {
-                this.vaciarCarrito();
-                this.cerrarCarrito();
-            }
-        }, 2000);
     }
 
     // Nueva función para manejar popups bloqueados
