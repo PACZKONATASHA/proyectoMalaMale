@@ -153,7 +153,7 @@ body .navbar-brand .navbar-logo {
 
 /* Menú hamburguesa color dorado opaco */
 body .navbar-toggler {
-    border: 2px solid #8B6914 !important;
+    border: 2px solid #A08C5B !important;
     padding: 8px 10px;
     background: transparent !important;
     border-radius: 8px;
@@ -161,16 +161,16 @@ body .navbar-toggler {
 }
 
 body .navbar-toggler:focus {
-    box-shadow: 0 0 0 3px rgba(139, 105, 20, 0.5);
+    box-shadow: 0 0 0 3px rgba(160, 140, 91, 0.5);
     outline: none;
 }
 
 body .navbar-toggler:hover {
-    background: rgba(139, 105, 20, 0.1) !important;
+    background: rgba(160, 140, 91, 0.1) !important;
 }
 
 body .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%238B6914' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2.5' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23A08C5B' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2.5' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
     width: 26px;
     height: 26px;
 }

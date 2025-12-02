@@ -57,7 +57,7 @@
 
 /* Botón hamburguesa con borde dorado opaco */
 .navbar-toggler {
-    border: 2px solid #8B6914 !important;
+    border: 2px solid #A08C5B !important;
     outline: none !important;
     box-shadow: none !important;
     border-radius: 8px !important;
@@ -67,13 +67,13 @@
 
 .navbar-toggler:focus,
 .navbar-toggler:active {
-    border: 2px solid #8B6914 !important;
+    border: 2px solid #A08C5B !important;
     outline: none !important;
-    box-shadow: 0 0 8px rgba(139, 105, 20, 0.5) !important;
+    box-shadow: 0 0 8px rgba(160, 140, 91, 0.5) !important;
 }
 
 .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%238B6914' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2.5' d='m4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23A08C5B' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2.5' d='m4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
     width: 1.5em !important;
     height: 1.5em !important;
 }
@@ -92,18 +92,18 @@
     }
     
     .mobile-social-link {
-        color: #8B6914 !important;
+        color: #A08C5B !important;
         font-size: 1.8rem !important;
         transition: all 0.3s ease !important;
     }
     
     .mobile-social-link:hover {
-        color: #A07A18 !important;
+        color: #B09C6B !important;
         transform: scale(1.15) !important;
     }
     
     .mobile-social-link i {
-        color: #8B6914 !important;
+        color: #A08C5B !important;
         font-size: 2rem !important;
     }
 }
