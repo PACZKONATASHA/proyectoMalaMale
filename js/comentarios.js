@@ -83,26 +83,42 @@ function renderCarruselCincoEstrellas() {
     const container = document.getElementById('carruselCincoEstrellas');
     if (!container) return;
     
+    // Verificar si es modo admin
+    const esAdmin = window.location.search.includes('admin=mala-male-');
+    
     // Limpiar y obtener solo comentarios válidos
     let comentarios = limpiarComentariosInvalidos();
     
-    // Filtrar solo los 5 más recientes de 5 estrellas con datos válidos
+    // Filtrar comentarios válidos y sin nombres repetidos (solo el más reciente de cada nombre)
+    const nombresVistos = new Set();
     const destacados = comentarios
-        .filter(c => c.rating === 5 && esNombreValido(c.nombre) && esTextoValido(c.texto))
-        .slice(0, 5);
+        .filter(c => esNombreValido(c.nombre) && esTextoValido(c.texto))
+        .filter(c => {
+            const nombreLower = c.nombre.toLowerCase().trim();
+            if (nombresVistos.has(nombreLower)) {
+                return false; // Ya vimos este nombre, lo saltamos
+            }
+            nombresVistos.add(nombreLower);
+            return true; // Primera vez que vemos este nombre
+        })
+        .slice(0, 10); // Mostrar hasta 10 comentarios
         
     if (destacados.length === 0) {
-        container.innerHTML = '<div style="text-align:center;color:#b8a082;padding:2rem;">Aún no hay testimonios de 5 estrellas.</div>';
+        container.innerHTML = '<div style="text-align:center;color:#b8a082;padding:2rem;">Aún no hay comentarios. ¡Sé el primero!</div>';
         return;
     }
     container.innerHTML = destacados.map((c, i) => {
         const inicial = c.nombre.trim().charAt(0).toUpperCase();
+        const estrellas = '<i class=\'fas fa-star\' style=\'color:#d4af37;\'></i>'.repeat(c.rating) + 
+                         '<i class=\'fas fa-star\' style=\'color:#ddd;\'></i>'.repeat(5 - c.rating);
+        const btnEliminar = esAdmin ? `<button onclick="eliminarComentario(${c.id})" style="position:absolute;top:5px;right:5px;background:#ff4444;color:white;border:none;border-radius:50%;width:25px;height:25px;cursor:pointer;font-size:12px;">✕</button>` : '';
         return `
-        <div class="carrusel-5-slide${i === 0 ? ' active' : ''}">
+        <div class="carrusel-5-slide${i === 0 ? ' active' : ''}" style="position:relative;">
+            ${btnEliminar}
             <div class="carrusel-5-avatar">${inicial}</div>
             <div class="carrusel-5-content">
                 <div class="carrusel-5-estrellas">
-                    ${'<i class=\'fas fa-star\' style=\'color:#d4af37;\'></i>'.repeat(5)}
+                    ${estrellas}
                 </div>
                 <p>"${c.texto.replace(/"/g, '&quot;')}"</p>
                 <h4>- ${c.nombre}</h4>
@@ -111,6 +127,22 @@ function renderCarruselCincoEstrellas() {
         </div>
         `;
     }).join('');
+    
+    // Reiniciar el índice del carrusel al agregar nuevo comentario
+    carrusel5Index = 0;
+}
+
+// Función para eliminar un comentario (solo admin)
+function eliminarComentario(id) {
+    if (!window.location.search.includes('admin=mala-male-')) return;
+    
+    if (confirm('¿Estás segura de que querés eliminar este comentario?')) {
+        let comentarios = JSON.parse(localStorage.getItem('comentariosMalaMale') || '[]');
+        comentarios = comentarios.filter(c => c.id !== id);
+        localStorage.setItem('comentariosMalaMale', JSON.stringify(comentarios));
+        renderCarruselCincoEstrellas();
+        alert('Comentario eliminado');
+    }
 }
 
 let carrusel5Index = 0;
@@ -280,30 +312,21 @@ class SistemaComentarios {
         // Limpiar formulario
         this.limpiarFormulario();
 
-        // Mostrar comentarios actualizados
-        this.mostrarComentarios();
+        // Actualizar el carrusel de comentarios para mostrar el nuevo primero
+        renderCarruselCincoEstrellas();
 
         // Mostrar alerta de éxito
         this.mostrarAlerta('¡Gracias por tu comentario! Se ha publicado correctamente.', 'success');
 
-        // Scroll al área de comentarios y resaltar el nuevo
+        // Scroll al carrusel de comentarios
         setTimeout(() => {
-            const comentariosArea = document.querySelector('.comentarios-tiempo-real');
-            if (comentariosArea) {
-                // Para máxima compatibilidad móvil/desktop
-                if (typeof comentariosArea.scrollIntoView === 'function') {
-                    comentariosArea.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+            const carruselArea = document.querySelector('.carrusel-cinco-estrellas');
+            if (carruselArea) {
+                if (typeof carruselArea.scrollIntoView === 'function') {
+                    carruselArea.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
                 } else {
-                    window.scrollTo(0, comentariosArea.getBoundingClientRect().top + window.scrollY - 60);
+                    window.scrollTo(0, carruselArea.getBoundingClientRect().top + window.scrollY - 60);
                 }
-            }
-            // Resaltar el comentario más nuevo
-            const container = document.getElementById('comentariosContainer');
-            if (container && container.firstElementChild) {
-                container.firstElementChild.classList.add('comentario-nuevo-resaltado');
-                setTimeout(() => {
-                    container.firstElementChild.classList.remove('comentario-nuevo-resaltado');
-                }, 1500);
             }
         }, 100);
     }
