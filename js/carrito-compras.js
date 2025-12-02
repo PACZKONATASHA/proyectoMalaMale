@@ -53,10 +53,16 @@ class CarritoCompras {
             vaciarBtn.addEventListener('click', () => this.vaciarCarrito());
         }
 
-        // Finalizar compra
+        // Finalizar compra - ahora es un enlace <a>, validar si carrito vacío
         const finalizarBtn = document.getElementById('finalizarCompra');
         if (finalizarBtn) {
-            finalizarBtn.addEventListener('click', () => this.finalizarCompra());
+            finalizarBtn.addEventListener('click', (e) => {
+                if (this.carrito.length === 0) {
+                    e.preventDefault();
+                    this.mostrarNotificacion('El carrito está vacío', 'warning');
+                }
+                // Si hay productos, el enlace navegará normalmente
+            });
         }
 
         // Tecla ESC para cerrar carrito
@@ -201,10 +207,19 @@ class CarritoCompras {
         }
         if (totalEl) totalEl.textContent = `${this.monedaSymbol}${total.toFixed(2)}`;
 
-        // Habilitar/deshabilitar botón de finalizar
+        // Actualizar enlace de WhatsApp con el mensaje del carrito
         const finalizarBtn = document.getElementById('finalizarCompra');
         if (finalizarBtn) {
-            finalizarBtn.disabled = this.carrito.length === 0;
+            if (this.carrito.length > 0) {
+                const mensaje = this.generarMensajeWhatsApp();
+                finalizarBtn.href = `https://wa.me/${this.numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
+                finalizarBtn.style.opacity = '1';
+                finalizarBtn.style.pointerEvents = 'auto';
+            } else {
+                finalizarBtn.href = '#';
+                finalizarBtn.style.opacity = '0.5';
+                finalizarBtn.style.pointerEvents = 'auto';
+            }
         }
     }
 
