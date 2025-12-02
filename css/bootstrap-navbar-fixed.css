@@ -118,7 +118,7 @@
 }
 
 .navbar-nav .nav-link:hover {
-    color: #D4AF37 !important;
+    color: #4A2C17 !important;
 }
 
 /* Body padding */
@@ -185,7 +185,7 @@ body {
     .navbar-nav .nav-item {
         width: 100% !important;
         text-align: center !important;
-        border-bottom: 1px solid rgba(212, 175, 55, 0.2) !important;
+        border-bottom: 1px solid rgba(74, 44, 23, 0.3) !important;
     }
     
     .navbar-nav .nav-item:last-child {
@@ -193,7 +193,7 @@ body {
     }
     
     .navbar-nav .nav-link {
-        color: #D4AF37 !important;
+        color: #4A2C17 !important;
         font-family: 'Playfair Display', 'Georgia', serif !important;
         font-size: 1.3rem !important;
         font-weight: 500 !important;
@@ -207,7 +207,7 @@ body {
     .navbar-nav .nav-link:hover,
     .navbar-nav .nav-link:focus {
         color: #FFFFFF !important;
-        background: rgba(212, 175, 55, 0.1) !important;
+        background: rgba(74, 44, 23, 0.2) !important;
     }
 }
 
