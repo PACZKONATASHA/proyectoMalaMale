@@ -2385,16 +2385,24 @@ footer::before {
 .footer-image {
     width: 100%;
     background: #000000;
+    display: flex;
+    justify-content: center;
 }
 
 .footer-image img {
-    width: 100%;
+    max-width: 500px;
+    width: 50%;
     height: auto;
     display: block;
 }
 
 /* Footer Responsive */
 @media (max-width: 768px) {
+    .footer-image img {
+        width: 100%;
+        max-width: 100%;
+    }
+    
     .footer-content {
         flex-direction: column;
         text-align: center;
