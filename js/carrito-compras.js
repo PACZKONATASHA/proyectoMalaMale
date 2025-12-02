@@ -23,10 +23,16 @@ class CarritoCompras {
             btn.addEventListener('click', (e) => this.agregarProducto(e));
         });
 
-        // Toggle del carrito
+        // Toggle del carrito (desktop)
         const toggleBtn = document.getElementById('toggleCarrito');
         if (toggleBtn) {
             toggleBtn.addEventListener('click', () => this.toggleCarrito());
+        }
+
+        // Toggle del carrito (móvil)
+        const toggleBtnMobile = document.getElementById('toggleCarritoMobile');
+        if (toggleBtnMobile) {
+            toggleBtnMobile.addEventListener('click', () => this.toggleCarrito());
         }
 
         // Cerrar carrito
@@ -204,10 +210,17 @@ class CarritoCompras {
 
     actualizarContadorCarrito() {
         const contador = document.getElementById('carritoContador');
+        const contadorMobile = document.getElementById('carritoContadorMobile');
+        const totalItems = this.carrito.reduce((total, item) => total + item.cantidad, 0);
+        
         if (contador) {
-            const totalItems = this.carrito.reduce((total, item) => total + item.cantidad, 0);
             contador.textContent = totalItems;
             contador.style.display = totalItems > 0 ? 'flex' : 'none';
+        }
+        
+        if (contadorMobile) {
+            contadorMobile.textContent = totalItems;
+            contadorMobile.style.display = totalItems > 0 ? 'flex' : 'none';
         }
     }
 
