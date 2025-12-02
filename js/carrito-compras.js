@@ -283,29 +283,16 @@ class CarritoCompras {
         // Generar mensaje para WhatsApp
         const mensaje = this.generarMensajeWhatsApp();
 
-        // Detectar dispositivo para mejor experiencia
-        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-
         // Crear URL de WhatsApp
         const urlWhatsApp = `https://wa.me/${this.numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
 
-        // Mostrar confirmación inmediata
-        this.mostrarNotificacion('Abriendo WhatsApp...', 'success');
-
-        // Abrir WhatsApp según el dispositivo
-        if (isMobile) {
-            // En móviles, abrir la app directamente
-            window.location.href = urlWhatsApp;
-        } else {
-            // En escritorio, abrir en nueva pestaña
-            const ventanaWhatsApp = window.open(urlWhatsApp, '_blank');
-
-            // Verificar si se bloqueó el popup
-            if (!ventanaWhatsApp || ventanaWhatsApp.closed || typeof ventanaWhatsApp.closed === 'undefined') {
-                // Si se bloqueó, mostrar instrucciones
-                this.mostrarPopupWhatsApp(urlWhatsApp);
-            }
-        }
+        // Crear un enlace temporal y hacer click
+        const link = document.createElement('a');
+        link.href = urlWhatsApp;
+        link.style.display = 'none';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
     }
 
     // Nueva función para manejar popups bloqueados
