@@ -1225,7 +1225,7 @@ header {
         0 2px 8px rgba(0, 0, 0, 0.04);
     position: relative;
     overflow: hidden;
-    border: 3px solid #4A2C17;
+    border: 3px solid #A08C5B;
 }
 
 .nuevo-comentario::before {
@@ -1241,7 +1241,7 @@ header {
 
 .nuevo-comentario h3 {
     text-align: center;
-    color: #4A2C17;
+    color: #A08C5B;
     margin-bottom: 2rem;
     font-size: 1.8rem;
     font-weight: 400;
@@ -1250,7 +1250,7 @@ header {
     position: relative;
     z-index: 2;
     text-decoration: underline;
-    text-decoration-color: #4A2C17;
+    text-decoration-color: #A08C5B;
     text-underline-offset: 8px;
 }
 
@@ -1269,7 +1269,7 @@ header {
 .form-group textarea {
     width: 100%;
     padding: 1.1rem 1.4rem;
-    border: 2px solid #4A2C17;
+    border: 2px solid #A08C5B;
     border-radius: 12px;
     background: #F5F5F5;
     color: #2C2C2C;
@@ -1287,9 +1287,9 @@ header {
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: #4A2C17;
+    border-color: #A08C5B;
     background: #FAFAFA;
-    box-shadow: 0 0 0 3px rgba(74, 44, 23, 0.2);
+    box-shadow: 0 0 0 3px rgba(160, 140, 91, 0.2);
 }
 
 .form-group:first-child {
