@@ -175,6 +175,30 @@
             color: #FFFFFF !important;
         }
         
+        /* Buscador con estilo dorado */
+        #buscadorProductos {
+            background: transparent !important;
+            border: 2px solid #A08C5B !important;
+            color: #A08C5B !important;
+            padding: 12px 25px !important;
+            border-radius: 25px !important;
+            font-family: 'Playfair Display', serif !important;
+            font-size: 0.95rem !important;
+            outline: none !important;
+            width: auto !important;
+            min-width: 180px !important;
+        }
+        
+        #buscadorProductos::placeholder {
+            color: #A08C5B !important;
+            opacity: 0.8 !important;
+        }
+        
+        #buscadorProductos:focus {
+            border-color: #8B7355 !important;
+            box-shadow: 0 0 5px rgba(160, 140, 91, 0.3) !important;
+        }
+        
         @media (max-width: 768px) {
             .filtros {
                 padding: 20px 10px !important;
@@ -186,12 +210,14 @@
                 width: 100% !important;
             }
             
-            .filtro-btn {
+            .filtro-btn,
+            #buscadorProductos {
                 width: 80% !important;
                 max-width: 250px !important;
                 padding: 12px 20px !important;
                 font-size: 0.9rem !important;
                 text-align: center !important;
+                min-width: unset !important;
             }
         }
     </style>
@@ -263,6 +289,7 @@
                 <button class="filtro-btn" data-categoria="shampoo">Shampoos</button>
                 <button class="filtro-btn" data-categoria="acondicionador">Acondicionadores</button>
                 <button class="filtro-btn" data-categoria="tratamiento">Tratamientos</button>
+                <input type="text" id="buscadorProductos" placeholder="Buscar productos...">
             </div>
         </div>
     </section>
@@ -454,5 +481,50 @@
     <script src="js/productos.js"></script>
     <script src="js/carrito-compras.js"></script>
     <script src="js/responsive.js"></script>
+    
+    <!-- Buscador funcional -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const buscador = document.getElementById('buscadorProductos');
+            const filtros = document.querySelectorAll('.filtro-btn');
+            
+            // Buscador
+            if (buscador) {
+                buscador.addEventListener('input', function() {
+                    const termino = this.value.toLowerCase().trim();
+                    const productos = document.querySelectorAll('.producto-card');
+                    
+                    // Quitar clase active de filtros cuando se busca
+                    if (termino !== '') {
+                        filtros.forEach(f => f.classList.remove('active'));
+                    }
+                    
+                    productos.forEach(function(producto) {
+                        const nombre = producto.querySelector('h3');
+                        if (nombre) {
+                            const textoNombre = nombre.textContent.toLowerCase();
+                            if (termino === '' || textoNombre.includes(termino)) {
+                                producto.style.display = '';
+                            } else {
+                                producto.style.display = 'none';
+                            }
+                        }
+                    });
+                    
+                    // Si se borra todo, activar "Todos"
+                    if (termino === '') {
+                        document.querySelector('.filtro-btn[data-categoria="todos"]').classList.add('active');
+                    }
+                });
+            }
+            
+            // Limpiar buscador al hacer click en filtros
+            filtros.forEach(function(filtro) {
+                filtro.addEventListener('click', function() {
+                    if (buscador) buscador.value = '';
+                });
+            });
+        });
+    </script>
 </body>
 </html>
