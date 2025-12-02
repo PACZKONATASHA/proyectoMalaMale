@@ -25,7 +25,7 @@
     height: auto;
     overflow: hidden;
     margin: 0 auto;
-    border: 3px solid #4A2C17;
+    border: 3px solid #A08C5B;
 }
 
 .contacto-hero-imagen img {
@@ -65,7 +65,7 @@
     font-size: 1rem;
     font-weight: 500;
     text-decoration: none;
-    border: 2px solid #4A2C17;
+    border: 2px solid #A08C5B;
     transition: all 0.3s ease;
     color: #FFFFFF;
     background: transparent;
@@ -74,7 +74,7 @@
 }
 
 .btn-contacto-hero:hover {
-    background: #4A2C17;
+    background: #A08C5B;
     color: #FFFFFF;
 }
 
@@ -90,19 +90,19 @@
 .btn-whatsapp {
     background: transparent;
     color: #FFFFFF;
-    border-color: #4A2C17;
+    border-color: #A08C5B;
 }
 
 .btn-instagram {
     background: transparent;
     color: #FFFFFF;
-    border-color: #4A2C17;
+    border-color: #A08C5B;
 }
 
 .btn-horarios {
     background: transparent;
     color: #FFFFFF;
-    border-color: #4A2C17;
+    border-color: #A08C5B;
 }
 
 /* Mobile adjustments */
@@ -131,8 +131,8 @@
         width: 100%;
         max-width: none;
         border: none;
-        border-top: 3px solid #4A2C17;
-        border-bottom: 3px solid #4A2C17;
+        border-top: 3px solid #A08C5B;
+        border-bottom: 3px solid #A08C5B;
         margin: 0;
     }
     
@@ -2132,14 +2132,14 @@ header {
     cursor: pointer;
     font-size: 1rem;
     background: transparent;
-    color: #4A2C17;
-    border: 2px solid #4A2C17;
+    color: #A08C5B;
+    border: 2px solid #A08C5B;
 }
 
 .btn-navegacion:hover {
-    background: #4A2C17;
+    background: #A08C5B;
     color: #FFFFFF;
-    box-shadow: 0 8px 25px rgba(74, 44, 23, 0.3);
+    box-shadow: 0 8px 25px rgba(160, 140, 91, 0.3);
     transform: translateY(-2px);
 }
 
@@ -2177,7 +2177,7 @@ header {
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    border: 3px solid #4A2C17;
+    border: 3px solid #A08C5B;
     width: 100%;
     max-width: 600px;
     margin: 0 auto;
