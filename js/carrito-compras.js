@@ -53,22 +53,6 @@ class CarritoCompras {
             vaciarBtn.addEventListener('click', () => this.vaciarCarrito());
         }
 
-        // Finalizar compra - usando enlace directo para máxima compatibilidad móvil
-        const finalizarLink = document.getElementById('finalizarCompraLink');
-        if (finalizarLink) {
-            finalizarLink.addEventListener('click', (e) => {
-                if (this.carrito.length === 0) {
-                    e.preventDefault();
-                    this.mostrarNotificacion('El carrito está vacío', 'warning');
-                    alert('El carrito está vacío');
-                    return;
-                }
-                // El href ya está actualizado, permitir navegación normal
-                this.mostrarNotificacion('Abriendo WhatsApp...', 'success');
-                this.cerrarCarrito();
-            });
-        }
-
         // Tecla ESC para cerrar carrito
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
@@ -219,11 +203,10 @@ class CarritoCompras {
                 const urlWhatsApp = `https://wa.me/${this.numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
                 finalizarLink.href = urlWhatsApp;
                 finalizarLink.style.opacity = '1';
-                finalizarLink.style.pointerEvents = 'auto';
             } else {
-                finalizarLink.href = '#';
+                // Cuando está vacío, mostrar alerta al hacer click
+                finalizarLink.href = 'javascript:alert("El carrito está vacío. Agrega productos primero.")';
                 finalizarLink.style.opacity = '0.5';
-                finalizarLink.style.pointerEvents = 'auto';
             }
         }
     }
