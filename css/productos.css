@@ -644,37 +644,41 @@ body.productos-page .navbar-logo {
 
 .btn-agregar-carrito {
     width: 100%;
-    padding: 12px 20px;
-    background: linear-gradient(135deg, #C5A059 0%, #D4B56A 100%);
-    color: #000;
-    border: none;
+    padding: 10px 20px;
+    background: transparent;
+    color: #A08C5B;
+    border: 2px solid #A08C5B;
     border-radius: 25px;
-    font-weight: 600;
+    font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    font-family: 'Poppins', sans-serif;
-    box-shadow: 0 3px 10px rgba(197, 160, 89, 0.25);
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    letter-spacing: 0.5px;
+    font-family: 'Playfair Display', serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.3px;
 }
 
 .btn-agregar-carrito:hover {
-    background: linear-gradient(135deg, #D4B56A 0%, #C5A059 100%);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(197, 160, 89, 0.35);
+    background: #A08C5B;
+    color: #FFFFFF;
 }
 
+.btn-agregar-carrito:hover .carrito-icono {
+    color: #FFFFFF;
+}
+
+.carrito-icono {
+    font-size: 0.9rem;
+    color: #A08C5B;
+    transition: all 0.3s ease;
+}
+
+/* Ocultar imagen del carrito, usar icono */
 .carrito-icon {
-    width: 18px;
-    height: 18px;
-    object-fit: contain;
-    margin-right: 6px;
-    display: block;
+    display: none !important;
 }
 
 /* Estado expandido (al hacer click) */
@@ -956,29 +960,25 @@ body.productos-page .navbar-logo {
 /* Botones agregar al carrito */
 .btn-agregar-carrito {
     width: 100%;
-    padding: 12px 20px;
-    background: linear-gradient(135deg, #C5A059 0%, #D4B56A 100%);
-    color: #000;
-    border: none;
+    padding: 10px 20px;
+    background: transparent;
+    color: #A08C5B;
+    border: 2px solid #A08C5B;
     border-radius: 25px;
-    font-weight: 600;
+    font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    font-family: 'Poppins', sans-serif;
-    box-shadow: 0 3px 10px rgba(197, 160, 89, 0.25);
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    letter-spacing: 0.5px;
+    font-family: 'Playfair Display', serif;
+    font-size: 0.85rem;
 }
 
 .btn-agregar-carrito:hover {
-    background: linear-gradient(135deg, #D4B56A 0%, #C5A059 100%);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(197, 160, 89, 0.35);
+    background: #A08C5B;
+    color: #FFFFFF;
 }
 
 .btn-agregar-carrito:disabled {
