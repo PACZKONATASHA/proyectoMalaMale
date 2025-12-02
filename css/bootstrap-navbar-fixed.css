@@ -51,12 +51,13 @@
     width: auto !important;
     max-width: 250px !important;
     object-fit: contain !important;
-    filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.6)) brightness(1.1) !important;
+    /* Mismo filtro marrón que el logo de abajo */
+    filter: sepia(100%) saturate(300%) brightness(0.4) hue-rotate(-10deg) drop-shadow(0 4px 15px rgba(0, 0, 0, 0.3)) !important;
 }
 
-/* Botón hamburguesa */
+/* Botón hamburguesa con borde marrón oscuro igual que logo */
 .navbar-toggler {
-    border: none !important;
+    border: 2px solid #4A2C17 !important;
     outline: none !important;
     box-shadow: none !important;
     border-radius: 8px !important;
@@ -66,15 +67,44 @@
 
 .navbar-toggler:focus,
 .navbar-toggler:active {
-    border: none !important;
+    border: 2px solid #4A2C17 !important;
     outline: none !important;
-    box-shadow: none !important;
+    box-shadow: 0 0 8px rgba(74, 44, 23, 0.5) !important;
 }
 
 .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23000000' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='m4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%234A2C17' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='m4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
     width: 1.2em !important;
     height: 1.2em !important;
+}
+
+/* Iconos móviles al lado del hamburguesa - SOLO MÓVIL */
+.mobile-social-icons {
+    display: none;
+}
+
+@media (max-width: 991.98px) {
+    .mobile-social-icons {
+        display: flex !important;
+        align-items: center !important;
+        gap: 0.8rem !important;
+        margin-right: 0.8rem !important;
+    }
+    
+    .mobile-social-link {
+        color: #4A2C17 !important;
+        font-size: 1.4rem !important;
+        transition: all 0.3s ease !important;
+    }
+    
+    .mobile-social-link:hover {
+        color: #3A2010 !important;
+        transform: scale(1.15) !important;
+    }
+    
+    .mobile-social-link i {
+        color: #4A2C17 !important;
+    }
 }
 
 /* Nav links desktop */
