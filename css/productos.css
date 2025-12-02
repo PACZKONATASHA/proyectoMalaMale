@@ -1588,15 +1588,28 @@ body.productos-page .navbar-logo {
     .btn-vaciar,
     .btn-finalizar {
         width: 100%;
-        padding: 12px 20px;
-        font-size: 0.9rem;
+        padding: 14px 20px;
+        font-size: 1rem;
         cursor: pointer;
         touch-action: manipulation;
-        -webkit-tap-highlight-color: transparent;
+        -webkit-tap-highlight-color: rgba(160, 140, 91, 0.3);
+        -webkit-user-select: none;
+        user-select: none;
+        position: relative;
+        z-index: 100;
     }
     
     .btn-finalizar {
         pointer-events: auto !important;
+        min-height: 50px;
+        background: #A08C5B !important;
+        color: #FFFFFF !important;
+        border: none !important;
+    }
+    
+    .btn-finalizar:active {
+        background: #8B7355 !important;
+        transform: scale(0.98);
     }
     
     .carrito-nav {
