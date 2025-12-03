@@ -180,7 +180,7 @@ function generarMensajeWhatsApp() {
     const envio = subtotal >= 50 ? 0 : 5.99;
     
     mensaje += '\n💰 *TOTAL: $' + (subtotal + envio).toFixed(2) + '*\n';
-    mensaje += '\n📝 Nombre:\n📍 Dirección:\n📱 Teléfono:';
+    mensaje += '\n📝 Nombre:\n💳 Método de pago:';
     
     return mensaje;
 }
