@@ -29,6 +29,27 @@
     <link href="https://fonts.googleapis.com/css2?family=Yellowtail&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        /* Navbar negro para página de servicios */
+        .navbar {
+            background: #1a1a1a !important;
+        }
+        
+        /* Links del navbar en color claro */
+        .navbar-nav .nav-link {
+            color: #ffffff !important;
+        }
+        
+        /* Link Servicios activo - destacado en dorado */
+        .navbar-nav .nav-link.active {
+            color: #d4af37 !important;
+            font-weight: 600 !important;
+        }
+
+        /* Fondo negro para toda la página */
+        body {
+            background: #1a1a1a !important;
+        }
+
         /* Estilos específicos para servicios */
         .servicios-hero {
             background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
@@ -36,6 +57,8 @@
             text-align: center;
             color: white;
             margin-top: 0;
+            border-top: 3px solid #d4af37;
+            border-bottom: 3px solid #d4af37;
         }
 
         .servicios-hero h1 {
@@ -45,6 +68,7 @@
             text-transform: uppercase;
             letter-spacing: 0.1em;
             font-style: italic;
+            color: #ffffff;
         }
 
         .servicios-hero .highlight {
@@ -64,7 +88,7 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 60px 20px;
-            background: #ffffff;
+            background: #1a1a1a;
         }
 
         /* Tarjeta de servicio - Estilo claro elegante */
@@ -77,8 +101,9 @@
             grid-template-columns: 1fr 1fr;
             gap: 50px;
             align-items: center;
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            justify-items: center;
+            border: 2px solid #d4af37;
+            box-shadow: 0 10px 40px rgba(212, 175, 55, 0.3);
         }
 
         .servicio-card:nth-child(even) .servicio-content {
@@ -87,6 +112,11 @@
 
         .servicio-card:nth-child(even) .servicio-media {
             order: 1;
+        }
+
+        .servicio-content {
+            width: 100%;
+            justify-self: start;
         }
 
         .servicio-content h2 {
@@ -186,24 +216,28 @@
         }
 
         .btn-reservar {
-            background: linear-gradient(135deg, #d4af37, #c9a227);
-            color: #1a1a1a;
-            border: none;
-            padding: 14px 28px;
+            background: transparent;
+            color: #a08c5b;
+            border: 2px solid #a08c5b;
+            padding: 14px 40px;
             border-radius: 50px;
             font-size: 1rem;
-            font-weight: 600;
+            font-weight: 400;
             cursor: pointer;
             transition: all 0.3s ease;
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 10px;
             font-family: 'Poppins', sans-serif;
+            letter-spacing: 0.05em;
         }
 
         .btn-reservar:hover {
+            background: #a08c5b;
+            color: #ffffff;
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+            box-shadow: 0 8px 25px rgba(160, 140, 91, 0.3);
         }
 
         .btn-mas-info {
@@ -229,6 +263,17 @@
 
         /* Responsive */
         @media (max-width: 991px) {
+            /* Navbar en móvil */
+            .navbar {
+                border-bottom: 2px solid #d4af37 !important;
+            }
+            
+            /* Banner sin borde superior en móvil (ya lo tiene el navbar) */
+            .servicios-hero {
+                border-top: none;
+                padding-top: 80px;
+            }
+
             .servicio-card {
                 grid-template-columns: 1fr;
                 padding: 40px 30px;
