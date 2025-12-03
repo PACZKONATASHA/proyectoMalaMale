@@ -1522,14 +1522,15 @@ body.productos-page .navbar-logo {
     }
 
     .carrito-item {
-        grid-template-columns: 60px 1fr auto auto 28px;
+        grid-template-columns: 50px 1fr auto auto 36px;
         gap: 0.5rem;
         padding: 0.75rem;
+        align-items: center;
     }
 
     .item-imagen {
-        width: 60px;
-        height: 60px;
+        width: 50px;
+        height: 50px;
     }
 
     .item-info h4 {
@@ -1541,24 +1542,28 @@ body.productos-page .navbar-logo {
     }
 
     .item-cantidad {
-        gap: 0.3rem;
+        gap: 0.4rem;
     }
     
     .cantidad-btn {
-        width: 26px;
-        height: 26px;
-        font-size: 0.85rem;
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
     }
     
     .cantidad-numero {
-        font-size: 0.9rem;
-        min-width: 20px;
+        font-size: 1rem;
+        min-width: 24px;
     }
     
     .item-eliminar {
-        width: 26px;
-        height: 26px;
-        font-size: 0.75rem;
+        width: 36px;
+        height: 36px;
+        font-size: 0.9rem;
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
     }
 
     .carrito-total {

@@ -41,10 +41,35 @@ class CarritoCompras {
             cerrarBtn.addEventListener('click', () => this.cerrarCarrito());
         }
 
-        // Overlay del carrito
+        // Overlay del carrito - solo cerrar si se toca directamente el overlay
         const overlay = document.getElementById('carritoOverlay');
         if (overlay) {
-            overlay.addEventListener('click', () => this.cerrarCarrito());
+            overlay.addEventListener('click', (e) => {
+                // Solo cerrar si el click fue directamente en el overlay
+                if (e.target === overlay) {
+                    this.cerrarCarrito();
+                }
+            });
+            
+            // Prevenir que el touch en el overlay cierre accidentalmente
+            overlay.addEventListener('touchend', (e) => {
+                if (e.target === overlay) {
+                    e.preventDefault();
+                    this.cerrarCarrito();
+                }
+            }, { passive: false });
+        }
+
+        // Prevenir que clicks dentro del widget cierren el carrito
+        const widget = document.getElementById('carritoWidget');
+        if (widget) {
+            widget.addEventListener('click', (e) => {
+                e.stopPropagation();
+            });
+            
+            widget.addEventListener('touchstart', (e) => {
+                e.stopPropagation();
+            }, { passive: true });
         }
 
         // Vaciar carrito
@@ -171,24 +196,73 @@ class CarritoCompras {
                     <p class="item-precio">${this.monedaSymbol}${item.precio.toFixed(2)}</p>
                 </div>
                 <div class="item-cantidad">
-                    <button class="cantidad-btn menos" onclick="carrito.cambiarCantidad(${item.id}, ${item.cantidad - 1})">
+                    <button class="cantidad-btn menos" data-action="menos" data-id="${item.id}" data-cantidad="${item.cantidad}">
                         <i class="fas fa-minus"></i>
                     </button>
                     <span class="cantidad-numero">${item.cantidad}</span>
-                    <button class="cantidad-btn mas" onclick="carrito.cambiarCantidad(${item.id}, ${item.cantidad + 1})">
+                    <button class="cantidad-btn mas" data-action="mas" data-id="${item.id}" data-cantidad="${item.cantidad}">
                         <i class="fas fa-plus"></i>
                     </button>
                 </div>
                 <div class="item-total">
                     ${this.monedaSymbol}${(item.precio * item.cantidad).toFixed(2)}
                 </div>
-                <button class="item-eliminar" onclick="carrito.eliminarProducto(${item.id})" title="Eliminar producto">
+                <button class="item-eliminar" data-action="eliminar" data-id="${item.id}" title="Eliminar producto">
                     <i class="fas fa-trash"></i>
                 </button>
             </div>
         `).join('');
 
+        // Agregar event listeners a los botones del carrito
+        this.setupCarritoItemListeners();
+        
         this.actualizarTotales();
+    }
+
+    setupCarritoItemListeners() {
+        const container = document.getElementById('carritoItems');
+        if (!container) return;
+        
+        // Evitar agregar listeners duplicados
+        if (container.dataset.listenersAdded === 'true') return;
+        container.dataset.listenersAdded = 'true';
+
+        // Usar delegación de eventos para mejor rendimiento en móvil
+        container.addEventListener('click', (e) => {
+            // Prevenir propagación para que no cierre el carrito
+            e.stopPropagation();
+            
+            // Buscar el botón clickeado (puede ser el icono dentro del botón)
+            const btn = e.target.closest('[data-action]');
+            if (!btn) return;
+
+            e.preventDefault();
+            
+            const action = btn.dataset.action;
+            const id = parseInt(btn.dataset.id);
+            const cantidad = parseInt(btn.dataset.cantidad || 0);
+
+            switch(action) {
+                case 'menos':
+                    this.cambiarCantidad(id, cantidad - 1);
+                    break;
+                case 'mas':
+                    this.cambiarCantidad(id, cantidad + 1);
+                    break;
+                case 'eliminar':
+                    this.eliminarProducto(id);
+                    break;
+            }
+        }, { passive: false });
+
+        // Prevenir que los toques en el contenedor cierren el carrito
+        container.addEventListener('touchstart', (e) => {
+            e.stopPropagation();
+        }, { passive: true });
+
+        container.addEventListener('touchend', (e) => {
+            e.stopPropagation();
+        }, { passive: true });
     }
 
     actualizarTotales() {
