@@ -35,14 +35,16 @@
             padding: 120px 0 80px;
             text-align: center;
             color: white;
-            margin-top: 0; /* Ya no necesario, el body tiene padding-top */
+            margin-top: 0;
         }
 
         .servicios-hero h1 {
-            font-size: 3.5rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
             margin-bottom: 1rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
+            font-style: italic;
         }
 
         .servicios-hero .highlight {
@@ -50,211 +52,92 @@
         }
 
         .servicios-hero p {
-            font-size: 1.2rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
             opacity: 0.9;
             max-width: 600px;
             margin: 0 auto;
+            font-style: italic;
         }
 
         .servicios-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 80px 20px;
+            padding: 60px 20px;
+            background: #ffffff;
         }
 
-        .servicio-seccion {
-            margin-bottom: 100px;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-
-        .servicio-seccion.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .servicio-grid {
+        /* Tarjeta de servicio - Estilo claro elegante */
+        .servicio-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 50px 40px;
+            margin-bottom: 40px;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 60px;
+            gap: 50px;
             align-items: center;
-            margin-bottom: 40px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .servicio-card:nth-child(even) .servicio-content {
+            order: 2;
+        }
+
+        .servicio-card:nth-child(even) .servicio-media {
+            order: 1;
         }
 
         .servicio-content h2 {
+            font-family: 'Playfair Display', serif;
             font-size: 2.5rem;
             color: #d4af37;
             margin-bottom: 1.5rem;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.05em;
+            font-style: italic;
+            line-height: 1.2;
         }
 
         .servicio-content p {
-            font-size: 1.1rem;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
             line-height: 1.8;
-            color: #666;
-            margin-bottom: 1.5rem;
-        }
-
-        .servicio-video {
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-            background: #000;
-            aspect-ratio: 9/16;
-            max-height: 500px;
-        }
-
-        .video-placeholder {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(45deg, #1a1a1a, #2c2c2c);
-            color: white;
-            text-align: center;
-        }
-
-        .video-placeholder i {
-            font-size: 4rem;
-            color: #d4af37;
+            color: #333333;
             margin-bottom: 1rem;
         }
 
-        .video-placeholder p {
-            font-size: 1.1rem;
-            margin: 0;
-        }
-
-        .btn-mas-info {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: linear-gradient(135deg, #d4af37, #f4d03f);
-            color: #1a1a1a;
-            padding: 12px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn-mas-info:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
-        }
-
-        .btn-mas-info i {
-            transition: transform 0.3s ease;
-        }
-
-        .btn-mas-info:hover i {
-            transform: translateX(5px);
-        }
-
-        .servicio-seccion:nth-child(even) .servicio-content {
-            order: 2;
-        }
-
-        .servicio-seccion:nth-child(even) .servicio-video {
-            order: 1;
-        }
-
-        .tratamientos-especiales {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
-            padding: 80px 20px;
-            margin: 100px 0;
-            border-radius: 20px;
-            color: white;
-            text-align: center;
-        }
-
-        .tratamientos-especiales h2 {
-            font-size: 2.5rem;
-            color: #d4af37;
-            margin-bottom: 2rem;
-        }
-
-        .servicio-imagen {
+        .servicio-media {
             position: relative;
-            border-radius: 20px;
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-            max-height: 400px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            aspect-ratio: 9/12;
+            max-height: 450px;
+            width: 100%;
+            max-width: 340px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .servicio-imagen img {
+        .servicio-media video,
+        .servicio-media img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
         }
 
-        @media (max-width: 768px) {
-            .servicios-hero {
-                padding: 100px 0 60px;
-            }
-            
-            .servicios-hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .servicios-container {
-                padding: 60px 20px;
-            }
-            
-            .servicio-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-                text-align: center;
-            }
-            
-            .servicio-seccion:nth-child(even) .servicio-content {
-                order: 1;
-            }
-            
-            .servicio-seccion:nth-child(even) .servicio-video {
-                order: 2;
-            }
-            
-            .servicio-content h2 {
-                font-size: 2rem;
-            }
-            
-            .servicio-seccion {
-                margin-bottom: 80px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .servicios-hero h1 {
-                font-size: 2rem;
-            }
-            
-            .servicio-content h2 {
-                font-size: 1.8rem;
-            }
-            
-            .servicio-content p {
-                font-size: 1rem;
-            }
-        }
-
-        /* Estilos para el Sistema de Reservas */
+        /* Caja de precios */
         .servicio-precios {
-            margin: 30px 0;
-            padding: 25px;
-            background: rgba(212, 175, 55, 0.1);
+            margin-top: 30px;
+            padding: 25px 30px;
+            background: rgba(160, 140, 91, 0.15);
             border-radius: 15px;
-            border: 2px solid rgba(212, 175, 55, 0.3);
+            border: 2px solid rgba(160, 140, 91, 0.4);
         }
 
         .precio-container {
@@ -264,27 +147,30 @@
         .precio-principal {
             display: flex;
             align-items: baseline;
-            gap: 10px;
+            gap: 12px;
             margin-bottom: 10px;
         }
 
         .precio-desde {
-            color: #666;
+            color: #666666;
             font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
         }
 
         .precio-valor {
             color: #d4af37;
-            font-size: 2rem;
+            font-size: 2.2rem;
             font-weight: bold;
+            font-family: 'Poppins', sans-serif;
         }
 
         .precio-seña {
             display: flex;
             align-items: center;
             gap: 10px;
-            color: #666;
+            color: #666666;
             font-size: 0.95rem;
+            font-family: 'Poppins', sans-serif;
         }
 
         .seña-valor {
@@ -293,29 +179,148 @@
         }
 
         .reserva-buttons {
-            text-align: center;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 20px;
         }
 
         .btn-reservar {
-            background: linear-gradient(135deg, #d4af37, #f4d03f);
-            color: white;
+            background: linear-gradient(135deg, #d4af37, #c9a227);
+            color: #1a1a1a;
             border: none;
-            padding: 15px 30px;
+            padding: 14px 28px;
             border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: bold;
+            font-size: 1rem;
+            font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+            font-family: 'Poppins', sans-serif;
         }
 
         .btn-reservar:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
-            background: linear-gradient(135deg, #f4d03f, #d4af37);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn-mas-info {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: transparent;
+            color: #d4af37;
+            padding: 14px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 2px solid #d4af37;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.95rem;
+        }
+
+        .btn-mas-info:hover {
+            background: #d4af37;
+            color: #1a1a1a;
+        }
+
+        /* Responsive */
+        @media (max-width: 991px) {
+            .servicio-card {
+                grid-template-columns: 1fr;
+                padding: 40px 30px;
+                gap: 35px;
+            }
+
+            .servicio-card:nth-child(even) .servicio-content,
+            .servicio-card:nth-child(even) .servicio-media {
+                order: unset;
+            }
+
+            .servicio-content {
+                text-align: center;
+            }
+
+            .servicio-content h2 {
+                font-size: 2rem;
+            }
+
+            .servicio-media {
+                max-height: 400px;
+                margin: 0 auto;
+                max-width: 350px;
+            }
+
+            .reserva-buttons {
+                justify-content: center;
+            }
+
+            .precio-principal {
+                justify-content: center;
+            }
+
+            .precio-seña {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .servicios-hero {
+                padding: 100px 0 60px;
+            }
+
+            .servicios-hero h1 {
+                font-size: 2rem;
+            }
+
+            .servicios-container {
+                padding: 40px 15px;
+            }
+
+            .servicio-card {
+                padding: 30px 20px;
+                margin-bottom: 30px;
+            }
+
+            .servicio-content h2 {
+                font-size: 1.7rem;
+            }
+
+            .servicio-content p {
+                font-size: 0.95rem;
+            }
+
+            .precio-valor {
+                font-size: 1.8rem;
+            }
+
+            .servicio-precios {
+                padding: 20px;
+            }
+
+            .reserva-buttons {
+                flex-direction: column;
+            }
+
+            .btn-reservar,
+            .btn-mas-info {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* Botones finales */
+        .botones-finales {
+            text-align: center;
+            padding: 60px 20px;
+            background: #1a1a1a;
+        }
+
+        .botones-finales a {
+            margin: 10px;
         }
 
         /* Modal de Reserva */
@@ -355,8 +360,8 @@
         }
 
         .modal-header {
-            background: linear-gradient(135deg, #d4af37, #f4d03f);
-            color: white;
+            background: linear-gradient(135deg, #d4af37, #c9a227);
+            color: #1a1a1a;
             padding: 20px;
             border-radius: 20px 20px 0 0;
             display: flex;
@@ -367,10 +372,11 @@
         .modal-header h2 {
             margin: 0;
             font-size: 1.5rem;
+            font-family: 'Playfair Display', serif;
         }
 
         .close {
-            color: white;
+            color: #1a1a1a;
             font-size: 2rem;
             font-weight: bold;
             cursor: pointer;
@@ -378,7 +384,7 @@
         }
 
         .close:hover {
-            opacity: 0.8;
+            opacity: 0.7;
         }
 
         .modal-body {
@@ -439,71 +445,6 @@
             border-color: #d4af37;
         }
 
-        .payment-section {
-            margin-top: 30px;
-            padding: 25px;
-            background: #f8f9fa;
-            border-radius: 10px;
-            border: 2px solid #e0e0e0;
-        }
-
-        .payment-section h4 {
-            color: #d4af37;
-            margin: 0 0 10px 0;
-            font-size: 1.2rem;
-        }
-
-        .payment-section p {
-            color: #666;
-            margin-bottom: 20px;
-        }
-
-        .payment-methods {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .btn-mercado-pago,
-        .btn-whatsapp-reserva {
-            flex: 1;
-            min-width: 200px;
-            padding: 15px 20px;
-            border: none;
-            border-radius: 10px;
-            font-size: 1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .btn-mercado-pago {
-            background: #009EE3;
-            color: white;
-        }
-
-        .btn-mercado-pago:hover {
-            background: #0077B6;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0, 158, 227, 0.4);
-        }
-
-        .btn-whatsapp-reserva {
-            background: #25D366;
-            color: white;
-        }
-
-        .btn-whatsapp-reserva:hover {
-            background: #1DA851;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
-        }
-
-        /* Responsive para el Modal */
         @media (max-width: 768px) {
             .modal-content {
                 width: 95%;
@@ -517,23 +458,6 @@
             .precios-modal {
                 flex-direction: column;
                 gap: 5px;
-            }
-
-            .payment-methods {
-                flex-direction: column;
-            }
-
-            .btn-mercado-pago,
-            .btn-whatsapp-reserva {
-                min-width: auto;
-            }
-
-            .servicio-precios {
-                padding: 20px;
-            }
-
-            .precio-valor {
-                font-size: 1.5rem;
             }
         }
     </style>
@@ -582,7 +506,7 @@
     <!-- Hero Section -->
     <section class="servicios-hero">
         <div class="container">
-            <h1>Servicios <span class="highlight">MALA</span></h1>
+            <h1>Servicios <span class="highlight">MALA MALE</span></h1>
             <p>Descubre nuestros servicios profesionales diseñados para realzar tu belleza natural</p>
         </div>
     </section>
@@ -590,234 +514,171 @@
     <!-- Servicios -->
     <main class="servicios-container">
         <!-- Lavado -->
-        <section class="servicio-seccion" id="lavado">
-            <div class="servicio-grid">
-                <div class="servicio-content">
-                    <h2>Lavado</h2>
-                    <p>El primero de los servicios, el más importante.</p>
-                    <p>Lavarte el cabello previo a un corte o peinado y/o luego de una coloración: hace al inicio y/o la finalización perfecta de tu experiencia en MALA.</p>
-                    <p>Contamos con las mejores manos en nuestro equipo y una amplia variedad de marcas Premium que te garantizan un momento único.</p>
-                    <p>Las grandes marcas de la cosmética argentina, francesa, británica, italiana entre otras, dan garantía de formación para la persona que te lavará el pelo y un producto a medida según deseo y necesidad. Contarás con el asesoramiento preciso sobre tu cuero cabelludo y pelo para lograr la excelencia y confort que necesitas.</p>
-                    <p>No te pierdas una de las mejores experiencias en MALA.</p>
-                </div>
-                <div class="servicio-video">
-                    <video autoplay muted loop>
-                        <source src="https://video.wixstatic.com/video/a4f25c_4916b64b2b654402a88b0ebc3ce2455b/720p/mp4/file.mp4" type="video/mp4">
-                        <div class="video-placeholder">
-                            <i class="fas fa-play-circle"></i>
-                            <p>Video de Lavado</p>
+        <article class="servicio-card" id="lavado">
+            <div class="servicio-content">
+                <h2>Lavado</h2>
+                <p>El primero de los servicios, el más importante. Lavarte el cabello previo a un corte o peinado hace al inicio y/o la finalización perfecta de tu experiencia en MALA.</p>
+                <p>Contamos con las mejores manos en nuestro equipo y una amplia variedad de marcas Premium que te garantizan un momento único.</p>
+                
+                <div class="servicio-precios">
+                    <div class="precio-container">
+                        <div class="precio-principal">
+                            <span class="precio-desde">Desde</span>
+                            <span class="precio-valor">$8.000</span>
                         </div>
-                    </video>
+                        <div class="precio-seña">
+                            <span class="seña-texto">Seña para reservar:</span>
+                            <span class="seña-valor">$1.600 (20%)</span>
+                        </div>
+                    </div>
+                    <div class="reserva-buttons">
+                        <button class="btn-reservar" onclick="abrirModalReserva('lavado', 8000, 1600)">
+                            <i class="fas fa-calendar-plus"></i>
+                            Reservar Turno
+                        </button>
+                    </div>
                 </div>
             </div>
-        </section>
+            <div class="servicio-media">
+                <video autoplay muted loop playsinline>
+                    <source src="https://video.wixstatic.com/video/a4f25c_4916b64b2b654402a88b0ebc3ce2455b/720p/mp4/file.mp4" type="video/mp4">
+                </video>
+            </div>
+        </article>
 
         <!-- Cortes -->
-        <section class="servicio-seccion" id="cortes">
-            <div class="servicio-grid">
-                <div class="servicio-content">
-                    <h2>Cortes</h2>
-                    <p>Tijeras, máquinas, varios filos, precisión, técnica y sobre todo un estilo único hacen fundamental el Corte en MALA.</p>
-                    <p>¡Nuestro equipo de profesionales podrá asesorarte y hacer lucir tu pelo con el look ideal! El pelo es el accesorio más importante que tenemos.</p>
-                    <p>El Team MALA de corte y peinado está en constante perfeccionamiento sobre nuevas técnicas y tendencias. No dudes en dejarte asesorar. Cada uno de ellos se destaca en poder interpretar tu deseo y adaptarlo para un fácil y práctico día a día. Nuestro corte es diseñado exclusivamente para vos y tu vida cotidiana.</p>
-                    
-                    <!-- Precios y Reserva -->
-                    <div class="servicio-precios">
-                        <div class="precio-container">
-                            <div class="precio-principal">
-                                <span class="precio-desde">Desde</span>
-                                <span class="precio-valor">$15.000</span>
-                            </div>
-                            <div class="precio-seña">
-                                <span class="seña-texto">Seña para reservar:</span>
-                                <span class="seña-valor">$3.000 (20%)</span>
-                            </div>
+        <article class="servicio-card" id="cortes">
+            <div class="servicio-content">
+                <h2>Cortes</h2>
+                <p>Tijeras, máquinas, varios filos, precisión, técnica y sobre todo un estilo único hacen fundamental el Corte en MALA MALE.</p>
+                <p>El corte y peinado está en constante perfeccionamiento sobre nuevas técnicas y tendencias. Nuestro corte es diseñado exclusivamente para vos y tu vida cotidiana.</p>
+                
+                <div class="servicio-precios">
+                    <div class="precio-container">
+                        <div class="precio-principal">
+                            <span class="precio-desde">Desde</span>
+                            <span class="precio-valor">$15.000</span>
                         </div>
-                        
-                        <div class="reserva-buttons">
-                            <button class="btn-reservar" onclick="abrirModalReserva('cortes', 15000, 3000)">
-                                <i class="fas fa-calendar-plus"></i>
-                                Reservar Turno
-                            </button>
-                            <a href="#" class="btn-mas-info">
-                                Más Información <i class="fas fa-arrow-right"></i>
-                            </a>
+                        <div class="precio-seña">
+                            <span class="seña-texto">Seña para reservar:</span>
+                            <span class="seña-valor">$3.000 (20%)</span>
                         </div>
                     </div>
-                </div>
-                <div class="servicio-video">
-                    <video autoplay muted loop>
-                        <source src="https://video.wixstatic.com/video/a4f25c_045a0c3afce649e3aaf3487ced0881ed/480p/mp4/file.mp4" type="video/mp4">
-                        <div class="video-placeholder">
-                            <i class="fas fa-play-circle"></i>
-                            <p>Video de Cortes</p>
-                        </div>
-                    </video>
+                    <div class="reserva-buttons">
+                        <button class="btn-reservar" onclick="abrirModalReserva('cortes', 15000, 3000)">
+                            <i class="fas fa-calendar-plus"></i>
+                            Reservar Turno
+                        </button>
+                    </div>
                 </div>
             </div>
-        </section>
+            <div class="servicio-media">
+                <video autoplay muted loop playsinline>
+                    <source src="https://video.wixstatic.com/video/a4f25c_045a0c3afce649e3aaf3487ced0881ed/480p/mp4/file.mp4" type="video/mp4">
+                </video>
+            </div>
+        </article>
 
         <!-- Peinados -->
-        <section class="servicio-seccion" id="peinados">
-            <div class="servicio-grid">
-                <div class="servicio-content">
-                    <h2>Peinados</h2>
-                    <p>Existe una amplia forma de llegar a tu peinado, Brushing, planchitas, ondas, y muchos más.</p>
-                    
-                    <!-- Precios y Reserva -->
-                    <div class="servicio-precios">
-                        <div class="precio-container">
-                            <div class="precio-principal">
-                                <span class="precio-desde">Desde</span>
-                                <span class="precio-valor">$12.000</span>
-                            </div>
-                            <div class="precio-seña">
-                                <span class="seña-texto">Seña para reservar:</span>
-                                <span class="seña-valor">$2.400 (20%)</span>
-                            </div>
+        <article class="servicio-card" id="peinados">
+            <div class="servicio-content">
+                <h2>Peinados</h2>
+                <p>Existe una amplia forma de llegar a tu peinado: Brushing, planchitas, ondas, y muchos más.</p>
+                
+                <div class="servicio-precios">
+                    <div class="precio-container">
+                        <div class="precio-principal">
+                            <span class="precio-desde">Desde</span>
+                            <span class="precio-valor">$12.000</span>
                         </div>
-                        
-                        <div class="reserva-buttons">
-                            <button class="btn-reservar" onclick="abrirModalReserva('peinados', 12000, 2400)">
-                                <i class="fas fa-calendar-plus"></i>
-                                Reservar Turno
-                            </button>
+                        <div class="precio-seña">
+                            <span class="seña-texto">Seña para reservar:</span>
+                            <span class="seña-valor">$2.400 (20%)</span>
                         </div>
                     </div>
-                </div>
-                <div class="servicio-video">
-                    <video autoplay muted loop>
-                        <source src="https://video.wixstatic.com/video/a4f25c_ff8bb625b15c4419a04a51d38d713cb0/480p/mp4/file.mp4" type="video/mp4">
-                        <div class="video-placeholder">
-                            <i class="fas fa-play-circle"></i>
-                            <p>Video de Peinados</p>
-                        </div>
-                    </video>
+                    <div class="reserva-buttons">
+                        <button class="btn-reservar" onclick="abrirModalReserva('peinados', 12000, 2400)">
+                            <i class="fas fa-calendar-plus"></i>
+                            Reservar Turno
+                        </button>
+                    </div>
                 </div>
             </div>
-        </section>
+            <div class="servicio-media">
+                <video autoplay muted loop playsinline>
+                    <source src="https://video.wixstatic.com/video/a4f25c_ff8bb625b15c4419a04a51d38d713cb0/480p/mp4/file.mp4" type="video/mp4">
+                </video>
+            </div>
+        </article>
 
         <!-- Coloración -->
-        <section class="servicio-seccion" id="coloracion">
-            <div class="servicio-grid">
-                <div class="servicio-content">
-                    <h2>Coloración</h2>
-                    <p>El servicio de color es un universo infinito dentro de nuestro salón.</p>
-                    <p>Nuestra marca cuenta con el mejor equipo de coloristas del país. Nos perfeccionamos constantemente para poder abordar todas tus necesidades.</p>
-                    <p>Te asesoramos de una manera minuciosa para poder aconsejarte sobre qué es lo que tu cabello necesita. Cuáles son los pasos que llevara tu pelo para llegar al objetivo que deseas. Nuestra misión fundamental es mantener tu pelo sano y que luzca intacto, garantizamos tu felicidad absoluta.</p>
-                    <p>Como expresamos anteriormente, el universo de color es inmenso e infinito, por eso y para orientarte, te invitamos a que leas atentamente cada una de las descripciones de toda nuestra carta de servicios en color que tenemos para lograr satisfacer tus necesidades.</p>
-                    
-                    <!-- Precios y Reserva -->
-                    <div class="servicio-precios">
-                        <div class="precio-container">
-                            <div class="precio-principal">
-                                <span class="precio-desde">Desde</span>
-                                <span class="precio-valor">$35.000</span>
-                            </div>
-                            <div class="precio-seña">
-                                <span class="seña-texto">Seña para reservar:</span>
-                                <span class="seña-valor">$7.000 (20%)</span>
-                            </div>
+        <article class="servicio-card" id="coloracion">
+            <div class="servicio-content">
+                <h2>Coloración</h2>
+                <p>El servicio de color es un universo infinito dentro de nuestro salón. Te asesoramos de una manera minuciosa para poder aconsejarte sobre qué es lo que tu cabello necesita.</p>
+                <p>Nuestra misión fundamental es mantener tu pelo sano y que luzca intacto, garantizamos tu felicidad absoluta.</p>
+                
+                <div class="servicio-precios">
+                    <div class="precio-container">
+                        <div class="precio-principal">
+                            <span class="precio-desde">Desde</span>
+                            <span class="precio-valor">$35.000</span>
                         </div>
-                        
-                        <div class="reserva-buttons">
-                            <button class="btn-reservar" onclick="abrirModalReserva('coloracion', 35000, 7000)">
-                                <i class="fas fa-calendar-plus"></i>
-                                Reservar Turno
-                            </button>
+                        <div class="precio-seña">
+                            <span class="seña-texto">Seña para reservar:</span>
+                            <span class="seña-valor">$7.000 (20%)</span>
                         </div>
                     </div>
-                    
-                    <a href="#" class="btn-mas-info">
-                        Más Información <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-                <div class="servicio-video">
-                    <video autoplay muted loop>
-                        <source src="https://video.wixstatic.com/video/a4f25c_f386024b4f1443c58c881bf46a536de1/480p/mp4/file.mp4" type="video/mp4">
-                        <div class="video-placeholder">
-                            <i class="fas fa-play-circle"></i>
-                            <p>Video de Coloración</p>
-                        </div>
-                    </video>
+                    <div class="reserva-buttons">
+                        <button class="btn-reservar" onclick="abrirModalReserva('coloracion', 35000, 7000)">
+                            <i class="fas fa-calendar-plus"></i>
+                            Reservar Turno
+                        </button>
+                    </div>
                 </div>
             </div>
-        </section>
+            <div class="servicio-media">
+                <video autoplay muted loop playsinline>
+                    <source src="https://video.wixstatic.com/video/a4f25c_f386024b4f1443c58c881bf46a536de1/480p/mp4/file.mp4" type="video/mp4">
+                </video>
+            </div>
+        </article>
 
-        <!-- Tratamientos para tu cabello -->
-        <section class="tratamientos-especiales">
-            <div class="servicio-grid">
-                <div class="servicio-content">
-                    <h2>Tratamientos<br>para tu cabello</h2>
-                    <p>Keratina, Brillo, Hidratación, Nutrición, Reparación y Reconstrucción.</p>
-                    
-                    <!-- Precios y Reserva -->
-                    <div class="servicio-precios">
-                        <div class="precio-container">
-                            <div class="precio-principal">
-                                <span class="precio-desde">Desde</span>
-                                <span class="precio-valor">$18.000</span>
-                            </div>
-                            <div class="precio-seña">
-                                <span class="seña-texto">Seña para reservar:</span>
-                                <span class="seña-valor">$3.600 (20%)</span>
-                            </div>
+        <!-- Tratamientos -->
+        <article class="servicio-card" id="tratamientos">
+            <div class="servicio-content">
+                <h2>Tratamientos<br>para tu cabello</h2>
+                <p>Keratina, Brillo, Hidratación, Nutrición, Reparación y Reconstrucción.</p>
+                
+                <div class="servicio-precios">
+                    <div class="precio-container">
+                        <div class="precio-principal">
+                            <span class="precio-desde">Desde</span>
+                            <span class="precio-valor">$18.000</span>
                         </div>
-                        
-                        <div class="reserva-buttons">
-                            <button class="btn-reservar" onclick="abrirModalReserva('tratamientos', 18000, 3600)">
-                                <i class="fas fa-calendar-plus"></i>
-                                Reservar Turno
-                            </button>
+                        <div class="precio-seña">
+                            <span class="seña-texto">Seña para reservar:</span>
+                            <span class="seña-valor">$3.600 (20%)</span>
                         </div>
                     </div>
-                    
-                    <a href="#" class="btn-mas-info">
-                        Más Información <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-                <div class="servicio-video">
-                    <video autoplay muted loop>
-                        <source src="https://video.wixstatic.com/video/a4f25c_6b0d1bd3cbaa447d8933de8a6c46bd5b/480p/mp4/file.mp4" type="video/mp4">
-                        <div class="video-placeholder">
-                            <i class="fas fa-play-circle"></i>
-                            <p>Video de Tratamientos</p>
-                        </div>
-                    </video>
+                    <div class="reserva-buttons">
+                        <button class="btn-reservar" onclick="abrirModalReserva('tratamientos', 18000, 3600)">
+                            <i class="fas fa-calendar-plus"></i>
+                            Reservar Turno
+                        </button>
+                    </div>
                 </div>
             </div>
-        </section>
-
-        <!-- Make Up -->
-        <section class="servicio-seccion" id="makeup">
-            <div class="servicio-grid">
-                <div class="servicio-content">
-                    <h2>Make Up</h2>
-                    <p>En MALA brindamos servicio de maquillaje, para eventos sociales, novias, madrinas, quinceañeras, u ocasiones especiales en los cuales quieras resaltar tu belleza con las mejores técnicas y vanguardias en el campo del make up, también brindamos servicios especiales a domicilio o en eventos en los cuales se requiera de un profesional especializado en el rubro.</p>
-                </div>
-                <div class="servicio-imagen">
-                    <img src="img/natasha.png" alt="Servicio de Make Up">
-                </div>
+            <div class="servicio-media">
+                <video autoplay muted loop playsinline>
+                    <source src="https://video.wixstatic.com/video/a4f25c_6b0d1bd3cbaa447d8933de8a6c46bd5b/480p/mp4/file.mp4" type="video/mp4">
+                </video>
             </div>
-        </section>
-
-        <!-- Manos y Pies -->
-        <section class="servicio-seccion" id="manos-pies">
-            <div class="servicio-grid">
-                <div class="servicio-content">
-                    <h2>Manos y Pies</h2>
-                    <p>El cuidado de las uñas ha tomado auge en los últimos años y se ha convertido en un accesorio fundamental de la moda. En MALA abogamos por brindar un servicio de excelencia en cuanto técnicas y vanguardias en el mundo del nail art. Ofrecemos servicios tanto permanentes como semipermanente, kapping, esculpidas.</p>
-                    <p>Consultanos por las MALA nails.</p>
-                </div>
-                <div class="servicio-imagen">
-                    <img src="img/natasha.png" alt="Servicio de Manos y Pies">
-                </div>
-            </div>
-        </section>
+        </article>
 
         <!-- Botones finales -->
-        <section style="text-align: center; margin: 80px 0;">
-            <a href="#" class="btn-mas-info" style="margin-right: 20px;">
+        <section class="botones-finales">
+            <a href="#" class="btn-mas-info">
                 Política de Reserva <i class="fas fa-arrow-right"></i>
             </a>
             <a href="#" class="btn-mas-info">

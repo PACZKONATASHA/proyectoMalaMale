@@ -212,15 +212,11 @@ class CarritoCompras {
         if (finalizarBtn) {
             if (this.carrito.length > 0) {
                 const mensaje = this.generarMensajeWhatsApp();
-                const url = `https://wa.me/${this.numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
-                finalizarBtn.href = url;
-                finalizarBtn.setAttribute('href', url);
+                finalizarBtn.href = `https://wa.me/${this.numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
                 finalizarBtn.style.opacity = '1';
                 finalizarBtn.style.pointerEvents = 'auto';
-                console.log('WhatsApp URL actualizada:', url);
             } else {
                 finalizarBtn.href = '#';
-                finalizarBtn.setAttribute('href', '#');
                 finalizarBtn.style.opacity = '0.5';
                 finalizarBtn.style.pointerEvents = 'auto';
             }
