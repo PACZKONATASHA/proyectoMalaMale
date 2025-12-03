@@ -1,11 +1,13 @@
 // Sistema de Carrito de Compras - MalaMale
+// VERSIÓN CORREGIDA PARA MÓVIL
+
 class CarritoCompras {
     constructor() {
         this.carrito = JSON.parse(localStorage.getItem('carritoMalaMale') || '[]');
-    this.numeroWhatsApp = '5491170845893'; // Número real de WhatsApp (con código de país Argentina +54 9)
+        this.numeroWhatsApp = '5491170845893';
         this.monedaSymbol = '$';
-        this.costoEnvio = 5.99; // Costo fijo de envío
-        this.envioGratisDesdePara = 50.00; // Envío gratis desde este monto
+        this.costoEnvio = 5.99;
+        this.envioGratisDesdePara = 50.00;
         
         this.init();
     }
@@ -26,79 +28,85 @@ class CarritoCompras {
         // Toggle del carrito (desktop)
         const toggleBtn = document.getElementById('toggleCarrito');
         if (toggleBtn) {
-            toggleBtn.addEventListener('click', () => this.toggleCarrito());
+            toggleBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                this.toggleCarrito();
+            });
         }
 
         // Toggle del carrito (móvil)
         const toggleBtnMobile = document.getElementById('toggleCarritoMobile');
         if (toggleBtnMobile) {
-            toggleBtnMobile.addEventListener('click', () => this.toggleCarrito());
+            toggleBtnMobile.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                this.toggleCarrito();
+            });
         }
 
-        // Cerrar carrito
+        // Cerrar carrito con botón X
         const cerrarBtn = document.getElementById('cerrarCarrito');
         if (cerrarBtn) {
-            cerrarBtn.addEventListener('click', () => this.cerrarCarrito());
+            cerrarBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                this.cerrarCarrito();
+            });
         }
 
-        // Overlay del carrito - solo cerrar si se toca directamente el overlay
+        // OVERLAY - Solo cerrar cuando se toca el overlay directamente
         const overlay = document.getElementById('carritoOverlay');
         if (overlay) {
             overlay.addEventListener('click', (e) => {
-                // Solo cerrar si el click fue directamente en el overlay
                 if (e.target === overlay) {
                     this.cerrarCarrito();
                 }
             });
-            
-            // Prevenir que el touch en el overlay cierre accidentalmente
-            overlay.addEventListener('touchend', (e) => {
-                if (e.target === overlay) {
-                    e.preventDefault();
-                    this.cerrarCarrito();
-                }
-            }, { passive: false });
-        }
-
-        // Prevenir que clicks dentro del widget cierren el carrito
-        const widget = document.getElementById('carritoWidget');
-        if (widget) {
-            widget.addEventListener('click', (e) => {
-                e.stopPropagation();
-            });
-            
-            widget.addEventListener('touchstart', (e) => {
-                e.stopPropagation();
-            }, { passive: true });
         }
 
         // Vaciar carrito
         const vaciarBtn = document.getElementById('vaciarCarrito');
         if (vaciarBtn) {
-            vaciarBtn.addEventListener('click', () => this.vaciarCarrito());
+            vaciarBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                this.vaciarCarrito();
+            });
         }
 
-        // Finalizar compra - ahora es un enlace <a>, validar si carrito vacío
+        // Finalizar compra
         const finalizarBtn = document.getElementById('finalizarCompra');
         if (finalizarBtn) {
             finalizarBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
                 if (this.carrito.length === 0) {
                     e.preventDefault();
                     this.mostrarNotificacion('El carrito está vacío', 'warning');
                 }
-                // Si hay productos, el enlace navegará normalmente
             });
         }
 
-        // Tecla ESC para cerrar carrito
+        // Tecla ESC para cerrar
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 this.cerrarCarrito();
             }
         });
+        
+        // CRÍTICO: Prevenir que clicks dentro del widget cierren el carrito
+        const widget = document.getElementById('carritoWidget');
+        if (widget) {
+            widget.addEventListener('click', (e) => {
+                e.stopPropagation();
+            });
+        }
     }
 
     agregarProducto(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        
         const btn = event.currentTarget;
         const producto = {
             id: parseInt(btn.dataset.id),
@@ -108,7 +116,6 @@ class CarritoCompras {
             cantidad: 1
         };
 
-        // Verificar si el producto ya existe en el carrito
         const productoExistente = this.carrito.find(item => item.id === producto.id);
         
         if (productoExistente) {
@@ -119,10 +126,7 @@ class CarritoCompras {
             this.mostrarNotificacion(`${producto.nombre} agregado al carrito`, 'success');
         }
 
-        // Efecto visual en el botón
         this.efectoBotonAgregado(btn);
-
-        // Actualizar interfaz y storage
         this.guardarCarrito();
         this.actualizarContadorCarrito();
         this.renderizarCarrito();
@@ -146,7 +150,7 @@ class CarritoCompras {
         if (producto) {
             if (nuevaCantidad <= 0) {
                 this.eliminarProducto(id);
-            } else if (nuevaCantidad <= 99) { // Límite máximo
+            } else if (nuevaCantidad <= 99) {
                 producto.cantidad = nuevaCantidad;
                 this.guardarCarrito();
                 this.actualizarContadorCarrito();
@@ -184,6 +188,9 @@ class CarritoCompras {
             return;
         }
 
+        // Guardar referencia a this para usar dentro del event listener
+        const self = this;
+
         container.innerHTML = this.carrito.map(item => `
             <div class="carrito-item" data-id="${item.id}">
                 <div class="item-imagen">
@@ -196,73 +203,51 @@ class CarritoCompras {
                     <p class="item-precio">${this.monedaSymbol}${item.precio.toFixed(2)}</p>
                 </div>
                 <div class="item-cantidad">
-                    <button class="cantidad-btn menos" data-action="menos" data-id="${item.id}" data-cantidad="${item.cantidad}">
+                    <button type="button" class="cantidad-btn menos" data-id="${item.id}" data-accion="restar">
                         <i class="fas fa-minus"></i>
                     </button>
                     <span class="cantidad-numero">${item.cantidad}</span>
-                    <button class="cantidad-btn mas" data-action="mas" data-id="${item.id}" data-cantidad="${item.cantidad}">
+                    <button type="button" class="cantidad-btn mas" data-id="${item.id}" data-accion="sumar">
                         <i class="fas fa-plus"></i>
                     </button>
                 </div>
                 <div class="item-total">
                     ${this.monedaSymbol}${(item.precio * item.cantidad).toFixed(2)}
                 </div>
-                <button class="item-eliminar" data-action="eliminar" data-id="${item.id}" title="Eliminar producto">
+                <button type="button" class="item-eliminar" data-id="${item.id}" data-accion="eliminar">
                     <i class="fas fa-trash"></i>
                 </button>
             </div>
         `).join('');
 
-        // Agregar event listeners a los botones del carrito
-        this.setupCarritoItemListeners();
-        
+        // SOLUCIÓN MÓVIL: Agregar listeners directamente a cada botón
+        container.querySelectorAll('.cantidad-btn, .item-eliminar').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                const id = parseInt(this.dataset.id);
+                const accion = this.dataset.accion;
+                const item = self.carrito.find(p => p.id === id);
+                
+                if (!item) return;
+
+                if (accion === 'restar') {
+                    self.cambiarCantidad(id, item.cantidad - 1);
+                } else if (accion === 'sumar') {
+                    self.cambiarCantidad(id, item.cantidad + 1);
+                } else if (accion === 'eliminar') {
+                    self.eliminarProducto(id);
+                }
+            });
+            
+            // También prevenir touchend para móviles
+            btn.addEventListener('touchend', function(e) {
+                e.stopPropagation();
+            });
+        });
+
         this.actualizarTotales();
-    }
-
-    setupCarritoItemListeners() {
-        const container = document.getElementById('carritoItems');
-        if (!container) return;
-        
-        // Evitar agregar listeners duplicados
-        if (container.dataset.listenersAdded === 'true') return;
-        container.dataset.listenersAdded = 'true';
-
-        // Usar delegación de eventos para mejor rendimiento en móvil
-        container.addEventListener('click', (e) => {
-            // Prevenir propagación para que no cierre el carrito
-            e.stopPropagation();
-            
-            // Buscar el botón clickeado (puede ser el icono dentro del botón)
-            const btn = e.target.closest('[data-action]');
-            if (!btn) return;
-
-            e.preventDefault();
-            
-            const action = btn.dataset.action;
-            const id = parseInt(btn.dataset.id);
-            const cantidad = parseInt(btn.dataset.cantidad || 0);
-
-            switch(action) {
-                case 'menos':
-                    this.cambiarCantidad(id, cantidad - 1);
-                    break;
-                case 'mas':
-                    this.cambiarCantidad(id, cantidad + 1);
-                    break;
-                case 'eliminar':
-                    this.eliminarProducto(id);
-                    break;
-            }
-        }, { passive: false });
-
-        // Prevenir que los toques en el contenedor cierren el carrito
-        container.addEventListener('touchstart', (e) => {
-            e.stopPropagation();
-        }, { passive: true });
-
-        container.addEventListener('touchend', (e) => {
-            e.stopPropagation();
-        }, { passive: true });
     }
 
     actualizarTotales() {
@@ -277,11 +262,12 @@ class CarritoCompras {
         if (subtotalEl) subtotalEl.textContent = `${this.monedaSymbol}${subtotal.toFixed(2)}`;
         if (envioEl) {
             envioEl.textContent = envio === 0 ? 'GRATIS' : `${this.monedaSymbol}${envio.toFixed(2)}`;
-            envioEl.parentElement.classList.toggle('envio-gratis', envio === 0);
+            if (envioEl.parentElement) {
+                envioEl.parentElement.classList.toggle('envio-gratis', envio === 0);
+            }
         }
         if (totalEl) totalEl.textContent = `${this.monedaSymbol}${total.toFixed(2)}`;
 
-        // Actualizar enlace de WhatsApp con el mensaje del carrito
         const finalizarBtn = document.getElementById('finalizarCompra');
         if (finalizarBtn) {
             if (this.carrito.length > 0) {
@@ -315,12 +301,8 @@ class CarritoCompras {
 
     toggleCarrito() {
         const widget = document.getElementById('carritoWidget');
-        const overlay = document.getElementById('carritoOverlay');
-        
-        if (widget && overlay) {
-            const isOpen = widget.classList.contains('activo');
-            
-            if (isOpen) {
+        if (widget) {
+            if (widget.classList.contains('activo')) {
                 this.cerrarCarrito();
             } else {
                 this.abrirCarrito();
@@ -332,207 +314,29 @@ class CarritoCompras {
         const widget = document.getElementById('carritoWidget');
         const overlay = document.getElementById('carritoOverlay');
         
-        if (widget && overlay) {
-            widget.classList.add('activo');
-            overlay.classList.add('activo');
-            document.body.style.overflow = 'hidden';
-        }
+        if (widget) widget.classList.add('activo');
+        if (overlay) overlay.classList.add('activo');
+        document.body.style.overflow = 'hidden';
     }
 
     cerrarCarrito() {
         const widget = document.getElementById('carritoWidget');
         const overlay = document.getElementById('carritoOverlay');
         
-        if (widget && overlay) {
-            widget.classList.remove('activo');
-            overlay.classList.remove('activo');
-            document.body.style.overflow = '';
-        }
+        if (widget) widget.classList.remove('activo');
+        if (overlay) overlay.classList.remove('activo');
+        document.body.style.overflow = '';
     }
 
     vaciarCarrito() {
         if (this.carrito.length === 0) return;
 
-        const confirmacion = confirm('¿Estás segura de que quieres vaciar el carrito?');
-        if (confirmacion) {
+        if (confirm('¿Estás segura de que quieres vaciar el carrito?')) {
             this.carrito = [];
             this.guardarCarrito();
             this.actualizarContadorCarrito();
             this.renderizarCarrito();
             this.mostrarNotificacion('Carrito vaciado', 'info');
-        }
-    }
-
-    finalizarCompra() {
-        if (this.carrito.length === 0) {
-            this.mostrarNotificacion('El carrito está vacío', 'warning');
-            return;
-        }
-
-        // Generar mensaje para WhatsApp
-        const mensaje = this.generarMensajeWhatsApp();
-
-        // Crear URL de WhatsApp
-        const urlWhatsApp = `https://wa.me/${this.numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
-
-        // Crear un enlace temporal y hacer click
-        const link = document.createElement('a');
-        link.href = urlWhatsApp;
-        link.style.display = 'none';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-    }
-
-    // Nueva función para manejar popups bloqueados
-    mostrarPopupWhatsApp(urlWhatsApp) {
-        const popup = document.createElement('div');
-        popup.className = 'whatsapp-popup';
-        popup.innerHTML = `
-            <div class="popup-content">
-                <div class="popup-header">
-                    <i class="fab fa-whatsapp"></i>
-                    <h3>Abrir WhatsApp</h3>
-                    <button onclick="this.parentElement.parentElement.parentElement.remove()" class="popup-close">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
-                <div class="popup-body">
-                    <p>Tu navegador bloqueó la ventana emergente.</p>
-                    <p><strong>Haz clic en el botón para abrir WhatsApp:</strong></p>
-                    <a href="${urlWhatsApp}" target="_blank" class="btn-abrir-whatsapp">
-                        <i class="fab fa-whatsapp"></i>
-                        Abrir WhatsApp
-                    </a>
-                    <small>O copia y pega este enlace en tu navegador:</small>
-                    <input type="text" value="${urlWhatsApp}" readonly onclick="this.select()" class="url-input">
-                </div>
-            </div>
-            <div class="popup-overlay" onclick="this.parentElement.remove()"></div>
-        `;
-
-        // Estilos para el popup
-        popup.style.cssText = `
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 20000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        `;
-
-        document.body.appendChild(popup);
-
-        // Agregar estilos CSS para el popup
-        if (!document.querySelector('#whatsapp-popup-styles')) {
-            const styles = document.createElement('style');
-            styles.id = 'whatsapp-popup-styles';
-            styles.textContent = `
-                .popup-overlay {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    background: rgba(0, 0, 0, 0.7);
-                }
-                
-                .popup-content {
-                    position: relative;
-                    background: white;
-                    border-radius: 15px;
-                    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-                    max-width: 400px;
-                    width: 90%;
-                    overflow: hidden;
-                    animation: popupSlideIn 0.3s ease;
-                }
-                
-                .popup-header {
-                    background: linear-gradient(135deg, #25d366, #128c7e);
-                    color: white;
-                    padding: 1rem;
-                    display: flex;
-                    align-items: center;
-                    gap: 0.5rem;
-                }
-                
-                .popup-header h3 {
-                    margin: 0;
-                    flex: 1;
-                    font-size: 1.2rem;
-                }
-                
-                .popup-close {
-                    background: none;
-                    border: none;
-                    color: white;
-                    font-size: 1.2rem;
-                    cursor: pointer;
-                    padding: 0.5rem;
-                    border-radius: 50%;
-                    transition: background 0.3s ease;
-                }
-                
-                .popup-close:hover {
-                    background: rgba(255, 255, 255, 0.2);
-                }
-                
-                .popup-body {
-                    padding: 1.5rem;
-                    text-align: center;
-                }
-                
-                .popup-body p {
-                    margin: 0 0 1rem 0;
-                    color: #333;
-                }
-                
-                .btn-abrir-whatsapp {
-                    display: inline-flex;
-                    align-items: center;
-                    gap: 0.5rem;
-                    background: linear-gradient(135deg, #25d366, #128c7e);
-                    color: white;
-                    text-decoration: none;
-                    padding: 1rem 2rem;
-                    border-radius: 10px;
-                    font-weight: 600;
-                    font-family: 'Poppins', sans-serif;
-                    transition: transform 0.3s ease;
-                    margin: 1rem 0;
-                }
-                
-                .btn-abrir-whatsapp:hover {
-                    transform: translateY(-2px);
-                    color: white;
-                }
-                
-                .url-input {
-                    width: 100%;
-                    padding: 0.5rem;
-                    border: 1px solid #ddd;
-                    border-radius: 5px;
-                    font-size: 0.8rem;
-                    margin-top: 0.5rem;
-                    background: #f8f9fa;
-                }
-                
-                @keyframes popupSlideIn {
-                    from {
-                        opacity: 0;
-                        transform: scale(0.8) translateY(-20px);
-                    }
-                    to {
-                        opacity: 1;
-                        transform: scale(1) translateY(0);
-                    }
-                }
-            `;
-            document.head.appendChild(styles);
         }
     }
 
@@ -597,7 +401,6 @@ class CarritoCompras {
     }
 
     mostrarNotificacion(mensaje, tipo = 'info') {
-        // Remover notificaciones existentes
         const notificacionExistente = document.querySelector('.notificacion-carrito');
         if (notificacionExistente) {
             notificacionExistente.remove();
@@ -664,43 +467,6 @@ class CarritoCompras {
             this.mostrarNotificacion(`Carrito recuperado: ${this.carrito.length} productos`, 'info');
         }
     }
-
-    // Funciones de utilidad
-    obtenerEstadisticas() {
-        return {
-            totalProductos: this.carrito.length,
-            totalItems: this.carrito.reduce((total, item) => total + item.cantidad, 0),
-            subtotal: this.calcularSubtotal(),
-            envio: this.calcularEnvio(),
-            total: this.calcularTotal()
-        };
-    }
-
-    // Función para testing de WhatsApp
-    probarWhatsApp() {
-        const mensajePrueba = `🧪 *PRUEBA - MalaMale Peluquería*\n\n✅ El sistema de WhatsApp funciona correctamente.\n\n📱 Número configurado: ${this.numeroWhatsApp}\n⏰ Fecha de prueba: ${new Date().toLocaleString('es-ES')}\n\n¡Todo listo para recibir pedidos! 🎉`;
-        
-        const urlWhatsApp = `https://wa.me/${this.numeroWhatsApp}?text=${encodeURIComponent(mensajePrueba)}`;
-        
-        this.mostrarNotificacion('Enviando mensaje de prueba...', 'info');
-        
-        // Detectar dispositivo
-        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-        
-        if (isMobile) {
-            window.location.href = urlWhatsApp;
-        } else {
-            const ventanaWhatsApp = window.open(urlWhatsApp, '_blank');
-            if (!ventanaWhatsApp || ventanaWhatsApp.closed || typeof ventanaWhatsApp.closed === 'undefined') {
-                this.mostrarPopupWhatsApp(urlWhatsApp);
-            }
-        }
-    }
-
-    // Función para debugging
-    exportarCarrito() {
-        return JSON.stringify(this.carrito, null, 2);
-    }
 }
 
 // CSS para las animaciones
@@ -725,6 +491,32 @@ carritoStyles.textContent = `
         color: #28a745 !important;
         font-weight: 600 !important;
     }
+    
+    /* CRÍTICO PARA MÓVIL */
+    .cantidad-btn,
+    .item-eliminar {
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+        user-select: none;
+        -webkit-user-select: none;
+    }
+    
+    @media (max-width: 768px) {
+        .cantidad-btn,
+        .item-eliminar {
+            min-width: 44px !important;
+            min-height: 44px !important;
+        }
+        
+        .carrito-item {
+            padding: 12px !important;
+        }
+        
+        .item-cantidad {
+            gap: 8px !important;
+        }
+    }
 `;
 
 if (!document.querySelector('#carrito-styles')) {
@@ -736,8 +528,3 @@ if (!document.querySelector('#carrito-styles')) {
 document.addEventListener('DOMContentLoaded', () => {
     window.carrito = new CarritoCompras();
 });
-
-// Funciones globales para debugging y testing
-window.carritoStats = () => window.carrito?.obtenerEstadisticas();
-window.carritoExport = () => window.carrito?.exportarCarrito();
-window.probarWhatsApp = () => window.carrito?.probarWhatsApp();
