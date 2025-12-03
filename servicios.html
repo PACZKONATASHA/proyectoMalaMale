@@ -895,6 +895,161 @@
                 font-size: 0.95rem;
             }
         }
+        
+        /* Formulario integrado en tarjeta */
+        .formulario-tarjeta {
+            display: none;
+            background: #fff;
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+            border: 2px solid #d4af37;
+            animation: slideDown 0.3s ease;
+        }
+        
+        .formulario-tarjeta.activo {
+            display: block;
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .formulario-tarjeta .form-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .formulario-tarjeta .form-header h4 {
+            margin: 0;
+            color: #d4af37;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+        }
+        
+        .formulario-tarjeta .btn-cerrar-form {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #999;
+            cursor: pointer;
+            padding: 0;
+            line-height: 1;
+        }
+        
+        .formulario-tarjeta .btn-cerrar-form:hover {
+            color: #d4af37;
+        }
+        
+        .formulario-tarjeta .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .formulario-tarjeta .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #333;
+            font-size: 0.9rem;
+        }
+        
+        .formulario-tarjeta .form-group input,
+        .formulario-tarjeta .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #a08c5b;
+            border-radius: 8px;
+            font-size: 16px;
+            box-sizing: border-box;
+            background: #fff;
+        }
+        
+        .formulario-tarjeta .form-group input:focus,
+        .formulario-tarjeta .form-group textarea:focus {
+            outline: none;
+            border-color: #d4af37;
+            box-shadow: 0 0 5px rgba(212, 175, 55, 0.3);
+        }
+        
+        .formulario-tarjeta .btn-whatsapp-reserva {
+            background: transparent;
+            color: #a08c5b;
+            border: 2px solid #a08c5b;
+            padding: 14px 30px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 400;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .formulario-tarjeta .btn-whatsapp-reserva:hover {
+            background: #a08c5b;
+            color: #fff;
+        }
+        
+        /* Selector de hora en tarjeta */
+        .hora-selector-tarjeta {
+            position: relative;
+        }
+        
+        .hora-opciones-tarjeta {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: #fff;
+            border: 2px solid #a08c5b;
+            border-radius: 10px;
+            max-height: 150px;
+            overflow-y: auto;
+            z-index: 100;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+        
+        .hora-opciones-tarjeta.activo {
+            display: block;
+        }
+        
+        .hora-opcion-tarjeta {
+            padding: 10px 15px;
+            cursor: pointer;
+            text-align: center;
+            border-bottom: 1px solid #f0f0f0;
+            transition: background 0.2s;
+        }
+        
+        .hora-opcion-tarjeta:last-child {
+            border-bottom: none;
+        }
+        
+        .hora-opcion-tarjeta:hover {
+            background: #f5f0e8;
+            color: #a08c5b;
+        }
+        
+        .hora-opcion-tarjeta.seleccionada {
+            background: #d4af37;
+            color: #fff;
+        }
     </style>
 </head>
 <body>
@@ -967,11 +1122,52 @@
                         </div>
                     </div>
                     <div class="reserva-buttons">
-                        <button class="btn-reservar" onclick="abrirModalReserva('lavado', 8000, 1600)">
+                        <button class="btn-reservar" onclick="toggleFormulario('lavado')">
                             <i class="fas fa-calendar-plus"></i>
                             Reservar Turno
                         </button>
                     </div>
+                </div>
+                
+                <!-- Formulario integrado -->
+                <div class="formulario-tarjeta" id="form-lavado" data-servicio="Lavado" data-precio="8000" data-sena="1600">
+                    <div class="form-header">
+                        <h4>Reservar Lavado</h4>
+                        <button class="btn-cerrar-form" onclick="cerrarFormulario('lavado')">&times;</button>
+                    </div>
+                    <div class="form-group">
+                        <label>Tu nombre:</label>
+                        <input type="text" class="input-nombre" placeholder="Ej: María García" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Fecha preferida:</label>
+                        <input type="text" class="input-fecha" placeholder="Seleccionar fecha" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Hora preferida:</label>
+                        <div class="hora-selector-tarjeta">
+                            <input type="text" class="input-hora-display" placeholder="Seleccionar hora" readonly>
+                            <input type="hidden" class="input-hora">
+                            <div class="hora-opciones-tarjeta">
+                                <div class="hora-opcion-tarjeta" data-hora="09:00">09:00</div>
+                                <div class="hora-opcion-tarjeta" data-hora="10:00">10:00</div>
+                                <div class="hora-opcion-tarjeta" data-hora="11:00">11:00</div>
+                                <div class="hora-opcion-tarjeta" data-hora="12:00">12:00</div>
+                                <div class="hora-opcion-tarjeta" data-hora="14:00">14:00</div>
+                                <div class="hora-opcion-tarjeta" data-hora="15:00">15:00</div>
+                                <div class="hora-opcion-tarjeta" data-hora="16:00">16:00</div>
+                                <div class="hora-opcion-tarjeta" data-hora="17:00">17:00</div>
+                                <div class="hora-opcion-tarjeta" data-hora="18:00">18:00</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Comentarios (opcional):</label>
+                        <textarea class="input-comentarios" rows="2" placeholder="Algún detalle adicional..."></textarea>
+                    </div>
+                    <button class="btn-whatsapp-reserva" onclick="enviarWhatsApp('lavado')">
+                        <i class="fab fa-whatsapp"></i> Reservar por WhatsApp
+                    </button>
                 </div>
             </div>
             <div class="servicio-media">
@@ -1000,11 +1196,52 @@
                         </div>
                     </div>
                     <div class="reserva-buttons">
-                        <button class="btn-reservar" onclick="abrirModalReserva('cortes', 15000, 3000)">
+                        <button class="btn-reservar" onclick="toggleFormulario('cortes')">
                             <i class="fas fa-calendar-plus"></i>
                             Reservar Turno
                         </button>
                     </div>
+                </div>
+                
+                <!-- Formulario integrado -->
+                <div class="formulario-tarjeta" id="form-cortes" data-servicio="Cortes" data-precio="15000" data-sena="3000">
+                    <div class="form-header">
+                        <h4>Reservar Corte</h4>
+                        <button class="btn-cerrar-form" onclick="cerrarFormulario('cortes')">&times;</button>
+                    </div>
+                    <div class="form-group">
+                        <label>Tu nombre:</label>
+                        <input type="text" class="input-nombre" placeholder="Ej: María García" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Fecha preferida:</label>
+                        <input type="text" class="input-fecha" placeholder="Seleccionar fecha" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Hora preferida:</label>
+                        <div class="hora-selector-tarjeta">
+                            <input type="text" class="input-hora-display" placeholder="Seleccionar hora" readonly>
+                            <input type="hidden" class="input-hora">
+                            <div class="hora-opciones-tarjeta">
+                                <div class="hora-opcion-tarjeta" data-hora="09:00">09:00</div>
+                                <div class="hora-opcion-tarjeta" data-hora="10:00">10:00</div>
+                                <div class="hora-opcion-tarjeta" data-hora="11:00">11:00</div>
+                                <div class="hora-opcion-tarjeta" data-hora="12:00">12:00</div>
+                                <div class="hora-opcion-tarjeta" data-hora="14:00">14:00</div>
+                                <div class="hora-opcion-tarjeta" data-hora="15:00">15:00</div>
+                                <div class="hora-opcion-tarjeta" data-hora="16:00">16:00</div>
+                                <div class="hora-opcion-tarjeta" data-hora="17:00">17:00</div>
+                                <div class="hora-opcion-tarjeta" data-hora="18:00">18:00</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Comentarios (opcional):</label>
+                        <textarea class="input-comentarios" rows="2" placeholder="Algún detalle adicional..."></textarea>
+                    </div>
+                    <button class="btn-whatsapp-reserva" onclick="enviarWhatsApp('cortes')">
+                        <i class="fab fa-whatsapp"></i> Reservar por WhatsApp
+                    </button>
                 </div>
             </div>
             <div class="servicio-media">
@@ -1032,11 +1269,52 @@
                         </div>
                     </div>
                     <div class="reserva-buttons">
-                        <button class="btn-reservar" onclick="abrirModalReserva('peinados', 12000, 2400)">
+                        <button class="btn-reservar" onclick="toggleFormulario('peinados')">
                             <i class="fas fa-calendar-plus"></i>
                             Reservar Turno
                         </button>
                     </div>
+                </div>
+                
+                <!-- Formulario integrado -->
+                <div class="formulario-tarjeta" id="form-peinados" data-servicio="Peinados" data-precio="12000" data-sena="2400">
+                    <div class="form-header">
+                        <h4>Reservar Peinado</h4>
+                        <button class="btn-cerrar-form" onclick="cerrarFormulario('peinados')">&times;</button>
+                    </div>
+                    <div class="form-group">
+                        <label>Tu nombre:</label>
+                        <input type="text" class="input-nombre" placeholder="Ej: María García" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Fecha preferida:</label>
+                        <input type="text" class="input-fecha" placeholder="Seleccionar fecha" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Hora preferida:</label>
+                        <div class="hora-selector-tarjeta">
+                            <input type="text" class="input-hora-display" placeholder="Seleccionar hora" readonly>
+                            <input type="hidden" class="input-hora">
+                            <div class="hora-opciones-tarjeta">
+                                <div class="hora-opcion-tarjeta" data-hora="09:00">09:00</div>
+                                <div class="hora-opcion-tarjeta" data-hora="10:00">10:00</div>
+                                <div class="hora-opcion-tarjeta" data-hora="11:00">11:00</div>
+                                <div class="hora-opcion-tarjeta" data-hora="12:00">12:00</div>
+                                <div class="hora-opcion-tarjeta" data-hora="14:00">14:00</div>
+                                <div class="hora-opcion-tarjeta" data-hora="15:00">15:00</div>
+                                <div class="hora-opcion-tarjeta" data-hora="16:00">16:00</div>
+                                <div class="hora-opcion-tarjeta" data-hora="17:00">17:00</div>
+                                <div class="hora-opcion-tarjeta" data-hora="18:00">18:00</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Comentarios (opcional):</label>
+                        <textarea class="input-comentarios" rows="2" placeholder="Algún detalle adicional..."></textarea>
+                    </div>
+                    <button class="btn-whatsapp-reserva" onclick="enviarWhatsApp('peinados')">
+                        <i class="fab fa-whatsapp"></i> Reservar por WhatsApp
+                    </button>
                 </div>
             </div>
             <div class="servicio-media">
@@ -1065,11 +1343,52 @@
                         </div>
                     </div>
                     <div class="reserva-buttons">
-                        <button class="btn-reservar" onclick="abrirModalReserva('coloracion', 35000, 7000)">
+                        <button class="btn-reservar" onclick="toggleFormulario('coloracion')">
                             <i class="fas fa-calendar-plus"></i>
                             Reservar Turno
                         </button>
                     </div>
+                </div>
+                
+                <!-- Formulario integrado -->
+                <div class="formulario-tarjeta" id="form-coloracion" data-servicio="Coloración" data-precio="35000" data-sena="7000">
+                    <div class="form-header">
+                        <h4>Reservar Coloración</h4>
+                        <button class="btn-cerrar-form" onclick="cerrarFormulario('coloracion')">&times;</button>
+                    </div>
+                    <div class="form-group">
+                        <label>Tu nombre:</label>
+                        <input type="text" class="input-nombre" placeholder="Ej: María García" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Fecha preferida:</label>
+                        <input type="text" class="input-fecha" placeholder="Seleccionar fecha" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Hora preferida:</label>
+                        <div class="hora-selector-tarjeta">
+                            <input type="text" class="input-hora-display" placeholder="Seleccionar hora" readonly>
+                            <input type="hidden" class="input-hora">
+                            <div class="hora-opciones-tarjeta">
+                                <div class="hora-opcion-tarjeta" data-hora="09:00">09:00</div>
+                                <div class="hora-opcion-tarjeta" data-hora="10:00">10:00</div>
+                                <div class="hora-opcion-tarjeta" data-hora="11:00">11:00</div>
+                                <div class="hora-opcion-tarjeta" data-hora="12:00">12:00</div>
+                                <div class="hora-opcion-tarjeta" data-hora="14:00">14:00</div>
+                                <div class="hora-opcion-tarjeta" data-hora="15:00">15:00</div>
+                                <div class="hora-opcion-tarjeta" data-hora="16:00">16:00</div>
+                                <div class="hora-opcion-tarjeta" data-hora="17:00">17:00</div>
+                                <div class="hora-opcion-tarjeta" data-hora="18:00">18:00</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Comentarios (opcional):</label>
+                        <textarea class="input-comentarios" rows="2" placeholder="Algún detalle adicional..."></textarea>
+                    </div>
+                    <button class="btn-whatsapp-reserva" onclick="enviarWhatsApp('coloracion')">
+                        <i class="fab fa-whatsapp"></i> Reservar por WhatsApp
+                    </button>
                 </div>
             </div>
             <div class="servicio-media">
@@ -1097,11 +1416,52 @@
                         </div>
                     </div>
                     <div class="reserva-buttons">
-                        <button class="btn-reservar" onclick="abrirModalReserva('tratamientos', 18000, 3600)">
+                        <button class="btn-reservar" onclick="toggleFormulario('tratamientos')">
                             <i class="fas fa-calendar-plus"></i>
                             Reservar Turno
                         </button>
                     </div>
+                </div>
+                
+                <!-- Formulario integrado -->
+                <div class="formulario-tarjeta" id="form-tratamientos" data-servicio="Tratamientos" data-precio="18000" data-sena="3600">
+                    <div class="form-header">
+                        <h4>Reservar Tratamiento</h4>
+                        <button class="btn-cerrar-form" onclick="cerrarFormulario('tratamientos')">&times;</button>
+                    </div>
+                    <div class="form-group">
+                        <label>Tu nombre:</label>
+                        <input type="text" class="input-nombre" placeholder="Ej: María García" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Fecha preferida:</label>
+                        <input type="text" class="input-fecha" placeholder="Seleccionar fecha" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Hora preferida:</label>
+                        <div class="hora-selector-tarjeta">
+                            <input type="text" class="input-hora-display" placeholder="Seleccionar hora" readonly>
+                            <input type="hidden" class="input-hora">
+                            <div class="hora-opciones-tarjeta">
+                                <div class="hora-opcion-tarjeta" data-hora="09:00">09:00</div>
+                                <div class="hora-opcion-tarjeta" data-hora="10:00">10:00</div>
+                                <div class="hora-opcion-tarjeta" data-hora="11:00">11:00</div>
+                                <div class="hora-opcion-tarjeta" data-hora="12:00">12:00</div>
+                                <div class="hora-opcion-tarjeta" data-hora="14:00">14:00</div>
+                                <div class="hora-opcion-tarjeta" data-hora="15:00">15:00</div>
+                                <div class="hora-opcion-tarjeta" data-hora="16:00">16:00</div>
+                                <div class="hora-opcion-tarjeta" data-hora="17:00">17:00</div>
+                                <div class="hora-opcion-tarjeta" data-hora="18:00">18:00</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Comentarios (opcional):</label>
+                        <textarea class="input-comentarios" rows="2" placeholder="Algún detalle adicional..."></textarea>
+                    </div>
+                    <button class="btn-whatsapp-reserva" onclick="enviarWhatsApp('tratamientos')">
+                        <i class="fab fa-whatsapp"></i> Reservar por WhatsApp
+                    </button>
                 </div>
             </div>
             <div class="servicio-media">
@@ -1250,10 +1610,132 @@
         </div>
     </div>
 
+    <!-- Script del Sistema de Reservas con Formularios Integrados -->
+    <script>
+        // Mostrar/ocultar formulario en tarjeta
+        function toggleFormulario(servicio) {
+            // Cerrar todos los formularios abiertos
+            document.querySelectorAll('.formulario-tarjeta').forEach(form => {
+                if (form.id !== 'form-' + servicio) {
+                    form.classList.remove('activo');
+                }
+            });
+            
+            const formulario = document.getElementById('form-' + servicio);
+            const estaActivo = formulario.classList.contains('activo');
+            
+            if (estaActivo) {
+                formulario.classList.remove('activo');
+            } else {
+                formulario.classList.add('activo');
+                // Scroll suave al formulario
+                setTimeout(() => {
+                    formulario.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 100);
+            }
+        }
+        
+        // Cerrar formulario
+        function cerrarFormulario(servicio) {
+            document.getElementById('form-' + servicio).classList.remove('activo');
+        }
+        
+        // Enviar por WhatsApp
+        function enviarWhatsApp(servicio) {
+            const formulario = document.getElementById('form-' + servicio);
+            const nombre = formulario.querySelector('.input-nombre').value.trim();
+            const fecha = formulario.querySelector('.input-fecha').value;
+            const hora = formulario.querySelector('.input-hora').value;
+            const comentarios = formulario.querySelector('.input-comentarios').value.trim();
+            const servicioNombre = formulario.dataset.servicio;
+            const precio = formulario.dataset.precio;
+            const sena = formulario.dataset.sena;
+            
+            if (!nombre) {
+                alert('Por favor ingresá tu nombre');
+                formulario.querySelector('.input-nombre').focus();
+                return;
+            }
+            if (!fecha) {
+                alert('Por favor seleccioná una fecha');
+                return;
+            }
+            if (!hora) {
+                alert('Por favor seleccioná una hora');
+                return;
+            }
+            
+            let mensaje = `¡Hola! Quiero reservar un turno:\n\n`;
+            mensaje += `📋 *Servicio:* ${servicioNombre}\n`;
+            mensaje += `👤 *Nombre:* ${nombre}\n`;
+            mensaje += `📅 *Fecha:* ${fecha}\n`;
+            mensaje += `🕐 *Hora:* ${hora}\n`;
+            mensaje += `💰 *Precio:* $${parseInt(precio).toLocaleString()}\n`;
+            mensaje += `💳 *Seña:* $${parseInt(sena).toLocaleString()} (20%)\n`;
+            if (comentarios) {
+                mensaje += `📝 *Comentarios:* ${comentarios}\n`;
+            }
+            
+            const url = `https://wa.me/5491170845893?text=${encodeURIComponent(mensaje)}`;
+            window.open(url, '_blank');
+        }
+        
+        // Inicializar selectores de hora en cada tarjeta
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.hora-selector-tarjeta').forEach(selector => {
+                const display = selector.querySelector('.input-hora-display');
+                const hidden = selector.querySelector('.input-hora');
+                const opciones = selector.querySelector('.hora-opciones-tarjeta');
+                const items = selector.querySelectorAll('.hora-opcion-tarjeta');
+                
+                display.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    // Cerrar otros selectores
+                    document.querySelectorAll('.hora-opciones-tarjeta').forEach(o => {
+                        if (o !== opciones) o.classList.remove('activo');
+                    });
+                    opciones.classList.toggle('activo');
+                });
+                
+                items.forEach(item => {
+                    item.addEventListener('click', function() {
+                        const hora = this.dataset.hora;
+                        display.value = hora;
+                        hidden.value = hora;
+                        items.forEach(i => i.classList.remove('seleccionada'));
+                        this.classList.add('seleccionada');
+                        opciones.classList.remove('activo');
+                    });
+                });
+            });
+            
+            // Cerrar selectores al hacer clic fuera
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.hora-selector-tarjeta')) {
+                    document.querySelectorAll('.hora-opciones-tarjeta').forEach(o => {
+                        o.classList.remove('activo');
+                    });
+                }
+            });
+            
+            // Inicializar Flatpickr para los campos de fecha
+            if (typeof flatpickr !== 'undefined') {
+                document.querySelectorAll('.input-fecha').forEach(input => {
+                    flatpickr(input, {
+                        locale: 'es',
+                        dateFormat: 'd/m/Y',
+                        minDate: 'today',
+                        disableMobile: true
+                    });
+                });
+            }
+        });
+    </script>
+    
     <!-- Script de Mercado Pago -->
     <script src="https://sdk.mercadopago.com/js/v2"></script>
     
-    <!-- Script del Sistema de Reservas -->
+    <!-- Script del Modal antiguo (legacy) -->
     <script>
         // Variables globales para el sistema de reservas
         let servicioActual = null;
