@@ -28,7 +28,83 @@
     <link href="https://fonts.googleapis.com/css2?family=Rouge+Script&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Yellowtail&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Flatpickr Calendar -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <style>
+        /* Flatpickr Tema Dorado */
+        .flatpickr-calendar {
+            background: #fff;
+            border: 2px solid #a08c5b;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        
+        .flatpickr-months {
+            background: linear-gradient(135deg, #d4af37, #a08c5b);
+            border-radius: 12px 12px 0 0;
+            padding: 10px 0;
+        }
+        
+        .flatpickr-months .flatpickr-month {
+            color: #fff;
+            fill: #fff;
+        }
+        
+        .flatpickr-current-month .flatpickr-monthDropdown-months,
+        .flatpickr-current-month input.cur-year {
+            color: #fff;
+            font-weight: 600;
+        }
+        
+        .flatpickr-months .flatpickr-prev-month,
+        .flatpickr-months .flatpickr-next-month {
+            fill: #fff;
+        }
+        
+        .flatpickr-months .flatpickr-prev-month:hover svg,
+        .flatpickr-months .flatpickr-next-month:hover svg {
+            fill: #1a1a1a;
+        }
+        
+        .flatpickr-weekdays {
+            background: #f5f0e8;
+        }
+        
+        .flatpickr-weekday {
+            color: #a08c5b;
+            font-weight: 600;
+        }
+        
+        .flatpickr-day {
+            color: #333;
+            border-radius: 50%;
+        }
+        
+        .flatpickr-day:hover {
+            background: #f5f0e8;
+            border-color: #a08c5b;
+        }
+        
+        .flatpickr-day.selected,
+        .flatpickr-day.selected:hover {
+            background: #d4af37;
+            border-color: #d4af37;
+            color: #fff;
+        }
+        
+        .flatpickr-day.today {
+            border-color: #a08c5b;
+        }
+        
+        .flatpickr-day.today:hover {
+            background: #a08c5b;
+            color: #fff;
+        }
+        
+        .flatpickr-day.disabled {
+            color: #ccc;
+        }
+
         /* ESTILOS CRÍTICOS PARA SERVICIOS - IGUAL QUE PRODUCTOS */
         body, body.navbar-compensated {
             margin: 0 !important;
@@ -1161,6 +1237,23 @@ ${comentarios ? `• Comentarios: ${comentarios}` : ''}
         // Inicializar cuando se carga la página
         document.addEventListener('DOMContentLoaded', function() {
             inicializarMercadoPago();
+        });
+    </script>
+    
+    <!-- Flatpickr JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/es.js"></script>
+    <script>
+        // Inicializar Flatpickr con tema dorado
+        document.addEventListener('DOMContentLoaded', function() {
+            flatpickr("#fechaReserva", {
+                locale: "es",
+                dateFormat: "Y-m-d",
+                minDate: "today",
+                disableMobile: true,
+                monthSelectorType: "static",
+                animate: true
+            });
         });
     </script>
     
