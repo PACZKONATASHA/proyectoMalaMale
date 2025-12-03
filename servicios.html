@@ -29,35 +29,41 @@
     <link href="https://fonts.googleapis.com/css2?family=Yellowtail&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* Navbar negro para página de servicios */
+        /* ESTILOS CRÍTICOS PARA SERVICIOS - IGUAL QUE PRODUCTOS */
+        body, body.navbar-compensated {
+            margin: 0 !important;
+            padding: 0 !important;
+            padding-top: 0 !important;
+            background: #1a1a1a !important;
+        }
+        
+        /* NAVBAR NEGRO FIJO */
         .navbar {
-            background: #1a1a1a !important;
+            background: #000000 !important;
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            z-index: 9999 !important;
+            height: 90px !important;
+            min-height: 90px !important;
         }
         
-        /* Links del navbar en color claro */
-        .navbar-nav .nav-link {
-            color: #ffffff !important;
+        .navbar .nav-link {
+            color: #FFFFFF !important;
         }
         
-        /* Link Servicios activo - destacado en dorado */
-        .navbar-nav .nav-link.active {
+        .navbar .nav-link:hover,
+        .navbar .nav-link.active {
             color: #d4af37 !important;
-            font-weight: 600 !important;
         }
 
-        /* Fondo negro para toda la página */
-        body {
-            background: #1a1a1a !important;
-        }
-
-        /* Estilos específicos para servicios */
+        /* HERO DEBAJO DEL NAVBAR */
         .servicios-hero {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
-            padding: 120px 0 80px;
-            text-align: center;
-            color: white;
-            margin-top: 0;
-            border-top: 3px solid #d4af37;
+            margin-top: 90px !important;
+            padding: 50px 20px !important;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%) !important;
+            text-align: center !important;
             border-bottom: 3px solid #d4af37;
         }
 
@@ -82,6 +88,66 @@
             max-width: 600px;
             margin: 0 auto;
             font-style: italic;
+            color: #ffffff;
+        }
+        
+        /* MÓVIL */
+        @media (max-width: 991px) {
+            .navbar {
+                height: 70px !important;
+                min-height: 70px !important;
+            }
+            
+            .navbar-brand img {
+                height: 55px !important;
+                max-height: 55px !important;
+            }
+            
+            .servicios-hero {
+                margin-top: 70px !important;
+                padding: 30px 15px !important;
+            }
+            
+            .servicios-hero h1 {
+                font-size: 1.8rem !important;
+            }
+            
+            .servicios-hero p {
+                font-size: 0.9rem !important;
+            }
+            
+            /* Menú desplegable negro */
+            .navbar-collapse {
+                background: #000000 !important;
+                position: absolute !important;
+                top: 70px !important;
+                left: 0 !important;
+                right: 0 !important;
+                padding: 15px !important;
+            }
+            
+            .navbar-nav .nav-link {
+                color: #d4af37 !important;
+                text-align: center !important;
+                padding: 12px !important;
+                border-bottom: 1px solid rgba(212,175,55,0.2) !important;
+            }
+        }
+        
+        /* DESKTOP */
+        @media (min-width: 992px) {
+            .mobile-social-icons {
+                display: none !important;
+            }
+            
+            .servicios-hero {
+                margin-top: 90px !important;
+                padding: 60px 20px !important;
+            }
+            
+            .servicios-hero h1 {
+                font-size: 3rem !important;
+            }
         }
 
         .servicios-container {
@@ -358,14 +424,44 @@
         }
 
         /* Botones finales */
-        .botones-finales {
+        /* CTA Asesoramiento */
+        .cta-servicios {
             text-align: center;
             padding: 60px 20px;
-            background: #1a1a1a;
+            background: #ffffff;
         }
 
-        .botones-finales a {
-            margin: 10px;
+        .cta-servicios h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        .cta-servicios .btn-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: transparent;
+            color: #a08c5b;
+            padding: 15px 40px;
+            border-radius: 50px;
+            border: 2px solid #a08c5b;
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: 0.03em;
+        }
+
+        .cta-servicios .btn-cta:hover {
+            background: #a08c5b;
+            color: #ffffff;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(160, 140, 91, 0.3);
         }
 
         /* Modal de Reserva */
@@ -437,16 +533,19 @@
         }
 
         .reserva-info {
-            background: #f8f9fa;
+            background: #fff;
             padding: 20px;
             border-radius: 10px;
             margin-bottom: 25px;
+            border: 2px solid #a08c5b;
         }
 
         .reserva-info h3 {
             color: #d4af37;
             margin: 0 0 10px 0;
             font-size: 1.3rem;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
         }
 
         .precios-modal {
@@ -476,11 +575,12 @@
         .form-group textarea {
             width: 100%;
             padding: 12px;
-            border: 2px solid #e0e0e0;
+            border: 2px solid #a08c5b;
             border-radius: 8px;
             font-size: 1rem;
             transition: border-color 0.3s ease;
             box-sizing: border-box;
+            background: #fff;
         }
 
         .form-group input:focus,
@@ -488,6 +588,34 @@
         .form-group textarea:focus {
             outline: none;
             border-color: #d4af37;
+            box-shadow: 0 0 5px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Botón Reservar por WhatsApp - estilo tarjeta */
+        .btn-reservar-modal {
+            background: transparent;
+            color: #a08c5b;
+            border: 2px solid #a08c5b;
+            padding: 14px 40px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 400;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: 0.03em;
+            width: 100%;
+        }
+
+        .btn-reservar-modal:hover {
+            background: #a08c5b;
+            color: #ffffff;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(160, 140, 91, 0.3);
         }
 
         @media (max-width: 768px) {
@@ -507,13 +635,13 @@
         }
     </style>
 </head>
-<body class="navbar-compensated">
+<body>
     <!-- Bootstrap Navbar Responsivo -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container-fluid px-3 px-lg-5">
             <!-- Logo/Brand -->
             <a class="navbar-brand" href="index.html">
-                <img src="img/logo.trasparente-hecho.png" alt="Mala Male Peluquería" class="navbar-logo" style="height: 100px !important; max-height: 100px !important; filter: sepia(100%) saturate(200%) brightness(0.65) hue-rotate(-5deg) !important;">
+                <img src="img/logo.trasparente-hecho.png" alt="Mala Male Peluquería" class="navbar-logo" style="height: 70px !important; max-height: 70px !important; filter: sepia(100%) saturate(200%) brightness(0.65) hue-rotate(-5deg) !important;">
             </a>
 
             <!-- Iconos móviles al lado del hamburguesa -->
@@ -721,14 +849,14 @@
             </div>
         </article>
 
-        <!-- Botones finales -->
-        <section class="botones-finales">
-            <a href="#" class="btn-mas-info">
-                Política de Reserva <i class="fas fa-arrow-right"></i>
-            </a>
-            <a href="#" class="btn-mas-info">
-                Lista de Precios <i class="fas fa-arrow-right"></i>
-            </a>
+        <!-- CTA Asesoramiento -->
+        <section class="cta-servicios">
+            <div class="container">
+                <h2>¿Necesitas Asesoramiento?</h2>
+                <a href="https://wa.me/5491170845893?text=Hola%2C%20quiero%20consultar%20sobre%20servicios." class="btn-cta" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                </a>
+            </div>
         </section>
     </main>
 
@@ -825,10 +953,6 @@
                         <input type="text" id="nombreCliente" required>
                     </div>
                     <div class="form-group">
-                        <label for="telefonoCliente">Teléfono:</label>
-                        <input type="tel" id="telefonoCliente" required>
-                    </div>
-                    <div class="form-group">
                         <label for="fechaReserva">Fecha preferida:</label>
                         <input type="date" id="fechaReserva" required>
                     </div>
@@ -852,7 +976,7 @@
                         <textarea id="comentarios" rows="3"></textarea>
                     </div>
                     <div class="d-flex justify-content-center mt-4">
-                        <button type="button" class="btn btn-success btn-lg w-100" onclick="reservarPorWhatsApp()">
+                        <button type="button" class="btn-reservar-modal" onclick="reservarPorWhatsApp()">
                             <i class="fab fa-whatsapp"></i> Reservar por WhatsApp
                         </button>
                     </div>
@@ -909,10 +1033,9 @@
         function validarFormulario() {
             const form = document.getElementById('formReserva');
             const nombre = document.getElementById('nombreCliente').value.trim();
-            const telefono = document.getElementById('telefonoCliente').value.trim();
             const fecha = document.getElementById('fechaReserva').value;
             const hora = document.getElementById('horaReserva').value;
-            if (!nombre || !telefono || !fecha || !hora) {
+            if (!nombre || !fecha || !hora) {
                 alert('Por favor completa todos los campos obligatorios');
                 return false;
             }
@@ -971,7 +1094,6 @@
             if (!validarFormulario()) return;
             
             const nombre = document.getElementById('nombreCliente').value;
-            const telefono = document.getElementById('telefonoCliente').value;
             const fecha = document.getElementById('fechaReserva').value;
             const hora = document.getElementById('horaReserva').value;
             const comentarios = document.getElementById('comentarios').value;
@@ -986,7 +1108,6 @@
 
 👤 *Mis datos:*
 • Nombre: ${nombre}
-• Teléfono: ${telefono}
 ${comentarios ? `• Comentarios: ${comentarios}` : ''}
 
 ¿Podrían confirmarme la disponibilidad y el método de pago para la seña?
@@ -1014,8 +1135,6 @@ ${comentarios ? `• Comentarios: ${comentarios}` : ''}
                 precioTotal: precioTotal,
                 precioSeña: precioSeña,
                 nombre: document.getElementById('nombreCliente').value,
-                telefono: document.getElementById('telefonoCliente').value,
-                // email eliminado
                 fecha: document.getElementById('fechaReserva').value,
                 hora: document.getElementById('horaReserva').value,
                 comentarios: document.getElementById('comentarios').value,
