@@ -31,78 +31,210 @@
     <!-- Flatpickr Calendar -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <style>
-        /* Flatpickr Tema Dorado */
+        /* Flatpickr Tema Dorado - Override completo */
         .flatpickr-calendar {
-            background: #fff;
-            border: 2px solid #a08c5b;
-            border-radius: 15px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            background: #fff !important;
+            border: 2px solid #a08c5b !important;
+            border-radius: 15px !important;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2) !important;
         }
         
         .flatpickr-months {
-            background: linear-gradient(135deg, #d4af37, #a08c5b);
-            border-radius: 12px 12px 0 0;
-            padding: 10px 0;
+            background: linear-gradient(135deg, #d4af37, #a08c5b) !important;
+            border-radius: 12px 12px 0 0 !important;
+            padding: 10px 0 !important;
         }
         
         .flatpickr-months .flatpickr-month {
-            color: #fff;
-            fill: #fff;
+            color: #fff !important;
+            fill: #fff !important;
+            height: 40px !important;
         }
         
         .flatpickr-current-month .flatpickr-monthDropdown-months,
         .flatpickr-current-month input.cur-year {
-            color: #fff;
-            font-weight: 600;
+            color: #fff !important;
+            font-weight: 600 !important;
+        }
+        
+        .flatpickr-current-month .flatpickr-monthDropdown-months:hover {
+            background: rgba(255,255,255,0.2) !important;
         }
         
         .flatpickr-months .flatpickr-prev-month,
         .flatpickr-months .flatpickr-next-month {
-            fill: #fff;
+            fill: #fff !important;
+        }
+        
+        .flatpickr-months .flatpickr-prev-month svg,
+        .flatpickr-months .flatpickr-next-month svg {
+            fill: #fff !important;
         }
         
         .flatpickr-months .flatpickr-prev-month:hover svg,
         .flatpickr-months .flatpickr-next-month:hover svg {
-            fill: #1a1a1a;
+            fill: #1a1a1a !important;
+        }
+        
+        .flatpickr-innerContainer {
+            border-bottom: none !important;
         }
         
         .flatpickr-weekdays {
-            background: #f5f0e8;
+            background: #f5f0e8 !important;
         }
         
         .flatpickr-weekday {
+            color: #a08c5b !important;
+            font-weight: 600 !important;
+        }
+        
+        span.flatpickr-weekday {
+            color: #a08c5b !important;
+        }
+        
+        .flatpickr-days {
+            border: none !important;
+        }
+        
+        .dayContainer {
+            padding: 5px !important;
+        }
+        
+        .flatpickr-day {
+            color: #333 !important;
+            border-radius: 50% !important;
+            max-width: 40px !important;
+            height: 40px !important;
+            line-height: 40px !important;
+        }
+        
+        .flatpickr-day:hover {
+            background: #f5f0e8 !important;
+            border-color: #a08c5b !important;
+        }
+        
+        .flatpickr-day.selected,
+        .flatpickr-day.startRange,
+        .flatpickr-day.endRange,
+        .flatpickr-day.selected.inRange,
+        .flatpickr-day.startRange.inRange,
+        .flatpickr-day.endRange.inRange,
+        .flatpickr-day.selected:focus,
+        .flatpickr-day.startRange:focus,
+        .flatpickr-day.endRange:focus,
+        .flatpickr-day.selected:hover,
+        .flatpickr-day.startRange:hover,
+        .flatpickr-day.endRange:hover,
+        .flatpickr-day.selected.prevMonthDay,
+        .flatpickr-day.startRange.prevMonthDay,
+        .flatpickr-day.endRange.prevMonthDay,
+        .flatpickr-day.selected.nextMonthDay,
+        .flatpickr-day.startRange.nextMonthDay,
+        .flatpickr-day.endRange.nextMonthDay {
+            background: #d4af37 !important;
+            border-color: #d4af37 !important;
+            color: #fff !important;
+        }
+        
+        .flatpickr-day.today {
+            border-color: #a08c5b !important;
+        }
+        
+        .flatpickr-day.today:hover {
+            background: #a08c5b !important;
+            color: #fff !important;
+            border-color: #a08c5b !important;
+        }
+        
+        .flatpickr-day.disabled,
+        .flatpickr-day.disabled:hover,
+        .flatpickr-day.prevMonthDay,
+        .flatpickr-day.nextMonthDay {
+            color: #ccc !important;
+        }
+
+        /* Flatpickr Time Picker Dorado */
+        .flatpickr-time {
+            background: #fff;
+            border-top: 1px solid #a08c5b;
+        }
+        
+        .flatpickr-time input {
+            color: #333;
+            font-weight: 600;
+        }
+        
+        .flatpickr-time .numInputWrapper:hover {
+            background: #f5f0e8;
+        }
+        
+        .flatpickr-time .numInputWrapper span.arrowUp:after {
+            border-bottom-color: #a08c5b;
+        }
+        
+        .flatpickr-time .numInputWrapper span.arrowDown:after {
+            border-top-color: #a08c5b;
+        }
+        
+        .flatpickr-am-pm {
             color: #a08c5b;
             font-weight: 600;
         }
         
-        .flatpickr-day {
-            color: #333;
-            border-radius: 50%;
-        }
-        
-        .flatpickr-day:hover {
+        .flatpickr-am-pm:hover {
             background: #f5f0e8;
-            border-color: #a08c5b;
+        }
+
+        /* Selector de hora personalizado */
+        .hora-selector {
+            position: relative;
         }
         
-        .flatpickr-day.selected,
-        .flatpickr-day.selected:hover {
+        .hora-opciones {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: #fff;
+            border: 2px solid #a08c5b;
+            border-radius: 10px;
+            max-height: 200px;
+            overflow-y: auto;
+            z-index: 1000;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .hora-opciones.activo {
+            display: block;
+        }
+        
+        .hora-opcion {
+            padding: 12px 15px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border-bottom: 1px solid #f0f0f0;
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .hora-opcion:last-child {
+            border-bottom: none;
+        }
+        
+        .hora-opcion:hover {
+            background: #f5f0e8;
+            color: #a08c5b;
+        }
+        
+        .hora-opcion.seleccionada {
             background: #d4af37;
-            border-color: #d4af37;
             color: #fff;
         }
         
-        .flatpickr-day.today {
-            border-color: #a08c5b;
-        }
-        
-        .flatpickr-day.today:hover {
-            background: #a08c5b;
-            color: #fff;
-        }
-        
-        .flatpickr-day.disabled {
-            color: #ccc;
+        .hora-input-custom {
+            cursor: pointer;
         }
 
         /* ESTILOS CRÍTICOS PARA SERVICIOS - IGUAL QUE PRODUCTOS */
@@ -552,6 +684,15 @@
             overflow: auto;
             background-color: rgba(0, 0, 0, 0.8);
             animation: fadeIn 0.3s ease;
+            /* Centrar el modal */
+            display: none;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 20px 0;
+        }
+        
+        .modal-reserva.activo {
+            display: flex !important;
         }
 
         @keyframes fadeIn {
@@ -561,14 +702,15 @@
 
         .modal-content {
             background-color: #fff;
-            margin: 5% auto;
+            margin: auto;
             padding: 0;
             border-radius: 20px;
             width: 90%;
             max-width: 600px;
-            max-height: 90vh;
+            max-height: 85vh;
             overflow-y: auto;
             animation: slideIn 0.3s ease;
+            position: relative;
         }
 
         @keyframes slideIn {
@@ -695,18 +837,62 @@
         }
 
         @media (max-width: 768px) {
+            .modal-reserva {
+                padding: 10px !important;
+                align-items: center !important;
+            }
+            
             .modal-content {
-                width: 95%;
-                margin: 10% auto;
+                width: 95% !important;
+                max-width: 100% !important;
+                margin: 0 auto !important;
+                max-height: 90vh !important;
+                border-radius: 15px !important;
             }
 
             .modal-body {
-                padding: 20px;
+                padding: 15px;
+            }
+            
+            .modal-header {
+                padding: 15px;
+                position: sticky;
+                top: 0;
+                z-index: 10;
+            }
+            
+            .modal-header h2 {
+                font-size: 1.2rem;
+            }
+            
+            .reserva-info {
+                padding: 15px;
+                margin-bottom: 15px;
+            }
+            
+            .reserva-info h3 {
+                font-size: 1.1rem;
             }
 
             .precios-modal {
                 flex-direction: column;
                 gap: 5px;
+            }
+            
+            .form-group {
+                margin-bottom: 15px;
+            }
+            
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                padding: 10px;
+                font-size: 16px; /* Evita zoom en iOS */
+            }
+            
+            .btn-reservar-modal {
+                padding: 12px 20px;
+                font-size: 0.95rem;
             }
         }
     </style>
@@ -1030,22 +1216,25 @@
                     </div>
                     <div class="form-group">
                         <label for="fechaReserva">Fecha preferida:</label>
-                        <input type="date" id="fechaReserva" required>
+                        <input type="text" id="fechaReserva" placeholder="Seleccionar fecha" readonly inputmode="none" required>
                     </div>
                     <div class="form-group">
                         <label for="horaReserva">Hora preferida:</label>
-                        <select id="horaReserva" required>
-                            <option value="">Seleccionar hora</option>
-                            <option value="09:00">09:00</option>
-                            <option value="10:00">10:00</option>
-                            <option value="11:00">11:00</option>
-                            <option value="12:00">12:00</option>
-                            <option value="14:00">14:00</option>
-                            <option value="15:00">15:00</option>
-                            <option value="16:00">16:00</option>
-                            <option value="17:00">17:00</option>
-                            <option value="18:00">18:00</option>
-                        </select>
+                        <div class="hora-selector">
+                            <input type="text" id="horaReservaDisplay" class="hora-input-custom" placeholder="Seleccionar hora" readonly inputmode="none" required>
+                            <input type="hidden" id="horaReserva" required>
+                            <div class="hora-opciones" id="horaOpciones">
+                                <div class="hora-opcion" data-hora="09:00">09:00</div>
+                                <div class="hora-opcion" data-hora="10:00">10:00</div>
+                                <div class="hora-opcion" data-hora="11:00">11:00</div>
+                                <div class="hora-opcion" data-hora="12:00">12:00</div>
+                                <div class="hora-opcion" data-hora="14:00">14:00</div>
+                                <div class="hora-opcion" data-hora="15:00">15:00</div>
+                                <div class="hora-opcion" data-hora="16:00">16:00</div>
+                                <div class="hora-opcion" data-hora="17:00">17:00</div>
+                                <div class="hora-opcion" data-hora="18:00">18:00</div>
+                            </div>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="comentarios">Comentarios adicionales (opcional):</label>
@@ -1096,12 +1285,22 @@
             mañana.setDate(mañana.getDate() + 1);
             document.getElementById('fechaReserva').min = mañana.toISOString().split('T')[0];
             
-            document.getElementById('modalReserva').style.display = 'block';
+            const modal = document.getElementById('modalReserva');
+            modal.classList.add('activo');
+            document.body.style.overflow = 'hidden'; // Evitar scroll del body
+            
+            // Scroll al inicio del modal
+            setTimeout(() => {
+                modal.scrollTop = 0;
+                const modalContent = modal.querySelector('.modal-content');
+                if (modalContent) modalContent.scrollTop = 0;
+            }, 100);
         }
 
         // Cerrar modal de reserva
         function cerrarModalReserva() {
-            document.getElementById('modalReserva').style.display = 'none';
+            document.getElementById('modalReserva').classList.remove('activo');
+            document.body.style.overflow = ''; // Restaurar scroll del body
             document.getElementById('formReserva').reset();
         }
 
@@ -1248,11 +1447,46 @@ ${comentarios ? `• Comentarios: ${comentarios}` : ''}
         document.addEventListener('DOMContentLoaded', function() {
             flatpickr("#fechaReserva", {
                 locale: "es",
-                dateFormat: "Y-m-d",
+                dateFormat: "d/m/Y",
+                altInput: true,
+                altFormat: "j F Y",
                 minDate: "today",
                 disableMobile: true,
                 monthSelectorType: "static",
                 animate: true
+            });
+            
+            // Selector de hora personalizado
+            const horaDisplay = document.getElementById('horaReservaDisplay');
+            const horaInput = document.getElementById('horaReserva');
+            const horaOpciones = document.getElementById('horaOpciones');
+            const opciones = document.querySelectorAll('.hora-opcion');
+            
+            // Mostrar/ocultar opciones
+            horaDisplay.addEventListener('click', function() {
+                horaOpciones.classList.toggle('activo');
+            });
+            
+            // Seleccionar hora
+            opciones.forEach(function(opcion) {
+                opcion.addEventListener('click', function() {
+                    const hora = this.getAttribute('data-hora');
+                    horaDisplay.value = hora;
+                    horaInput.value = hora;
+                    
+                    // Quitar selección anterior
+                    opciones.forEach(o => o.classList.remove('seleccionada'));
+                    this.classList.add('seleccionada');
+                    
+                    horaOpciones.classList.remove('activo');
+                });
+            });
+            
+            // Cerrar al hacer clic fuera
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.hora-selector')) {
+                    horaOpciones.classList.remove('activo');
+                }
             });
         });
     </script>
