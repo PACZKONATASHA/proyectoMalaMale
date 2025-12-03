@@ -143,7 +143,12 @@ body.productos-page .navbar-logo {
         padding: 0 !important;
     }
     
-    /* Carrito a pantalla completa en celular */
+    /* OVERLAY - z-index bajo */
+    .carrito-overlay {
+        z-index: 1999 !important;
+    }
+    
+    /* Carrito a pantalla completa en celular - z-index alto */
     .carrito-widget {
         position: fixed !important;
         top: 0 !important;
@@ -162,6 +167,9 @@ body.productos-page .navbar-logo {
         background: #fff !important;
         transition: left 0.3s ease !important;
         padding-bottom: 100px !important; /* Espacio extra para scroll final */
+        /* CRÍTICO: Recibir todos los eventos táctiles */
+        pointer-events: auto !important;
+        touch-action: pan-y !important;
     }
 
     .carrito-widget.activo {
@@ -174,10 +182,12 @@ body.productos-page .navbar-logo {
         min-height: auto !important;
         overflow: visible !important;
         flex: 0 0 auto !important;
+        pointer-events: auto !important;
     }
     
     .carrito-items {
         display: flex !important;
+        pointer-events: auto !important;
         flex-direction: column !important;
         align-items: center !important;
         justify-content: flex-start !important;
@@ -231,17 +241,37 @@ body.productos-page .navbar-logo {
         align-items: center !important;
         gap: 10px !important;
         justify-content: flex-start !important;
+        pointer-events: auto !important;
     }
 
     .cantidad-btn {
-        width: 24px !important;
-        height: 24px !important;
-        font-size: 0.7rem !important;
+        width: 44px !important;
+        height: 44px !important;
+        min-width: 44px !important;
+        min-height: 44px !important;
+        font-size: 1rem !important;
         padding: 0 !important;
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
         border-radius: 6px !important;
+        background: #f0f0f0 !important;
+        border: 2px solid #A08C5B !important;
+        color: #1a1a1a !important;
+        cursor: pointer !important;
+        pointer-events: auto !important;
+        touch-action: manipulation !important;
+        -webkit-tap-highlight-color: rgba(160, 140, 91, 0.3) !important;
+        user-select: none !important;
+        -webkit-user-select: none !important;
+        position: relative !important;
+        z-index: 50 !important;
+    }
+    
+    .cantidad-btn:active {
+        background: #A08C5B !important;
+        color: #fff !important;
+        transform: scale(0.95) !important;
     }
 
     .item-total {

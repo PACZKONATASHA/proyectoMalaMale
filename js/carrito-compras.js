@@ -1,10 +1,13 @@
 // Sistema de Carrito de Compras - MalaMale
-// VERSIÓN SIMPLE Y ROBUSTA PARA MÓVIL
+// VERSIÓN FINAL CON SOPORTE TÁCTIL
 
 let carritoData = JSON.parse(localStorage.getItem('carritoMalaMale') || '[]');
 const WHATSAPP_NUMERO = '5491170845893';
 
-// Funciones globales para usar desde onclick en HTML
+// Detectar si es móvil
+const esMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+// Funciones del carrito
 function sumarProducto(id) {
     const item = carritoData.find(p => p.id === id);
     if (item && item.cantidad < 99) {
@@ -74,7 +77,7 @@ function renderizarCarrito() {
         `;
     } else {
         container.innerHTML = carritoData.map(item => `
-            <div class="carrito-item" onclick="event.stopPropagation();">
+            <div class="carrito-item" data-id="${item.id}">
                 <div class="item-imagen">
                     <div class="placeholder-mini">
                         <i class="fas fa-bottle-water"></i>
@@ -85,22 +88,25 @@ function renderizarCarrito() {
                     <p class="item-precio">$${item.precio.toFixed(2)}</p>
                 </div>
                 <div class="item-cantidad">
-                    <button type="button" class="cantidad-btn menos" onclick="event.stopPropagation(); restarProducto(${item.id});">
+                    <button type="button" class="cantidad-btn menos" data-action="restar" data-id="${item.id}">
                         <i class="fas fa-minus"></i>
                     </button>
                     <span class="cantidad-numero">${item.cantidad}</span>
-                    <button type="button" class="cantidad-btn mas" onclick="event.stopPropagation(); sumarProducto(${item.id});">
+                    <button type="button" class="cantidad-btn mas" data-action="sumar" data-id="${item.id}">
                         <i class="fas fa-plus"></i>
                     </button>
                 </div>
                 <div class="item-total">
                     $${(item.precio * item.cantidad).toFixed(2)}
                 </div>
-                <button type="button" class="item-eliminar" onclick="event.stopPropagation(); eliminarProducto(${item.id});">
+                <button type="button" class="item-eliminar" data-action="eliminar" data-id="${item.id}">
                     <i class="fas fa-trash"></i>
                 </button>
             </div>
         `).join('');
+        
+        // Agregar eventos a los botones recién creados
+        agregarEventosBotones();
     }
 
     // Actualizar totales
@@ -122,6 +128,44 @@ function renderizarCarrito() {
         const mensaje = generarMensajeWhatsApp();
         finalizarBtn.href = 'https://wa.me/' + WHATSAPP_NUMERO + '?text=' + encodeURIComponent(mensaje);
     }
+}
+
+// FUNCIÓN CLAVE: Agregar eventos con soporte táctil
+function agregarEventosBotones() {
+    const container = document.getElementById('carritoItems');
+    if (!container) return;
+    
+    const botones = container.querySelectorAll('[data-action]');
+    
+    botones.forEach(btn => {
+        const action = btn.dataset.action;
+        const id = parseInt(btn.dataset.id);
+        
+        // Función que ejecuta la acción
+        const ejecutarAccion = function(e) {
+            // CRÍTICO: Detener TODA propagación
+            e.preventDefault();
+            e.stopPropagation();
+            e.stopImmediatePropagation();
+            
+            if (action === 'sumar') {
+                sumarProducto(id);
+            } else if (action === 'restar') {
+                restarProducto(id);
+            } else if (action === 'eliminar') {
+                eliminarProducto(id);
+            }
+            
+            return false;
+        };
+        
+        // Usar touchend en móvil para mejor respuesta
+        if (esMobile) {
+            btn.addEventListener('touchend', ejecutarAccion, { passive: false, capture: true });
+        }
+        // También click para desktop
+        btn.addEventListener('click', ejecutarAccion, { capture: true });
+    });
 }
 
 function generarMensajeWhatsApp() {
@@ -225,6 +269,8 @@ const carrito = {
 
 // Inicializar cuando carga la página
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('Carrito inicializando... Mobile:', esMobile);
+    
     // Renderizar carrito
     actualizarContador();
     renderizarCarrito();
@@ -233,53 +279,92 @@ document.addEventListener('DOMContentLoaded', function() {
     const toggleBtn = document.getElementById('toggleCarrito');
     const toggleBtnMobile = document.getElementById('toggleCarritoMobile');
     
+    function handleToggle(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        toggleCarrito();
+    }
+    
     if (toggleBtn) {
-        toggleBtn.onclick = function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            toggleCarrito();
-        };
+        toggleBtn.addEventListener('click', handleToggle);
+        if (esMobile) toggleBtn.addEventListener('touchend', handleToggle, { passive: false });
     }
     
     if (toggleBtnMobile) {
-        toggleBtnMobile.onclick = function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            toggleCarrito();
-        };
+        toggleBtnMobile.addEventListener('click', handleToggle);
+        if (esMobile) toggleBtnMobile.addEventListener('touchend', handleToggle, { passive: false });
     }
 
     // Botón cerrar
     const cerrarBtn = document.getElementById('cerrarCarrito');
     if (cerrarBtn) {
-        cerrarBtn.onclick = function(e) {
+        function handleCerrar(e) {
             e.preventDefault();
             e.stopPropagation();
             cerrarCarrito();
-        };
+        }
+        cerrarBtn.addEventListener('click', handleCerrar);
+        if (esMobile) cerrarBtn.addEventListener('touchend', handleCerrar, { passive: false });
     }
 
     // Botón vaciar
     const vaciarBtn = document.getElementById('vaciarCarrito');
     if (vaciarBtn) {
-        vaciarBtn.onclick = function(e) {
+        function handleVaciar(e) {
             e.preventDefault();
             e.stopPropagation();
             vaciarCarrito();
-        };
+        }
+        vaciarBtn.addEventListener('click', handleVaciar);
+        if (esMobile) vaciarBtn.addEventListener('touchend', handleVaciar, { passive: false });
     }
 
     // Botones agregar al carrito
     document.querySelectorAll('.btn-agregar-carrito').forEach(btn => {
-        btn.onclick = function(e) {
+        function handleAgregar(e) {
             e.preventDefault();
             e.stopPropagation();
-            agregarAlCarrito(this);
-        };
+            agregarAlCarrito(btn);
+        }
+        btn.addEventListener('click', handleAgregar);
+        if (esMobile) btn.addEventListener('touchend', handleAgregar, { passive: false });
     });
+
+    // Overlay - cerrar carrito al tocarlo
+    const overlay = document.getElementById('carritoOverlay');
+    if (overlay) {
+        function handleOverlayClose(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            cerrarCarrito();
+        }
+        overlay.addEventListener('click', handleOverlayClose);
+        if (esMobile) overlay.addEventListener('touchend', handleOverlayClose, { passive: false });
+    }
+    
+    // CRÍTICO: Prevenir que el widget cierre al tocarlo
+    const widget = document.getElementById('carritoWidget');
+    if (widget) {
+        // Capturar todos los eventos táctiles en el widget
+        widget.addEventListener('touchstart', function(e) {
+            // Solo permitir scroll vertical
+            e.stopPropagation();
+        }, { passive: true });
+        
+        widget.addEventListener('touchend', function(e) {
+            // No cerrar el carrito si se toca dentro del widget
+            e.stopPropagation();
+        }, { passive: true });
+        
+        widget.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+    }
 
     // ESC para cerrar
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') cerrarCarrito();
     });
+    
+    console.log('Carrito inicializado correctamente');
 });
