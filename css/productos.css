@@ -1518,19 +1518,27 @@ body.productos-page .navbar-logo {
     }
 
     .carrito-items {
-        padding: 0.75rem 1rem;
+        padding: 0.5rem;
     }
 
     .carrito-item {
-        grid-template-columns: 50px 1fr auto auto 36px;
+        display: flex;
+        flex-wrap: wrap;
         gap: 0.5rem;
         padding: 0.75rem;
         align-items: center;
+        justify-content: space-between;
     }
 
     .item-imagen {
         width: 50px;
         height: 50px;
+        flex-shrink: 0;
+    }
+    
+    .item-info {
+        flex: 1;
+        min-width: 100px;
     }
 
     .item-info h4 {
@@ -1540,30 +1548,57 @@ body.productos-page .navbar-logo {
     .item-precio {
         font-size: 0.8rem;
     }
-
+    
     .item-cantidad {
-        gap: 0.4rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
     }
     
-    .cantidad-btn {
-        width: 36px;
-        height: 36px;
-        font-size: 1rem;
-        -webkit-tap-highlight-color: transparent;
-        touch-action: manipulation;
-    }
-    
-    .cantidad-numero {
-        font-size: 1rem;
-        min-width: 24px;
+    .item-total {
+        min-width: 60px;
+        text-align: right;
+        font-size: 0.9rem;
     }
     
     .item-eliminar {
-        width: 36px;
-        height: 36px;
-        font-size: 0.9rem;
+        flex-shrink: 0;
+    }
+
+    .item-cantidad {
+        gap: 0.5rem;
+    }
+    
+    .cantidad-btn {
+        width: 44px;
+        height: 44px;
+        font-size: 1.1rem;
         -webkit-tap-highlight-color: transparent;
         touch-action: manipulation;
+        user-select: none;
+        -webkit-user-select: none;
+    }
+    
+    .cantidad-numero {
+        font-size: 1.1rem;
+        min-width: 28px;
+    }
+    
+    .item-eliminar {
+        width: 44px;
+        height: 44px;
+        font-size: 1rem;
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+        user-select: none;
+        -webkit-user-select: none;
+    }
+    
+    /* Prevenir cierre accidental del carrito */
+    .carrito-item,
+    .carrito-items,
+    .carrito-contenido {
+        -webkit-tap-highlight-color: transparent;
     }
 
     .carrito-total {
