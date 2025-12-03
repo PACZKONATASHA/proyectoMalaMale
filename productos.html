@@ -349,19 +349,19 @@
     </section>
 
     <!-- Widget del Carrito de Compras -->
-    <div id="carritoWidget" class="carrito-widget">
+    <div id="carritoWidget" class="carrito-widget" onclick="event.stopPropagation();">
         <div class="carrito-header">
             <h3>
                 <i class="fas fa-shopping-cart"></i>
                 Mi Carrito
             </h3>
-            <button id="cerrarCarrito" class="cerrar-carrito">
+            <button id="cerrarCarrito" class="cerrar-carrito" type="button">
                 <i class="fas fa-times"></i>
             </button>
         </div>
         
-        <div class="carrito-contenido">
-            <div id="carritoItems" class="carrito-items">
+        <div class="carrito-contenido" onclick="event.stopPropagation();">
+            <div id="carritoItems" class="carrito-items" onclick="event.stopPropagation();">
                 <!-- Los productos se agregarán aquí dinámicamente -->
                 <div class="carrito-vacio">
                     <i class="fas fa-shopping-cart"></i>
@@ -398,8 +398,8 @@
         </div>
     </div>
 
-    <!-- Overlay del carrito -->
-    <div id="carritoOverlay" class="carrito-overlay"></div>
+    <!-- Overlay del carrito - SOLO cierra cuando se toca directamente -->
+    <div id="carritoOverlay" class="carrito-overlay" onclick="if(event.target === this) carrito.cerrarCarrito();"></div>
 
     <!-- CTA Section -->
     <section class="cta-productos">

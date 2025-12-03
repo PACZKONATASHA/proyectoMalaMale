@@ -1152,6 +1152,10 @@ body.productos-page .navbar-logo {
     flex-direction: column;
     opacity: 1 !important;
     overflow-y: auto;
+    /* CRÍTICO PARA MÓVIL */
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
+    pointer-events: auto;
 }
 
 .carrito-widget.activo {
@@ -1169,11 +1173,13 @@ body.productos-page .navbar-logo {
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
+    pointer-events: none;
 }
 
 .carrito-overlay.activo {
     opacity: 1;
     visibility: visible;
+    pointer-events: auto;
 }
 
 /* Header del carrito */
@@ -1318,8 +1324,8 @@ body.productos-page .navbar-logo {
     background: transparent;
     border: 1px solid #A08C5B;
     border-radius: 50%;
-    width: 28px;
-    height: 28px;
+    width: 32px;
+    height: 32px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1328,9 +1334,18 @@ body.productos-page .navbar-logo {
     font-size: 0.9rem;
     font-weight: 500;
     color: #A08C5B;
+    /* CRÍTICO PARA MÓVIL */
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
+    pointer-events: auto;
+    position: relative;
+    z-index: 10;
 }
 
-.cantidad-btn:hover {
+.cantidad-btn:hover,
+.cantidad-btn:active {
     background: #A08C5B;
     color: #FFFFFF;
 }
@@ -1355,17 +1370,26 @@ body.productos-page .navbar-logo {
     color: #A08C5B;
     border: 1px solid #A08C5B;
     border-radius: 50%;
-    width: 28px;
-    height: 28px;
+    width: 32px;
+    height: 32px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     transition: all 0.3s ease;
     font-size: 0.85rem;
+    /* CRÍTICO PARA MÓVIL */
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
+    pointer-events: auto;
+    position: relative;
+    z-index: 10;
 }
 
-.item-eliminar:hover {
+.item-eliminar:hover,
+.item-eliminar:active {
     background: #A08C5B;
     color: #FFFFFF;
     transform: scale(1.1);
@@ -1528,6 +1552,8 @@ body.productos-page .navbar-logo {
         padding: 0.75rem;
         align-items: center;
         justify-content: space-between;
+        /* CRÍTICO: Evitar que el item capture eventos */
+        pointer-events: auto;
     }
 
     .item-imagen {
@@ -1539,6 +1565,7 @@ body.productos-page .navbar-logo {
     .item-info {
         flex: 1;
         min-width: 100px;
+        pointer-events: none; /* No captura eventos */
     }
 
     .item-info h4 {
@@ -1559,6 +1586,7 @@ body.productos-page .navbar-logo {
         min-width: 60px;
         text-align: right;
         font-size: 0.9rem;
+        pointer-events: none; /* No captura eventos */
     }
     
     .item-eliminar {
@@ -1570,13 +1598,18 @@ body.productos-page .navbar-logo {
     }
     
     .cantidad-btn {
-        width: 44px;
-        height: 44px;
-        font-size: 1.1rem;
-        -webkit-tap-highlight-color: transparent;
-        touch-action: manipulation;
-        user-select: none;
-        -webkit-user-select: none;
+        width: 48px !important;
+        height: 48px !important;
+        min-width: 48px !important;
+        min-height: 48px !important;
+        font-size: 1.2rem !important;
+        -webkit-tap-highlight-color: transparent !important;
+        touch-action: manipulation !important;
+        user-select: none !important;
+        -webkit-user-select: none !important;
+        pointer-events: auto !important;
+        position: relative !important;
+        z-index: 100 !important;
     }
     
     .cantidad-numero {
@@ -1585,13 +1618,18 @@ body.productos-page .navbar-logo {
     }
     
     .item-eliminar {
-        width: 44px;
-        height: 44px;
-        font-size: 1rem;
-        -webkit-tap-highlight-color: transparent;
-        touch-action: manipulation;
-        user-select: none;
-        -webkit-user-select: none;
+        width: 48px !important;
+        height: 48px !important;
+        min-width: 48px !important;
+        min-height: 48px !important;
+        font-size: 1.1rem !important;
+        -webkit-tap-highlight-color: transparent !important;
+        touch-action: manipulation !important;
+        user-select: none !important;
+        -webkit-user-select: none !important;
+        pointer-events: auto !important;
+        position: relative !important;
+        z-index: 100 !important;
     }
     
     /* Prevenir cierre accidental del carrito */
